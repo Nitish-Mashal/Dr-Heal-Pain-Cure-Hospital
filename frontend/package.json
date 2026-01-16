@@ -8,10 +8,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "feather-icons": "^4.28.0",
     "frappe-ui": "^0.0.105",
     "vue": "^3.2.25",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vue3-carousel": "^0.17.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",

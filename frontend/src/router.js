@@ -4,12 +4,12 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/pages/Home.vue'),
+    component: () => import('@/Home/HeroBanner.vue'),
   },
 ]
 
 let router = createRouter({
-  history: createWebHistory('/frontend'),
+  history: createWebHistory('/'),
   routes,
 })
 

@@ -1,2 +1,18 @@
 @import './assets/Inter/inter.css';
 @import 'frappe-ui/src/style.css';
+
+.bg-color-orange {
+    background-color: #E88020;
+}
+
+.bg-color-blue {
+    background-color: #30809D;
+}
+
+.text-color-orange {
+    color: #E88020;
+}
+
+.text-color-blue {
+    color: #30809D;
+}
