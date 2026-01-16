@@ -47,15 +47,15 @@ import 'vue3-carousel/dist/carousel.css'
 
 const banners = [
   {
-    src: '/files/Hero-Banner-1.webp',
+    src: 'https://drheal.quantumberg.com/files/Hero-Banner-1.webp',
     alt: 'Hero Banner 1',
   },
   {
-    src: '/files/Hero-Banner-2.webp',
+    src: 'https://drheal.quantumberg.com/files/Hero-Banner-2.webp',
     alt: 'Hero Banner 2',
   },
   {
-    src: '/files/Hero-Banner-3.webp',
+    src: 'https://drheal.quantumberg.com/files/Hero-Banner-3.webp',
     alt: 'Hero Banner 3',
   },
 ]

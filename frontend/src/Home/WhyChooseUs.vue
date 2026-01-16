@@ -16,7 +16,7 @@
             </div>
 
             <div class="hidden md:block absolute right-10 top-1/2 -translate-y-1/2">
-                <img src="/files/Why-Choose-Us.webp" alt="Why Choose Us"
+                <img src="https://drheal.quantumberg.com/files/Why-Choose-Us.webp" alt="Why Choose Us"
                     class="w-[320px] lg:w-[380px] object-contain" />
             </div>
 
@@ -58,23 +58,23 @@
 
 const reasons = [
     {
-        icon: '/files/wcu-01.png',
+        icon: 'https://drheal.quantumberg.com/files/wcu-01.png',
         text: 'No Scalpels, No Risk of Surgical Complications',
     },
     {
-        icon: '/files/wcu-02.png',
+        icon: 'https://drheal.quantumberg.com/files/wcu-02.png',
         text: 'Personalized Treatment Rooted in Cause, Not Just Symptoms',
     },
     {
-        icon: '/files/wcu-03.png',
+        icon: 'https://drheal.quantumberg.com/files/wcu-03.png',
         text: 'Faster Recovery & Minimal Downtime',
     },
     {
-        icon: '/files/wcu-04.png',
+        icon: 'https://drheal.quantumberg.com/files/wcu-04.png',
         text: 'Lower Cost Compared to Surgery',
     },
     {
-        icon: '/files/wcu-05.png',
+        icon: 'https://drheal.quantumberg.com/files/wcu-05.png',
         text: 'Focus on Regeneration, Not Invasion',
     },
 ]

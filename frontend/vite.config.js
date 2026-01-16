@@ -22,15 +22,11 @@ export default defineConfig({
     outDir: `../${path.basename(path.resolve('..'))}/public/frontend`,
     emptyOutDir: true,
     target: 'es2015',
-    rollupOptions: {
-      // ✅ Treat all /files/* paths as external so Vite won't try to resolve them
-      external: [/^\/files\/.*$/],
-    },
   },
   optimizeDeps: {
     include: ['frappe-ui > feather-icons', 'showdown', 'engine.io-client'],
     esbuildOptions: {
-      target: 'esnext', // ✅ handle async generators in dependencies
+      target: 'esnext', // ✅ added to handle async generators in dependencies
     },
   },
 })

@@ -45,7 +45,7 @@ const blogs = [
         title: "Importance Of Diet In Management Of Rheumatoid Arthritis",
         excerpt:
             "Importance Of Diet In Management Of Rheumatoid Arthritis Home Importance Of Diet In Management Of Rheumatoid Arthritis Diet plays a significant...",
-        image: "/files/OurBlogsHome.jpg",
+        image: "https://drheal.quantumberg.com/files/OurBlogsHome.jpg",
         link: "#",
     },
 ];

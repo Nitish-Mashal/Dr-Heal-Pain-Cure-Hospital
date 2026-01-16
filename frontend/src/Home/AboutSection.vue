@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-6 relative">
                 <!-- Image -->
-                <img src="/files/Dr-Heal-Hospital-Image.png" alt="Dr Heal Hospital Image"
+                <img src="https://drheal.quantumberg.com/files/Dr-Heal-Hospital-Image.png" alt="Dr Heal Hospital Image"
                     class="w-full h-auto rounded-lg shadow-md" />
 
                 <!-- Stats Card -->

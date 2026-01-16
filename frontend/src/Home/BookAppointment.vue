@@ -1,7 +1,7 @@
 <template>
     <div class="relative w-full h-48 overflow-hidden">
         <!-- Background Image -->
-        <img src="/files/Book-Appointment-Banner-Image.png" alt="Book Appointment Banner Image"
+        <img src="https://drheal.quantumberg.com/files/Book-Appointment-Banner-Image.png" alt="Book Appointment Banner Image"
             class="w-full h-full object-cover" />
 
         <!-- Center Content -->

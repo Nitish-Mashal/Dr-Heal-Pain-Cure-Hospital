@@ -4,7 +4,7 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <router-link to="/">
-                    <img src="/DrHeal-Logo.webp" alt="Dr Heal Pain Cure Hospital" class="h-14" />
+                    <img src="https://drheal.quantumberg.com/files/DrHeal-Logo.webp" alt="Dr Heal Pain Cure Hospital" class="h-14" />
                 </router-link>
             </div>
 

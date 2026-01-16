@@ -24,7 +24,7 @@
                 </div>
 
                 <!-- Google Logo -->
-                <img src="/files/Google.svg" alt="Google" class="h-8" />
+                <img src="https://drheal.quantumberg.com/files/Google.svg" alt="Google" class="h-8" />
             </div>
 
             <!-- RIGHT CAROUSEL -->

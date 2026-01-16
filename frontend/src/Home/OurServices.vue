@@ -48,35 +48,35 @@ const services = [
         title: "Disc Bulge & Related Conditions",
         description:
             "Degenerative diseases of Disc & Facet joints, Sciatica, Herniated Discs, Illiosacritis, Discogenic pain.",
-        icon: "/files/Our-Services-1.png",
+        icon: "https://drheal.quantumberg.com/files/Our-Services-1.png",
         link: "#",
     },
     {
         title: "Cervical and lumbar Spondyloses & Spondylitis",
         description:
             "Lumbar Sprains & Strains, Knee Osteoarthritis, Osteomyelitis, Biological management of Fractures, Spinal Canal Stenosis",
-        icon: "/files/Our-Services-2.png",
+        icon: "https://drheal.quantumberg.com/files/Our-Services-2.png",
         link: "#",
     },
     {
         title: "RheumatoidArthritis",
         description:
             "Anti CCP positive, HLAB27 positive, Myasthenia Gravis, Myositis",
-        icon: "/files/Our-Services-3.png",
+        icon: "https://drheal.quantumberg.com/files/Our-Services-3.png",
         link: "#",
     },
     {
         title: "Knee Osteoarthritis",
         description:
             "Shoulder & Elbow Pain, Neck Pain, Wrist Pain, Hip Pain and Vascular necrosis of hip",
-        icon: "/files/Our-Services-4.png",
+        icon: "https://drheal.quantumberg.com/files/Our-Services-4.png",
         link: "#",
     },
     {
         title: "Spine & Joint Care",
         description:
             "Supplements, Diet Modifications, Regenerative Treatments, Rejuvenation Injections",
-        icon: "/files/Our-Services-5.png",
+        icon: "https://drheal.quantumberg.com/files/Our-Services-5.png",
         link: "#",
     },
 ];
