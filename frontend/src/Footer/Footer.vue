@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                <img src="/files/Footer-Overlay.jpg" alt="CTA Background"
+                <img src="/Footer-Overlay.jpg" alt="CTA Background"
                     class="absolute inset-0 w-full h-full object-cover opacity-30" />
             </section>
         </div>
@@ -37,7 +37,7 @@
 
                     <!-- LOGO & SOCIAL -->
                     <div class="col-md-3">
-                        <img src="/files/Dr.Heal-logo-white-logo.png" alt="Dr Heal" class="h-20 mb-4" />
+                        <img src="/Dr.Heal-logo-white-logo.png" alt="Dr Heal" class="h-20 mb-4" />
 
                         <p class="mb-4">{{ tagline }}</p>
 

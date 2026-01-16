@@ -3,7 +3,9 @@
         <nav class="flex items-center justify-between px-6 md:px-20 py-3">
             <!-- Logo -->
             <div class="flex items-center">
-                <img src="/files/DrHeal-Logo.webp" alt="Dr Heal Pain Cure Hospital" class="h-14" />
+                <router-link to="/">
+                    <img src="/DrHeal-Logo.webp" alt="Dr Heal Pain Cure Hospital" class="h-14" />
+                </router-link>
             </div>
 
             <!-- Desktop Menu -->
