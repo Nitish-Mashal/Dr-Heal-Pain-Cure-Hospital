@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-full h-80 overflow-hidden">
+    <div class="relative w-full h-48 overflow-hidden">
         <!-- Background Image -->
         <img src="/files/Book-Appointment-Banner-Image.png" alt="Book Appointment Banner Image"
             class="w-full h-full object-cover" />
@@ -12,10 +12,10 @@
                 <div class="absolute inset-0 translate-y-1 bg-color-orange rounded-5"></div>
 
                 <!-- BLUE FRONT CARD -->
-                <div class="relative bg-[#0A7C8F] text-white px-14 py-14 rounded-5 shadow-lg">
-                    <h2 class="font-semibold text-center">
+                <div class="relative bg-color-blue text-white px-10 py-10 rounded-5 shadow-lg">
+                    <h3 class="font-semibold text-center">
                         Book an Appointment
-                    </h2>
+                    </h3>
                 </div>
 
             </div>
