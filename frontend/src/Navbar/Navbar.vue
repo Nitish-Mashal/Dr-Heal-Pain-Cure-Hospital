@@ -12,7 +12,9 @@
                 <li><router-link to="/" class="nav-link">Home</router-link></li>
                 <li><a href="#" class="nav-link">About Us</a></li>
                 <li><a href="#" class="nav-link">Our Services</a></li>
-                <li><a href="#" class="nav-link">Our Doctors</a></li>
+<li>
+  <router-link to="/doctorsList" class="nav-link">Our Doctors</router-link>
+</li>
 
                 <!-- Dropdown -->
                 <li class="relative group">
@@ -53,9 +55,11 @@
                 </div>
 
                 <!-- Book Appointment -->
+                 <router-link to="/AppointmentPage">
                 <button class="bg-color-blue text-white px-5 py-2 rounded-lg text-sm font-semibold">
                     Book an Appointment
                 </button>
+                </router-link>
 
                 <!-- Login (FIXED) -->
                 <a href="https://drheal.quantumberg.com/login"
