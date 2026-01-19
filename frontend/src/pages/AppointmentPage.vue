@@ -265,7 +265,7 @@ export default {
     async fetchDoctorById(doctorId) {
       try {
         const res = await fetch(
-          `/api/method/healthcare_app.api.App_api.get_doctor?id=${doctorId}`
+          `/api/method/drheal_frontend.api.App_api.get_doctor?id=${doctorId}`
         );
         const data = await res.json();
         return data.message || null;
@@ -278,7 +278,7 @@ export default {
     /* ---------------- APPOINTMENT TYPES ---------------- */
     async fetchAppointmentTypes() {
       const res = await fetch(
-        "/api/method/healthcare_app.api.Appointment_api.get_appointment_types"
+        "/api/method/drheal_frontend.api.Appointment_api.get_appointment_types"
       );
       const data = await res.json();
       if (data.message?.status === "success") {
@@ -289,7 +289,7 @@ export default {
     /* ---------------- DEPARTMENTS ---------------- */
     async fetchDepartments() {
       const res = await fetch(
-        "/api/method/healthcare_app.api.Appointment_api.get_departments"
+        "/api/method/drheal_frontend.api.Appointment_api.get_departments"
       );
       const data = await res.json();
       if (data.message?.status === "success") {
@@ -302,7 +302,7 @@ export default {
       if (!this.form.department) return;
 
       const res = await fetch(
-        `/api/method/healthcare_app.api.Appointment_api.get_practitioners?department=${encodeURIComponent(
+        `/api/method/drheal_frontend.api.Appointment_api.get_practitioners?department=${encodeURIComponent(
           this.form.department
         )}`
       );
@@ -324,7 +324,7 @@ async fetchDoctorSchedule() {
 
   try {
     const res = await fetch(
-      `/api/method/healthcare_app.api.Appointment_api.get_doctor_schedule` +
+      `/api/method/drheal_frontend.api.Appointment_api.get_doctor_schedule` +
       `?practitioner=${encodeURIComponent(this.form.doctor)}`
     );
 
@@ -387,7 +387,7 @@ async selectDate(i) {
 
     // Fetch slots for the selected date
     const res = await fetch(
-      `/api/method/healthcare_app.api.Appointment_api.get_doctor_schedule` +
+      `/api/method/drheal_frontend.api.Appointment_api.get_doctor_schedule` +
       `?practitioner=${encodeURIComponent(this.form.doctor)}` +
       `&appointment_date=${this.form.date}`
     );
@@ -456,7 +456,7 @@ selectSlot(slot) {
     formData.append("phone", this.form.phone)
     formData.append("age", this.form.age)
     const response = await fetch(
-      "/api/method/healthcare_app.api.Appointment_api.create_appointment",
+      "/api/method/drheal_frontend.api.Appointment_api.create_appointment",
       {
         method: "POST",
         body: formData

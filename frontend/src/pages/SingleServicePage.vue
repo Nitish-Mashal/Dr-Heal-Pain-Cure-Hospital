@@ -126,7 +126,7 @@ export default {
     async fetchServices() {
       try {
         const res = await fetch(
-          "/api/method/healthcare_app.api.service_api.get_services"
+          "/api/method/drheal_frontend.api.service_api.get_services"
         );
         const data = await res.json();
         this.services = data.message || [];
@@ -140,7 +140,7 @@ export default {
 
       try {
         const res = await fetch(
-          `/api/method/healthcare_app.api.service_api.get_service?department=${encodeURIComponent(department)}`
+          `/api/method/drheal_frontend.api.service_api.get_service?department=${encodeURIComponent(department)}`
         );
         const data = await res.json();
         if (data.message) {

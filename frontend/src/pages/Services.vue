@@ -67,7 +67,7 @@ const getTwoLineDescription = (desc) => {
 
 const fetchServices = async () => {
   try {
-    const res = await fetch("/api/method/healthcare_app.api.service_api.get_services");
+    const res = await fetch("/api/method/drheal_frontend.api.service_api.get_services");
     const data = await res.json();
 
     if (data.message) {

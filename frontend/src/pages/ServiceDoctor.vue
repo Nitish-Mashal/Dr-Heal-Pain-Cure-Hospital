@@ -115,7 +115,7 @@ export default {
   methods: {
     async fetchDoctors() {
       try {
-        const res = await fetch("/api/method/healthcare_app.api.App_api.get_doctors");
+        const res = await fetch("/api/method/drheal_frontend.api.App_api.get_doctors");
         const data = await res.json();
         this.doctors = data.message || [];
 

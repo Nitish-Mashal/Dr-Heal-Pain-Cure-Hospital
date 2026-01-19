@@ -119,7 +119,7 @@ export default {
       try {
         const doctorId = this.$route.params.id;
         const res = await fetch(
-          `/api/method/healthcare_app.api.App_api.get_doctor?id=${doctorId}`
+          `/api/method/drheal_frontend.api.App_api.get_doctor?id=${doctorId}`
         );
 
         if (!res.ok) throw new Error("Failed to fetch doctor");
@@ -138,7 +138,7 @@ export default {
     try {
       const doctorId = this.$route.params.id;
       const res = await fetch(
-        `/api/method/healthcare_app.api.App_api.get_doctor?id=${doctorId}`
+        `/api/method/drheal_frontend.api.App_api.get_doctor?id=${doctorId}`
       );
 
       if (!res.ok) throw new Error("Failed to fetch doctor");
