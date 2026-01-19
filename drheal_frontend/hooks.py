@@ -49,21 +49,21 @@ website_route_rules = [
     # {"from_route": "/<path:path>", "to_route": "/"}, 
 
     # Home
-    {"from_route": "/", "to_route": "index"},
+    {"from_route": "/", "to_route": "/"},
 
     # Services
-    {"from_route": "/services", "to_route": "index"},
-    {"from_route": "/services/<department>", "to_route": "index"},
+    {"from_route": "/services", "to_route": "/"},
+    {"from_route": "/services/<department>", "to_route": "/"},
 
     # Doctors
-    {"from_route": "/doctorsList", "to_route": "index"},
-    {"from_route": "/viewProfile/<id>", "to_route": "index"},
+    {"from_route": "/doctorsList", "to_route": "/"},
+    {"from_route": "/viewProfile/<id>", "to_route": "/"},
 
     # Appointment
-    {"from_route": "/appointmentPage", "to_route": "index"},
+    {"from_route": "/appointmentPage", "to_route": "/"},
 
     # Thank You
-    {"from_route": "/thank-you", "to_route": "index"},
+    {"from_route": "/thank-you", "to_route": "/"},
 
     
 
