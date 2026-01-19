@@ -42,11 +42,28 @@ website_route_rules = [
     {"from_route": "/api/<path:path>", "to_route": "/api/<path:path>"},
     {"from_route": "/assets/<path:path>", "to_route": "/assets/<path:path>"},
 
-    {"from_route": "/", "to_route": "/"},
-    {"from_route": "/doctorsList", "to_route": "/"},
-    {"from_route": "/doctors", "to_route": "/"},
-    {"from_route": "/viewProfile", "to_route": "/"},
-    {"from_route": "/<path:path>", "to_route": "/"}, 
+    # {"from_route": "/", "to_route": "/"},
+    # {"from_route": "/doctorsList", "to_route": "/"},
+    # {"from_route": "/doctors", "to_route": "/"},
+    # {"from_route": "/viewProfile", "to_route": "/"},
+    # {"from_route": "/<path:path>", "to_route": "/"}, 
+
+    # Home
+    {"from_route": "/", "to_route": "index"},
+
+    # Services
+    {"from_route": "/services", "to_route": "index"},
+    {"from_route": "/services/<department>", "to_route": "index"},
+
+    # Doctors
+    {"from_route": "/doctorsList", "to_route": "index"},
+    {"from_route": "/viewProfile/<id>", "to_route": "index"},
+
+    # Appointment
+    {"from_route": "/appointmentPage", "to_route": "index"},
+
+    # Thank You
+    {"from_route": "/thank-you", "to_route": "index"},
 
     
 
