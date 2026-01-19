@@ -19,12 +19,14 @@ export default defineConfig({
     },
   },
   build: {
-    // ✅ Assets go here
-    outDir: `../${path.basename(path.resolve('..'))}/public/drheal_frontend`,
+    outDir: `../${path.basename(path.resolve('..'))}/public/frontend`,
     emptyOutDir: true,
     target: 'es2015',
-    rollupOptions: {
-      input: path.resolve(__dirname, 'index.html'),
+  },
+  optimizeDeps: {
+    include: ['frappe-ui > feather-icons', 'showdown', 'engine.io-client'],
+    esbuildOptions: {
+      target: 'esnext', // ✅ added to handle async generators in dependencies
     },
   },
 })
