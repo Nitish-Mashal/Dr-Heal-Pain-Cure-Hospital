@@ -7,12 +7,18 @@ const DoctorsList = () => import('@/pages/DoctorsList.vue')
 const AppointmentPage = () => import('@/pages/AppointmentPage.vue')
 const SingleServicePage = () => import('@/pages/SingleServicePage.vue')
 const ViewProfile = () => import('@/pages/ViewProfile.vue')
+const Aboutus = () => import('@/About/Aboutus.vue')
 import ThankYou from './pages/thankyou.vue'
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/about-us',
+    name: 'Aboutus',
+    component: Aboutus,
   },
   {
     path: '/services',

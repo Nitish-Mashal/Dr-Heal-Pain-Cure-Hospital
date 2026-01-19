@@ -49,9 +49,11 @@
                     we've helped thousands rediscover comfort, mobility, and control over their lives.
                 </p>
                 <div>
-                    <button class="bg-[#007f8c] text-white px-5 py-2 rounded-lg font-semibold">
-                        Read More
-                    </button>
+                    <router-link to="/about-us">
+                        <button class="bg-[#007f8c] text-white px-5 py-2 rounded-lg font-semibold">
+                            Read More
+                        </button>
+                    </router-link>
                 </div>
             </div>
         </div>
