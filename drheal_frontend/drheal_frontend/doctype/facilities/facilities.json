@@ -2,15 +2,15 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "field:name1",
- "creation": "2026-01-19 15:24:36.750856",
+ "creation": "2026-01-20 10:01:43.095612",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "services_section",
+  "facilities_section",
   "name1",
   "description",
   "is_active",
-  "column_break_xaaj",
+  "column_break_jxik",
   "url",
   "created_date",
   "meta_title",
@@ -20,9 +20,9 @@
  ],
  "fields": [
   {
-   "fieldname": "services_section",
+   "fieldname": "facilities_section",
    "fieldtype": "Section Break",
-   "label": "Services"
+   "label": "Facilities"
   },
   {
    "fieldname": "name1",
@@ -42,23 +42,18 @@
    "label": "Is Active"
   },
   {
-   "fieldname": "created_date",
-   "fieldtype": "Datetime",
-   "label": "Created Date"
-  },
-  {
-   "fieldname": "thumnail_image",
-   "fieldtype": "Attach Image",
-   "label": "Thumnail Image"
-  },
-  {
-   "fieldname": "column_break_xaaj",
+   "fieldname": "column_break_jxik",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "url",
    "fieldtype": "Data",
    "label": "Url"
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Datetime",
+   "label": "Created Date"
   },
   {
    "fieldname": "meta_title",
@@ -74,15 +69,20 @@
    "fieldname": "meta_description",
    "fieldtype": "Small Text",
    "label": "Meta Description"
+  },
+  {
+   "fieldname": "thumnail_image",
+   "fieldtype": "Attach Image",
+   "label": "Thumbnail Image"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-20 10:33:24.120361",
+ "modified": "2026-01-20 11:34:37.004027",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
- "name": "Our Services",
+ "name": "Facilities",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

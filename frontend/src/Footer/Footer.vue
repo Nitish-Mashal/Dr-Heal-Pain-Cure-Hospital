@@ -143,7 +143,7 @@ const quickLinks = [
     { name: "Blogs", path: "/blogs" },
     { name: "Careers", path: "/careers" },
     { name: "Contact Us", path: "/contact" },
-    { name: "Book an Appointment", path: "/appointment" },
+    { name: "Book an Appointment", path: "/Appointmentpage" },
 ]
 
 const workingHours = [

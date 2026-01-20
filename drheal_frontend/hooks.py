@@ -10,51 +10,48 @@ app_license = "mit"
 
 website_route_rules = [
 
-    # ==============================
-    # Frappe system & backend routes
-    # ==============================
-
-    {"from_route": "/app", "to_route": "/app"},
-    {"from_route": "/app/<path:path>", "to_route": "/app/<path:path>"},
-
-    {"from_route": "/api", "to_route": "/api"},
-    {"from_route": "/api/<path:path>", "to_route": "/api/<path:path>"},
-
-    {"from_route": "/assets/<path:path>", "to_route": "/assets/<path:path>"},
-    {"from_route": "/files/<path:path>", "to_route": "/files/<path:path>"},
-
-    {"from_route": "/login", "to_route": "/login"},
-    {"from_route": "/logout", "to_route": "/logout"},
-    {"from_route": "/reset-password", "to_route": "/reset-password"},
-    {"from_route": "/update-password", "to_route": "/update-password"},
-    {"from_route": "/change-password", "to_route": "/change-password"},
-
+    #  Block Frappe system & backend routes
     {"from_route": "/printview", "to_route": "/printview"},
     {"from_route": "/print", "to_route": "/print"},
+    {"from_route": "/apps", "to_route": "/apps"},
+    {"from_route": "/desk", "to_route": "/desk"},
     {"from_route": "/form/<path:path>", "to_route": "/form/<path:path>"},
     {"from_route": "/view/<path:path>", "to_route": "/view/<path:path>"},
     {"from_route": "/query-report/<path:path>", "to_route": "/query-report/<path:path>"},
     {"from_route": "/module/<path:path>", "to_route": "/module/<path:path>"},
     {"from_route": "/setup-wizard", "to_route": "/setup-wizard"},
-
-    {"from_route": "/event-stream", "to_route": "/event-stream"},
-    {"from_route": "/webhook/<path:path>", "to_route": "/webhook/<path:path>"},
-
+    {"from_route": "/email-view", "to_route": "/email-view"},
+    {"from_route": "/downloads", "to_route": "/downloads"},
     {"from_route": "/sitemap.xml", "to_route": "/sitemap.xml"},
     {"from_route": "/robots.txt", "to_route": "/robots.txt"},
-    {"from_route": "/version-info", "to_route": "/version-info"},
-    {"from_route": "/downloads", "to_route": "/downloads"},
+    {"from_route": "/files/<path:path>", "to_route": "/files/<path:path>"},
     {"from_route": "/backups", "to_route": "/backups"},
+    {"from_route": "/version-info", "to_route": "/version-info"},
+    {"from_route": "/event-stream", "to_route": "/event-stream"},
+    {"from_route": "/webhook/<path:path>", "to_route": "/webhook/<path:path>"},
+    {"from_route": "/login", "to_route": "/login"},
+    {"from_route": "/logout", "to_route": "/logout"},
+    {"from_route": "/change-password", "to_route": "/change-password"},
+    {"from_route": "/reset-password", "to_route": "/reset-password"},
+    {"from_route": "/update-password", "to_route": "/update-password"},
     {"from_route": "/insights", "to_route": "/insights"},
     {"from_route": "/insights/<path:path>", "to_route": "/insights/<path:path>"},
 
-    # ==============================
-    # Vue SPA (Frontend)
-    # ==============================
-    # EVERYTHING else goes to Vue
-    {"from_route": "/<path:path>", "to_route": "/"},
-]
+   
+    {"from_route": "/app/<path:path>", "to_route": "/app/<path:path>"},
+    {"from_route": "/api/<path:path>", "to_route": "/api/<path:path>"},
+    {"from_route": "/assets/<path:path>", "to_route": "/assets/<path:path>"},
 
+    {"from_route": "/", "to_route": "/"},
+    {"from_route": "/doctorsList", "to_route": "/"},
+    {"from_route": "/doctors", "to_route": "/"},
+    {"from_route": "/viewProfile", "to_route": "/"},
+    {"from_route": "/<path:path>", "to_route": "/"}, 
+
+    
+
+
+]
 
 
 # required_apps = []

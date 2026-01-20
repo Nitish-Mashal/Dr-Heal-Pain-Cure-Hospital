@@ -13,10 +13,12 @@
                         treatment plans for joint, bone, and muscle health.
                     </p>
                     <div>
-                        <button
-                            class="bg-color-orange text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-50 hover:text-gray-700">
-                            Appointment
-                        </button>
+                        <router-link to="/Appointmentpage">
+                            <button
+                                class="bg-color-orange text-white px-5 py-2 rounded-lg font-semibold">
+                                Appointment
+                            </button>
+                        </router-link>
                     </div>
                 </div>
 
