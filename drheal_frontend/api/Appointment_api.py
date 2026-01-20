@@ -28,22 +28,54 @@ def get_practitioners(department):
         return {"status": "error", "message": str(e)}
 
 # ✅ Get get_appointment_types
+# @frappe.whitelist(allow_guest=True)
+# def get_appointment_types(department=None):
+#     try:
+#         filters = {}
+#         if department:
+#             filters["department"] = department
+        
+#         appointment_types = frappe.get_all(
+#             "Appointment Type",
+#             filters=filters,
+#             fields=["name", "appointment_type"]
+#         )
+#         return {"status": "success", "data": appointment_types}
+#     except Exception as e:
+#         frappe.log_error(frappe.get_traceback(), "get_appointment_types API Error")
+#         return {"status": "error", "message": str(e)}
 @frappe.whitelist(allow_guest=True)
-def get_appointment_types(department=None):
+def get_appointment_types(department=None, practitioner=None):
     try:
         filters = {}
+
         if department:
             filters["department"] = department
-        
+
         appointment_types = frappe.get_all(
             "Appointment Type",
             filters=filters,
             fields=["name", "appointment_type"]
         )
-        return {"status": "success", "data": appointment_types}
+
+        # ✅ Hide ONLY "1st Appointment" for this doctor
+        if practitioner == "HLC-PRAC-2026-00001":
+            appointment_types = [
+                a for a in appointment_types
+                if a.get("appointment_type") != "1st Appointment"
+            ]
+
+        return {
+            "status": "success",
+            "data": appointment_types
+        }
+
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "get_appointment_types API Error")
-        return {"status": "error", "message": str(e)}
+        return {
+            "status": "error",
+            "message": str(e)
+        }
 
 #✅ Get Doctor Schedule
 import frappe
@@ -321,6 +353,9 @@ def create_appointment():
         appointment_date = data.get("appointment_date")
         appointment_time = data.get("appointment_time")
         notes = data.get("notes", "")
+        token_no = data.get("token_no")
+        custom_location = data.get("custom_location")
+        
 
         # -------------------------------
         # Validate required fields
@@ -439,7 +474,9 @@ def create_appointment():
             "appointment_time": start_time,
             "practitioner": practitioner,
             "department": department,
-            "notes": notes
+            "notes": notes,
+            "token_no": token_no,
+            "custom_location": custom_location
         })
 
         appointment.insert(ignore_permissions=True)
@@ -450,7 +487,10 @@ def create_appointment():
             "appointment_id": appointment.name,
             "appointment_date": appointment.appointment_date,
             "appointment_time": str(appointment.appointment_time),
-            "patient": patient
+            "patient": patient,
+            "token_no": appointment.token_no,
+            "practitioner": practitioner 
+            
         }
 
     except Exception as e:
