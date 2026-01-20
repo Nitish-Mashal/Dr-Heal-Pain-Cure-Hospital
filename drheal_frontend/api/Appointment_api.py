@@ -26,24 +26,7 @@ def get_practitioners(department):
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "get_practitioners API Error")
         return {"status": "error", "message": str(e)}
-
-# ✅ Get get_appointment_types
-# @frappe.whitelist(allow_guest=True)
-# def get_appointment_types(department=None):
-#     try:
-#         filters = {}
-#         if department:
-#             filters["department"] = department
-        
-#         appointment_types = frappe.get_all(
-#             "Appointment Type",
-#             filters=filters,
-#             fields=["name", "appointment_type"]
-#         )
-#         return {"status": "success", "data": appointment_types}
-#     except Exception as e:
-#         frappe.log_error(frappe.get_traceback(), "get_appointment_types API Error")
-#         return {"status": "error", "message": str(e)}
+# ✅ Get Appointment Types by Department (and hide specific type for a doctor)
 @frappe.whitelist(allow_guest=True)
 def get_appointment_types(department=None, practitioner=None):
     try:
