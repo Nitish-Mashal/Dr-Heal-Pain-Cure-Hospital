@@ -12,11 +12,19 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // ✅ Bootstrap JS (for dropdowns, modals, collapse)
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
+// Element Plus imports
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
 let app = createApp(App)
 
 setConfig('resourceFetcher', frappeRequest)
 
 app.use(router)
+
+// ✅ Element Plus
+app.use(ElementPlus)
+
 app.use(resourcesPlugin)
 
 app.component('Button', Button)

@@ -32,7 +32,7 @@
 
         <!-- ================= FOOTER ================= -->
         <!-- <footer class="bg-[#065f7f] text-white pt-40 pb-10"> -->
-        <footer class="bg-[#065f7f] text-white pt-8 pb-8">
+        <footer class="bg-color-blue text-white pt-8 pb-8">
             <div class="px-5 pt-10">
                 <div class="row g-4">
 

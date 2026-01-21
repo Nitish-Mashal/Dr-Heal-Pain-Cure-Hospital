@@ -35,35 +35,75 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue"
+import { ref, onMounted, computed, watch } from "vue"
 import { useRoute } from "vue-router"
 
 const route = useRoute()
 const facility = ref(null)
 const facilities = ref([])
 
-// Fetch all facilities (like services)
+/* ---------------- FETCH FACILITIES ---------------- */
 const fetchFacilities = async () => {
     try {
-        const res = await fetch("/api/method/drheal_frontend.api.facilities.get_our_facilities")
+        const res = await fetch(
+            "/api/method/drheal_frontend.api.facilities.get_our_facilities"
+        )
         const data = await res.json()
 
         if (data.message?.status === "success") {
             facilities.value = data.message.data
-            // Find facility that matches slug in URL
-            facility.value = facilities.value.find(f => f.url === route.params.slug)
+            facility.value = facilities.value.find(
+                f => f.url === route.params.slug
+            )
         }
     } catch (error) {
         console.error("Failed to fetch facilities", error)
     }
 }
 
-// Compute full image URL
+/* ---------------- IMAGE ---------------- */
 const facilityImage = computed(() => {
     if (!facility.value?.thumnail_image) return ""
     return facility.value.thumnail_image.startsWith("http")
         ? facility.value.thumnail_image
         : `https://drheal.quantumberg.com${facility.value.thumnail_image}`
+})
+
+/* ---------------- SEO HELPERS ---------------- */
+const updateMeta = (key, content, attr = "name") => {
+    if (!content) return
+    let meta = document.querySelector(`meta[${attr}='${key}']`)
+    if (!meta) {
+        meta = document.createElement("meta")
+        meta.setAttribute(attr, key)
+        document.head.appendChild(meta)
+    }
+    meta.setAttribute("content", content)
+}
+
+const updatePageSEO = (data) => {
+    // Page title
+    document.title =
+        data.meta_title ||
+        data.name1 ||
+        "Dr Heal Pain Cure Hospital"
+
+    // Meta tags
+    updateMeta("description", data.meta_description)
+    updateMeta("keywords", data.meta_keyword)
+
+    // Open Graph (SEO + social)
+    updateMeta("og:title", data.meta_title || data.name1, "property")
+    updateMeta("og:description", data.meta_description, "property")
+    updateMeta("og:image", facilityImage.value, "property")
+    updateMeta("og:type", "website", "property")
+}
+
+/* ---------------- WATCH FACILITY ---------------- */
+watch(facility, (val) => {
+    if (val) {
+        updatePageSEO(val)
+    }
 })
 
 onMounted(fetchFacilities)
