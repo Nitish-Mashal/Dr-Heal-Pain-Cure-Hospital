@@ -157,6 +157,7 @@
         <!-- Submit -->
         <button
           type="submit"
+            :disabled="isLoading"
           class="w-full bg-[#065f7f] text-white py-2 font-bold rounded-lg hover:bg-[#162059] transition disabled:opacity-50"
         >
           {{ isLoading ? "Submitting..." : "SUBMIT" }}
@@ -165,6 +166,10 @@
 <p v-if="slotError" class="text-red-500 text-sm mt-3 text-center">
   {{ slotError }}
 </p>
+<p v-if="apiError" class="mt-3 text-sm text-red-600 text-center">
+  {{ apiError }}
+</p>
+
       </form>
     </div>
 <div>
@@ -209,7 +214,7 @@
     ]"
   >
   <div>{{ formatTime(slot.display) }}</div>
-    <div class="text-xs">Token {{ slot.token_no }}</div>
+    <div class="text-xs">{{ slot.token_no }}</div>
   </button>
 </div>
 
@@ -241,7 +246,7 @@ export default {
     return {
       isLoading: false,
       slotError: " ", 
-      // Dropdown options
+      apiError: "",
       departments: [],
       doctors: [],
       appointment_types: [],
@@ -466,46 +471,60 @@ generateNext7Days(schedule) {
 
 /* ---------------- DATE / SLOT SELECTION ---------------- */
 async selectDate(i) {
+  // Safety checks
   if (!this.availableDates[i]) return;
   if (this.isFetchingSlots) return;
 
   this.isFetchingSlots = true;
 
   try {
+    // Set selected date
     this.selectedDateIndex = i;
     this.form.date = this.availableDates[i].date;
 
-    // Clear previous slots
+    // Reset previous slots
     this.availableTimes = [];
     this.selectedSlot = null;
 
-    // Fetch slots for the selected date
+    // API call
     const res = await fetch(
       `/api/method/drheal_frontend.api.Appointment_api.get_doctor_schedule` +
-      `?practitioner=${encodeURIComponent(this.form.doctor)}` +
-      `&appointment_date=${this.form.date}`
+        `?practitioner=${encodeURIComponent(this.form.doctor)}` +
+        `&appointment_date=${this.form.date}`
     );
 
     const data = await res.json();
+
     if (!Array.isArray(data.message)) return;
 
-    // Remove duplicates using Map
+    // Remove duplicate slots (based on time)
     const uniqueSlots = Array.from(
       new Map(
-        data.message.map(s => [`${s.from_time}-${s.to_time}`, s])
+        data.message.map(slot => [
+          `${slot.from_time}-${slot.to_time}`,
+          slot
+        ])
       ).values()
     );
 
-    // Map to availableTimes
-    this.availableTimes = uniqueSlots.map((s, idx) => ({
-      id: `${s.token_no}-${s.from_time}-${s.to_time}-${this.form.date}`,
-      display: `${s.from_time} - ${s.to_time}`,
-      value: s.from_time,
-      token_no: s.token_no || idx + 1,
-      booked: !!s.booked
-    }));
-  } catch (err) {
-    console.error("Error fetching slots:", err);
+    // Map slots → frontend format
+    this.availableTimes = uniqueSlots.map((s, idx) => {
+      const tokenNumber = s.token_no ?? idx + 1;
+
+      return {
+        id: `${tokenNumber}-${s.from_time}-${s.to_time}-${this.form.date}`,
+        display: `${s.from_time} - ${s.to_time}`,
+        value: s.from_time,
+
+        // ✅ IMPORTANT: store token as "Token X"
+        token_no: `Token ${tokenNumber}`,
+
+        booked: Boolean(s.booked)
+      };
+    });
+
+  } catch (error) {
+    console.error("Error fetching slots:", error);
   } finally {
     this.isFetchingSlots = false;
   }
@@ -534,77 +553,83 @@ selectSlot(slot) {
 },
 
     /* ---------------- SUBMIT ---------------- */
-    async submitAppointment() {
-    if (!this.selectedSlot) {
+async submitAppointment() {
+  // Slot validation
+  if (!this.selectedSlot) {
     this.slotError = "Please select time slot";
     return;
   }
 
   this.slotError = "";
-  this.isLoading = true
+  this.apiError = "";
+  this.isLoading = true;
 
   try {
-    const formData = new FormData()
-    formData.append("name1", this.form.name)
-    formData.append("email", this.form.email)
-    formData.append("gender", this.form.gender)
-    formData.append("appointment_type", this.form.appointment_type)
-    formData.append("appointment_date", this.form.date)
-    formData.append("appointment_time", this.form.time)
-    formData.append("practitioner", this.form.doctor)
-    formData.append("department", this.form.department)
-    formData.append("notes", this.form.message || "")
-    formData.append("phone", this.form.phone)
-    formData.append("age", this.form.age)
-    formData.append("token_no", this.form.token_no)
-    formData.append("custom_location", this.form.custom_location)
+    const formData = new FormData();
+
+    formData.append("name1", this.form.name);
+    formData.append("email", this.form.email);
+    formData.append("gender", this.form.gender);
+    formData.append("appointment_type", this.form.appointment_type);
+    formData.append("appointment_date", this.form.date);
+    formData.append("appointment_time", this.form.time);
+    formData.append("practitioner", this.form.doctor);
+    formData.append("department", this.form.department);
+    formData.append("notes", this.form.message || "");
+    formData.append("phone", this.form.phone);
+    formData.append("age", this.form.age);
+
+    // ✅ IMPORTANT: token must come from selectedSlot
+    formData.append("token_no", this.selectedSlot.token_no);
+
+    formData.append("custom_location", this.form.custom_location);
+
     const response = await fetch(
       "/api/method/drheal_frontend.api.Appointment_api.create_appointment",
       {
         method: "POST",
         body: formData
       }
-    )
+    );
 
-    const data = await response.json()
-    console.log("✅ API Response:", data)
+    const data = await response.json();
+    console.log("✅ API Response:", data);
 
-    const result = data.message || data
-
-if (result.status === "success") {
-  this.resetForm();
-
-  console.log("Practitioner ID from backend:", result.practitioner);
-
-  this.$router.push({
-    path: "/thank-you",
-    state: {
-      appointmentId: result.appointment_id,
-      appointmentDate: result.appointment_date,
-      appointmentTime: result.appointment_time,
-      token_no: result.token_no,
-      practitioner_id: result.practitioner
+    // ❌ BACKEND ERROR (SHOW BELOW BUTTON)
+    if (data?.message?.status === "error") {
+      this.apiError = data.message.message;
+      return;
     }
-  });
 
-  return;
-}
+    // ✅ SUCCESS
+    if (data?.message?.status === "success") {
+      const result = data.message;
 
+      this.resetForm();
 
-    this.message = {
-      text: result.message || "Failed to book appointment",
-      type: "error"
+      this.$router.push({
+        path: "/thank-you",
+        state: {
+          appointmentId: result.appointment_id,
+          appointmentDate: result.appointment_date,
+          appointmentTime: result.appointment_time,
+          token_no: result.token_no,
+          practitioner_id: result.practitioner
+        }
+      });
+
+      return;
     }
 
   } catch (error) {
-    console.error("Network/API Error:", error)
-    this.message = {
-      text: "Something went wrong. Please try again.",
-      type: "error"
-    }
+    console.error("Network/API Error:", error);
+
+    this.apiError =
+      "Something went wrong. Please contact directly through given phone number.";
+
   } finally {
-    // ✅ALWAYS stop loading (success or fail)
-    this.isLoading = false
+    // ✅ ALWAYS stop loading
+    this.isLoading = false;
   }
 },
 
