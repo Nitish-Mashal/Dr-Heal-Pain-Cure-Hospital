@@ -21,7 +21,7 @@
     <Process />
     <leaders />
     <Booking />
-    <BookAppointment />
+    <!-- <BookAppointment /> -->
     <Testimonials />
     <OurBlogs />
 
@@ -37,7 +37,7 @@ import WhyChooseUs from './WhyChooseUs.vue'
 import Process from './Process.vue'
 import leaders from './Leaders.vue'
 import Booking from './Booking.vue'
-import BookAppointment from './BookAppointment.vue'
+// import BookAppointment from './BookAppointment.vue'
 import Testimonials from './Testimonial.vue'
 import OurBlogs from './OurBlogs.vue'
 

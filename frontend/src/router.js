@@ -10,6 +10,8 @@ const ViewProfile = () => import('@/pages/ViewProfile.vue')
 const ServicesDetails = () => import('@/ServicesDetails/ServiceDetails.vue')
 const FacilityDetails = () => import('@/Facilities/FacilitiesDetails.vue')
 import ThankYou from './pages/thankyou.vue'
+import TermsAndConditions from './pages/TermsAndConditions.vue'
+import PrivacyAndPolicy from './pages/PrivacyAndPolicy.vue'
 
 const routes = [
   {
@@ -38,12 +40,12 @@ const routes = [
     component: FacilityDetails
   },
   {
-    path: '/doctorsList',
+    path: '/doctors-list',
     name: 'DoctorsList',
     component: DoctorsList
   },
   {
-    path: '/appointmentPage',
+    path: '/appointment',
     name: 'AppointmentPage',
     component: AppointmentPage
   },
@@ -57,6 +59,16 @@ const routes = [
     name: 'ThankYou',
     component: ThankYou
   },
+  {
+    path: '/terms-and-conditions',
+    name: 'TermsAndConditions',
+    component: TermsAndConditions
+  },
+  {
+    path: '/privacy-policy',
+    name: PrivacyAndPolicy,
+    component: PrivacyAndPolicy
+  }
 ]
 
 const router = createRouter({

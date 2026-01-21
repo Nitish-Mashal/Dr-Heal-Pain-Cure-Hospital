@@ -43,7 +43,7 @@ website_route_rules = [
     {"from_route": "/assets/<path:path>", "to_route": "/assets/<path:path>"},
 
     {"from_route": "/", "to_route": "/"},
-    {"from_route": "/doctorsList", "to_route": "/"},
+    {"from_route": "/doctors-list", "to_route": "/"},
     {"from_route": "/doctors", "to_route": "/"},
     {"from_route": "/viewProfile", "to_route": "/"},
     {"from_route": "/<path:path>", "to_route": "/"}, 

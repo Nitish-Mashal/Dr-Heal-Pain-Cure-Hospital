@@ -13,7 +13,7 @@
                         treatment plans for joint, bone, and muscle health.
                     </p>
                     <div>
-                        <router-link to="/Appointmentpage">
+                        <router-link to="/doctors-list">
                             <button
                                 class="bg-color-orange text-white px-5 py-2 rounded-lg font-semibold">
                                 Appointment
