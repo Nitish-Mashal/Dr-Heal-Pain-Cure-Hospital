@@ -8,7 +8,7 @@
         <div class="absolute inset-0 flex items-center justify-start sm:px-[250px] px-16">
             <div class="relative">
 
-                <router-link to="/Appointmentpage" class="no-underline">
+                <router-link to="/doctors-list" class="no-underline">
                     <!-- ORANGE BACK CARD -->
                     <div class="absolute inset-0 translate-y-1 bg-color-orange rounded-5"></div>
 

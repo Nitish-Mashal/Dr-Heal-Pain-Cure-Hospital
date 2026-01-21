@@ -459,7 +459,8 @@ def create_appointment():
             "department": department,
             "notes": notes,
             "token_no": token_no,
-            "custom_location": custom_location
+            "custom_location": custom_location,
+            "phone_number": phone
         })
 
         appointment.insert(ignore_permissions=True)

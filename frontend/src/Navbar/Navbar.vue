@@ -42,7 +42,7 @@
 
                 <!-- DOCTORS -->
                 <li>
-                    <router-link to="/doctorsList"
+                    <router-link to="/doctors-list"
                         class="hover:text-[#007f8c] text-gray-800 no-underline transition">Doctors</router-link>
                 </li>
 
@@ -108,7 +108,7 @@
                     <a href="tel:07969288000" class="text-[#007f8c]">07969288000</a>
                 </div>
 
-                <router-link to="/AppointmentPage">
+                <router-link to="/doctors-list">
                     <button class="bg-color-blue text-white px-4 py-2 rounded-lg text-sm font-semibold">Book an
                         Appointment</button>
                 </router-link>
@@ -132,7 +132,7 @@
 
         <!-- ================= MOBILE BUTTONS OUTSIDE MENU ================= -->
         <div class="md:hidden px-4 py-2 flex gap-3">
-            <router-link to="/AppointmentPage" class="flex-1">
+            <router-link to="/doctors-list" class="flex-1">
                 <button class="w-full bg-color-blue text-white py-2 rounded-lg text-sm font-semibold">Book an
                     Appointment</button>
             </router-link>
@@ -165,7 +165,7 @@
                 </li>
 
                 <!-- MOBILE DOCTORS -->
-                <li><router-link to="/doctorsList" class="text-gray-800 no-underline">Doctors</router-link></li>
+                <li><router-link to="/doctors-list" class="text-gray-800 no-underline">Doctors</router-link></li>
 
                 <!-- MOBILE FACILITIES -->
                 <li>
