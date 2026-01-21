@@ -76,14 +76,14 @@
                     <ul
                         class="absolute left-0 top-full w-44 bg-white rounded-lg shadow-xl hidden group-hover:block z-[9999]">
                         <li>
-                            <router-link to="/careers"
-                                class="block px-4 py-2 text-[13px] font-medium hover:bg-gray-100 hover:text-[#007f8c] transition no-underline">
+                            <router-link to="/Careers"
+                                class="block px-4 py-2 text-[13px] font-medium hover:bg-gray-100 hover:text-[#007f8c] transition text-gray-800 no-underline">
                                 Careers
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="/blogs"
-                                class="block px-4 py-2 text-[13px] font-medium hover:bg-gray-100 hover:text-[#007f8c] transition no-underline">
+                            <router-link to="/blog"
+                                class="block px-4 py-2 text-[13px] font-medium hover:bg-gray-100 hover:text-[#007f8c] transition text-gray-800 no-underline">
                                 Blogs
                             </router-link>
                         </li>
@@ -91,7 +91,7 @@
                 </li>
 
                 <li>
-                    <router-link to="/contact"
+                    <router-link to="/contact-us"
                         class="hover:text-[#007f8c] transition text-gray-800 no-underline">Contact Us</router-link>
                 </li>
             </ul>
@@ -159,7 +159,7 @@
                         <li v-for="service in services" :key="service.url">
                             <router-link :to="`/services/${service.url}`" class="text-gray-800 no-underline">{{
                                 service.name1
-                            }}</router-link>
+                                }}</router-link>
                         </li>
                     </ul>
                 </li>
@@ -192,12 +192,12 @@
                         </svg>
                     </button>
                     <ul v-show="mobileMore" class="pl-4 mt-2 space-y-2">
-                        <li><router-link to="/careers" class="text-gray-800 no-underline">Careers</router-link></li>
-                        <li><router-link to="/blogs" class="text-gray-800 no-underline">Blogs</router-link></li>
+                        <li><router-link to="/Careers" class="text-gray-800 no-underline">Careers</router-link></li>
+                        <li><router-link to="/blog" class="text-gray-800 no-underline">Blogs</router-link></li>
                     </ul>
                 </li>
 
-                <li><router-link to="/contact" class="text-gray-800 no-underline">Contact Us</router-link></li>
+                <li><router-link to="/contact-us" class="text-gray-800 no-underline">Contact Us</router-link></li>
             </ul>
             <div class="flex items-center gap-2 text-[#007f8c] font-semibold text-sm ">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
