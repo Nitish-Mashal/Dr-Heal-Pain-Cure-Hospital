@@ -24,7 +24,12 @@ export default defineConfig({
     target: 'es2015',
   },
   optimizeDeps: {
-    include: ['frappe-ui > feather-icons', 'showdown', 'engine.io-client'],
+    include: [
+      'frappe-ui > feather-icons',
+      'showdown',
+      'engine.io-client',
+      'debug'   // ✅ add debug here
+    ],
     esbuildOptions: {
       target: 'esnext', // ✅ added to handle async generators in dependencies
     },

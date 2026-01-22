@@ -38,12 +38,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue"
+import { ref, onMounted, computed, watch } from "vue"
 import { useRoute } from "vue-router"
 
 const route = useRoute()
 const service = ref(null)
 
+/* ---------------- FETCH SERVICE ---------------- */
 const fetchService = async () => {
     try {
         const res = await fetch(
@@ -61,11 +62,49 @@ const fetchService = async () => {
     }
 }
 
+/* ---------------- IMAGE ---------------- */
 const serviceImage = computed(() => {
     if (!service.value?.thumnail_image) return ""
     return service.value.thumnail_image.startsWith("http")
         ? service.value.thumnail_image
         : `https://drheal.quantumberg.com${service.value.thumnail_image}`
+})
+
+/* ---------------- SEO HELPERS ---------------- */
+const updateMeta = (key, content, attr = "name") => {
+    if (!content) return
+    let meta = document.querySelector(`meta[${attr}='${key}']`)
+    if (!meta) {
+        meta = document.createElement("meta")
+        meta.setAttribute(attr, key)
+        document.head.appendChild(meta)
+    }
+    meta.setAttribute("content", content)
+}
+
+const updatePageSEO = (data) => {
+    // Title
+    document.title =
+        data.meta_title ||
+        data.name1 ||
+        "Dr Heal Pain Cure Hospital"
+
+    // Meta tags
+    updateMeta("description", data.meta_description)
+    updateMeta("keywords", data.meta_keyword)
+
+    // Optional OG tags (recommended)
+    updateMeta("og:title", data.meta_title || data.name1, "property")
+    updateMeta("og:description", data.meta_description, "property")
+    updateMeta("og:image", serviceImage.value, "property")
+    updateMeta("og:type", "website", "property")
+}
+
+/* ---------------- WATCH SERVICE ---------------- */
+watch(service, (val) => {
+    if (val) {
+        updatePageSEO(val)
+    }
 })
 
 onMounted(fetchService)

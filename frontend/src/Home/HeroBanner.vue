@@ -4,7 +4,7 @@
       class="w-full">
       <!-- Slides -->
       <Slide v-for="(banner, index) in banners" :key="index">
-        <img :src="banner.src" :alt="banner.alt" class="w-full object-cover h-[220px] sm:h-[380px] lg:h-[460px]" />
+        <img :src="banner.src" :alt="banner.alt" class="w-full h-[150px] sm:h-[380px] lg:h-[460px] object-contain sm:object-cover" />
       </Slide>
 
       <!-- Navigation Arrows -->

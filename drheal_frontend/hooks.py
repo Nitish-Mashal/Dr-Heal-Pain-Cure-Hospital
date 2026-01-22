@@ -10,7 +10,9 @@ app_license = "mit"
 
 website_route_rules = [
 
-    #  Block Frappe system & backend routes
+    # =====================================================
+    # 🔒 Frappe System / Backend Routes (DO NOT SPA)
+    # =====================================================
     {"from_route": "/printview", "to_route": "/printview"},
     {"from_route": "/print", "to_route": "/print"},
     {"from_route": "/apps", "to_route": "/apps"},
@@ -36,22 +38,34 @@ website_route_rules = [
     {"from_route": "/update-password", "to_route": "/update-password"},
     {"from_route": "/insights", "to_route": "/insights"},
     {"from_route": "/insights/<path:path>", "to_route": "/insights/<path:path>"},
-
-   
     {"from_route": "/app/<path:path>", "to_route": "/app/<path:path>"},
     {"from_route": "/api/<path:path>", "to_route": "/api/<path:path>"},
     {"from_route": "/assets/<path:path>", "to_route": "/assets/<path:path>"},
+    {"from_route": "/(?!crm|app|desk|apps).*", "to_route": "/"},
 
+    # =====================================================
+    # 🌐 Vue Frontend Routes (Explicit)
+    # =====================================================
+
+    # Home
     {"from_route": "/", "to_route": "/"},
     {"from_route": "/doctors-list", "to_route": "/"},
     {"from_route": "/doctors", "to_route": "/"},
     {"from_route": "/viewProfile", "to_route": "/"},
     {"from_route": "/<path:path>", "to_route": "/"}, 
 
-    
+    # Appointment
+    {"from_route": "/appointmentPage", "to_route": "/"},
 
+    # Thank You
+    {"from_route": "/thank-you", "to_route": "/"},
 
+    # =====================================================
+    # 🔁 FINAL CATCH-ALL (Vue Router Fallback)
+    # =====================================================
+    {"from_route": "/<path:path>", "to_route": "/"},
 ]
+
 
 
 # required_apps = []

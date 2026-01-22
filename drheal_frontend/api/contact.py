@@ -1,34 +1,34 @@
-import frappe
-import json
-
 @frappe.whitelist(allow_guest=True)
 def submit_contact():
-    try:
-        data = json.loads(frappe.request.data)
-    except Exception:
-        return {"message": "Invalid JSON data"}, 400
+    frappe.local.flags.ignore_csrf = True
 
-    # Extract fields
+    try:
+        data = json.loads(frappe.request.data or '{}')
+    except Exception:
+        return {"message": "Invalid JSON data"}
+
     name = data.get("name")
     email = data.get("email")
-    subject = data.get("subject")
-    message = data.get("message")
+    phone = data.get("phone")
+    source = data.get("source")
 
-    # Basic validation
-    if not (name and email and message):
-        return {"message": "Name, Email, and Message are required"}, 400
+    if not (name and email):
+        return {"message": "Name and Email are required"}
 
-    # Send email
-    frappe.sendmail(
-        recipients=["wequantumberg@gmail.com"],   # 👈 Your recipient
-        sender=email,
-        subject=subject or f"New Contact Form Submission from {name}",
-        message=f"""
-            <b>Name:</b> {name}<br>
-            <b>Email:</b> {email}<br>
-            <b>Subject:</b> {subject or '-'}<br>
-            <b>Message:</b><br>{message}
-        """
-    )
+  
+    try:
+        send_direct_email(
+            to_email="wequantumberg@gmail.com",
+            sender=email,
+            subject=f"New Contact Form Submission from {name}",
+            html_message=f"""
+                <b>Name:</b> {name}<br>
+                <b>Email:</b> {email}<br>
+                <b>Phone:</b> {phone or '-'}<br>
+                <b>How did you find us:</b> {source or '-'}
+            """,
+        )
+    except Exception as e:
+        return {"message": f"Email sending failed: {str(e)}"}
 
-    return {"message": "Message submitted successfully"}
+    return {"message": "success"}
