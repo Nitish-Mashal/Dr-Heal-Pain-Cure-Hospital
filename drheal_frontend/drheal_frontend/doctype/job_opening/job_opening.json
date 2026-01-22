@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "field:job_title",
- "creation": "2026-01-20 14:54:32.731530",
+ "creation": "2026-01-22 12:39:03.186085",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -39,7 +39,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-20 14:56:02.893584",
+ "modified": "2026-01-22 12:40:29.370067",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
  "name": "Job Opening",
