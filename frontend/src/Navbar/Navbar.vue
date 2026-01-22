@@ -29,11 +29,18 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </div>
-                    <ul
-                        class="absolute left-0 top-full pt-2 w-56 bg-white rounded-lg shadow-xl hidden group-hover:block z-[9999]">
+
+                    <ul class="absolute left-0 top-full mt-0
+               min-w-[520px]
+               bg-white rounded-xl shadow-xl
+               hidden group-hover:grid
+               grid-cols-3 gap-x-8 gap-y-4
+               px-6 py-3
+               z-[9999]">
+
                         <li v-for="service in services" :key="service.url">
                             <router-link :to="`/services/${service.url}`"
-                                class="block px-4 py-2 text-[13px] font-medium text-gray-800 hover:bg-gray-100 hover:text-[#007f8c] transition no-underline">
+                                class="block text-[13px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 {{ service.name1 }}
                             </router-link>
                         </li>
@@ -54,16 +61,24 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </div>
-                    <ul
-                        class="absolute left-0 top-full pt-2 w-56 bg-white rounded-lg shadow-xl hidden group-hover:block z-[9999]">
+
+                    <ul class="absolute left-0 top-full mt-0
+               min-w-[520px]
+               bg-white rounded-xl shadow-xl
+               hidden group-hover:grid
+               grid-cols-3 gap-x-8 gap-y-2
+               px-6 py-3
+               z-[9999]">
+
                         <li v-for="facility in facilities" :key="facility.url">
                             <router-link :to="`/facilities/${facility.url}`"
-                                class="block px-4 py-2 text-[13px] font-medium text-gray-800 hover:bg-gray-100 hover:text-[#007f8c] transition no-underline">
+                                class="block text-[13px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 {{ facility.name1 }}
                             </router-link>
                         </li>
                     </ul>
                 </li>
+
 
                 <!-- MORE -->
                 <li class="relative group">
@@ -73,22 +88,30 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </div>
-                    <ul
-                        class="absolute left-0 top-full w-44 bg-white rounded-lg shadow-xl hidden group-hover:block z-[9999]">
+
+                    <ul class="absolute left-0 top-full mt-0
+               min-w-[280px]
+               bg-white rounded-xl shadow-xl
+               hidden group-hover:grid
+               grid-cols-2 gap-x-6 gap-y-2
+               px-5 py-4
+               z-[9999]">
+
                         <li>
                             <router-link to="/Careers"
-                                class="block px-4 py-2 text-[13px] font-medium hover:bg-gray-100 hover:text-[#007f8c] transition text-gray-800 no-underline">
+                                class="block text-[13px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 Careers
                             </router-link>
                         </li>
                         <li>
                             <router-link to="/blog"
-                                class="block px-4 py-2 text-[13px] font-medium hover:bg-gray-100 hover:text-[#007f8c] transition text-gray-800 no-underline">
+                                class="block text-[13px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 Blogs
                             </router-link>
                         </li>
                     </ul>
                 </li>
+
 
                 <li>
                     <router-link to="/contact-us"
@@ -159,7 +182,7 @@
                         <li v-for="service in services" :key="service.url">
                             <router-link :to="`/services/${service.url}`" class="text-gray-800 no-underline">{{
                                 service.name1
-                                }}</router-link>
+                            }}</router-link>
                         </li>
                     </ul>
                 </li>

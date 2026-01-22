@@ -85,7 +85,7 @@ const founders = [
     {
         name: "Dr. Rakesh Jayaprakash",
         role: "Founder & Managing Director",
-        image: "https://drheal.quantumberg.com/files/Leaders-1.png",
+        image: "https://drheal.quantumberg.com/files/Leaders-1.webp",
         description:
             "Leads the vision of Dr. Heal with a passion for non-surgical pain care."
     }

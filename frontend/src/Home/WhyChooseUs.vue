@@ -16,7 +16,8 @@
             </div>
 
             <div class="hidden md:block absolute right-10 top-1/2 -translate-y-1/2">
-                <img src="https://drheal.quantumberg.com/files/Why-Choose-Us.webp" alt="Why Choose Us"
+                <img src="https://drheal.quantumberg.com/files/Why-Choose-Us.webp"
+                    alt="Non-surgical pain management approach at Dr Heal"
                     class="w-[320px] lg:w-[380px] object-contain" />
             </div>
 
@@ -29,7 +30,7 @@
             <div class="col-md-6">
                 <div v-for="(item, index) in reasons" :key="index"
                     class="flex flex-col sm:flex-row items-center gap-4 mb-4">
-                    <img :src="item.icon" alt="" class="w-20 h-20 object-contain flex-shrink-0" />
+                    <img :src="item.icon" :alt="item.alt" class="w-20 h-20 object-contain flex-shrink-0" />
 
                     <div class="flex items-center">
                         <p class="text-2xl font-semibold text-color-blue leading-tight mt-3">
@@ -42,8 +43,8 @@
             <!-- RIGHT VIDEO (VERTICALLY CENTERED) -->
             <div class="col-md-6 flex items-center justify-center">
                 <div class="relative w-full max-w-xl aspect-video rounded-xl overflow-hidden shadow-lg">
-                    <iframe class="absolute inset-0 w-full h-full" :src="videoUrl" title="YouTube video player"
-                        frameborder="0"
+                    <iframe class="absolute inset-0 w-full h-full" :src="videoUrl"
+                        title="Non-surgical pain treatment explanation video" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                     </iframe>
@@ -55,27 +56,31 @@
 </template>
 
 <script setup>
-
 const reasons = [
     {
         icon: 'https://drheal.quantumberg.com/files/wcu-01.png',
         text: 'No Scalpels, No Risk of Surgical Complications',
+        alt: 'No scalpel non-surgical pain treatment',
     },
     {
         icon: 'https://drheal.quantumberg.com/files/wcu-02.png',
         text: 'Personalized Treatment Rooted in Cause, Not Just Symptoms',
+        alt: 'Personalized pain treatment addressing root cause',
     },
     {
         icon: 'https://drheal.quantumberg.com/files/wcu-03.png',
         text: 'Faster Recovery & Minimal Downtime',
+        alt: 'Faster recovery with non-surgical pain management',
     },
     {
         icon: 'https://drheal.quantumberg.com/files/wcu-04.png',
         text: 'Lower Cost Compared to Surgery',
+        alt: 'Affordable non-surgical pain treatment',
     },
     {
         icon: 'https://drheal.quantumberg.com/files/wcu-05.png',
         text: 'Focus on Regeneration, Not Invasion',
+        alt: 'Regenerative pain management without surgery',
     },
 ]
 

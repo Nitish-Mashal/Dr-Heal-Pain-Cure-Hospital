@@ -51,21 +51,21 @@ const services = [
         title: 'Home Visits',
         description:
             'We bring expert orthopedic care to your home – convenient, safe, and tailored to your recovery needs.',
-        image: 'https://drheal.quantumberg.com/files/Services-Types-1.jpg',
+        image: 'https://drheal.quantumberg.com/files/Services-Types-1.webp',
         link: '/home-visits',
     },
     {
         title: 'Online Consultation',
         description:
             'Connect with orthopedic specialists online for quick, reliable diagnosis and treatment guidance.',
-        image: 'https://drheal.quantumberg.com/files/Services-Types-2.jpg',
+        image: 'https://drheal.quantumberg.com/files/Services-Types-2.webp',
         link: '/online-consultation',
     },
     {
         title: 'Quality Healthcare',
         description:
             'Experience top-tier orthopedic treatment backed by expert doctors, modern technology, and personalized care.',
-        image: 'https://drheal.quantumberg.com/files/Services-Types-3.jpg',
+        image: 'https://drheal.quantumberg.com/files/Services-Types-3.webp',
         link: '/physiotherapy',
     },
 ]

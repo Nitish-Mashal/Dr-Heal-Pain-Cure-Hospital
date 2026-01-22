@@ -2,7 +2,7 @@
     <div class="mb-5">
         <div class="relative w-full h-80 overflow-hidden mb-5 container-fluid">
             <!-- Background Image -->
-            <img src="https://drheal.quantumberg.com/files/dr-heal-about-us.png" alt="Dr Heal About Us Image"
+            <img src="https://drheal.quantumberg.com/files/dr-heal-about-us.webp" alt="Dr Heal About Us Image"
                 class="w-full h-full object-cover rounded-4" />
 
             <!-- Center Content -->
@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-md-6 relative">
                     <!-- Image -->
-                    <img src="https://drheal.quantumberg.com/files/Dr-Heal-Hospital-Image.png"
+                    <img src="https://drheal.quantumberg.com/files/Dr-Heal-Hospital-Image.webp"
                         alt="Dr Heal Hospital Image" class="w-full h-auto rounded-lg shadow-md" />
 
                     <!-- Stats Card -->
