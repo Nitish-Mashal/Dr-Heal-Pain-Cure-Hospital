@@ -22,16 +22,25 @@ export default defineConfig({
     outDir: `../${path.basename(path.resolve('..'))}/public/frontend`,
     emptyOutDir: true,
     target: 'es2015',
+
+    // ✅ Split CSS per component for faster LCP
+    cssCodeSplit: true,
+
+    // ✅ Minify JS and CSS aggressively
+    minify: 'esbuild',
+
+    // ✅ Reduce sourcemap size in production
+    sourcemap: false,
   },
   optimizeDeps: {
     include: [
       'frappe-ui > feather-icons',
       'showdown',
       'engine.io-client',
-      'debug'   // ✅ add debug here
+      'debug',
     ],
     esbuildOptions: {
-      target: 'esnext', // ✅ added to handle async generators in dependencies
+      target: 'esnext', // handle async generators
     },
   },
 })

@@ -1,34 +1,5 @@
 <template>
     <div class="bg-white">
-        <!-- ================= CTA SECTION ================= -->
-        <!-- <div class="px-5 relative z-20">
-            <section class="relative bg-[#38113B] text-white rounded-3xl overflow-hidden -mb-40">
-                <div class="relative z-10 px-6 py-20 mt-4 flex flex-col items-center text-center">
-                    <h6 class="text-yellow-400 uppercase tracking-widest mb-2">
-                        {{ cta.subtitle }}
-                    </h6>
-
-                    <h1 class="font-semibold mb-4" v-html="cta.title"></h1>
-
-                    <p class="mb-8 max-w-xl" v-html="cta.description"></p>
-
-                    <div class="flex gap-4">
-                        <button
-                            class="bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-2 rounded-md transition">
-                            {{ cta.primaryBtn }}
-                        </button>
-
-                        <button
-                            class="bg-white text-[#38113B] font-medium px-6 py-2 rounded-md hover:bg-gray-100 transition">
-                            {{ cta.secondaryBtn }}
-                        </button>
-                    </div>
-                </div>
-
-                <img src="https://drheal.quantumberg.com/files/Footer-Overlay.jpg" alt="CTA Background"
-                    class="absolute inset-0 w-full h-full object-cover opacity-30" />
-            </section>
-        </div> -->
 
         <!-- ================= FOOTER ================= -->
         <!-- <footer class="bg-[#065f7f] text-white pt-40 pb-10"> -->

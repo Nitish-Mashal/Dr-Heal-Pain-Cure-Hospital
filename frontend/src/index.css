@@ -1,18 +1,18 @@
+/* src/index.css */
+
+/* src/index.css */
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+/* Import fonts */
 @import './assets/Inter/inter.css';
+
+/* Import frappe-ui Tailwind + components */
 @import 'frappe-ui/src/style.css';
 
-.bg-color-orange {
-    background-color: #E88020;
-}
-
-.bg-color-blue {
-    background-color: #30809D;
-}
-
-.text-color-orange {
-    color: #E88020;
-}
-
-.text-color-blue {
-    color: #30809D;
+/* ========== Custom Utility Classes ========== */
+@layer utilities {
+  .bg-color-orange { background-color: #E88020; }
+  .bg-color-blue { background-color: #30809D; }
+  .text-color-orange { color: #E88020; }
+  .text-color-blue { color: #30809D; }
 }

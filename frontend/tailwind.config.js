@@ -1,3 +1,4 @@
+// drheal_frontend/tailwind.config.js
 module.exports = {
   presets: [
     require('frappe-ui/src/utils/tailwind.config')
