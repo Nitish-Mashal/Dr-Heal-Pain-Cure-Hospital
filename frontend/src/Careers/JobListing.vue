@@ -20,7 +20,7 @@
             <!-- Resume Upload -->
             <div class="card shadow py-4 rounded-4 bold-test-color">
                 <div class="flex flex-col justify-center items-center">
-                    <router-link to="/ApplyJob" class="text-gray-800">
+                    <router-link to="/apply-job" class="text-gray-800">
                         <div
                             class="cursor-pointer border-1 border-gray-800 text-gray-800 px-5 py-1 rounded-full hover:bg-gray-100 transition inline-flex items-center whitespace-nowrap">
                             Apply For a Job
