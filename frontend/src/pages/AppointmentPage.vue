@@ -23,15 +23,13 @@
         <!-- Doctor -->
         <div class="flex flex-col">
           <label class="mb-1 font-semibold text-gray-700">Doctor *</label>
-          <select
-            v-model="form.doctor"
-            class="px-2 py-1 border rounded-lg focus:ring-2 focus:ring-[#065f7f]"
-          >
+          <select v-model="form.doctor" class="px-2 py-1 border rounded-lg focus:ring-2 focus:ring-[#065f7f]">
             <option value="">Select Doctor</option>
             <option v-for="d in doctors" :key="d.name" :value="d.name">
-              {{ d.full_name || d.first_name }}
+               {{ d.full_name || d.first_name }}
             </option>
-          </select>
+         </select>
+
         </div>
 
       </div>
@@ -349,24 +347,26 @@ export default {
     };
   },
 
- async created() {
+async created() {
   try {
     const { department, doctor_id } = this.$route.query;
 
-    if (department) this.form.department = department;
+    // 1️⃣ Set department
+    if (department) {
+      this.form.department = department;
 
+      // 2️⃣ Fetch doctors of that department
+      await this.fetchDoctors();
+    }
+
+    // 3️⃣ Select clicked doctor (must exist in doctors list)
     if (doctor_id) {
       this.form.doctor = doctor_id;
 
-      const doctor = await this.fetchDoctorById(doctor_id);
-      if (doctor && !this.doctors.find(d => d.name === doctor.name)) {
-        this.doctors.push(doctor);
-      }
+      // Fetch full doctor object
+      this.selectedDoctor = await this.fetchDoctorById(doctor_id);
     }
 
-    if (this.form.department && !this.form.doctor) {
-      await this.fetchDoctors();
-    }
   } catch (err) {
     console.error("Created hook error:", err);
   }
@@ -388,11 +388,7 @@ watch: {
     if (!doctorId) return;
 
     this.selectedDoctor = await this.fetchDoctorById(doctorId);
-
-    // ✅ ADD THIS LINE
     await this.fetchAppointmentTypes(doctorId);
-
-    // existing call
     await this.fetchDoctorSchedule();
   }
 },

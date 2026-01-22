@@ -178,18 +178,15 @@ export default {
       }
     },
 
-    bookAppointment(doctor) {
-      if (!doctor) return;
-
-      this.$router.push({
-        name: "AppointmentPage", // make sure this route exists
-        query: {
-          doctor_id: doctor.name,
-          doctor_name: doctor.first_name,
-          department: doctor.department,
-        },
-      });
-    },
+   bookAppointment(doctor) {
+    this.$router.push({
+      path: "/appointment",
+      query: {
+        department: doctor.department,
+        doctor_id: doctor.name   // or doctor.id (use same as API expects)
+      }
+    });
+  },
   },
 };
 </script>
