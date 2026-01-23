@@ -110,13 +110,12 @@ const socialIcons = [
 
 const quickLinks = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Our Doctors", path: "/doctors" },
-    { name: "Blogs", path: "/blogs" },
+    { name: "About", path: "/about-us" },
+    { name: "Our Doctors", path: "/doctors-list" },
+    { name: "Blogs", path: "/blog" },
     { name: "Careers", path: "/careers" },
-    { name: "Contact Us", path: "/contact" },
-    { name: "Book an Appointment", path: "/doctors-list" },
+    { name: "Contact Us", path: "/contact-us" },
+    { name: "Book an Appointment", path: "/appointment" },
     { name: "Terms & Conditions", path: "/terms-and-conditions" },
     { name: "Privacy Policy", path: "/privacy-policy" },
 ]
