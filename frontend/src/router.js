@@ -13,6 +13,7 @@ const ContactUs = () => import('@/pages/ContactUs.vue')
 const ThankYou = () => import('@/pages/thankyou.vue')
 const TermsAndConditions = () => import('@/pages/TermsAndConditions.vue')
 const PrivacyAndPolicy = () => import('@/pages/PrivacyAndPolicy.vue')
+const Gallery = () => import('@/Gallery/Gallery.vue')
 
 // Blogs
 const BlogsPreview = () => import('@/Blogs/BlogsPreview.vue')
@@ -179,6 +180,16 @@ const routes = [
       title: 'Apply for Jobs | Dr Heal Careers',
       description:
         'Apply online for healthcare and diagnostic job openings at Dr Heal.',
+    },
+  },
+  {
+    path: '/gallery',
+    name: 'Gallery',
+    component: Gallery,
+    meta: {
+      title: 'Gallery | Dr Heal Pain Care Hospital',
+      description:
+        'Explore the Dr Heal Pain Care Hospital gallery featuring our facilities, advanced treatments, patient care, and medical infrastructure.',
     },
   },
 

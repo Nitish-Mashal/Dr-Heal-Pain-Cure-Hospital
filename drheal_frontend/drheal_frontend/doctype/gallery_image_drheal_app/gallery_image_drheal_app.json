@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-01-23 17:36:41.192887",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "gallery_image_section",
+  "first_image",
+  "second_image",
+  "third_image",
+  "column_break_rfsk",
+  "fourth_image",
+  "fifth_image",
+  "sixth_image"
+ ],
+ "fields": [
+  {
+   "fieldname": "gallery_image_section",
+   "fieldtype": "Section Break",
+   "label": "Gallery Image"
+  },
+  {
+   "fieldname": "first_image",
+   "fieldtype": "Attach Image",
+   "label": "First Image"
+  },
+  {
+   "fieldname": "second_image",
+   "fieldtype": "Attach Image",
+   "label": "Second Image"
+  },
+  {
+   "fieldname": "third_image",
+   "fieldtype": "Attach Image",
+   "label": "Third Image"
+  },
+  {
+   "fieldname": "column_break_rfsk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fourth_image",
+   "fieldtype": "Attach Image",
+   "label": "Fourth Image"
+  },
+  {
+   "fieldname": "fifth_image",
+   "fieldtype": "Attach Image",
+   "label": "Fifth Image"
+  },
+  {
+   "fieldname": "sixth_image",
+   "fieldtype": "Attach Image",
+   "label": "Sixth Image"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-23 17:38:38.848478",
+ "modified_by": "Administrator",
+ "module": "Drheal Frontend",
+ "name": "Gallery-Image-Drheal-App",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

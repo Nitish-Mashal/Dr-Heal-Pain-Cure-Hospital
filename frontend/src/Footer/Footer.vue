@@ -114,6 +114,7 @@ const quickLinks = [
     { name: "Our Doctors", path: "/doctors-list" },
     { name: "Blogs", path: "/blog" },
     { name: "Careers", path: "/careers" },
+    { name: "Gallery", path: "/gallery" },
     { name: "Contact Us", path: "/contact-us" },
     { name: "Book an Appointment", path: "/appointment" },
     { name: "Terms & Conditions", path: "/terms-and-conditions" },
