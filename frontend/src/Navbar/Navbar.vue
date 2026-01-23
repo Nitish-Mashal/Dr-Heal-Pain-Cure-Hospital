@@ -20,7 +20,6 @@
                     <router-link to="/about-us" class="hover:text-[#007f8c] transition text-gray-800 no-underline">About
                         Us</router-link>
                 </li>
-
                 <!-- SERVICES -->
                 <li class="relative group">
                     <div class="flex items-center gap-1 cursor-pointer hover:text-[#007f8c] text-gray-800 transition">
@@ -30,23 +29,24 @@
                         </svg>
                     </div>
 
-                    <ul class="absolute left-0 top-full mt-0
-   min-w-[520px]
-   bg-white rounded-xl shadow-xl
-   hidden group-hover:grid
-   grid-cols-3 gap-x-8 gap-y-4
-   px-6 py-3
-   z-[9999]">
-
-                        <li v-for="service in services" :key="service.url">
+                    <ul class="absolute left-1/2 top-full -translate-x-1/2
+           bg-white rounded-xl shadow-xl
+           hidden group-hover:block
+           px-6 py-4
+           z-[9999]
+           columns-3
+           column-gap-10
+           min-w-[720px]">
+                        <li v-for="service in services" :key="service.url" class="break-inside-avoid mb-3">
                             <router-link :to="`/services/${service.url}`"
-                                class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline mb-2">
+                                class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 {{ service.name1 }}
                             </router-link>
-                            <hr class="m-0">
+                            <hr class="mt-2">
                         </li>
                     </ul>
                 </li>
+
 
                 <!-- DOCTORS -->
                 <li>
@@ -63,26 +63,24 @@
                         </svg>
                     </div>
 
-
-
-                    <ul class="absolute left-0 top-full mt-0
-   min-w-[520px]
-   bg-white rounded-xl shadow-xl
-   hidden group-hover:grid
-   grid-cols-3 gap-x-8 gap-y-4
-   px-6 py-3
-   z-[9999]">
-
-                        <li v-for="facility in facilities" :key="facility.url">
+                    <ul class="absolute left-1/2 top-full -translate-x-1/2
+           bg-white rounded-xl shadow-xl
+           hidden group-hover:block
+           px-6 py-4
+           z-[9999]
+           columns-3
+           column-gap-10
+           min-w-[720px]">
+                        <li v-for="facility in facilities" :key="facility.url" class="break-inside-avoid mb-3">
                             <router-link :to="`/facilities/${facility.url}`"
-                                class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline mb-2">
+                                class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 {{ facility.name1 }}
                             </router-link>
-                            <hr class="m-0">
-                            </hr>
+                            <hr class="mt-2">
                         </li>
                     </ul>
                 </li>
+
 
 
                 <!-- MORE -->
@@ -94,16 +92,19 @@
                         </svg>
                     </div>
 
-
-                    <ul
-                        class="absolute left-0 top-full mt-0 min-w-[280px] bg-white rounded-xl shadow-xl hidden group-hover:flex flex-col px-5 py-4 space-y-4 z-[9999">
-
+                    <ul class="absolute left-1/2 top-full -translate-x-1/2
+           mt-0 min-w-[280px]
+           bg-white rounded-xl shadow-xl
+           hidden group-hover:flex flex-col
+           px-5 py-4 space-y-4
+           z-[9999]">
                         <li>
-                            <router-link to="/Careers"
+                            <router-link to="/careers"
                                 class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 Careers
                             </router-link>
                         </li>
+
                         <li>
                             <router-link to="/blog"
                                 class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
@@ -112,6 +113,7 @@
                         </li>
                     </ul>
                 </li>
+
 
 
                 <li>
