@@ -10,6 +10,7 @@
   "name1",
   "description",
   "is_active",
+  "order_by_sequence",
   "column_break_jxik",
   "url",
   "created_date",
@@ -74,12 +75,17 @@
    "fieldname": "thumnail_image",
    "fieldtype": "Attach Image",
    "label": "Thumbnail Image"
+  },
+  {
+   "fieldname": "order_by_sequence",
+   "fieldtype": "Int",
+   "label": "Order by Sequence"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-20 11:34:37.004027",
+ "modified": "2026-01-23 15:01:20.916841",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
  "name": "Facilities",
