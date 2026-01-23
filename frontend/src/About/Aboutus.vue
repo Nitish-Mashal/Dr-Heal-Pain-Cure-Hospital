@@ -1,23 +1,26 @@
 <template>
     <div class="mb-5">
-        <div class="relative w-full h-80 overflow-hidden mb-5 container-fluid">
-            <!-- Background Image -->
-            <img src="https://drheal.quantumberg.com/files/dr-heal-about-us.webp" alt="Dr Heal About Us Image"
-                class="w-full h-full object-cover rounded-4" />
+        <div class="relative w-full mb-5 overflow-hidden rounded-4">
+
+            <!-- Banner Image -->
+            <img src="https://drheal.quantumberg.com/files/dr-heal-about-us.webp" alt="Dr Heal About Us Image" class="
+      w-full
+      h-48       
+      sm:h-56
+      md:h-80   
+      object-contain md:object-cover
+      rounded-4
+    " />
 
             <!-- Center Content -->
-            <div class="absolute inset-0 flex items-center justify-center sm:px-[250px] px-16">
-                <div class="relative">
-
-                    <!-- BLUE FRONT CARD -->
-                    <div class="text-white">
-                        <h2 class="font-semibold text-center">
-                            About Us
-                        </h2>
-                    </div>
-
+            <div class="absolute inset-0 flex items-center justify-center px-4 sm:px-[250px]">
+                <div class="text-white text-center">
+                    <h2 class="font-semibold text-2xl md:text-4xl">
+                        About Us
+                    </h2>
                 </div>
             </div>
+
         </div>
         <div class="container mt-5">
             <div class="row">

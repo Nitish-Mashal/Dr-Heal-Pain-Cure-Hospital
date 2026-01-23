@@ -2,7 +2,7 @@
     <div class="bg-white">
 
         <!-- ================= FOOTER ================= -->
-        <!-- <footer class="bg-[#065f7f] text-white pt-40 pb-10"> -->
+        <!-- <footer class="bg-color-blue text-white pt-40 pb-10"> -->
         <footer class="bg-color-blue text-white pt-8 pb-8">
             <div class="px-5 pt-10">
                 <div class="row g-4">
@@ -15,8 +15,10 @@
                         <p class="mb-4">{{ tagline }}</p>
 
                         <div class="flex gap-2 text-sm">
-                            <i v-for="icon in socialIcons" :key="icon"
-                                :class="`bi ${icon} bg-color-orange px-2 py-1 rounded-5`"></i>
+                            <a v-for="social in socialIcons" :key="social.icon" :href="social.url" target="_blank"
+                                rel="noopener noreferrer" class="bg-color-orange px-2 py-1 rounded-5 text-white">
+                                <i :class="`bi ${social.icon}`"></i>
+                            </a>
                         </div>
                     </div>
 
@@ -99,11 +101,11 @@ const cta = {
 }
 
 const socialIcons = [
-    "bi-facebook",
-    "bi-twitter-x",
-    "bi-linkedin",
-    "bi-instagram",
-    "bi-youtube",
+    { icon: "bi-facebook", url: "https://www.facebook.com/drhealbangalore" },
+    { icon: "bi-twitter-x", url: "https://x.com/drhealpaincure" },
+    { icon: "bi-linkedin", url: "https://www.linkedin.com/company/drhealpaincurehospital/" },
+    { icon: "bi-instagram", url: "https://www.instagram.com/drhealpaincurehospital" },
+    { icon: "bi-youtube", url: "https://www.youtube.com/@drhealpaincurehospital" },
 ]
 
 const quickLinks = [

@@ -263,7 +263,7 @@
         <button
           type="submit"
           :disabled="isLoading"
-          class="w-full bg-[#065f7f] text-white py-2 font-bold rounded-lg hover:bg-[#162059] transition disabled:opacity-50"
+          class="w-full bg-color-blue text-white py-2 font-bold rounded-lg hover:bg-[#162059] transition disabled:opacity-50"
         >
           {{ isLoading ? "Submitting..." : "SUBMIT" }}
         </button>
@@ -288,7 +288,7 @@
 
     <a
       href="tel:07969288000"
-      class="inline-flex items-center justify-center w-full bg-[#065f7f] text-white font-medium py-2 rounded-lg hover:bg-blue-700 transition"
+      class="inline-flex items-center justify-center w-full bg-color-blue text-white font-medium py-2 rounded-lg hover:bg-blue-700 transition"
     >
       Call 07969288000
     </a>
