@@ -4,6 +4,7 @@ import frappe
 def get_our_services():
     """
     Guest API to fetch all active Our Services
+    Ordered by order_by_sequence (ascending)
     """
 
     services = frappe.get_all(
@@ -19,9 +20,10 @@ def get_our_services():
             "meta_title",
             "meta_keyword",
             "meta_description",
-            "thumnail_image"
+            "thumnail_image",
+            "order_by_sequence"   # include the new field (optional but recommended)
         ],
-        order_by="created_date desc"
+        order_by="order_by_sequence asc"
     )
 
     return {

@@ -4,6 +4,7 @@ import frappe
 def get_our_facilities():
     """
     Guest API to fetch all active Facilities
+    Ordered by order_by_sequence (ascending)
     """
 
     facilities = frappe.get_all(
@@ -19,9 +20,10 @@ def get_our_facilities():
             "meta_title",
             "meta_keyword",
             "meta_description",
-            "thumnail_image"   # ✅ corrected field name
+            "thumnail_image",
+            "order_by_sequence"   # include sequence field
         ],
-        order_by="created_date desc"
+        order_by="order_by_sequence asc"
     )
 
     return {
