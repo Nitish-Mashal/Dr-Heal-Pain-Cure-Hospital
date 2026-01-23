@@ -1,6 +1,6 @@
 <template>
     <header class="sticky top-0 z-50 w-full bg-white">
-        <nav class="flex items-center justify-between px-6 md:px-20 py-3">
+        <nav class="flex items-center justify-between px-6 md:px-20 py-2">
 
             <!-- LOGO -->
             <router-link to="/" class="flex items-center">
@@ -9,7 +9,7 @@
             </router-link>
 
             <!-- ================= DESKTOP MENU ================= -->
-            <ul class="hidden md:flex items-center space-x-6 text-[13px] font-medium">
+            <ul class="hidden md:flex items-center space-x-6 text-[15px] font-medium">
 
                 <li>
                     <router-link to="/"
@@ -30,17 +30,12 @@
                         </svg>
                     </div>
 
-                    <ul class="absolute left-0 top-full mt-0
-               min-w-[520px]
-               bg-white rounded-xl shadow-xl
-               hidden group-hover:grid
-               grid-cols-3 gap-x-8 gap-y-4
-               px-6 py-3
-               z-[9999]">
+                    <ul
+                        class="absolute left-0 top-full mt-0 min-w-[280px] bg-white rounded-xl shadow-xl hidden group-hover:flex flex-col px-5 py-4 space-y-4 z-[9999">
 
                         <li v-for="service in services" :key="service.url">
                             <router-link :to="`/services/${service.url}`"
-                                class="block text-[13px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
+                                class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 {{ service.name1 }}
                             </router-link>
                         </li>
@@ -62,17 +57,14 @@
                         </svg>
                     </div>
 
-                    <ul class="absolute left-0 top-full mt-0
-               min-w-[520px]
-               bg-white rounded-xl shadow-xl
-               hidden group-hover:grid
-               grid-cols-3 gap-x-8 gap-y-2
-               px-6 py-3
-               z-[9999]">
+
+
+                    <ul
+                        class="absolute left-0 top-full mt-0 min-w-[280px] bg-white rounded-xl shadow-xl hidden group-hover:flex flex-col px-5 py-4 space-y-4 z-[9999">
 
                         <li v-for="facility in facilities" :key="facility.url">
                             <router-link :to="`/facilities/${facility.url}`"
-                                class="block text-[13px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
+                                class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 {{ facility.name1 }}
                             </router-link>
                         </li>
@@ -89,23 +81,19 @@
                         </svg>
                     </div>
 
-                    <ul class="absolute left-0 top-full mt-0
-               min-w-[280px]
-               bg-white rounded-xl shadow-xl
-               hidden group-hover:grid
-               grid-cols-2 gap-x-6 gap-y-2
-               px-5 py-4
-               z-[9999]">
+
+                    <ul
+                        class="absolute left-0 top-full mt-0 min-w-[280px] bg-white rounded-xl shadow-xl hidden group-hover:flex flex-col px-5 py-4 space-y-4 z-[9999">
 
                         <li>
                             <router-link to="/Careers"
-                                class="block text-[13px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
+                                class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 Careers
                             </router-link>
                         </li>
                         <li>
                             <router-link to="/blog"
-                                class="block text-[13px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
+                                class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 Blogs
                             </router-link>
                         </li>
@@ -154,18 +142,30 @@
         </nav>
 
         <!-- ================= MOBILE BUTTONS OUTSIDE MENU ================= -->
-        <div class="md:hidden px-4 py-2 flex gap-3">
+        <div class="md:hidden px-4 py-2 flex gap-3 items-center">
             <router-link to="/doctors-list" class="flex-1">
-                <button class="w-full bg-color-blue text-white py-2 rounded-lg text-sm font-semibold">Book an
-                    Appointment</button>
+                <button class="w-full bg-color-blue text-white py-2 rounded-lg text-sm font-semibold">
+                    Book an Appointment
+                </button>
             </router-link>
-            <a href="https://drheal.quantumberg.com/login"
-                class="flex-1 bg-color-orange py-2 rounded-lg text-sm font-semibold text-white hover:bg-orange-600 text-center no-underline">Login</a>
+
+            <!-- PHONE NUMBER (replacing Login) -->
+            <a href="tel:07969288000"
+                class="flex-1 flex items-center justify-center gap-2 bg-color-orange text-white py-2 rounded-lg text-sm font-semibold no-underline">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24
+        11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1
+        A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1
+        11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.2 2.22z" />
+                </svg>
+                Call
+            </a>
         </div>
+
 
         <!-- ================= MOBILE MENU ================= -->
         <div v-show="isMenuOpen" class="md:hidden bg-white px-3 pb-4">
-            <ul class="flex flex-col space-y-3 text-[13px] font-medium text-gray-800">
+            <ul class="flex flex-col space-y-3 text-[15px] font-medium text-gray-800">
 
                 <li><router-link to="/" class="text-gray-800 no-underline">Home</router-link></li>
                 <li><router-link to="/about-us" class="text-gray-800 no-underline">About Us</router-link></li>
@@ -221,8 +221,13 @@
                 </li>
 
                 <li><router-link to="/contact-us" class="text-gray-800 no-underline">Contact Us</router-link></li>
+                <li>
+                    <a href="https://drheal.quantumberg.com/login" class="block w-full text-gray-800 no-underline">
+                        Login
+                    </a>
+                </li>
             </ul>
-            <div class="flex items-center gap-2 text-[#007f8c] font-semibold text-sm ">
+            <!-- <div class="flex items-center gap-2 text-[#007f8c] font-semibold text-sm ">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24
            11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1
@@ -230,7 +235,7 @@
            11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.2 2.22z" />
                 </svg>
                 <a href="tel:07969288000" class="text-[#007f8c]">07969288000</a>
-            </div>
+            </div> -->
         </div>
     </header>
 </template>

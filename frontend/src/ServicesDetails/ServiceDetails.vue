@@ -2,9 +2,16 @@
     <div class="container-fluid mb-5">
 
         <!-- ================= BANNER ================= -->
-        <div v-if="service" class="relative w-full h-80 overflow-hidden mb-5 container-fluid rounded-4">
+        <div v-if="service" class="relative w-full mb-5 overflow-hidden rounded-4">
+
             <!-- Background Image -->
-            <img :src="serviceImage" :alt="service.name1" class="w-full h-full object-cover" />
+            <img :src="serviceImage" :alt="service.name1" class="
+      w-full 
+      h-48          /* mobile height */
+      sm:h-56       /* small screens */
+      md:h-80       /* desktop height */
+      object-contain md:object-cover  /* contain on mobile, cover on desktop */
+    " />
 
             <!-- Overlay -->
             <div class="absolute inset-0 bg-[#38113B] opacity-70"></div>
@@ -15,6 +22,7 @@
                     {{ service.name1 }}
                 </h1>
             </div>
+
         </div>
 
         <!-- ================= CONTENT ================= -->
@@ -70,7 +78,7 @@ const serviceImage = computed(() => {
         : `https://drheal.quantumberg.com${service.value.thumnail_image}`
 })
 
-/* ---------------- SEO HELPERS ---------------- */
+/* ---------------- SEO ---------------- */
 const updateMeta = (key, content, attr = "name") => {
     if (!content) return
     let meta = document.querySelector(`meta[${attr}='${key}']`)
@@ -83,29 +91,34 @@ const updateMeta = (key, content, attr = "name") => {
 }
 
 const updatePageSEO = (data) => {
-    // Title
     document.title =
         data.meta_title ||
         data.name1 ||
         "Dr Heal Pain Cure Hospital"
 
-    // Meta tags
     updateMeta("description", data.meta_description)
     updateMeta("keywords", data.meta_keyword)
 
-    // Optional OG tags (recommended)
     updateMeta("og:title", data.meta_title || data.name1, "property")
     updateMeta("og:description", data.meta_description, "property")
     updateMeta("og:image", serviceImage.value, "property")
     updateMeta("og:type", "website", "property")
 }
 
-/* ---------------- WATCH SERVICE ---------------- */
+/* ---------------- WATCHERS ---------------- */
 watch(service, (val) => {
-    if (val) {
-        updatePageSEO(val)
-    }
+    if (val) updatePageSEO(val)
 })
 
+// 🔥 THIS FIXES YOUR ISSUE
+watch(
+    () => route.params.slug,
+    () => {
+        service.value = null
+        fetchService()
+    }
+)
+
+/* ---------------- INIT ---------------- */
 onMounted(fetchService)
 </script>

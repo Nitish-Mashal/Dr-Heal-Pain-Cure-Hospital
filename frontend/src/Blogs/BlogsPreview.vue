@@ -7,7 +7,7 @@
                 class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-transform hover:scale-105 flex flex-col">
 
                 <!-- 🔸 Top Orange Section -->
-                <div class="global-bg-color p-3 flex justify-between items-center h-48">
+                <div class="bg-color-blue p-3 flex justify-between items-center h-48">
                     <!-- Left: Logo + Text -->
                     <div class="text-white w-1/2">
                         <h2 class="text-lg font-bold leading-snug">

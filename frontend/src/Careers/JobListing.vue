@@ -18,11 +18,11 @@
             </div>
 
             <!-- Resume Upload -->
-            <div class="card shadow py-4 rounded-4 bold-test-color">
+            <div class=" shadow py-4 rounded-4 bg-color-blue">
                 <div class="flex flex-col justify-center items-center">
                     <router-link to="/apply-job" class="text-gray-800">
                         <div
-                            class="cursor-pointer border-1 border-gray-800 text-gray-800 px-5 py-1 rounded-full hover:bg-gray-100 transition inline-flex items-center whitespace-nowrap">
+                            class="cursor-pointer border-1 border-gray-50 text-gray-50 px-5 py-1 rounded-full transition inline-flex items-center whitespace-nowrap">
                             Apply For a Job
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="h-4 w-4 ml-2">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
 
-                <div class="text-xl font-normal text-center pt-4">
+                <div class="text-xl font-normal text-center pt-4 text-gray-50">
                     Interested candidates can contact or share resumes to
                     <span class="font-semibold">info@drheal.in</span>
                 </div>
@@ -56,8 +56,9 @@
                     <router-link :to="{
                         name: 'JobApply',
                         query: { title: job.title }
-                    }" class="no-underline text-inherit text-gray-800">
-                        <button class="text-2xl flex items-center gap-1 hover:underline text-inherit">
+                    }" class="no-underline text-inherit">
+                        <button
+                            class="flex items-center gap-1 hover:underline text-inherit bg-color-blue px-3 py-1 rounded-5 text-white">
                             Apply
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="h-5 w-5">
@@ -76,7 +77,7 @@
 
                 <!-- Job Type — hide if empty -->
                 <div v-if="job.type"
-                    class="border-1 border-gray-800 text-sm px-3 py-1 rounded-full inline-flex items-center whitespace-nowrap mt-3 mb-4">
+                    class="bg-color-orange text-white text-sm px-3 py-1 rounded-full inline-flex items-center whitespace-nowrap mt-3 mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-4 h-4 mr-2">
                         <path stroke-linecap="round" stroke-linejoin="round"

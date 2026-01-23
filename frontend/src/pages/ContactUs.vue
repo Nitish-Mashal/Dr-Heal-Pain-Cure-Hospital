@@ -1,9 +1,9 @@
 <template>
     <div>
         <!-- Banner -->
-        <div class="relative">
-            <div class="w-full h-72 bg-cover bg-center" style="background-image: url('/files/contact-us.jpg');">
-            </div>
+        <div class="relative w-full">
+            <img src="https://drheal.quantumberg.com/files/contact-us.jpg" alt="Contact Us"
+                class="w-full sm:h-56 md:h-72 object-contain md:object-cover" />
         </div>
 
         <!-- Main Section -->
@@ -81,15 +81,11 @@
                             <!-- Item 1 -->
                             <div class="text-white text-left">
                                 <h2 class="flex items-center gap-3 text-4xl font-bold mb-2">
-                                    <div class="w-8 h-8 flex items-center justify-center bg-white rounded-full shrink-0">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke-width="1.5"
-                                            stroke="currentColor"
-                                            class="w-5 h-5 text-gray-800">
-                                            <path stroke-linecap="round"
-                                                stroke-linejoin="round"
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-white rounded-full shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-800">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                                         </svg>
                                     </div>
@@ -108,10 +104,13 @@
                             <!-- Item 2 -->
                             <div class="text-white text-left">
                                 <h2 class="flex items-center gap-3 text-4xl font-bold mb-2">
-                                    <div class="w-8 h-8 flex items-center justify-center bg-white rounded-full shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-800">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-                                    </svg>
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-white rounded-full shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-800">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                                        </svg>
 
                                     </div>
                                     <span>Email Us</span>
@@ -122,7 +121,7 @@
                                     E-Mail:
                                     <a href="mailto:info@drheal.in?subject=Enquiry from Website"
                                         class="no-underline text-white">
-                                            info@drheal.in
+                                        info@drheal.in
                                     </a>
                                 </p>
                             </div>
@@ -135,134 +134,122 @@
             </div>
 
         </div>
-        
+
         <!-- Address Info Cards -->
-<div class="container mt-4 mb-4">
-    <div class="row g-4">
+        <div class="container mt-4 mb-4">
+            <div class="row g-4">
 
-        <!-- Card 1 -->
-        <div class="col-md-4">
-            <div class="card shadow border-0 rounded-4">
-                <div class="card-body h-48 d-flex align-items-center justify-content-center text-center">
-                    <div>
-                        <h5 class="fw-bold text-color-blue mb-2">
-                            DR HEAL PAIN CURE HOSPITALS
-                        </h5>
-                        <div class="flex items-center gap-3">
-                            <a href="https://www.google.com/maps?q=DR+HEAL+PAIN+CURE+HOSPITALS+HSR+Layout+Bangalore"
-                            target="_blank"
-                            class="flex items-start gap-1 text-muted small text-decoration-none">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="card shadow border-0 rounded-4">
+                        <div class="card-body h-48 d-flex align-items-center justify-content-center text-center">
+                            <div>
+                                <h5 class="fw-bold text-color-blue mb-2">
+                                    DR HEAL PAIN CURE HOSPITALS
+                                </h5>
+                                <div class="flex items-center gap-3">
+                                    <a href="https://www.google.com/maps?q=DR+HEAL+PAIN+CURE+HOSPITALS+HSR+Layout+Bangalore"
+                                        target="_blank"
+                                        class="flex items-start gap-1 text-muted small text-decoration-none">
 
-                                <!-- Location Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    class="w-5 h-5 shrink-0">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                                </svg>
+                                        <!-- Location Icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                        </svg>
 
-                                <!-- Address Text -->
-                                <span>
-                                    Ganapa Arcade, 392, 9th Main Rd, 7th Sector,  
-                                    HSR Layout, Bengaluru, Karnataka 560102, India
-                                </span>
-                            </a>
-                        </div>
+                                        <!-- Address Text -->
+                                        <span>
+                                            Ganapa Arcade, 392, 9th Main Rd, 7th Sector,
+                                            HSR Layout, Bengaluru, Karnataka 560102, India
+                                        </span>
+                                    </a>
+                                </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="col-md-4">
-            <div class="card shadow border-0 rounded-4">
-                <div class="card-body h-48 d-flex align-items-center justify-content-center text-center">
-                    <div>
-                        <h5 class="fw-bold text-color-blue mb-2">
-                            Doctor Heal Hospital and Diagnostics
-                        </h5>
-                        <div class="flex items-center gap-3">
-                            <a href="https://www.google.com/maps?q=Doctor+Heal+Hospital+and+Diagnostics+Pillaganahalli+Bangalore"
-                            target="_blank"
-                            class="flex items-start gap-1 text-muted small text-decoration-none">
-
-                                <!-- Location Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    class="w-5 h-5 shrink-0">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                                </svg>
-
-                                <!-- Address Text -->
-                                <span>
-                                    Road, next to Kaushalya Vikas Kendra,  
-                                    Weavers Colony, Pillaganahalli,  
-                                    Bengaluru, Karnataka 560083
-                                </span>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="col-md-4">
-            <div class="card shadow border-0 rounded-4">
-                <div class="card-body h-48 d-flex align-items-center justify-content-center text-center">
-                    <div>
-                        <h5 class="fw-bold text-color-blue mb-2">
-                            ACHARYA POLY CLINIC AND LAB <br>
-                            <span class="fst-italic text-sm">
-                                (A Dr. Heal Multispeciality Group Hospital)
-                            </span>
-                        </h5>
-                        <div class="flex items-center gap-3">
-                            <a href="https://www.google.com/maps?q=ACHARYA+POLY+CLINIC+AND+LAB+Bannerghatta+Bangalore"
-                            target="_blank"
-                            class="flex items-start gap-1 text-muted small text-decoration-none">
-
-                                <!-- Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    class="w-5 h-5 shrink-0">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                                </svg>
-
-                                <!-- Text -->
-                                <span>
-                                    Taluk, Opposite Bus Stop, Shanubhoganahalli,  
-                                    Bannerghatta Post, Anekal,  
-                                    Bengaluru, Karnataka 560083
-                                </span>
-                            </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="card shadow border-0 rounded-4">
+                        <div class="card-body h-48 d-flex align-items-center justify-content-center text-center">
+                            <div>
+                                <h5 class="fw-bold text-color-blue mb-2">
+                                    Doctor Heal Hospital and Diagnostics
+                                </h5>
+                                <div class="flex items-center gap-3">
+                                    <a href="https://www.google.com/maps?q=Doctor+Heal+Hospital+and+Diagnostics+Pillaganahalli+Bangalore"
+                                        target="_blank"
+                                        class="flex items-start gap-1 text-muted small text-decoration-none">
+
+                                        <!-- Location Icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                        </svg>
+
+                                        <!-- Address Text -->
+                                        <span>
+                                            Road, next to Kaushalya Vikas Kendra,
+                                            Weavers Colony, Pillaganahalli,
+                                            Bengaluru, Karnataka 560083
+                                        </span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="card shadow border-0 rounded-4">
+                        <div class="card-body h-48 d-flex align-items-center justify-content-center text-center">
+                            <div>
+                                <h5 class="fw-bold text-color-blue mb-2">
+                                    ACHARYA POLY CLINIC AND LAB <br>
+                                    <span class="fst-italic text-sm">
+                                        (A Dr. Heal Multispeciality Group Hospital)
+                                    </span>
+                                </h5>
+                                <div class="flex items-center gap-3">
+                                    <a href="https://www.google.com/maps?q=ACHARYA+POLY+CLINIC+AND+LAB+Bannerghatta+Bangalore"
+                                        target="_blank"
+                                        class="flex items-start gap-1 text-muted small text-decoration-none">
+
+                                        <!-- Icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                        </svg>
+
+                                        <!-- Text -->
+                                        <span>
+                                            Taluk, Opposite Bus Stop, Shanubhoganahalli,
+                                            Bannerghatta Post, Anekal,
+                                            Bengaluru, Karnataka 560083
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-
-    </div>
-</div>
 
 
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="py-10 px-5">
+    <div class="py-10 px-5 md:px-5">
 
         <!-- Loading State -->
         <div v-if="isLoading" class="text-center py-20 text-gray-500 text-lg">
@@ -9,9 +9,20 @@
         <!-- Blog Details -->
         <div v-else-if="blog" class="max-w-6xl mx-auto mb-12">
 
-            <!-- Header Image -->
-            <img v-if="blog.header_image" :src="blog.header_image" alt="Blog Image"
-                class="w-full h-96 object-cover rounded-lg mb-6" loading="lazy" />
+            <!-- MOBILE FULL WIDTH IMAGE -->
+            <div class="relative -mx-5 md:mx-0">
+                <img v-if="blog.header_image" :src="blog.header_image" alt="Blog Image" class="
+                        w-full
+                        h-56
+                        sm:h-64
+                        md:h-96
+                        object-contain
+                        md:object-cover
+                        rounded-none
+                        md:rounded-lg
+                        mb-6
+                    " loading="lazy" />
+            </div>
 
             <!-- Description Headings & Content -->
             <div v-for="(heading, index) in descriptionHeadings" :key="index">
@@ -27,13 +38,14 @@
 
         </div>
 
-        <!-- Fallback if no blog found -->
+        <!-- Fallback -->
         <div v-else class="text-center text-gray-500 py-20">
             Blog not found.
         </div>
 
     </div>
 </template>
+
 
 <script>
 import { useRoute } from 'vue-router'
