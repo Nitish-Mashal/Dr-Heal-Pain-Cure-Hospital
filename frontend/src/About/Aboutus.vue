@@ -9,13 +9,13 @@
       sm:h-56
       md:h-80   
       object-contain md:object-cover
-      rounded-4
+      rounded-4 
     " />
 
             <!-- Center Content -->
             <div class="absolute inset-0 flex items-center justify-center px-4 sm:px-[250px]">
                 <div class="text-white text-center">
-                    <h2 class="font-semibold text-2xl md:text-4xl">
+                    <h2 class="font-semibold text-2xl md:text-4xl ">
                         About Us
                     </h2>
                 </div>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-5 flex flex-col justify-center mt-6 md:mt-0">
-                    <h6 class="text-color-orange uppercase mb-3 tracking-widest">About Us</h6>
+                    <h6 class="text-color-orange uppercase mb-3 tracking-widest pt-4">About Us</h6>
                     <h2 class="font-semibold mb-4 text-color-blue">
                         Introduction & Establishment
                     </h2>

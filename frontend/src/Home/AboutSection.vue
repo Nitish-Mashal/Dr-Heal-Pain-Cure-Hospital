@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5 flex flex-col justify-center mt-6 md:mt-0">
-                <h6 class="text-color-orange uppercase mb-3 tracking-widest">About Us</h6>
+                <h6 class="text-color-orange uppercase mb-3 tracking-widest pt-4">About Us</h6>
                 <h2 class="font-semibold mb-4 text-color-blue">
                     Healing Pain Without Surgery. Restoring Life With Purpose.
                 </h2>
@@ -50,7 +50,7 @@
                 </p>
                 <div>
                     <router-link to="/about-us">
-                        <button class="bg-[#007f8c] text-white px-5 py-2 rounded-lg font-semibold">
+                        <button class="bg-color-blue text-white px-5 py-2 rounded-lg font-semibold">
                             Read More
                         </button>
                     </router-link>
