@@ -27,5 +27,30 @@ export default {
     BookAppointmentFloat,
     WhatsappFloat
   },
+  setup() {
+    const route = useRoute()
+    const router = useRouter()
+
+    const baseUrl = "https://drheal.quantumberg.com"
+
+    const updateCanonical = () => {
+      const canonicalUrl = baseUrl + router.resolve(route).path
+
+      let link = document.querySelector("link[rel='canonical']")
+      if (!link) {
+        link = document.createElement("link")
+        link.setAttribute("rel", "canonical")
+        document.head.appendChild(link)
+      }
+
+      link.setAttribute("href", canonicalUrl)
+    }
+
+    // Run when App loads
+    onMounted(updateCanonical)
+
+    // Run every time the route changes
+    watch(route, updateCanonical)
+  }
 }
 </script>
