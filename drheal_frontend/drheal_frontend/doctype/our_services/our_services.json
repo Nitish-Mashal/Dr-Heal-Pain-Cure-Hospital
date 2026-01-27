@@ -68,7 +68,7 @@
   },
   {
    "fieldname": "meta_keyword",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Meta Keyword"
   },
   {
@@ -85,7 +85,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-23 15:00:49.099461",
+ "modified": "2026-01-27 11:20:22.318909",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
  "name": "Our Services",
