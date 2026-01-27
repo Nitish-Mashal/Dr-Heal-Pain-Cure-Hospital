@@ -32,9 +32,11 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: 'Dr Heal | Diagnostic Tests & Healthcare Services',
+      title: 'Dr Heal Pain Cure Hospital | Advanced Pain Treatment Without Surgery',
       description:
-        'Dr Heal provides trusted diagnostic tests, health checkups, and home sample collection services across India.',
+        'Get advanced, non-surgical treatment for back pain, knee pain, sciatica, arthritis & chronic pain at Dr Heal Pain Cure Hospital. Trusted by patients across Karnataka & India.',
+      keywords:
+        'Dr Heal Pain Cure Hospital, pain cure hospital Bangalore, non surgical pain treatment, chronic pain treatment, back pain treatment Bangalore, knee pain treatment, sciatica treatment, arthritis pain management, pain management hospital, orthopaedic pain treatment, best pain doctor Bangalore, spine pain treatment, joint pain hospital.',
     },
   },
   {
@@ -45,6 +47,7 @@ const routes = [
       title: 'About Dr Heal | Trusted Diagnostic Healthcare Provider',
       description:
         'Know more about Dr Heal, our mission, vision, and commitment to accurate diagnostics and patient care.',
+      keywords: 'Dr Heal, About US'
     },
   },
   {
@@ -219,24 +222,39 @@ router.beforeEach((to, from, next) => {
   const defaultTitle = 'Dr Heal | Diagnostic Tests & Healthcare Services'
   const defaultDescription =
     'Dr Heal provides trusted diagnostic tests, health checkups, and home sample collection services across India.'
+  const defaultKeywords =
+    'Dr Heal, diagnostic tests, blood test, health checkup, pathology lab, healthcare services'
 
+  // ✅ Title
   document.title = to.meta.title || defaultTitle
 
+  // ✅ Description
   let descriptionTag = document.querySelector('meta[name="description"]')
-
   if (!descriptionTag) {
     descriptionTag = document.createElement('meta')
     descriptionTag.setAttribute('name', 'description')
     document.head.appendChild(descriptionTag)
   }
-
   descriptionTag.setAttribute(
     'content',
     to.meta.description || defaultDescription
   )
 
+  // ✅ Keywords
+  let keywordsTag = document.querySelector('meta[name="keywords"]')
+  if (!keywordsTag) {
+    keywordsTag = document.createElement('meta')
+    keywordsTag.setAttribute('name', 'keywords')
+    document.head.appendChild(keywordsTag)
+  }
+  keywordsTag.setAttribute(
+    'content',
+    to.meta.keywords || defaultKeywords
+  )
+
   next()
 })
+
 /* =============================================== */
 
 export default router
