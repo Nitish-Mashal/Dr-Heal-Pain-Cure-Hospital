@@ -11,7 +11,9 @@
   "email",
   "phone_number",
   "how_did_you_find_us",
-  "column_break_piyh"
+  "column_break_hnds",
+  "status",
+  "comments"
  ],
  "fields": [
   {
@@ -32,10 +34,6 @@
    "label": "Email"
   },
   {
-   "fieldname": "column_break_piyh",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "phone_number",
    "fieldtype": "Data",
    "label": "Phone Number"
@@ -44,12 +42,27 @@
    "fieldname": "how_did_you_find_us",
    "fieldtype": "Data",
    "label": "How did you find us?"
+  },
+  {
+   "fieldname": "column_break_hnds",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "In Progress\nOpen\nClosed"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Small Text",
+   "label": "Comments"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-28 14:20:11.842733",
+ "modified": "2026-01-28 16:24:13.282637",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
  "name": "Contact Enquiry",
