@@ -8,64 +8,93 @@ app_license = "mit"
 # Apps
 # ------------------
 
+# website_route_rules = [
+
+#     # =====================================================
+#     # 🔒 Frappe System / Backend Routes (DO NOT SPA)
+#     # =====================================================
+#     {"from_route": "/printview", "to_route": "/printview"},
+#     {"from_route": "/print", "to_route": "/print"},
+#     {"from_route": "/apps", "to_route": "/apps"},
+#     {"from_route": "/desk", "to_route": "/desk"},
+#     {"from_route": "/form/<path:path>", "to_route": "/form/<path:path>"},
+#     {"from_route": "/view/<path:path>", "to_route": "/view/<path:path>"},
+#     {"from_route": "/query-report/<path:path>", "to_route": "/query-report/<path:path>"},
+#     {"from_route": "/module/<path:path>", "to_route": "/module/<path:path>"},
+#     {"from_route": "/setup-wizard", "to_route": "/setup-wizard"},
+#     {"from_route": "/email-view", "to_route": "/email-view"},
+#     {"from_route": "/downloads", "to_route": "/downloads"},
+#     {"from_route": "/sitemap.xml", "to_route": "/sitemap.xml"},
+#     {"from_route": "/robots.txt", "to_route": "/robots.txt"},
+#     {"from_route": "/files/<path:path>", "to_route": "/files/<path:path>"},
+#     {"from_route": "/backups", "to_route": "/backups"},
+#     {"from_route": "/version-info", "to_route": "/version-info"},
+#     {"from_route": "/event-stream", "to_route": "/event-stream"},
+#     {"from_route": "/webhook/<path:path>", "to_route": "/webhook/<path:path>"},
+#     {"from_route": "/login", "to_route": "/login"},
+#     {"from_route": "/logout", "to_route": "/logout"},
+#     {"from_route": "/change-password", "to_route": "/change-password"},
+#     {"from_route": "/reset-password", "to_route": "/reset-password"},
+#     {"from_route": "/update-password", "to_route": "/update-password"},
+#     {"from_route": "/insights", "to_route": "/insights"},
+#     {"from_route": "/insights/<path:path>", "to_route": "/insights/<path:path>"},
+#     {"from_route": "/app/<path:path>", "to_route": "/app/<path:path>"},
+#     {"from_route": "/api/<path:path>", "to_route": "/api/<path:path>"},
+#     {"from_route": "/assets/<path:path>", "to_route": "/assets/<path:path>"},
+#     # {"from_route": "/(?!crm|app|desk|apps).*", "to_route": "/"},
+   
+
+#     # =====================================================
+#     # 🌐 Vue Frontend Routes (Explicit)
+#     # =====================================================
+
+#     # Home
+#     # {"from_route": "/", "to_route": "/"},
+#     {"from_route": "/doctors-list", "to_route": "/"},
+#     {"from_route": "/doctors", "to_route": "/"},
+#     {"from_route": "/viewProfile", "to_route": "/"},
+#     {"from_route": "/<path:path>", "to_route": "/"}, 
+
+#     # Appointment
+#     {"from_route": "/appointmentPage", "to_route": "/"},
+
+#     # Thank You
+#     {"from_route": "/thank-you", "to_route": "/"},
+
+#     # =====================================================
+#     # 🔁 FINAL CATCH-ALL (Vue Router Fallback)
+#     # =====================================================
+#     {"from_route": "/<path:path>", "to_route": "/"},
+
+#     {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},
+
+# ]
+
 website_route_rules = [
 
-    # =====================================================
-    # 🔒 Frappe System / Backend Routes (DO NOT SPA)
-    # =====================================================
+    # Frappe System / Backend Routes (DO NOT SPA)
     {"from_route": "/printview", "to_route": "/printview"},
-    {"from_route": "/print", "to_route": "/print"},
     {"from_route": "/apps", "to_route": "/apps"},
     {"from_route": "/desk", "to_route": "/desk"},
-    {"from_route": "/form/<path:path>", "to_route": "/form/<path:path>"},
-    {"from_route": "/view/<path:path>", "to_route": "/view/<path:path>"},
-    {"from_route": "/query-report/<path:path>", "to_route": "/query-report/<path:path>"},
-    {"from_route": "/module/<path:path>", "to_route": "/module/<path:path>"},
-    {"from_route": "/setup-wizard", "to_route": "/setup-wizard"},
-    {"from_route": "/email-view", "to_route": "/email-view"},
-    {"from_route": "/downloads", "to_route": "/downloads"},
-    {"from_route": "/sitemap.xml", "to_route": "/sitemap.xml"},
-    {"from_route": "/robots.txt", "to_route": "/robots.txt"},
-    {"from_route": "/files/<path:path>", "to_route": "/files/<path:path>"},
-    {"from_route": "/backups", "to_route": "/backups"},
-    {"from_route": "/version-info", "to_route": "/version-info"},
-    {"from_route": "/event-stream", "to_route": "/event-stream"},
-    {"from_route": "/webhook/<path:path>", "to_route": "/webhook/<path:path>"},
-    {"from_route": "/login", "to_route": "/login"},
-    {"from_route": "/logout", "to_route": "/logout"},
-    {"from_route": "/change-password", "to_route": "/change-password"},
-    {"from_route": "/reset-password", "to_route": "/reset-password"},
-    {"from_route": "/update-password", "to_route": "/update-password"},
-    {"from_route": "/insights", "to_route": "/insights"},
-    {"from_route": "/insights/<path:path>", "to_route": "/insights/<path:path>"},
+    {"from_route": "/crm", "to_route": "/crm"},
     {"from_route": "/app/<path:path>", "to_route": "/app/<path:path>"},
     {"from_route": "/api/<path:path>", "to_route": "/api/<path:path>"},
+    {"from_route": "/login", "to_route": "/login"},
+    {"from_route": "/logout", "to_route": "/logout"},
     {"from_route": "/assets/<path:path>", "to_route": "/assets/<path:path>"},
-    {"from_route": "/(?!crm|app|desk|apps).*", "to_route": "/"},
+    {"from_route": "/files/<path:path>", "to_route": "/files/<path:path>"},
 
-    # =====================================================
-    # 🌐 Vue Frontend Routes (Explicit)
-    # =====================================================
-
-    # Home
+    # Vue Frontend Routes (Explicit)
     {"from_route": "/", "to_route": "/"},
-    {"from_route": "/doctors-list", "to_route": "/"},
     {"from_route": "/doctors", "to_route": "/"},
+    {"from_route": "/doctors-list", "to_route": "/"},
     {"from_route": "/viewProfile", "to_route": "/"},
-    {"from_route": "/<path:path>", "to_route": "/"}, 
-
-    # Appointment
     {"from_route": "/appointmentPage", "to_route": "/"},
-
-    # Thank You
     {"from_route": "/thank-you", "to_route": "/"},
 
-    # =====================================================
-    # 🔁 FINAL CATCH-ALL (Vue Router Fallback)
-    # =====================================================
-    {"from_route": "/<path:path>", "to_route": "/"},
+    # FINAL CATCH-ALL (Vue Router Fallback)
+    {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},
 ]
-
 
 
 # required_apps = []
