@@ -23,14 +23,14 @@
         <div v-for="(doctor, index) in doctors" :key="index" class="bg-white shadow-md rounded-lg overflow-hidden">
           <!-- Doctor Image -->
           <img :src="doctor.image || '/files/PlaceholderImages.png'" :alt="doctor.first_name"
-            class="w-full h-64 object-cover" loading="lazy" />
+            class="w-full h-72 object-cover" loading="lazy" />
 
           <!-- Info Section -->
           <div class="bg-blue-100 text-center py-2">
             <h4 class="text-gray-800 font-semibold text-3xl">{{ doctor.first_name }}</h4>
-            <p class="text-blue-800 font-bold tracking-widest uppercase">
+            <!-- <p class="text-blue-800 font-bold tracking-widest uppercase">
               {{ doctor.department }}
-            </p>
+            </p> -->
 
             <!-- Social Icons -->
             <div class="flex justify-center space-x-4 mt-2">
@@ -66,40 +66,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Testimonials Carousel -->
-    <!-- <section class="mb-3 relative w-full bg-cover bg-center h-80 flex items-center justify-center"
-      style="background-image: url('/files/DoctorHand.png');">
-      
-      <div class="absolute inset-0 bg-color-blue bg-opacity-70"></div>
-
-      
-      <div class="relative z-10 text-center px-6 max-w-2xl">
-        <Carousel :items-to-show="1" :wrap-around="true" :autoplay="3000" :transition="1000">
-          <Slide v-for="(testimonial, index) in testimonials" :key="index">
-            <div class="flex flex-col items-center">
-              
-              <div class="text-[40px] text-white mb-4">"</div>
-
-              
-              <p class="text-white md:text-4xl leading-relaxed">
-                {{ testimonial.quote }}
-              </p>
-
-              
-              <h3 class="mt-4 text-white font-medium border-t border-white pt-2 inline-block">
-                {{ testimonial.author }}
-              </h3>
-            </div>
-          </Slide>
-
-          
-          <template #addons>
-            <Pagination />
-          </template>
-</Carousel>
-</div>
-</section> -->
   </div>
 </template>
 

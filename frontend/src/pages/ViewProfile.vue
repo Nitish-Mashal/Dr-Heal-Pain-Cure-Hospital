@@ -38,7 +38,7 @@
 
             <div class="border-t border-gray-200"></div>
 
-            <div class="flex justify-between items-center">
+            <!-- <div class="flex justify-between items-center">
               <p class="text-black-900 font-medium">Consultation Fee</p>
               <div class="text-right">
                 <p class="text-color-blue font-semibold">
@@ -47,7 +47,7 @@
                 </p>
                 <p class="text-gray-500 text-sm">Per consultation</p>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 
