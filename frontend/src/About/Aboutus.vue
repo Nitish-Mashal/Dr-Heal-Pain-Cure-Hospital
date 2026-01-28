@@ -15,9 +15,9 @@
             <!-- Center Content -->
             <div class="absolute inset-0 flex items-center justify-center px-4 sm:px-[250px]">
                 <div class="text-white text-center">
-                    <h2 class="font-semibold text-2xl md:text-4xl ">
+                    <h1 class="font-semibold">
                         About Us
-                    </h2>
+                    </h1>
                 </div>
             </div>
 

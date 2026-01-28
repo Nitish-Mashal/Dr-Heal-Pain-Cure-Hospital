@@ -10,7 +10,7 @@
 
     <!-- Content above overlay -->
     <div class="absolute inset-0 flex items-center justify-center z-10">
-      <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-[#065f7f] text-center">
+      <h1 class="font-bold text-[#065f7f] text-center">
         Doctors
       </h1>
     </div>

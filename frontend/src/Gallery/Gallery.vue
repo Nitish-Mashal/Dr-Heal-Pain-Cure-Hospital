@@ -1,8 +1,32 @@
 <template>
-    <div class="w-full py-12 px-4">
+    <div class="w-full px-4">
 
-        <div class="pb-5">
-            <h2 class="text-center text-color-blue">Gallery</h2>
+        <!-- Heading / Banner -->
+        <div class="relative w-full mb-5 overflow-hidden rounded-4">
+            <img src="https://drheal.quantumberg.com/files/dr-heal-about-us.webp" alt="Dr Heal About Us Image" class="
+                    w-full
+                    h-48
+                    sm:h-56
+                    md:h-80
+                    object-contain md:object-cover
+                    rounded-4
+                " />
+
+            <div class="absolute inset-0 flex items-center justify-center px-4 sm:px-[250px]">
+                <div class="text-white text-center">
+                    <h1 class="font-semibold">Gallery</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAG BUTTONS -->
+        <div v-if="tags.length" class="flex justify-center flex-wrap gap-2 mb-6">
+            <button v-for="tag in tags" :key="tag" @click="activeTag = tag"
+                class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200" :class="activeTag === tag
+                    ? 'bg-color-blue text-white shadow-md'
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'">
+                {{ tag }}
+            </button>
         </div>
 
         <!-- Loading State -->
@@ -13,12 +37,17 @@
             </span>
         </div>
 
-        <!-- Gallery -->
+        <!-- Empty State -->
+        <div v-else-if="!images.length" class="text-center text-gray-500 py-12">
+            No images available for this category
+        </div>
+
+        <!-- GALLERY (ROW-WISE) -->
         <div v-else class="container">
             <div class="row">
-                <div class="col-md-4 mb-2" v-for="(col, index) in imageColumns" :key="index">
-                    <img v-for="(img, i) in col" :key="i" :src="img" alt="Dr Heal Gallery Image"
-                        class="img-fluid mb-2 rounded-lg shadow-sm" loading="lazy" />
+                <div v-for="(img, index) in images" :key="index" class="col-12 col-sm-6 col-md-4 mb-3">
+                    <img :src="img" alt="Dr Heal Gallery Image" class="img-fluid w-100 rounded-lg shadow-sm"
+                        loading="lazy" />
                 </div>
             </div>
         </div>
@@ -29,21 +58,18 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 
-/* ---------------- State ---------------- */
-const images = ref([]);
+/* ---------------- STATE ---------------- */
 const loading = ref(true);
+const tags = ref([]);
+const imagesByTag = ref({});
+const activeTag = ref("");
 
-/* ---------------- Computed ---------------- */
-// 3 columns × 2 images each (max 6 images)
-const imageColumns = computed(() => {
-    const cols = [[], [], []];
-    for (let i = 0; i < Math.min(images.value.length, 6); i++) {
-        cols[Math.floor(i / 2)].push(images.value[i]);
-    }
-    return cols;
+/* ---------------- COMPUTED ---------------- */
+const images = computed(() => {
+    return imagesByTag.value[activeTag.value] || [];
 });
 
-/* ---------------- Methods ---------------- */
+/* ---------------- METHODS ---------------- */
 const fetchGalleryImages = async () => {
     try {
         const startTime = Date.now();
@@ -53,14 +79,19 @@ const fetchGalleryImages = async () => {
         );
         const data = await res.json();
 
-        // Convert object to array & remove empty values
-        images.value = Object.values(data.message || {}).filter(Boolean);
+        const message = data.message || {};
 
-        // Smooth loader (minimum 1s)
+        tags.value = message.tags || [];
+        imagesByTag.value = message.images_by_tag || {};
+
+        // Default tag
+        activeTag.value = tags.value[0] || "";
+
+        // Smooth loader
         const elapsed = Date.now() - startTime;
         setTimeout(() => {
             loading.value = false;
-        }, Math.max(1000 - elapsed, 0));
+        }, Math.max(800 - elapsed, 0));
 
     } catch (error) {
         console.error("Failed to load gallery images:", error);
@@ -68,8 +99,17 @@ const fetchGalleryImages = async () => {
     }
 };
 
-/* ---------------- Lifecycle ---------------- */
-onMounted(() => {
-    fetchGalleryImages();
-});
+/* ---------------- LIFECYCLE ---------------- */
+onMounted(fetchGalleryImages);
 </script>
+
+<style scoped>
+img {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+</style>

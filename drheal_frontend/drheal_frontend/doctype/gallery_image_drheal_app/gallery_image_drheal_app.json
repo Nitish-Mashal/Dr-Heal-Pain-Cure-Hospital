@@ -6,13 +6,10 @@
  "engine": "InnoDB",
  "field_order": [
   "gallery_image_section",
-  "first_image",
-  "second_image",
-  "third_image",
-  "column_break_rfsk",
-  "fourth_image",
-  "fifth_image",
-  "sixth_image"
+  "upload_image",
+  "is_active",
+  "date",
+  "column_break_rfsk"
  ],
  "fields": [
   {
@@ -21,44 +18,30 @@
    "label": "Gallery Image"
   },
   {
-   "fieldname": "first_image",
-   "fieldtype": "Attach Image",
-   "label": "First Image"
-  },
-  {
-   "fieldname": "second_image",
-   "fieldtype": "Attach Image",
-   "label": "Second Image"
-  },
-  {
-   "fieldname": "third_image",
-   "fieldtype": "Attach Image",
-   "label": "Third Image"
-  },
-  {
    "fieldname": "column_break_rfsk",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "fourth_image",
-   "fieldtype": "Attach Image",
-   "label": "Fourth Image"
+   "fieldname": "upload_image",
+   "fieldtype": "Attach",
+   "label": "Upload Image"
   },
   {
-   "fieldname": "fifth_image",
-   "fieldtype": "Attach Image",
-   "label": "Fifth Image"
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
   },
   {
-   "fieldname": "sixth_image",
-   "fieldtype": "Attach Image",
-   "label": "Sixth Image"
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-23 17:38:38.848478",
+ "modified": "2026-01-27 16:10:19.853841",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
  "name": "Gallery-Image-Drheal-App",

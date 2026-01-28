@@ -3,23 +3,44 @@ import frappe
 @frappe.whitelist(allow_guest=True)
 def get_gallery_images():
     """
-    Public API to fetch latest gallery images
+    Public API to fetch gallery images grouped by tags
     """
-    gallery = frappe.get_all(
+    records = frappe.get_all(
         "Gallery-Image-Drheal-App",
+        filters={
+            "is_active": 1
+        },
         fields=[
-            "first_image",
-            "second_image",
-            "third_image",
-            "fourth_image",
-            "fifth_image",
-            "sixth_image"
+            "name",
+            "upload_image",
+            "date"
         ],
-        order_by="creation desc",
-        limit_page_length=1
+        order_by="date desc"
     )
 
-    if gallery:
-        return gallery[0]
+    response = {}
+    all_tags = set()
 
-    return {}
+    for row in records:
+        # Get tags for each document
+        tags = frappe.get_doc(
+            "Gallery-Image-Drheal-App",
+            row.name
+        ).get_tags()
+
+        if not tags:
+            tags = ["All"]
+
+        for tag in tags:
+            all_tags.add(tag)
+
+            if tag not in response:
+                response[tag] = []
+
+            if row.upload_image:
+                response[tag].append(row.upload_image)
+
+    return {
+        "tags": sorted(list(all_tags)),
+        "images_by_tag": response
+    }

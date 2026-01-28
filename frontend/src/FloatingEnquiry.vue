@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed top-1/2 right-[-76px] -translate-y-1/2 
+    <div class="fixed top-1/2 right-[-62px] -translate-y-1/2 text-sm
            rotate-[-90deg]
            bg-color-orange text-white
            px-4 py-2
