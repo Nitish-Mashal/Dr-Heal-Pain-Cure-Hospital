@@ -187,20 +187,12 @@
 
                 <!-- MOBILE SERVICES -->
                 <li>
-                    <button @click="toggleServices" class="flex w-full gap-2 items-center">
+                    <button @click="activeMobileDropdown = 'services'" class="flex w-full gap-2 items-center">
                         Services
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <ul v-show="mobileServices"
-                        class="pl-4 mt-2 space-y-2 max-h-[60vh] overflow-y-auto overscroll-contain">
-                        <li v-for="service in services" :key="service.url">
-                            <router-link :to="`/services/${service.url}`" class="text-gray-800 no-underline">{{
-                                service.name1
-                                }}</router-link>
-                        </li>
-                    </ul>
                 </li>
 
                 <!-- MOBILE DOCTORS -->
@@ -208,43 +200,101 @@
 
                 <!-- MOBILE FACILITIES -->
                 <li>
-                    <button @click="toggleFacilities" class="flex w-full gap-2 items-center">
+                    <button @click="activeMobileDropdown = 'facilities'" class="flex w-full gap-2 items-center">
                         Facilities
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <ul v-show="mobileFacilities"
-                        class="pl-4 mt-2 space-y-2 max-h-[60vh] overflow-y-auto overscroll-contain">
-                        <li v-for="facility in facilities" :key="facility.url">
-                            <router-link :to="`/facilities/${facility.url}`" class="text-gray-800 no-underline">{{
-                                facility.name1 }}</router-link>
-                        </li>
-                    </ul>
                 </li>
 
                 <!-- MOBILE MORE -->
                 <li>
-                    <button @click="toggleMore" class="flex w-full gap-2 items-center">
+                    <button @click="activeMobileDropdown = 'more'" class="flex w-full gap-2 items-center">
                         More
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <ul v-show="mobileMore" class="pl-4 mt-2 space-y-2 max-h-[40vh] overflow-y-auto overscroll-contain">
-                        <li><router-link to="/Careers" class="text-gray-800 no-underline">Careers</router-link></li>
-                        <li><router-link to="/blog" class="text-gray-800 no-underline">Blogs</router-link></li>
-                    </ul>
                 </li>
 
                 <li><router-link to="/contact-us" class="text-gray-800 no-underline">Contact Us</router-link></li>
+
                 <li>
                     <a href="https://drheal.quantumberg.com/login" class="block w-full text-gray-800 no-underline">
                         Login
                     </a>
                 </li>
+
             </ul>
         </div>
+        <!-- ================= MOBILE DROPDOWN CARD (COMPACT) ================= -->
+        <div v-if="activeMobileDropdown"
+            class="fixed inset-0 z-[100000] md:hidden flex items-start justify-center pt-24">
+            <!-- Backdrop -->
+            <div class="absolute inset-0 bg-black/30" @click="activeMobileDropdown = null"></div>
+
+            <!-- Card -->
+            <div class="relative bg-white w-[90%] max-w-[420px]
+           rounded-xl shadow-2xl
+           max-h-[65vh]
+           flex flex-col">
+                <!-- Header -->
+                <div class="flex items-center justify-between px-4 py-3 border-b">
+                    <h3 class="font-semibold text-sm uppercase tracking-wide">
+                        {{ activeMobileDropdown }}
+                    </h3>
+                    <button @click="activeMobileDropdown = null" class="text-lg leading-none">
+                        ✕
+                    </button>
+                </div>
+
+                <!-- Scrollable List -->
+                <div class="flex-1 overflow-y-auto overscroll-contain px-4 py-2">
+                    <!-- SERVICES -->
+                    <ul v-if="activeMobileDropdown === 'services'" class="divide-y">
+                        <li v-for="service in services" :key="service.url">
+                            <router-link :to="`/services/${service.url}`"
+                                class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
+                                @click="activeMobileDropdown = null">
+                                {{ service.name1 }}
+                            </router-link>
+                        </li>
+                    </ul>
+
+                    <!-- FACILITIES -->
+                    <ul v-if="activeMobileDropdown === 'facilities'" class="divide-y">
+                        <li v-for="facility in facilities" :key="facility.url">
+                            <router-link :to="`/facilities/${facility.url}`"
+                                class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
+                                @click="activeMobileDropdown = null">
+                                {{ facility.name1 }}
+                            </router-link>
+                        </li>
+                    </ul>
+
+                    <!-- MORE -->
+                    <ul v-if="activeMobileDropdown === 'more'" class="divide-y">
+                        <li>
+                            <router-link to="/careers"
+                                class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
+                                @click="activeMobileDropdown = null">
+                                Careers
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/blog"
+                                class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
+                                @click="activeMobileDropdown = null">
+                                Blogs
+                            </router-link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
     </header>
 </template>
 
@@ -252,6 +302,7 @@
 import { ref, onMounted, onBeforeUnmount, watch } from "vue"
 import { useRouter } from "vue-router"
 
+const activeMobileDropdown = ref(null)
 const isMenuOpen = ref(false)
 const mobileServices = ref(false)
 const mobileFacilities = ref(false)
