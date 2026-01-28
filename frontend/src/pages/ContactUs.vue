@@ -259,13 +259,13 @@
 <script setup>
 import { ref } from "vue";
 
-// Form Refs
+// Form refs
 const contactForm = ref(null);
 const loading = ref(false);
 const successMsg = ref("");
 const errorMsg = ref("");
 
-// Form data
+// Form model
 const form = ref({
     name: "",
     email: "",
@@ -275,8 +275,12 @@ const form = ref({
 
 // Validation rules
 const rules = {
-    name: [{ required: true, message: "Please enter your name", trigger: "blur" }],
-    email: [{ required: true, message: "Please enter your email", trigger: "blur" }],
+    name: [
+        { required: true, message: "Please enter your name", trigger: "blur" },
+    ],
+    email: [
+        { required: true, message: "Please enter your email", trigger: "blur" },
+    ],
     phone: [
         { required: true, message: "Please enter Phone Number", trigger: "blur" },
         {
@@ -284,12 +288,8 @@ const rules = {
                 const digitsOnly = value.replace(/\D/g, "");
                 if (!digitsOnly) {
                     callback(new Error("Please enter your mobile number."));
-                } else if (!/^[6-9]\d{0,9}$/.test(digitsOnly)) {
-                    callback(new Error("Please enter a valid Indian mobile number."));
-                } else if (digitsOnly.length > 10) {
-                    callback(new Error("Mobile number cannot exceed 10 digits."));
-                } else if (digitsOnly.length < 10) {
-                    callback(new Error("Mobile number must be 10 digits."));
+                } else if (!/^[6-9]\d{9}$/.test(digitsOnly)) {
+                    callback(new Error("Please enter 10 digit valid mobile number."));
                 } else {
                     callback();
                 }
@@ -297,10 +297,12 @@ const rules = {
             trigger: "blur",
         },
     ],
-    source: [{ required: true, message: "Please select an option", trigger: "blur" }],
+    source: [
+        { required: true, message: "Please select an option", trigger: "change" },
+    ],
 };
 
-// Submit contact form
+// Submit handler
 const handleSubmit = () => {
     successMsg.value = "";
     errorMsg.value = "";
@@ -311,30 +313,43 @@ const handleSubmit = () => {
         loading.value = true;
 
         try {
-            const response = await fetch("/api/method/drheal_frontend.api.contact.submit_contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-Requested-With": "XMLHttpRequest",
-                },
-                body: JSON.stringify(form.value),
-            });
+            const response = await fetch(
+                "/api/method/drheal_frontend.api.contact.submit_contact",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Requested-With": "XMLHttpRequest",
+                    },
+                    body: JSON.stringify({
+                        name: form.value.name,
+                        email: form.value.email,
+                        phone: form.value.phone,
+                        source: form.value.source,
+                    }),
+                }
+            );
 
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-            const res = await response.json();
-            console.log("API RES:", res);
-
-            if (res.message?.message === "success") {
-                successMsg.value = "Message submitted successfully!";
-                form.value = { name: "", email: "", phone: "", source: "" };
-            } else {
-                errorMsg.value = res.message?.message || "Something went wrong.";
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-        } catch (error) {
-            console.error("ERROR:", error);
-            errorMsg.value = "Something went wrong.";
+            const res = await response.json();
+
+            if (res.message?.message === "success") {
+                successMsg.value =
+                    res.message.success_message ||
+                    "Thank you for reaching out to us, our faculty will connect with you shortly";
+
+                // Reset form
+                contactForm.value.resetFields();
+            } else {
+                errorMsg.value =
+                    res.message?.message || "Something went wrong. Please try again.";
+            }
+        } catch (err) {
+            console.error(err);
+            errorMsg.value = "Something went wrong. Please try again later.";
         } finally {
             loading.value = false;
         }

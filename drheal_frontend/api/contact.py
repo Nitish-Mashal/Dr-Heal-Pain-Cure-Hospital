@@ -1,9 +1,12 @@
+import frappe
+import json
+
 @frappe.whitelist(allow_guest=True)
 def submit_contact():
     frappe.local.flags.ignore_csrf = True
 
     try:
-        data = json.loads(frappe.request.data or '{}')
+        data = json.loads(frappe.request.data or "{}")
     except Exception:
         return {"message": "Invalid JSON data"}
 
@@ -15,20 +18,23 @@ def submit_contact():
     if not (name and email):
         return {"message": "Name and Email are required"}
 
-  
     try:
-        send_direct_email(
-            to_email="wequantumberg@gmail.com",
-            sender=email,
-            subject=f"New Contact Form Submission from {name}",
-            html_message=f"""
-                <b>Name:</b> {name}<br>
-                <b>Email:</b> {email}<br>
-                <b>Phone:</b> {phone or '-'}<br>
-                <b>How did you find us:</b> {source or '-'}
-            """,
-        )
-    except Exception as e:
-        return {"message": f"Email sending failed: {str(e)}"}
+        doc = frappe.get_doc({
+            "doctype": "Contact Enquiry",
+            "name1": name,
+            "email": email,
+            "phone_number": phone,
+            "how_did_you_find_us": source
+        })
 
-    return {"message": "success"}
+        doc.insert(ignore_permissions=True)
+        frappe.db.commit()
+
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Contact Enquiry API Error")
+        return {"message": "Failed to save enquiry"}
+
+    return {
+        "message": "success",
+        "success_message": "Thank you for reaching out to us, our faculty will connect with you shortly"
+    }
