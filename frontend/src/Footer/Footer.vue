@@ -55,10 +55,15 @@
 
                         <h5 class="mt-4 mb-2">Contact</h5>
                         <p class="text-[15px]">
-                            📞 {{ contact.phone }} <br />
+                            📞
+                            <a href="tel:07969288000" class="text-white underline">
+                                07969288000
+                            </a>
+                            <br />
+
                             ✉️
-                            <a :href="`mailto:${contact.email}`" class="text-white underline">
-                                {{ contact.email }}
+                            <a href="mailto:info@drheal.in" class="text-white underline">
+                                info@drheal.in
                             </a>
                         </p>
                     </div>
@@ -77,7 +82,7 @@
                 <p>
                     Powered by
                     <a href="https://quantumberg.com/" target="_blank" rel="noopener noreferrer"
-                        class="no-underline text-white transition">
+                        class="underline text-white transition">
                         Quantumberg Technologies Pvt Ltd
                     </a>
                 </p>
@@ -122,9 +127,9 @@ const quickLinks = [
 ]
 
 const workingHours = [
-    { day: "Monday - Friday", time: "07:00 am - 05:00 pm" },
-    { day: "Saturday", time: "09:00 am - 02:00 pm" },
-    { day: "Sunday", time: "10:00 am - 02:00 pm" },
+    { day: "Monday - Friday", time: "07:00 am - 06:00 pm" },
+    { day: "Saturday", time: "07:00 am - 06:00 pm" },
+    { day: "Sunday", time: "07:00 am - 06:00 pm" },
 ]
 
 const addresses = [
@@ -132,9 +137,4 @@ const addresses = [
     "Doctor Heal Hospital and Diagnostics Road, next to Kaushalya Vikas Kendra, Weavers Colony, Pillaganahalli, Bengaluru - 560083.",
     "ACHARYA POLY CLINIC AND LAB (A Dr. Heal Multispeciality Group Hospital), Opposite Bus Stop, Shanubhoganahalli, Bannerghatta Post, Anekal, Bengaluru - 560083.",
 ]
-
-const contact = {
-    phone: "079 6926 3030",
-    email: "info@drheal.in",
-}
 </script>
