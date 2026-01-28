@@ -179,7 +179,7 @@
 
 
         <!-- ================= MOBILE MENU ================= -->
-        <div v-show="isMenuOpen" class="md:hidden bg-white px-3 pb-4">
+        <div v-show="isMenuOpen" class="md:hidden bg-white px-3 pb-4 mobile-menu-wrapper relative z-[99999]">
             <ul class="flex flex-col space-y-3 text-[15px] font-medium text-gray-800">
 
                 <li><router-link to="/" class="text-gray-800 no-underline">Home</router-link></li>
@@ -187,13 +187,14 @@
 
                 <!-- MOBILE SERVICES -->
                 <li>
-                    <button @click="toggleServices" class="flex w-full justify-between items-center">
+                    <button @click="toggleServices" class="flex w-full gap-2 items-center">
                         Services
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <ul v-show="mobileServices" class="pl-4 mt-2 space-y-2">
+                    <ul v-show="mobileServices"
+                        class="pl-4 mt-2 space-y-2 max-h-[60vh] overflow-y-auto overscroll-contain">
                         <li v-for="service in services" :key="service.url">
                             <router-link :to="`/services/${service.url}`" class="text-gray-800 no-underline">{{
                                 service.name1
@@ -207,13 +208,14 @@
 
                 <!-- MOBILE FACILITIES -->
                 <li>
-                    <button @click="toggleFacilities" class="flex w-full justify-between items-center">
+                    <button @click="toggleFacilities" class="flex w-full gap-2 items-center">
                         Facilities
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <ul v-show="mobileFacilities" class="pl-4 mt-2 space-y-2">
+                    <ul v-show="mobileFacilities"
+                        class="pl-4 mt-2 space-y-2 max-h-[60vh] overflow-y-auto overscroll-contain">
                         <li v-for="facility in facilities" :key="facility.url">
                             <router-link :to="`/facilities/${facility.url}`" class="text-gray-800 no-underline">{{
                                 facility.name1 }}</router-link>
@@ -223,13 +225,13 @@
 
                 <!-- MOBILE MORE -->
                 <li>
-                    <button @click="toggleMore" class="flex w-full justify-between items-center">
+                    <button @click="toggleMore" class="flex w-full gap-2 items-center">
                         More
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <ul v-show="mobileMore" class="pl-4 mt-2 space-y-2">
+                    <ul v-show="mobileMore" class="pl-4 mt-2 space-y-2 max-h-[40vh] overflow-y-auto overscroll-contain">
                         <li><router-link to="/Careers" class="text-gray-800 no-underline">Careers</router-link></li>
                         <li><router-link to="/blog" class="text-gray-800 no-underline">Blogs</router-link></li>
                     </ul>
@@ -242,15 +244,6 @@
                     </a>
                 </li>
             </ul>
-            <!-- <div class="flex items-center gap-2 text-[#007f8c] font-semibold text-sm ">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24
-           11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1
-           A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1
-           11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.2 2.22z" />
-                </svg>
-                <a href="tel:07969288000" class="text-[#007f8c]">07969288000</a>
-            </div> -->
         </div>
     </header>
 </template>
