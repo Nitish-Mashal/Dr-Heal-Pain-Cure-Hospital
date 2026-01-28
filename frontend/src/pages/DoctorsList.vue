@@ -116,7 +116,7 @@ export default {
   },
   data() {
     return {
-      // doctors: [],
+      doctors: [],
       // testimonials: [
       //   {
       //     quote:
@@ -134,8 +134,8 @@ export default {
       //     author: "Michael Johnson",
       //   },
       // ],
-      // loading: true,
-      // error: null,
+      loading: true,
+      error: null,
     };
   },
   mounted() {
