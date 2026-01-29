@@ -145,7 +145,7 @@
                         <div class="card-body h-48 d-flex align-items-center justify-content-center text-center">
                             <div>
                                 <h5 class="fw-bold text-color-blue mb-2">
-                                    DR HEAL PAIN CURE HOSPITALS
+                                    Dr Heal Pain Cure Hospitals
                                 </h5>
                                 <div class="flex items-center gap-3">
                                     <a href="https://www.google.com/maps?q=DR+HEAL+PAIN+CURE+HOSPITALS+HSR+Layout+Bangalore"
@@ -216,7 +216,7 @@
                         <div class="card-body h-48 d-flex align-items-center justify-content-center text-center">
                             <div>
                                 <h5 class="fw-bold text-color-blue mb-2">
-                                    ACHARYA POLY CLINIC AND LAB <br>
+                                    Acharya poly Clinic and Lab <br>
                                     <span class="fst-italic text-sm">
                                         (A Dr. Heal Multispeciality Group Hospital)
                                     </span>

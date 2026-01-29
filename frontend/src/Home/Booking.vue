@@ -1,9 +1,9 @@
 <template>
     <div class="py-10">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row items-center">
                 <!-- Left Column -->
-                <div class="col-md-4 flex flex-col justify-center h-full">
+                <div class="col-md-5 flex flex-col justify-center h-full">
                     <h6 class="text-color-orange uppercase mb-3 tracking-widest">Booking</h6>
                     <h1 class="font-semibold mb-4">
                         Personalized Care, Perfect Health
@@ -14,8 +14,6 @@
                         Bangalore.
                     </p>
                 </div>
-
-                <div class="col-md-1"></div>
 
                 <!-- Right Column -->
                 <div class="col-md-7 mt-4 flex flex-col justify-center">
@@ -51,11 +49,11 @@
                                 </a>
                             </p>
 
-                            <div class="w-full h-px bg-gray-400 my-3"></div>
+                            <!-- <div class="w-full h-px bg-gray-400 my-3"></div> -->
 
                             <div class="text-gray-700">
-                                <div class="mb-2">Mon – Fri: 8:00am to 5:00pm</div>
-                                <div>Sat – Sun: 9:00am to 3:30pm</div>
+                                <div class="mb-2">Mon - Fri: 07:00am to 06:00pm</div>
+                                <div>Sat - Sun: 07:00am to 06:00pm</div>
                             </div>
                         </div>
 
@@ -81,7 +79,7 @@
                                 </a>
                             </p>
 
-                            <div class="w-full h-px bg-gray-400 my-3"></div>
+                            <!-- <div class="w-full h-px bg-gray-400 my-3"></div> -->
 
                             <div class="text-gray-700">
                                 <div>Email Address</div>

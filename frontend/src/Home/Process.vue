@@ -1,9 +1,9 @@
 <template>
     <div class="bg-color-blue py-10">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row items-center">
                 <!-- Left Column -->
-                <div class="col-md-4 flex flex-col justify-center h-full">
+                <div class="col-md-5 flex flex-col justify-center h-full">
                     <h6 class="text-color-orange uppercase mb-3 tracking-widest">Process</h6>
                     <h1 class="font-semibold mb-4 text-white">
                         How Does It Works
@@ -25,7 +25,7 @@
                 <div class="col-md-1"></div>
 
                 <!-- Right Column -->
-                <div class="col-md-7 mt-4 flex flex-col justify-center">
+                <div class="col-md-6 mt-4 flex flex-col justify-center">
                     <!-- Grid Container -->
                     <div class="grid grid-cols-2 gap-x-12 gap-y-6">
                         <div v-for="item in items" :key="item.title" class="flex items-center gap-3">

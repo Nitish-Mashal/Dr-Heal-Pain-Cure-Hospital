@@ -1,6 +1,5 @@
 <template>
-    <div class="container-fluid">
-
+    <div>
         <!-- HEADER SECTION -->
         <div class="relative w-full min-h-[270px] flex items-center justify-center overflow-hidden">
 
@@ -23,50 +22,55 @@
 
         </div>
 
-        <!-- CONTENT SECTION -->
-        <div class="row mb-3 items-center">
+        <div class="container">
 
-            <!-- LEFT LIST -->
-            <div class="col-md-6">
-                <div v-for="(item, index) in reasons" :key="index"
-                    class="flex flex-col sm:flex-row items-center gap-4 mb-4">
-                    <img :src="item.icon" :alt="item.alt" class="w-20 h-20 object-contain flex-shrink-0"
-                        loading="lazy" />
+            <!-- CONTENT SECTION -->
+            <div class="row mb-3 items-center">
 
-                    <div class="flex items-center">
-                        <p class="text-2xl font-semibold text-color-blue leading-tight mt-3">
-                            {{ item.text }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RIGHT VIDEO (Lazy-loaded with YouTube thumbnail) -->
-            <div class="col-md-6 flex items-center justify-center">
-                <div class="relative w-full max-w-xl aspect-video rounded-xl overflow-hidden shadow-lg cursor-pointer">
-
-                    <!-- Placeholder with YouTube thumbnail -->
-                    <div v-if="!videoLoaded" class="relative w-full h-full" @click="loadVideo">
-                        <img :src="thumbnailUrl" alt="Video Thumbnail" class="w-full h-full object-cover"
+                <!-- LEFT LIST -->
+                <div class="col-md-6">
+                    <div v-for="(item, index) in reasons" :key="index"
+                        class="flex flex-col sm:flex-row items-center gap-4 mb-4">
+                        <img :src="item.icon" :alt="item.alt" class="w-20 h-20 object-contain flex-shrink-0"
                             loading="lazy" />
-                        <!-- Play button overlay -->
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
+
+                        <div class="flex items-center">
+                            <p class="text-2xl font-semibold text-color-blue leading-tight mt-3">
+                                {{ item.text }}
+                            </p>
                         </div>
                     </div>
-
-                    <!-- Lazy-loaded iframe -->
-                    <iframe v-else class="absolute inset-0 w-full h-full" :src="videoUrl"
-                        title="Non-surgical pain treatment explanation video" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-
                 </div>
-            </div>
 
+                <!-- RIGHT VIDEO (Lazy-loaded with YouTube thumbnail) -->
+                <div class="col-md-6 flex items-center justify-center">
+                    <div
+                        class="relative w-full max-w-xl aspect-video rounded-xl overflow-hidden shadow-lg cursor-pointer">
+
+                        <!-- Placeholder with YouTube thumbnail -->
+                        <div v-if="!videoLoaded" class="relative w-full h-full" @click="loadVideo">
+                            <img :src="thumbnailUrl" alt="Video Thumbnail" class="w-full h-full object-cover"
+                                loading="lazy" />
+                            <!-- Play button overlay -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-white drop-shadow-lg" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Lazy-loaded iframe -->
+                        <iframe v-else class="absolute inset-0 w-full h-full" :src="videoUrl"
+                            title="Non-surgical pain treatment explanation video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </template>
