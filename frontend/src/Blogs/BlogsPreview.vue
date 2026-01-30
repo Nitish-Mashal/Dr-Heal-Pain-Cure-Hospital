@@ -20,7 +20,7 @@
 
                     <!-- Right: Image -->
                     <div class="w-1/2 flex justify-center">
-                        <img :src="card.thumbnail_image" alt="Card Image"
+                        <img :src="card.thumbnail_image" :alt="card.thumbnail_image"
                             class="w-32 h-32 object-cover rounded-full border-4 border-orange-300" />
                     </div>
                 </div>

@@ -11,7 +11,7 @@
 
             <!-- MOBILE FULL WIDTH IMAGE -->
             <div class="relative -mx-5 md:mx-0">
-                <img v-if="blog.header_image" :src="blog.header_image" alt="Blog Image" class="
+                <img v-if="blog.header_image" :src="blog.header_image" :alt="blog.header_image" class="
                         w-full
                         h-56
                         sm:h-64
