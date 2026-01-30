@@ -14,9 +14,10 @@
             <div class="col-md-8 flex flex-col gap-6 py-5">
                 <div v-for="(blog, index) in blogs" :key="index"
                     class="flex flex-col md:flex-row overflow-hidden shadow-md hover:shadow-lg transition">
-                    <!-- Image -->
-                    <div class="md:w-1/2 h-64 md:h-auto">
-                        <img :src="blog.image" :alt="blog.title" class="w-full h-full object-cover" />
+
+                    <!-- Image: natural height, fills container like before -->
+                    <div class="md:w-1/2 flex-shrink-0">
+                        <img :src="blog.image" :alt="blog.title" class="w-full h-full object-cover" loading="lazy" />
                     </div>
 
                     <!-- Text content -->

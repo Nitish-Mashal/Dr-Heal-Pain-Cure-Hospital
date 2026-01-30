@@ -1,11 +1,11 @@
 <template>
   <section class="w-full">
+
     <Carousel :items-to-show="1" :wrap-around="true" :autoplay="3000" :pause-autoplay-on-hover="true" :mouse-drag="true"
-      class="w-full">
+      class="w-full hero-carousel">
       <Slide v-for="(banner, index) in banners" :key="index">
         <img :src="banner.src" :alt="banner.alt" width="1920" height="460" :loading="index === 0 ? 'eager' : 'lazy'"
-          :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async"
-          class="w-full h-[150px] sm:h-[380px] lg:h-[460px] object-cover" />
+          :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async" class="hero-img" />
       </Slide>
 
       <template #addons>
@@ -13,7 +13,6 @@
       </template>
     </Carousel>
 
-    <!-- Below-fold lazy sections -->
     <AboutSection />
     <OurServices />
     <ServiceTypes />
@@ -23,15 +22,14 @@
     <Booking />
     <Testimonials />
     <OurBlogs />
+
   </section>
 </template>
 
 <script setup>
 import { defineAsyncComponent } from 'vue'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
 
-/* Lazy load below-the-fold components */
 const AboutSection = defineAsyncComponent(() => import('./AboutSection.vue'))
 const OurServices = defineAsyncComponent(() => import('./OurServices.vue'))
 const ServiceTypes = defineAsyncComponent(() => import('./ServiceTypes.vue'))
@@ -48,3 +46,15 @@ const banners = [
   { src: 'https://drheal.quantumberg.com/files/Hero-Banner-3.webp', alt: 'Hero Banner 3' },
 ]
 </script>
+
+<style>
+.hero-carousel {
+  min-height: 460px;
+}
+
+.hero-img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+}
+</style>

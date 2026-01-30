@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <section>
         <!-- HEADER SECTION -->
         <div class="relative w-full min-h-[270px] flex items-center justify-center overflow-hidden">
 
@@ -14,10 +14,11 @@
                 </h1>
             </div>
 
+            <!-- Decorative Image (non-LCP → lazy) -->
             <div class="hidden md:block absolute right-10 top-1/2 -translate-y-1/2">
                 <img src="https://drheal.quantumberg.com/files/Why-Choose-Us.webp"
-                    alt="Non-surgical pain management approach at Dr Heal" class="w-[320px] lg:w-[380px] object-contain"
-                    loading="lazy" />
+                    alt="Non-surgical pain management approach at Dr Heal" width="380" height="380" loading="lazy"
+                    decoding="async" class="w-[320px] lg:w-[380px] object-contain" />
             </div>
 
         </div>
@@ -29,71 +30,101 @@
 
                 <!-- LEFT LIST -->
                 <div class="col-md-6">
-                    <div v-for="(item, index) in reasons" :key="index"
-                        class="flex flex-col sm:flex-row items-center gap-4 mb-4">
-                        <img :src="item.icon" :alt="item.alt" class="w-20 h-20 object-contain flex-shrink-0"
-                            loading="lazy" />
+                    <ul class="space-y-4">
 
-                        <div class="flex items-center">
-                            <p class="text-2xl font-semibold text-color-blue leading-tight mt-3">
+                        <li v-for="item in reasons" :key="item.text"
+                            class="flex flex-col sm:flex-row items-center gap-4">
+                            <img :src="item.icon" :alt="item.alt" width="80" height="80" loading="lazy" decoding="async"
+                                class="w-20 h-20 object-contain flex-shrink-0" />
+
+                            <p class="text-xl lg:text-2xl font-semibold text-color-blue leading-tight mt-2 sm:mt-0">
                                 {{ item.text }}
                             </p>
-                        </div>
-                    </div>
+                        </li>
+
+                    </ul>
                 </div>
 
-                <!-- RIGHT VIDEO (Lazy-loaded with YouTube thumbnail) -->
-                <div class="col-md-6 flex items-center justify-center">
-                    <div
-                        class="relative w-full max-w-xl aspect-video rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <!-- RIGHT VIDEO -->
+                <div class="col-md-6 flex items-center justify-center mt-4 md:mt-0">
 
-                        <!-- Placeholder with YouTube thumbnail -->
-                        <div v-if="!videoLoaded" class="relative w-full h-full" @click="loadVideo">
-                            <img :src="thumbnailUrl" alt="Video Thumbnail" class="w-full h-full object-cover"
-                                loading="lazy" />
-                            <!-- Play button overlay -->
+                    <div class="relative w-full max-w-xl aspect-video rounded-xl overflow-hidden shadow-lg">
+
+                        <!-- Thumbnail Placeholder -->
+                        <button v-if="!videoLoaded" @click="loadVideo" class="relative w-full h-full group"
+                            aria-label="Play explanation video">
+                            <img :src="thumbnailUrl" alt="Watch how non-surgical pain treatment works" width="1280"
+                                height="720" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition"></div>
+
+                            <!-- Play Button -->
                             <div class="absolute inset-0 flex items-center justify-center">
-                                <svg class="w-16 h-16 text-white drop-shadow-lg" fill="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
+                                <div
+                                    class="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                                    <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
+                        </button>
 
-                        <!-- Lazy-loaded iframe -->
+                        <!-- Lazy iframe -->
                         <iframe v-else class="absolute inset-0 w-full h-full" :src="videoUrl"
-                            title="Non-surgical pain treatment explanation video" frameborder="0"
+                            title="Non-surgical pain treatment explanation video" loading="lazy"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
+                            allowfullscreen></iframe>
 
                     </div>
+
                 </div>
 
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
-// Reactive state for lazy video
+/* Only this is reactive */
 const videoLoaded = ref(false)
+
 const videoId = 'T1VqPDDr-bM'
-const videoUrl = ref(`https://www.youtube.com/embed/${videoId}?autoplay=1`)
+const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`
 const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
 
 function loadVideo() {
     videoLoaded.value = true
 }
 
-// Reasons list
-const reasons = [
-    { icon: 'https://drheal.quantumberg.com/files/wcu-01.png', text: 'No Scalpels, No Risk of Surgical Complications', alt: 'No scalpel non-surgical pain treatment' },
-    { icon: 'https://drheal.quantumberg.com/files/wcu-02.png', text: 'Personalized Treatment Rooted in Cause, Not Just Symptoms', alt: 'Personalized pain treatment addressing root cause' },
-    { icon: 'https://drheal.quantumberg.com/files/wcu-03.png', text: 'Faster Recovery & Minimal Downtime', alt: 'Faster recovery with non-surgical pain management' },
-    { icon: 'https://drheal.quantumberg.com/files/wcu-04.png', text: 'Lower Cost Compared to Surgery', alt: 'Affordable non-surgical pain treatment' },
-    { icon: 'https://drheal.quantumberg.com/files/wcu-05.png', text: 'Focus on Regeneration, Not Invasion', alt: 'Regenerative pain management without surgery' },
-]
+/* Static → remove Vue tracking */
+const reasons = Object.freeze([
+    {
+        icon: 'https://drheal.quantumberg.com/files/wcu-01.png',
+        text: 'No Scalpels, No Risk of Surgical Complications',
+        alt: 'No scalpel non-surgical pain treatment'
+    },
+    {
+        icon: 'https://drheal.quantumberg.com/files/wcu-02.png',
+        text: 'Personalized Treatment Rooted in Cause, Not Just Symptoms',
+        alt: 'Personalized pain treatment addressing root cause'
+    },
+    {
+        icon: 'https://drheal.quantumberg.com/files/wcu-03.png',
+        text: 'Faster Recovery & Minimal Downtime',
+        alt: 'Faster recovery with non-surgical pain management'
+    },
+    {
+        icon: 'https://drheal.quantumberg.com/files/wcu-04.png',
+        text: 'Lower Cost Compared to Surgery',
+        alt: 'Affordable non-surgical pain treatment'
+    },
+    {
+        icon: 'https://drheal.quantumberg.com/files/wcu-05.png',
+        text: 'Focus on Regeneration, Not Invasion',
+        alt: 'Regenerative pain management without surgery'
+    },
+])
 </script>
