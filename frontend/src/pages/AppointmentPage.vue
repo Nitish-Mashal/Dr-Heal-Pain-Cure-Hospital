@@ -1,12 +1,12 @@
 <template>
 
   <!-- TOP : DEPARTMENT + DOCTOR -->
-  <div class="max-w-6xl mx-auto px-4 mt-3">
-    <div class="bg-white rounded-xl shadow p-3">
+  <div class="container mx-auto px-4 mt-3">
+    <div class="max-w-3xl">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-        <!-- Department -->
-        <div class="flex flex-col">
+        <!-- Department (hidden) -->
+        <div class="hidden flex flex-col">
           <label class="mb-1 font-semibold text-gray-700">Department *</label>
           <select v-model="form.department" @change="fetchDoctors"
             class="px-2 py-1 border rounded-lg focus:ring-2 focus:ring-[#065f7f]">
@@ -26,12 +26,12 @@
               {{ d.full_name || d.first_name }}
             </option>
           </select>
-
         </div>
 
       </div>
     </div>
   </div>
+
 
   <!-- MAIN SECTION -->
   <section class="px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
