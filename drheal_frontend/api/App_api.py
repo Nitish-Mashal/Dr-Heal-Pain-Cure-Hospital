@@ -7,7 +7,8 @@ def get_doctors():
     """
     doctors = frappe.get_all(
         "Healthcare Practitioner",
-        fields=["name", "first_name", "department", "image", "custom_linkedin", "custom_facebook", "custom_twitter"]
+        fields=["name", "first_name", "department", "image", "custom_linkedin", "custom_facebook", "custom_twitter","order_by"],
+        order_by="order_by asc"
     )
     return doctors
 
