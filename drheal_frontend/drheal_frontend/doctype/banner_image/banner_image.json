@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:name1",
+ "creation": "2026-01-31 12:18:26.567172",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "banner_image_section",
+  "name1",
+  "date",
+  "is_active",
+  "order_by_sequence",
+  "upload_image"
+ ],
+ "fields": [
+  {
+   "fieldname": "banner_image_section",
+   "fieldtype": "Section Break",
+   "label": "Banner Image"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "upload_image",
+   "fieldtype": "Attach Image",
+   "label": "Upload Image"
+  },
+  {
+   "fieldname": "order_by_sequence",
+   "fieldtype": "Data",
+   "label": "Order by sequence"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-31 12:22:39.288819",
+ "modified_by": "Administrator",
+ "module": "Drheal Frontend",
+ "name": "Banner Image",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
