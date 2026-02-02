@@ -153,6 +153,9 @@ website_route_rules = [
     # Catch-all (Vue SPA Fallback)
     # -------------------------------
     {"from_route": "/<path:path>", "to_route": "/"},
+
+    # FINAL CATCH-ALL (Vue Router Fallback)
+    {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},
 ]
 
 

@@ -53,7 +53,7 @@
                     using precision pain care and holistic recovery.
                 </p>
 
-                <router-link to="/Dr-Heal-Pain-Cure-Hospital/about-us">
+                <router-link to="/about-us">
                     <button class="bg-color-blue text-white px-5 py-2 rounded-lg font-semibold">
                         Read More
                     </button>

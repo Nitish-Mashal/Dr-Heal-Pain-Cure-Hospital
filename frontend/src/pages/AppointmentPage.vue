@@ -620,7 +620,7 @@ export default {
           this.resetForm();
 
           this.$router.push({
-            path: "/Dr-Heal-Pain-Cure-Hospital/thank-you",
+            path: "/thank-you",
             state: {
               appointmentId: result.appointment_id,
               appointmentDate: result.appointment_date,

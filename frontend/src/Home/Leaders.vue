@@ -36,7 +36,7 @@
                     {{ leader.description }}
                 </p>
 
-                <router-link to="/Dr-Heal-Pain-Cure-Hospital/doctors-list"
+                <router-link to="/doctors-list"
                     class="inline-block bg-color-blue text-white px-5 py-2 rounded-lg font-semibold no-underline hover:opacity-90 transition">
                     Read More
                 </router-link>
