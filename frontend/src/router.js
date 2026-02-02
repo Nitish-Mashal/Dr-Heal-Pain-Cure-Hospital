@@ -40,7 +40,7 @@ const routes = [
     },
   },
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/about-us',
+    path: '/about-us',
     name: 'Aboutus',
     component: Aboutus,
     meta: {
@@ -51,7 +51,7 @@ const routes = [
     },
   },
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/services',
+    path: '/services',
     name: 'Services',
     component: Services,
     meta: {
@@ -61,7 +61,7 @@ const routes = [
     },
   },
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/services/:slug',
+    path: '/services/:slug',
     name: 'ServiceDetails',
     component: ServiceDetails,
     meta: {
@@ -71,7 +71,7 @@ const routes = [
     },
   },
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/facilities/:slug',
+    path: '/facilities/:slug',
     name: 'FacilityDetails',
     component: FacilityDetails,
     meta: {
@@ -81,7 +81,7 @@ const routes = [
     },
   },
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/doctors-list',
+    path: '/doctors-list',
     name: 'DoctorsList',
     component: DoctorsList,
     meta: {
@@ -91,7 +91,7 @@ const routes = [
     },
   },
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/appointment',
+    path: '/appointment',
     name: 'AppointmentPage',
     component: AppointmentPage,
     meta: {
@@ -112,7 +112,7 @@ const routes = [
     },
   },
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/thank-you',
+    path: '/thank-you',
     name: 'ThankYou',
     component: ThankYou,
     meta: {
@@ -122,7 +122,7 @@ const routes = [
     },
   },
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/terms-and-conditions',
+    path: '/terms-and-conditions',
     name: 'TermsAndConditions',
     component: TermsAndConditions,
     meta: {
@@ -132,7 +132,7 @@ const routes = [
     },
   },
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/privacy-policy',
+    path: '/privacy-policy',
     name: 'PrivacyAndPolicy',
     component: PrivacyAndPolicy,
     meta: {
@@ -144,7 +144,7 @@ const routes = [
 
   // ================= Blogs =================
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/blog',
+    path: '/blog',
     name: 'BlogsPreview',
     component: BlogsPreview,
     meta: {
@@ -154,7 +154,7 @@ const routes = [
     },
   },
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/blogdetails/:slug',
+    path: '/blogdetails/:slug',
     name: 'BlogDetails',
     component: BlogDetails,
     meta: {
@@ -166,7 +166,7 @@ const routes = [
 
   // ================= Careers =================
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/careers',
+    path: '/careers',
     name: 'JobListing',
     component: JobListing,
     meta: {
@@ -186,7 +186,7 @@ const routes = [
     },
   },
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/gallery',
+    path: '/gallery',
     name: 'Gallery',
     component: Gallery,
     meta: {
@@ -198,7 +198,7 @@ const routes = [
 
   // ================= Contact =================
   {
-    path: '/Dr-Heal-Pain-Cure-Hospital/contact-us',
+    path: '/contact-us',
     name: 'ContactUs',
     component: ContactUs,
     meta: {
@@ -210,7 +210,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/Dr-Heal-Pain-Cure-Hospital'),
   routes,
   scrollBehavior() {
     return { top: 0 }

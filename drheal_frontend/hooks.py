@@ -85,7 +85,7 @@ website_route_rules = [
     {"from_route": "/files/<path:path>", "to_route": "/files/<path:path>"},
 
     # Vue Frontend Routes (Explicit)
-    # Root
+    # Root routes
     {"from_route": "/", "to_route": "/"},
 
     # Base prefix
@@ -104,7 +104,7 @@ website_route_rules = [
     {"from_route": "/Dr-Heal-Pain-Cure-Hospital/gallery", "to_route": "/"},
     {"from_route": "/Dr-Heal-Pain-Cure-Hospital/contact-us", "to_route": "/"},
 
-    # 🔥 IMPORTANT: Dynamic / slug routes
+    # Dynamic / slug routes
     {"from_route": "/Dr-Heal-Pain-Cure-Hospital/services/<path:slug>", "to_route": "/"},
     {"from_route": "/Dr-Heal-Pain-Cure-Hospital/facilities/<path:slug>", "to_route": "/"},
     {"from_route": "/Dr-Heal-Pain-Cure-Hospital/blogdetails/<path:slug>", "to_route": "/"},
@@ -113,8 +113,9 @@ website_route_rules = [
     {"from_route": "/viewProfile/<path:id>", "to_route": "/"},
     {"from_route": "/apply-job", "to_route": "/"},
 
-    # 🔥 FINAL CATCH-ALL (VERY IMPORTANT)
+    # Catch-all
     {"from_route": "/Dr-Heal-Pain-Cure-Hospital/<path:anything>", "to_route": "/"},
+
 
     # FINAL CATCH-ALL (Vue Router Fallback)
     {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},

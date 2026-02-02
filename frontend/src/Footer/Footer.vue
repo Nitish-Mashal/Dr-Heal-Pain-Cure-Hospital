@@ -110,15 +110,15 @@ const socialIcons = [
 
 const quickLinks = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/Dr-Heal-Pain-Cure-Hospital/about-us" },
-    { name: "Our Doctors", path: "/Dr-Heal-Pain-Cure-Hospital/doctors-list" },
-    { name: "Blogs", path: "/Dr-Heal-Pain-Cure-Hospital/blog" },
-    { name: "Careers", path: "/Dr-Heal-Pain-Cure-Hospital/careers" },
-    { name: "Gallery", path: "/Dr-Heal-Pain-Cure-Hospital/gallery" },
-    { name: "Contact Us", path: "/Dr-Heal-Pain-Cure-Hospital/contact-us" },
-    { name: "Book an Appointment", path: "/Dr-Heal-Pain-Cure-Hospital/appointment" },
-    { name: "Terms & Conditions", path: "/Dr-Heal-Pain-Cure-Hospital/terms-and-conditions" },
-    { name: "Privacy Policy", path: "/Dr-Heal-Pain-Cure-Hospital/privacy-policy" },
+    { name: "About", path: "/about-us" },
+    { name: "Our Doctors", path: "/doctors-list" },
+    { name: "Blogs", path: "/blog" },
+    { name: "Careers", path: "/careers" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Contact Us", path: "/contact-us" },
+    { name: "Book an Appointment", path: "/appointment" },
+    { name: "Terms & Conditions", path: "/terms-and-conditions" },
+    { name: "Privacy Policy", path: "/privacy-policy" },
 ]
 
 const workingHours = [
