@@ -37,8 +37,6 @@
                     {{ jobDescription }}
                 </div>
             </div>
-
-
             <!-- Form -->
             <div class="row">
 

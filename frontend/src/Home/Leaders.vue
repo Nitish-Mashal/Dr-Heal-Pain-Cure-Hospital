@@ -36,7 +36,7 @@
                     {{ leader.description }}
                 </p>
 
-                <router-link to="/doctors-list"
+                <router-link to="/Dr-Heal-Pain-Cure-Hospital/doctors-list"
                     class="inline-block bg-color-blue text-white px-5 py-2 rounded-lg font-semibold no-underline hover:opacity-90 transition">
                     Read More
                 </router-link>
@@ -53,7 +53,7 @@
 /* Static → no ref() needed → saves Vue tracking work */
 const leaders = Object.freeze([
     {
-        name: "Dr. Rakesh H. Jayaprakash",
+        name: "Dr.Heal Pain Cure Hospital - Dr. Rakesh H. Jayaprakash",
         qualifications: "MBBS, FID, DAPT, CMRD, IFM (USA)",
         designation: "Interventional Pain Specialist & Functional Medicine Expert",
         description:

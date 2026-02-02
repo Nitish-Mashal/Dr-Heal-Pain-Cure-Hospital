@@ -13,9 +13,8 @@
                         treatment plans for joint, bone, and muscle health.
                     </p>
                     <div>
-                        <router-link to="/doctors-list">
-                            <button
-                                class="bg-color-orange text-white px-5 py-2 rounded-lg font-semibold">
+                        <router-link to="/Dr-Heal-Pain-Cure-Hospital/doctors-list">
+                            <button class="bg-color-orange text-white px-5 py-2 rounded-lg font-semibold">
                                 Appointment
                             </button>
                         </router-link>

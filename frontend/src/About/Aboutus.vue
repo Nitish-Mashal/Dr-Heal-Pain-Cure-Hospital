@@ -3,7 +3,8 @@
         <div class="relative w-full mb-5 overflow-hidden rounded-4">
 
             <!-- Banner Image -->
-            <img src="https://drheal.quantumberg.com/files/dr-heal-about-us.webp" alt="Dr Heal About Us Image" class="
+            <img src="https://drheal.quantumberg.com/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
+                alt="Dr.Heal Pain Cure Hospital - About Us Image" class="
       w-full
       h-48       
       sm:h-56
@@ -26,11 +27,11 @@
             <div class="row">
                 <div class="col-md-6 relative">
                     <!-- Image -->
-                    <img src="https://drheal.quantumberg.com/files/Dr-Heal-Hospital-Image.webp"
-                        alt="Dr Heal Hospital Image" class="w-full h-auto rounded-lg shadow-md" />
+                    <img src="https://drheal.quantumberg.com/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
+                        alt="Dr.Heal Pain Cure Hospital - Hospital Image" class="w-full h-auto rounded-lg shadow-md" />
 
                     <!-- Stats Card -->
-                    <div class="absolute top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg
+                    <div class="absolute top-20 md:top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg
                  px-6 py-4 flex items-center gap-6 w-[90%] max-w-md">
                         <!-- Years Experience -->
                         <div class="text-center flex-1 text-color-orange">
@@ -68,14 +69,16 @@
                         There were few places that looked beyond symptoms to truly understand what each person was going
                         through. Dr. Heal was created to fill that gap.
                     </p>
-                    <p class="mb-4">
+                </div>
+                <div>
+                    <p class="mb-4 mt-4">
                         Started in Bengaluru as a single specialty clinic, Dr. Heal focused on offering non-surgical
                         treatments backed by advanced scientific medical approaches and delivered with heart. Word
                         quickly spread, not just because of the results, but because of the approach. Patients found
                         something rare, a team that took time to listen, explained things clearly, and gave them choices
                         grounded in facts, not fear.
                     </p>
-                    <p class="mb-5">
+                    <p class="">
                         Over time, what started as one clinic has grown into a trusted network of hospitals and centres
                         across the city, all staying true to that original promise, treating pain at its root, helping
                         the body heal naturally, and do it with respect, care, and transparency.

@@ -4,11 +4,11 @@
             <div class="col-md-6 relative">
 
                 <!-- About Image -->
-                <img ref="aboutImg" :src="imgSrc" alt="Dr Heal Hospital Image" width="900" height="700" loading="lazy"
-                    decoding="async" class="w-full h-auto rounded-lg shadow-md" />
+                <img ref="aboutImg" :src="imgSrc" alt="Dr.Heal Pain Cure Hospital - Hospital Image" width="900" height="700"
+                    loading="lazy" decoding="async" class="w-full h-auto rounded-lg shadow-md" />
 
                 <!-- Stats Card -->
-                <div class="absolute top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg
+                <div class="absolute top-20 md:top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg
           px-6 py-4 flex items-center gap-6 w-[90%] max-w-md">
 
                     <div class="text-center flex-1 text-color-orange">
@@ -53,7 +53,7 @@
                     using precision pain care and holistic recovery.
                 </p>
 
-                <router-link to="/about-us">
+                <router-link to="/Dr-Heal-Pain-Cure-Hospital/about-us">
                     <button class="bg-color-blue text-white px-5 py-2 rounded-lg font-semibold">
                         Read More
                     </button>
@@ -93,7 +93,7 @@ onMounted(() => {
             if (entry.isIntersecting) {
 
                 // load image only when visible
-                imgSrc.value = "https://drheal.quantumberg.com/files/Dr-Heal-Hospital-Image.webp"
+                imgSrc.value = "https://drheal.quantumberg.com/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
 
                 // start counters when visible
                 animateCounter(years, 15)

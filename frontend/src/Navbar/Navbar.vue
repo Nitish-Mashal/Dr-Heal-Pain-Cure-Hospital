@@ -4,7 +4,7 @@
 
             <!-- LOGO -->
             <router-link to="/" class="flex items-center">
-                <img src="https://drheal.quantumberg.com/files/DrHeal-Logo.webp" alt="Dr Heal Pain Cure Hospital"
+                <img src="https://drheal.quantumberg.com/files/DrHeal-Logo.webp" alt="Dr Heal Pain Cure Hospital - Dr Heal Logo"
                     class="h-14" />
             </router-link>
 
@@ -17,7 +17,8 @@
                 </li>
 
                 <li>
-                    <router-link to="/about-us" class="hover:text-[#007f8c] transition text-gray-800 no-underline">About
+                    <router-link to="/Dr-Heal-Pain-Cure-Hospital/about-us"
+                        class="hover:text-[#007f8c] transition text-gray-800 no-underline">About
                         Us</router-link>
                 </li>
                 <!-- SERVICES -->
@@ -38,7 +39,7 @@
            column-gap-10
            min-w-[720px]">
                         <li v-for="service in services" :key="service.url" class="break-inside-avoid mb-3">
-                            <router-link :to="`/services/${service.url}`"
+                            <router-link :to="`/Dr-Heal-Pain-Cure-Hospital/services/${service.url}`"
                                 class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 {{ service.name1 }}
                             </router-link>
@@ -50,7 +51,7 @@
 
                 <!-- DOCTORS -->
                 <li>
-                    <router-link to="/doctors-list"
+                    <router-link to="/Dr-Heal-Pain-Cure-Hospital/doctors-list"
                         class="hover:text-[#007f8c] text-gray-800 no-underline transition">Doctors</router-link>
                 </li>
 
@@ -72,7 +73,7 @@
            column-gap-10
            min-w-[720px]">
                         <li v-for="facility in facilities" :key="facility.url" class="break-inside-avoid mb-3">
-                            <router-link :to="`/facilities/${facility.url}`"
+                            <router-link :to="`/Dr-Heal-Pain-Cure-Hospital/facilities/${facility.url}`"
                                 class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 {{ facility.name1 }}
                             </router-link>
@@ -99,14 +100,14 @@
            px-5 py-4 space-y-4
            z-[9999]">
                         <li>
-                            <router-link to="/careers"
+                            <router-link to="/Dr-Heal-Pain-Cure-Hospital/careers"
                                 class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 Careers
                             </router-link>
                         </li>
 
                         <li>
-                            <router-link to="/blog"
+                            <router-link to="/Dr-Heal-Pain-Cure-Hospital/blog"
                                 class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 Blogs
                             </router-link>
@@ -117,7 +118,7 @@
 
 
                 <li>
-                    <router-link to="/contact-us"
+                    <router-link to="/Dr-Heal-Pain-Cure-Hospital/contact-us"
                         class="hover:text-[#007f8c] transition text-gray-800 no-underline">Contact Us</router-link>
                 </li>
             </ul>
@@ -134,7 +135,7 @@
                     <a href="tel:07969288000" class="text-[#007f8c]">07969288000</a>
                 </div>
 
-                <router-link to="/doctors-list">
+                <router-link to="/Dr-Heal-Pain-Cure-Hospital/doctors-list">
                     <button class="bg-color-blue text-white px-4 py-2 rounded-lg text-sm font-semibold">Book an
                         Appointment</button>
                 </router-link>
@@ -158,7 +159,7 @@
 
         <!-- ================= MOBILE BUTTONS OUTSIDE MENU ================= -->
         <div class="md:hidden px-4 py-2 flex gap-3 items-center">
-            <router-link to="/doctors-list" class="flex-1">
+            <router-link to="/Dr-Heal-Pain-Cure-Hospital/doctors-list" class="flex-1">
                 <button class="w-full bg-color-blue text-white py-2 rounded-lg text-sm font-semibold">
                     Book an Appointment
                 </button>
@@ -183,7 +184,8 @@
             <ul class="flex flex-col space-y-3 text-[15px] font-medium text-gray-800">
 
                 <li><router-link to="/" class="text-gray-800 no-underline">Home</router-link></li>
-                <li><router-link to="/about-us" class="text-gray-800 no-underline">About Us</router-link></li>
+                <li><router-link to="/Dr-Heal-Pain-Cure-Hospital/about-us" class="text-gray-800 no-underline">About
+                        Us</router-link></li>
 
                 <!-- MOBILE SERVICES -->
                 <li>
@@ -196,7 +198,8 @@
                 </li>
 
                 <!-- MOBILE DOCTORS -->
-                <li><router-link to="/doctors-list" class="text-gray-800 no-underline">Doctors</router-link></li>
+                <li><router-link to="/Dr-Heal-Pain-Cure-Hospital/doctors-list"
+                        class="text-gray-800 no-underline">Doctors</router-link></li>
 
                 <!-- MOBILE FACILITIES -->
                 <li>
@@ -254,7 +257,7 @@
                     <!-- SERVICES -->
                     <ul v-if="activeMobileDropdown === 'services'" class="divide-y">
                         <li v-for="service in services" :key="service.url">
-                            <router-link :to="`/services/${service.url}`"
+                            <router-link :to="`/Dr-Heal-Pain-Cure-Hospital/services/${service.url}`"
                                 class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
                                 @click="activeMobileDropdown = null">
                                 {{ service.name1 }}
@@ -265,7 +268,7 @@
                     <!-- FACILITIES -->
                     <ul v-if="activeMobileDropdown === 'facilities'" class="divide-y">
                         <li v-for="facility in facilities" :key="facility.url">
-                            <router-link :to="`/facilities/${facility.url}`"
+                            <router-link :to="`/Dr-Heal-Pain-Cure-Hospital/facilities/${facility.url}`"
                                 class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
                                 @click="activeMobileDropdown = null">
                                 {{ facility.name1 }}
@@ -276,14 +279,14 @@
                     <!-- MORE -->
                     <ul v-if="activeMobileDropdown === 'more'" class="divide-y">
                         <li>
-                            <router-link to="/careers"
+                            <router-link to="/Dr-Heal-Pain-Cure-Hospital/careers"
                                 class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
                                 @click="activeMobileDropdown = null">
                                 Careers
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="/blog"
+                            <router-link to="/Dr-Heal-Pain-Cure-Hospital/blog"
                                 class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
                                 @click="activeMobileDropdown = null">
                                 Blogs

@@ -5,13 +5,13 @@
         <div v-if="facility" class="relative w-full mb-5 overflow-hidden rounded-4">
 
             <!-- Background Image -->
-            <img :src="facilityImage" :alt="facility.name1" class="
-      w-full
-      h-48        /* mobile height */
-      sm:h-56     /* small screens */
-      md:h-80     /* desktop height */
-      object-contain md:object-cover  /* contain on mobile, cover on desktop */
-    " />
+            <img :src="facilityImage" :alt="altText" class="
+    w-full
+    h-48
+    sm:h-56
+    md:h-80
+    object-contain md:object-cover
+  " />
 
             <!-- Overlay -->
             <div class="absolute inset-0 bg-[#38113B] opacity-70"></div>
@@ -75,6 +75,13 @@ const facilityImage = computed(() => {
     return facility.value.thumnail_image.startsWith("http")
         ? facility.value.thumnail_image
         : `https://drheal.quantumberg.com${facility.value.thumnail_image}`
+})
+
+const altText = computed(() => {
+    if (!facility.value?.name1) {
+        return 'Dr Heal Pain Cure Hospital'
+    }
+    return `Dr Heal Pain Cure Hospital - ${facility.value.name1}`
 })
 
 /* ---------------- SEO ---------------- */

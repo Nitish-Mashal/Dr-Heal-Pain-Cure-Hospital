@@ -1,14 +1,14 @@
 <template>
-    <div class="fixed top-1/2 right-[-62px] -translate-y-1/2 text-sm
+    <div class="fixed top-1/2 -translate-y-1/2 right-[-82px]
            rotate-[-90deg]
-           bg-color-orange text-white
+           bg-orange-500 text-white
            px-4 py-2
-           fw-semibold text-uppercase
+           font-semibold uppercase text-sm
            cursor-pointer
            shadow-lg
-           rounded-top
+           rounded-t-md
            z-[99999]" @click="openEnquiry">
-        Booking Enquiry
+        Contact Us For Enquiry
     </div>
 </template>
 

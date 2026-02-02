@@ -5,13 +5,13 @@
         <div v-if="service" class="relative w-full mb-5 overflow-hidden rounded-4">
 
             <!-- Background Image -->
-            <img :src="serviceImage" :alt="service.name1" class="
-      w-full 
-      h-48          /* mobile height */
-      sm:h-56       /* small screens */
-      md:h-80       /* desktop height */
-      object-contain md:object-cover  /* contain on mobile, cover on desktop */
-    " />
+            <img :src="serviceImage" :alt="altText" class="
+    w-full
+    h-48
+    sm:h-56
+    md:h-80
+    object-contain md:object-cover
+  " />
 
             <!-- Overlay -->
             <div class="absolute inset-0 bg-[#38113B] opacity-70"></div>
@@ -76,6 +76,13 @@ const serviceImage = computed(() => {
     return service.value.thumnail_image.startsWith("http")
         ? service.value.thumnail_image
         : `https://drheal.quantumberg.com${service.value.thumnail_image}`
+})
+
+const altText = computed(() => {
+    if (!service.value?.name1) {
+        return 'Dr Heal Pain Cure Hospital'
+    }
+    return `Dr Heal Pain Cure Hospital - ${service.value.name1}`
 })
 
 /* ---------------- SEO ---------------- */

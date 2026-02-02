@@ -11,17 +11,17 @@
 
             <!-- MOBILE FULL WIDTH IMAGE -->
             <div class="relative -mx-5 md:mx-0">
-                <img v-if="blog.header_image" :src="blog.header_image" :alt="blog.header_image" class="
-                        w-full
-                        h-56
-                        sm:h-64
-                        md:h-96
-                        object-contain
-                        md:object-cover
-                        rounded-none
-                        md:rounded-lg
-                        mb-6
-                    " loading="lazy" />
+                <img v-if="blog.header_image" :src="blog.header_image" :alt="getBlogAlt(blog)" class="
+            w-full
+            h-56
+            sm:h-64
+            md:h-96
+            object-contain
+            md:object-cover
+            rounded-none
+            md:rounded-lg
+            mb-6
+          " loading="lazy" />
             </div>
 
             <!-- Description Headings & Content -->
@@ -30,7 +30,7 @@
                     {{ heading }}
                 </h2>
                 <p v-if="descriptions[index]" class="text-gray-700 text-lg leading-relaxed"
-                    v-html="descriptions[index]"></p>
+                    v-html="descriptions[index]" />
             </div>
 
             <!-- Custom HTML -->
@@ -46,95 +46,101 @@
     </div>
 </template>
 
-
-<script>
+<script setup>
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
-export default {
-    name: "BlogDetails",
-    data() {
-        return {
-            blog: null,
-            isLoading: true,
-            descriptionHeadings: [],
-            descriptions: []
-        }
-    },
-    setup() {
-        const route = useRoute()
-        return { route }
-    },
-    mounted() {
-        this.fetchBlogDetails()
-    },
-    methods: {
+/* ---------------- ROUTE ---------------- */
+const route = useRoute()
 
-        async fetchBlogDetails() {
-            const blogSlug = this.route.params.slug
-            if (!blogSlug) {
-                this.isLoading = false
-                return
-            }
+/* ---------------- STATE ---------------- */
+const blog = ref(null)
+const isLoading = ref(true)
+const descriptionHeadings = ref([])
+const descriptions = ref([])
 
-            try {
-                const response = await fetch('/api/method/drheal_frontend.api.blogs.get_blogs')
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
+/* ---------------- FETCH BLOG ---------------- */
+const fetchBlogDetails = async () => {
+    const blogSlug = route.params.slug
 
-                const res = await response.json()
-                const allBlogs = res.message || []
+    if (!blogSlug) {
+        isLoading.value = false
+        return
+    }
 
-                // Find blog by slug/url
-                this.blog = allBlogs.find(b => b.url === blogSlug) || null
+    try {
+        const response = await fetch('/api/method/drheal_frontend.api.blogs.get_blogs')
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
 
-                if (this.blog) {
-                    // Update SEO meta
-                    this.updatePageSEO(this.blog)
+        const res = await response.json()
+        const allBlogs = res.message || []
 
-                    // Prepare description headings & contents
-                    this.descriptionHeadings = []
-                    this.descriptions = []
+        blog.value = allBlogs.find(b => b.url === blogSlug) || null
 
-                    for (let i = 1; i <= 4; i++) {
-                        const heading = this.blog[`description_heading_${i}`]
-                        const desc = this.blog[`description_${i}`]
-                        if (heading || desc) {
-                            this.descriptionHeadings.push(heading || '')
-                            this.descriptions.push(desc || '')
-                        }
-                    }
+        if (blog.value) {
+            updatePageSEO(blog.value)
+
+            descriptionHeadings.value = []
+            descriptions.value = []
+
+            for (let i = 1; i <= 4; i++) {
+                const heading = blog.value[`description_heading_${i}`]
+                const desc = blog.value[`description_${i}`]
+
+                if (heading || desc) {
+                    descriptionHeadings.value.push(heading || '')
+                    descriptions.value.push(desc || '')
                 }
-            } catch (err) {
-                console.error('Error fetching blog details:', err)
-                this.blog = null
-            } finally {
-                this.isLoading = false
             }
-        },
-
-        // ---------------- SEO FUNCTIONS ----------------
-        updatePageSEO(data) {
-            const title =
-                data.meta_title ||
-                data.title ||
-                `${data.package_name || "Health Checkup"} | Triguna Healthcare`;
-
-            document.title = title;
-
-            this.updateMeta("description", data.meta_description || data.short_description);
-            this.updateMeta("keywords", data.meta_keyword);
-            this.updateMeta("header_tag", data.header_tag);
-        },
-
-        updateMeta(key, content, attr = "name") {
-            if (!content) return;
-            let meta = document.querySelector(`meta[${attr}='${key}']`);
-            if (!meta) {
-                meta = document.createElement("meta");
-                meta.setAttribute(attr, key);
-                document.head.appendChild(meta);
-            }
-            meta.setAttribute("content", content);
         }
+    } catch (err) {
+        console.error('Error fetching blog details:', err)
+        blog.value = null
+    } finally {
+        isLoading.value = false
     }
 }
+
+/* ---------------- ALT TEXT ---------------- */
+const getBlogAlt = (blog) => {
+    if (!blog) return 'Dr Heal Pain Cure Hospital'
+
+    const title =
+        blog.meta_title ||
+        blog.title ||
+        blog.description_heading_1
+
+    return title
+        ? `Dr Heal Pain Cure Hospital - ${title}`
+        : 'Dr Heal Pain Cure Hospital'
+}
+
+/* ---------------- SEO ---------------- */
+const updateMeta = (key, content, attr = 'name') => {
+    if (!content) return
+
+    let meta = document.querySelector(`meta[${attr}='${key}']`)
+    if (!meta) {
+        meta = document.createElement('meta')
+        meta.setAttribute(attr, key)
+        document.head.appendChild(meta)
+    }
+    meta.setAttribute('content', content)
+}
+
+const updatePageSEO = (data) => {
+    const title =
+        data.meta_title ||
+        data.title ||
+        `${data.package_name || 'Health Checkup'} | Triguna Healthcare`
+
+    document.title = title
+
+    updateMeta('description', data.meta_description || data.short_description)
+    updateMeta('keywords', data.meta_keyword)
+    updateMeta('header_tag', data.header_tag)
+}
+
+/* ---------------- INIT ---------------- */
+onMounted(fetchBlogDetails)
 </script>

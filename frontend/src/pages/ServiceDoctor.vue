@@ -9,27 +9,17 @@
     </div>
 
     <!-- If multiple doctors -->
-    <Carousel
-      v-if="filteredDoctors.length > 1"
-      :items-to-show="3"
-      :wrap-around="false"
-      :breakpoints="{
-        0: { itemsToShow: 1 },
-        768: { itemsToShow: 2 },
-        1024: { itemsToShow: 3 }
-      }"
-      class="max-w-5xl mx-auto"
-    >
+    <Carousel v-if="filteredDoctors.length > 1" :items-to-show="3" :wrap-around="false" :breakpoints="{
+      0: { itemsToShow: 1 },
+      768: { itemsToShow: 2 },
+      1024: { itemsToShow: 3 }
+    }" class="max-w-5xl mx-auto">
       <Slide v-for="(doctor, index) in filteredDoctors" :key="index">
         <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
           <!-- 🩺 Image -->
           <div class="w-64 h-64 overflow-hidden bg-gray-100 flex justify-center items-start">
-            <img
-              :src="doctor.image || '/files/PlaceholderImages.png'"
-              :alt="doctor.first_name"
-              class="object-top object-cover w-full h-full"
-              loading="lazy"
-            />
+            <img :src="doctor.image || '/files/PlaceholderImages.png'" :alt="getDoctorAlt(doctor)"
+              class="object-top object-cover w-full h-full" loading="lazy" />
           </div>
 
           <!-- 🧑‍⚕️ Info Section -->
@@ -41,17 +31,18 @@
 
             <!-- 🔗 Social Links -->
             <div class="flex justify-center space-x-4 mt-2 text-gray-600">
-              <a v-if="doctor.custom_linkedin" :href="doctor.custom_linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-              <a v-if="doctor.custom_facebook" :href="doctor.custom_facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a v-if="doctor.custom_twitter" :href="doctor.custom_twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a v-if="doctor.custom_linkedin" :href="doctor.custom_linkedin" target="_blank"><i
+                  class="fab fa-linkedin-in"></i></a>
+              <a v-if="doctor.custom_facebook" :href="doctor.custom_facebook" target="_blank"><i
+                  class="fab fa-facebook-f"></i></a>
+              <a v-if="doctor.custom_twitter" :href="doctor.custom_twitter" target="_blank"><i
+                  class="fab fa-twitter"></i></a>
             </div>
           </div>
 
           <!-- 🔍 View Profile -->
-          <router-link
-            :to="{ name: 'ViewProfile', params: { id: doctor.name } }"
-            class="block w-full bg-blue-900 text-white py-2 font-medium text-center hover:bg-blue-800"
-          >
+          <router-link :to="{ name: 'ViewProfile', params: { id: doctor.name } }"
+            class="block w-full bg-blue-900 text-white py-2 font-medium text-center hover:bg-blue-800">
             View Profile
           </router-link>
         </div>
@@ -67,12 +58,8 @@
     <div v-else-if="filteredDoctors.length === 1" class="max-w-sm mx-auto">
       <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
         <div class="w-full h-64 overflow-hidden bg-gray-100 flex justify-center items-start">
-          <img
-            :src="filteredDoctors[0].image || '/files/PlaceholderImages.png'"
-            :alt="filteredDoctors[0].first_name"
-            class="object-top object-cover w-full h-full"
-            loading="lazy"
-          />
+          <img :src="filteredDoctors[0].image || '/files/PlaceholderImages.png'" :alt="getDoctorAlt(filteredDoctors[0])"
+            class="object-top object-cover w-full h-full" loading="lazy" />
         </div>
         <div class="bg-blue-100 text-center py-3">
           <h3 class="text-gray-800 font-semibold text-lg">{{ filteredDoctors[0].first_name }}</h3>
@@ -80,10 +67,8 @@
             {{ filteredDoctors[0].department }}
           </p>
         </div>
-        <router-link
-          :to="{ name: 'ViewProfile', params: { id: filteredDoctors[0].name } }"
-          class="block w-full bg-blue-900 text-white py-2 font-medium text-center hover:bg-blue-800"
-        >
+        <router-link :to="{ name: 'ViewProfile', params: { id: filteredDoctors[0].name } }"
+          class="block w-full bg-blue-900 text-white py-2 font-medium text-center hover:bg-blue-800">
           View Profile
         </router-link>
       </div>
@@ -119,10 +104,6 @@ export default {
         const data = await res.json();
         this.doctors = data.message || [];
 
-        console.log("✅ All doctors:", this.doctors);
-        console.log("🔍 Filtering for department:", this.department);
-
-        // Match department ignoring case
         this.filteredDoctors = this.doctors.filter((doc) => {
           const dept =
             (doc.department_name || doc.department || doc.speciality || "")
@@ -130,11 +111,16 @@ export default {
               .toLowerCase();
           return dept === this.department.trim().toLowerCase();
         });
-
-        console.log("🎯 Filtered doctors:", this.filteredDoctors);
       } catch (err) {
         console.error("Failed to fetch doctors:", err);
       }
+    },
+
+    getDoctorAlt(doctor) {
+      if (!doctor?.first_name) {
+        return "Dr Heal Pain Cure Hospital";
+      }
+      return `Dr Heal Pain Cure Hospital - ${doctor.first_name}`;
     },
   },
   mounted() {
@@ -144,7 +130,6 @@ export default {
 </script>
 
 <style scoped>
-
 /* Image top alignment */
 .object-top {
   object-position: top;

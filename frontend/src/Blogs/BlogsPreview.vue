@@ -20,7 +20,7 @@
 
                     <!-- Right: Image -->
                     <div class="w-1/2 flex justify-center">
-                        <img :src="card.thumbnail_image" :alt="card.thumbnail_image"
+                        <img :src="card.thumbnail_image" :alt="getBlogAlt(card)"
                             class="w-32 h-32 object-cover rounded-full border-4 border-orange-300" />
                     </div>
                 </div>
@@ -76,6 +76,13 @@ const formatDate = (dateStr) => {
     });
 };
 
+const getBlogAlt = (card) => {
+    if (!card?.description_heading_1) {
+        return 'Dr Heal Pain Cure Hospital'
+    }
+    return `Dr Heal Pain Cure Hospital - ${card.description_heading_1}`
+}
+
 // ✅ Generate slug from name (fallback if URL is missing)
 const generateSlug = (text) =>
     text?.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
@@ -97,4 +104,5 @@ onMounted(async () => {
         console.error("❌ Error fetching blogs:", error);
     }
 });
+
 </script>

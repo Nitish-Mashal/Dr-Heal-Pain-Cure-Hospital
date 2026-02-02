@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="relative w-full">
       <!-- Banner Image -->
-      <img src="https://drheal.quantumberg.com/files/DoctorsTeam.png" alt="Doctors"
+      <img src="https://drheal.quantumberg.com/files/DoctorsTeam.png" alt="Dr Heal Pain Cure Hospital - Doctors"
         class="w-full sm:h-56 md:h-72 object-contain md:object-cover" />
 
       <!-- White transparent overlay -->
@@ -22,7 +22,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div v-for="(doctor, index) in doctors" :key="index" class="bg-white shadow-md rounded-lg overflow-hidden">
           <!-- Doctor Image -->
-          <img :src="doctor.image || '/files/PlaceholderImages.png'" :alt="doctor.first_name"
+          <img :src="doctor.image || '/files/PlaceholderImages.png'" :alt="getDoctorAlt(doctor)"
             class="w-full h-72 object-cover" loading="lazy" />
 
           <!-- Info Section -->
@@ -121,12 +121,19 @@ export default {
       }
     },
 
+    getDoctorAlt(doctor) {
+      if (!doctor?.first_name) {
+        return 'Dr Heal Pain Cure Hospital';
+      }
+      return `Dr Heal Pain Cure Hospital - ${doctor.first_name}`;
+    },
+
     bookAppointment(doctor) {
       this.$router.push({
-        path: "/appointment",
+        path: "/Dr-Heal-Pain-Cure-Hospital/appointment",
         query: {
           department: doctor.department,
-          doctor_id: doctor.name   // or doctor.id (use same as API expects)
+          doctor_id: doctor.name
         }
       });
     },

@@ -11,7 +11,7 @@
             </h2>
         </header>
 
-        <div class="flex flex-col md:flex-row gap-8 items-stretch justify-center">
+        <div class="flex flex-col md:flex-row gap-8 items-stretch justify-center text-gray-700">
 
             <!-- LEFT SUMMARY -->
             <aside class="w-full md:w-[260px] shrink-0
@@ -19,7 +19,7 @@
               text-center space-y-2
               min-h-[220px]">
 
-                <div class="font-bold text-3xl">
+                <div class="font-bold text-3xl ">
                     EXCELLENT
                 </div>
 
@@ -27,12 +27,13 @@
                     <i class="bi bi-star-fill" v-for="i in 5" :key="'star-' + i"></i>
                 </div>
 
-                <p class="text-base">
+                <p class="text-base ">
                     Based on <strong>3185 reviews</strong>
                 </p>
 
-                <img src="https://drheal.quantumberg.com/files/Google.svg" alt="Google Reviews" width="120" height="32"
-                    loading="lazy" class="h-8" />
+                <img src="https://drheal.quantumberg.com/files/Google.svg"
+                    alt="Dr.Heal Pain Cure Hospital - Google Reviews" width="120" height="32" loading="lazy"
+                    class="h-8" />
 
             </aside>
 
