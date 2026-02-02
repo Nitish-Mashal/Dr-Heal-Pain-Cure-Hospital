@@ -28,7 +28,7 @@
                         <div class="text-white mb-4 text-xl">
                             {{ blog.excerpt }}
                         </div>
-                        <router-link to="/blog"
+                        <router-link to="/blogs"
                             class="inline-block bg-color-blue text-white py-2 px-4 rounded hover:bg-blue-800 transition w-max no-underline flex justify-center mb-2">
                             Read More
                         </router-link>

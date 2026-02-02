@@ -4,8 +4,8 @@
 
             <!-- LOGO -->
             <router-link to="/" class="flex items-center">
-                <img src="https://drheal.quantumberg.com/files/DrHeal-Logo.webp" alt="Dr Heal Pain Cure Hospital - Dr Heal Logo"
-                    class="h-14" />
+                <img src="https://drheal.quantumberg.com/files/DrHeal-Logo.webp"
+                    alt="Dr Heal Pain Cure Hospital - Dr Heal Logo" class="h-14" />
             </router-link>
 
             <!-- ================= DESKTOP MENU ================= -->
@@ -17,8 +17,7 @@
                 </li>
 
                 <li>
-                    <router-link to="/about-us"
-                        class="hover:text-[#007f8c] transition text-gray-800 no-underline">About
+                    <router-link to="/about-us" class="hover:text-[#007f8c] transition text-gray-800 no-underline">About
                         Us</router-link>
                 </li>
                 <!-- SERVICES -->
@@ -107,7 +106,7 @@
                         </li>
 
                         <li>
-                            <router-link to="/blog"
+                            <router-link to="/blogs"
                                 class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 Blogs
                             </router-link>
@@ -198,8 +197,7 @@
                 </li>
 
                 <!-- MOBILE DOCTORS -->
-                <li><router-link to="/doctors-list"
-                        class="text-gray-800 no-underline">Doctors</router-link></li>
+                <li><router-link to="/doctors-list" class="text-gray-800 no-underline">Doctors</router-link></li>
 
                 <!-- MOBILE FACILITIES -->
                 <li>
@@ -286,7 +284,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="/blog"
+                            <router-link to="/blogs"
                                 class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
                                 @click="activeMobileDropdown = null">
                                 Blogs

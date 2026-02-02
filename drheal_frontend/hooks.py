@@ -85,12 +85,41 @@ website_route_rules = [
     {"from_route": "/files/<path:path>", "to_route": "/files/<path:path>"},
 
     # Vue Frontend Routes (Explicit)
+   # Home
     {"from_route": "/", "to_route": "/"},
+
+    # Doctors
     {"from_route": "/doctors", "to_route": "/"},
     {"from_route": "/doctors-list", "to_route": "/"},
     {"from_route": "/viewProfile", "to_route": "/"},
-    {"from_route": "/appointmentPage", "to_route": "/"},
+    {"from_route": "/viewProfile/<path:subpath>", "to_route": "/"},
+
+    # Appointments & Thanks
+    {"from_route": "/appointment", "to_route": "/"},
     {"from_route": "/thank-you", "to_route": "/"},
+
+    # Services & Facilities
+    {"from_route": "/services", "to_route": "/"},
+    {"from_route": "/services/<path:subpath>", "to_route": "/"},
+    {"from_route": "/facilities/<path:subpath>", "to_route": "/"},
+
+    # Blogs
+    {"from_route": "/blogs", "to_route": "/"},                       # Blogs preview page
+    {"from_route": "/blogdetails/<path:subpath>", "to_route": "/"}, # Blog details
+
+    # Careers
+    {"from_route": "/careers", "to_route": "/"},
+    {"from_route": "/apply-job", "to_route": "/"},
+
+    # Gallery
+    {"from_route": "/gallery", "to_route": "/"},
+
+    # Contact & Info
+    {"from_route": "/contact-us", "to_route": "/"},
+    {"from_route": "/about-us", "to_route": "/"},
+    {"from_route": "/terms-and-conditions", "to_route": "/"},
+    {"from_route": "/privacy-policy", "to_route": "/"},
+
 
     # FINAL CATCH-ALL (Vue Router Fallback)
     {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},

@@ -112,7 +112,7 @@ const quickLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about-us" },
     { name: "Our Doctors", path: "/doctors-list" },
-    { name: "Blogs", path: "/blog" },
+    { name: "Blogs", path: "/blogs" },
     { name: "Careers", path: "/careers" },
     { name: "Gallery", path: "/gallery" },
     { name: "Contact Us", path: "/contact-us" },
