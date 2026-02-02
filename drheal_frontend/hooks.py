@@ -50,7 +50,7 @@ app_license = "mit"
 
 #     # Home
 #     # {"from_route": "/", "to_route": "/"},
-#     {"from_route": "/Dr-Heal-Pain-Cure-Hospital/doctors-list", "to_route": "/"},
+#     {"from_route": "/doctors-list", "to_route": "/"},
 #     {"from_route": "/doctors", "to_route": "/"},
 #     {"from_route": "/viewProfile", "to_route": "/"},
 #     {"from_route": "/<path:path>", "to_route": "/"}, 
@@ -85,37 +85,12 @@ website_route_rules = [
     {"from_route": "/files/<path:path>", "to_route": "/files/<path:path>"},
 
     # Vue Frontend Routes (Explicit)
-    # Root routes
     {"from_route": "/", "to_route": "/"},
-
-    # Base prefix
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital", "to_route": "/"},
-
-    # Static pages
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/about-us", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/services", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/doctors-list", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/appointment", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/thank-you", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/terms-and-conditions", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/privacy-policy", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/blog", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/careers", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/gallery", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/contact-us", "to_route": "/"},
-
-    # Dynamic / slug routes
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/services/<path:slug>", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/facilities/<path:slug>", "to_route": "/"},
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/blogdetails/<path:slug>", "to_route": "/"},
-
-    # Other dynamic
-    {"from_route": "/viewProfile/<path:id>", "to_route": "/"},
-    {"from_route": "/apply-job", "to_route": "/"},
-
-    # Catch-all
-    {"from_route": "/Dr-Heal-Pain-Cure-Hospital/<path:anything>", "to_route": "/"},
-
+    {"from_route": "/doctors", "to_route": "/"},
+    {"from_route": "/doctors-list", "to_route": "/"},
+    {"from_route": "/viewProfile", "to_route": "/"},
+    {"from_route": "/appointmentPage", "to_route": "/"},
+    {"from_route": "/thank-you", "to_route": "/"},
 
     # FINAL CATCH-ALL (Vue Router Fallback)
     {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},

@@ -210,7 +210,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/Dr-Heal-Pain-Cure-Hospital'),
+  history: createWebHistory(),
   routes,
   scrollBehavior() {
     return { top: 0 }
