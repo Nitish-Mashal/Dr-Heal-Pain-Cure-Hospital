@@ -144,7 +144,7 @@ const routes = [
 
   // ================= Blogs =================
   {
-    path: '/blogs',
+    path: '/blog',
     name: 'BlogsPreview',
     component: BlogsPreview,
     meta: {

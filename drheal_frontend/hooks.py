@@ -70,9 +70,36 @@ app_license = "mit"
 
 # ]
 
+# website_route_rules = [
+
+#     # Frappe System / Backend Routes (DO NOT SPA)
+#     {"from_route": "/printview", "to_route": "/printview"},
+#     {"from_route": "/apps", "to_route": "/apps"},
+#     {"from_route": "/desk", "to_route": "/desk"},
+#     {"from_route": "/crm", "to_route": "/crm"},
+#     {"from_route": "/app/<path:path>", "to_route": "/app/<path:path>"},
+#     {"from_route": "/api/<path:path>", "to_route": "/api/<path:path>"},
+#     {"from_route": "/login", "to_route": "/login"},
+#     {"from_route": "/logout", "to_route": "/logout"},
+#     {"from_route": "/assets/<path:path>", "to_route": "/assets/<path:path>"},
+#     {"from_route": "/files/<path:path>", "to_route": "/files/<path:path>"},
+
+#     # Vue Frontend Routes (Explicit)
+#     {"from_route": "/", "to_route": "/"},
+#     {"from_route": "/doctors", "to_route": "/"},
+#     {"from_route": "/doctors-list", "to_route": "/"},
+#     {"from_route": "/viewProfile", "to_route": "/"},
+#     {"from_route": "/appointmentPage", "to_route": "/"},
+#     {"from_route": "/thank-you", "to_route": "/"},
+
+#     # FINAL CATCH-ALL (Vue Router Fallback)
+#     {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},
+# ]
 website_route_rules = [
 
-    # Frappe System / Backend Routes (DO NOT SPA)
+    # -------------------------------
+    # Frappe Backend / System Routes
+    # -------------------------------
     {"from_route": "/printview", "to_route": "/printview"},
     {"from_route": "/apps", "to_route": "/apps"},
     {"from_route": "/desk", "to_route": "/desk"},
@@ -84,17 +111,25 @@ website_route_rules = [
     {"from_route": "/assets/<path:path>", "to_route": "/assets/<path:path>"},
     {"from_route": "/files/<path:path>", "to_route": "/files/<path:path>"},
 
-    # Vue Frontend Routes (Explicit)
-   # Home
+    # -------------------------------
+    # Vue Frontend Routes
+    # -------------------------------
+
+    # Home
     {"from_route": "/", "to_route": "/"},
+
+    # About / Contact / Info
+    {"from_route": "/about-us", "to_route": "/"},
+    {"from_route": "/contact-us", "to_route": "/"},
+    {"from_route": "/terms-and-conditions", "to_route": "/"},
+    {"from_route": "/privacy-policy", "to_route": "/"},
 
     # Doctors
     {"from_route": "/doctors", "to_route": "/"},
     {"from_route": "/doctors-list", "to_route": "/"},
-    {"from_route": "/viewProfile", "to_route": "/"},
     {"from_route": "/viewProfile/<path:subpath>", "to_route": "/"},
 
-    # Appointments & Thanks
+    # Appointments
     {"from_route": "/appointment", "to_route": "/"},
     {"from_route": "/thank-you", "to_route": "/"},
 
@@ -104,8 +139,8 @@ website_route_rules = [
     {"from_route": "/facilities/<path:subpath>", "to_route": "/"},
 
     # Blogs
-    {"from_route": "/blogs", "to_route": "/"},                       # Blogs preview page
-    {"from_route": "/blogdetails/<path:subpath>", "to_route": "/"}, # Blog details
+    {"from_route": "/blog", "to_route": "/"},                   # BlogsPreview
+    {"from_route": "/blogdetails/<path:subpath>", "to_route": "/"},  # BlogDetails
 
     # Careers
     {"from_route": "/careers", "to_route": "/"},
@@ -114,16 +149,12 @@ website_route_rules = [
     # Gallery
     {"from_route": "/gallery", "to_route": "/"},
 
-    # Contact & Info
-    {"from_route": "/contact-us", "to_route": "/"},
-    {"from_route": "/about-us", "to_route": "/"},
-    {"from_route": "/terms-and-conditions", "to_route": "/"},
-    {"from_route": "/privacy-policy", "to_route": "/"},
-
-
-    # FINAL CATCH-ALL (Vue Router Fallback)
-    {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},
+    # -------------------------------
+    # Catch-all (Vue SPA Fallback)
+    # -------------------------------
+    {"from_route": "/<path:path>", "to_route": "/"},
 ]
+
 
 
 # required_apps = []

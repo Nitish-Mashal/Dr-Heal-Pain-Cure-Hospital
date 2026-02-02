@@ -106,7 +106,7 @@
                         </li>
 
                         <li>
-                            <router-link to="/blogs"
+                            <router-link to="/blog"
                                 class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
                                 Blogs
                             </router-link>
@@ -284,7 +284,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="/blogs"
+                            <router-link to="/blog"
                                 class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
                                 @click="activeMobileDropdown = null">
                                 Blogs
