@@ -36,9 +36,7 @@
               <p class="text-[15px] font-semibold text-gray-700">
                 {{ doctor.custom_degree }}
               </p>
-              <p class="text-[14px] text-gray-900">
-                Specialities in {{ doctor.department }}
-              </p>
+
 
               <div class="border-t border-gray-200 my-2"></div>
 

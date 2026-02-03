@@ -44,7 +44,7 @@
         </h2>
 
         <h3 class="text-lg font-semibold mb-4">
-          {{ selectedDoctor?.first_name }} – {{ selectedDoctor?.department }}
+          {{ selectedDoctor?.first_name }}
         </h3>
 
         <!-- Date Switch -->

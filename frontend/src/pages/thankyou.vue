@@ -5,13 +5,8 @@
       <!-- ✅ Success Icon -->
       <div class="flex justify-center mb-3">
         <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-100 flex items-center justify-center">
-          <svg
-            class="w-8 h-8 sm:w-10 sm:h-10 text-green-600"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
+          <svg class="w-8 h-8 sm:w-10 sm:h-10 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
@@ -53,16 +48,14 @@
       </div>
 
       <!-- ⚠️ Disclaimer ONLY for Dr Rakesh -->
-      <div
-        v-if="showRakeshDisclaimer"
-        class="mb-4 bg-yellow-50 border border-yellow-300 rounded-xl px-5 py-3 text-left"
-      >
+      <div v-if="showRakeshDisclaimer"
+        class="mb-4 bg-yellow-50 border border-yellow-300 rounded-xl px-5 py-3 text-left">
         <p class="text-sm text-yellow-800">
           <strong>Disclaimer:</strong>
-          Doctor availability is subject to change. If
-          <strong>Dr Rakesh</strong> is unavailable on the scheduled date,
-          another qualified doctor may attend the consultation.
+          Doctor availability is subject to change. If <strong>Dr. Rakesh</strong> is unavailable on the scheduled date,
+          <strong>Dr. Yusuf</strong> or <strong>Dr. Deekshitha</strong> will be available for the consultation.
         </p>
+
       </div>
 
       <!-- ✅ What to do next -->
@@ -72,10 +65,9 @@
         </p>
 
         <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-          <li>Our clinic will contact you to confirm your appointment.</li>
-          <li>Please arrive 10 minutes before your scheduled time.</li>
-          <li>Bring any previous reports or prescriptions if needed.</li>
-          <li>Your doctor will provide guidance and next steps after consultation.</li>
+          <li>Please arrive 30 minutes before your scheduled time.</li>
+          <li>Please bring Your Reports Every Consultation.</li>
+          <li>Let Patients come in Loose Cloths.</li>
         </ul>
       </div>
 
