@@ -86,7 +86,7 @@
                 <!-- MORE -->
                 <li class="relative group">
                     <div class="flex items-center gap-1 cursor-pointer hover:text-[#007f8c] text-gray-800 transition">
-                        More
+                        Careers
                         <svg class="w-3 h-3 mt-[1px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
@@ -99,16 +99,16 @@
            px-5 py-4 space-y-4
            z-[9999]">
                         <li>
-                            <router-link to="/careers"
+                            <router-link to="/send-your-resume"
                                 class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
-                                Careers
+                                Send Your Resume
                             </router-link>
                         </li>
 
                         <li>
-                            <router-link to="/blog"
+                            <router-link to="/careers"
                                 class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
-                                Blogs
+                                Work with Us
                             </router-link>
                         </li>
                     </ul>
@@ -117,8 +117,8 @@
 
 
                 <li>
-                    <router-link to="/contact-us"
-                        class="hover:text-[#007f8c] transition text-gray-800 no-underline">Contact Us</router-link>
+                    <router-link to="/blog"
+                        class="hover:text-[#007f8c] transition text-gray-800 no-underline">Blog</router-link>
                 </li>
             </ul>
 

@@ -12,10 +12,16 @@ def get_banner_images():
             "name1",
             "date",
             "order_by_sequence",
-            "upload_image"
+            "upload_image",
+            "link",
+            "external_site"
         ],
         order_by="order_by_sequence asc"
     )
+
+    # Optional: normalize external_site to boolean
+    for b in banners:
+        b["external_site"] = 1 if str(b.get("external_site")).lower() in ["yes", "1"] else 0
 
     return {
         "status": "success",

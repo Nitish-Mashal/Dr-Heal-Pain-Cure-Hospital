@@ -2,22 +2,20 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "field:job_title",
- "creation": "2026-01-22 12:39:03.186085",
+ "creation": "2026-02-03 10:34:38.406376",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "job_title",
   "job_type",
-  "description",
-  "active"
+  "qualification",
+  "column_break_zxwq",
+  "experience",
+  "department",
+  "schedule",
+  "shift"
  ],
  "fields": [
-  {
-   "fieldname": "job_title",
-   "fieldtype": "Data",
-   "label": "Job Title",
-   "unique": 1
-  },
   {
    "fieldname": "job_type",
    "fieldtype": "Select",
@@ -25,24 +23,48 @@
    "options": "\nFull Time\nPart Time"
   },
   {
-   "fieldname": "description",
-   "fieldtype": "Small Text",
-   "label": "Description"
+   "fieldname": "column_break_zxwq",
+   "fieldtype": "Column Break"
   },
   {
-   "default": "0",
-   "fieldname": "active",
-   "fieldtype": "Check",
-   "label": "Active"
+   "fieldname": "qualification",
+   "fieldtype": "Data",
+   "label": "Qualification"
+  },
+  {
+   "fieldname": "experience",
+   "fieldtype": "Data",
+   "label": "Experience"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "schedule",
+   "fieldtype": "Data",
+   "label": "Schedule"
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Data",
+   "label": "Shift"
+  },
+  {
+   "fieldname": "job_title",
+   "fieldtype": "Data",
+   "label": "Job Title",
+   "unique": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-22 12:40:29.370067",
+ "modified": "2026-02-03 15:37:53.937804",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
- "name": "Job Opening",
+ "name": "Job Hiring",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

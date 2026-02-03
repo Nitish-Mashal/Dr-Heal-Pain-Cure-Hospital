@@ -7,16 +7,16 @@
  "field_order": [
   "job_application_section",
   "first_name",
-  "middle_name",
-  "last_name",
   "email",
-  "column_break_ycpo",
-  "resume",
   "job_opening",
+  "qualification",
+  "column_break_ycpo",
   "experience",
   "contact_number",
+  "city",
+  "resume",
   "description_section",
-  "descriprion"
+  "description"
  ],
  "fields": [
   {
@@ -27,17 +27,7 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "label": "First Name"
-  },
-  {
-   "fieldname": "middle_name",
-   "fieldtype": "Data",
-   "label": "Middle Name"
-  },
-  {
-   "fieldname": "last_name",
-   "fieldtype": "Data",
-   "label": "Last Name"
+   "label": "Full Name"
   },
   {
    "fieldname": "email",
@@ -57,7 +47,7 @@
    "fieldname": "job_opening",
    "fieldtype": "Link",
    "label": "Job Opening",
-   "options": "Job Opening"
+   "options": "Job Hiring"
   },
   {
    "fieldname": "experience",
@@ -75,15 +65,25 @@
    "label": "Description"
   },
   {
-   "fieldname": "descriprion",
+   "fieldname": "qualification",
+   "fieldtype": "Data",
+   "label": "Qualification"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "description",
    "fieldtype": "Small Text",
-   "label": "Descriprion"
+   "label": "Description"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-20 15:09:32.409731",
+ "modified": "2026-02-03 15:22:35.113191",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
  "name": "Job Application",
