@@ -7,38 +7,17 @@
         <div class="container">
             <div class="row g-4">
 
-                <div class="col-md-4" v-for="job in jobs" :key="job.name">
-                    <div class="
-                        bg-white
-                        rounded-lg
-                        shadow-lg
-                        p-6
-                        pb-10
-                        min-h-[240px]
-                        relative
-                        overflow-hidden
-                        flex
-                        flex-col
-                    ">
+                <div class="col-md-4 mb-5" v-for="job in jobs" :key="job.name">
+                    <div class="bg-white rounded-lg shadow-lg p-6 pb-10 min-h-[240px] relative overflow-hidden flex flex-col "> 
                         <!-- Title -->
-                        <h5 class="
-                            text-color-blue
-                            font-medium
-                            mb-4
-                            job-title
-                        ">
+                        <h5 class="text-color-blue font-medium mb-4 job-title">
                             {{ job.job_title }}
                         </h5>
 
                         <div class="flex-grow"></div>
 
                         <!-- Button -->
-                        <button @click="goToJob(job)" class="
-    px-4 py-2 border-2 border-[#30809D]
-    text-color-blue text-sm rounded
-    hover:bg-color-blue hover:text-white
-    transition self-start
-  ">
+                        <button @click="goToJob(job)" class="px-4 py-2 border-2 border-[#30809D] text-color-blue text-sm rounded hover:bg-color-blue hover:text-white transition self-start">
                             Know More
                         </button>
 
