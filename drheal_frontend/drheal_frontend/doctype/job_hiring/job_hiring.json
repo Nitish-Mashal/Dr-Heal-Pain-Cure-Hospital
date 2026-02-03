@@ -8,6 +8,7 @@
  "field_order": [
   "job_title",
   "job_type",
+  "description",
   "qualification",
   "column_break_zxwq",
   "experience",
@@ -56,12 +57,17 @@
    "fieldtype": "Data",
    "label": "Job Title",
    "unique": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-02-03 15:37:53.937804",
+ "modified": "2026-02-03 16:53:21.017739",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
  "name": "Job Hiring",

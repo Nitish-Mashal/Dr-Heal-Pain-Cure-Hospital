@@ -415,7 +415,7 @@ export default {
         this.schedule = data.message;
 
         // Generate dates for which doctor has slots
-        this.availableDates = this.generateNext7Days(this.schedule);
+        this.availableDates = this.generateNext3Months(this.schedule);
 
         // Clear slots
         this.availableTimes = [];
@@ -429,23 +429,28 @@ export default {
       }
     },
 
-    generateNext7Days(schedule) {
-      const today = new Date();
+    generateNext3Months(schedule) {
       const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       const dates = [];
 
-      for (let i = 0; i < 7; i++) {
-        const d = new Date();
-        d.setDate(today.getDate() + i);
-        const day = days[d.getDay()];
+      const startDate = new Date();
+      const endDate = new Date();
+      endDate.setMonth(startDate.getMonth() + 3); // +3 months
+
+      let currentDate = new Date(startDate);
+
+      while (currentDate <= endDate) {
+        const day = days[currentDate.getDay()];
 
         // Include only if schedule has slots on this day
         if (schedule.some(s => s.day === day)) {
           dates.push({
-            date: d.toISOString().split("T")[0], // YYYY-MM-DD
+            date: currentDate.toISOString().split("T")[0], // YYYY-MM-DD
             day
           });
         }
+
+        currentDate.setDate(currentDate.getDate() + 1);
       }
 
       return dates;
