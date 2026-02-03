@@ -11,6 +11,9 @@
   "date",
   "is_active",
   "order_by_sequence",
+  "column_break_lkuv",
+  "link",
+  "external_site",
   "upload_image"
  ],
  "fields": [
@@ -27,7 +30,7 @@
   },
   {
    "fieldname": "date",
-   "fieldtype": "Date",
+   "fieldtype": "Datetime",
    "label": "Date"
   },
   {
@@ -45,12 +48,27 @@
    "fieldname": "order_by_sequence",
    "fieldtype": "Data",
    "label": "Order by sequence"
+  },
+  {
+   "fieldname": "column_break_lkuv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "link",
+   "fieldtype": "Data",
+   "label": "Link"
+  },
+  {
+   "fieldname": "external_site",
+   "fieldtype": "Select",
+   "label": "External Site",
+   "options": "Yes\nNo"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-31 12:22:39.288819",
+ "modified": "2026-02-03 10:18:57.222411",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
  "name": "Banner Image",

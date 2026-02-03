@@ -22,6 +22,9 @@ const BlogDetails = () => import('@/Blogs/BlogDetails.vue')
 // Careers
 const JobListing = () => import('@/Careers/JobListing.vue')
 const JobApply = () => import('@/Careers/JobApply.vue')
+const SendResume = () => import('@/Careers/sendresume.vue')
+const WorkWithUs = () => import('@/Careers/workwithus.vue')
+const SubmitJob = () => import('@/Careers/submitJob.vue')
 
 // ====================================================
 
@@ -165,24 +168,54 @@ const routes = [
   },
 
   // ================= Careers =================
+  // {
+  //   path: '/careers',
+  //   name: 'JobListing',
+  //   component: JobListing,
+  //   meta: {
+  //     title: 'Careers at Dr Heal | Healthcare & Diagnostic Jobs',
+  //     description:
+  //       'Explore job opportunities at Dr Heal and build a career in diagnostics and healthcare.',
+  //   },
+  // },
+  // {
+  //   path: '/apply-job',
+  //   name: 'JobApply',
+  //   component: JobApply,
+  //   meta: {
+  //     title: 'Apply for Jobs | Dr Heal Careers',
+  //     description:
+  //       'Apply online for healthcare and diagnostic job openings at Dr Heal.',
+  //   },
+  // },
   {
-    path: '/careers',
-    name: 'JobListing',
-    component: JobListing,
+    path: '/send-your-resume',
+    name: 'SendResume',
+    component: SendResume,
     meta: {
-      title: 'Careers at Dr Heal | Healthcare & Diagnostic Jobs',
+      title: 'Send Your Resume | Dr Heal Careers',
       description:
-        'Explore job opportunities at Dr Heal and build a career in diagnostics and healthcare.',
+        'Send your resume to Dr Heal for career opportunities in diagnostics and healthcare.',
     },
   },
   {
-    path: '/apply-job',
-    name: 'JobApply',
-    component: JobApply,
+    path: '/careers',
+    name: 'WorkWithUs',
+    component: WorkWithUs,
     meta: {
-      title: 'Apply for Jobs | Dr Heal Careers',
+      title: 'Work with Us | Dr Heal Careers',
       description:
-        'Apply online for healthcare and diagnostic job openings at Dr Heal.',
+        'Send your resume to Dr Heal for career opportunities in diagnostics and healthcare.',
+    },
+  },
+  {
+    path: '/submit-job',
+    name: 'SubmitJob',
+    component: SubmitJob,
+    meta: {
+      title: 'Submit Job Application | Dr Heal Careers',
+      description:
+        'Send your resume to Dr Heal for career opportunities in diagnostics and healthcare.',
     },
   },
   {

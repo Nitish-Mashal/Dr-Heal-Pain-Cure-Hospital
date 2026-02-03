@@ -1,12 +1,15 @@
 <template>
   <section class="w-full">
-
     <Carousel :items-to-show="1" :wrap-around="true" :autoplay="3000" :pause-autoplay-on-hover="true" :mouse-drag="true"
       class="w-full">
       <Slide v-for="(banner, index) in banners" :key="index">
-        <img :src="banner.src" :srcset="banner.srcset" :alt="banner.alt" width="1920" height="460" sizes="100vw"
-          :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async"
-          class="w-full h-[150px] sm:h-[380px] lg:h-[460px] object-contain sm:object-cover" />
+        <component :is="banner.link ? 'a' : 'div'" :href="banner.link || undefined"
+          :target="banner.external_site ? '_blank' : '_self'"
+          :rel="banner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
+          <img :src="banner.src" :srcset="banner.srcset" :alt="banner.alt" width="1920" height="460" sizes="100vw"
+            :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async"
+            class="w-full h-[150px] sm:h-[380px] lg:h-[460px] object-contain sm:object-cover cursor-pointer" />
+        </component>
       </Slide>
 
       <template #addons>
@@ -24,7 +27,6 @@
     <Booking />
     <Testimonials />
     <OurBlogs />
-
   </section>
 </template>
 
@@ -33,7 +35,6 @@ import { ref, onMounted, defineAsyncComponent } from 'vue'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
-/* Lazy load below-the-fold sections */
 const AboutSection = defineAsyncComponent(() => import('./AboutSection.vue'))
 const OurServices = defineAsyncComponent(() => import('./OurServices.vue'))
 const ServiceTypes = defineAsyncComponent(() => import('./ServiceTypes.vue'))
@@ -46,9 +47,8 @@ const OurBlogs = defineAsyncComponent(() => import('./OurBlogs.vue'))
 
 const banners = ref([])
 
-/* No need to build mobile/tablet URLs, use the same path for all sizes */
 function buildSrcSet(url) {
-  return url ? url : ''
+  return url || ''
 }
 
 async function loadBanners() {
@@ -61,8 +61,10 @@ async function loadBanners() {
 
     banners.value = rows.map(row => ({
       src: row.upload_image,
-      srcset: buildSrcSet(row.upload_image), // same image for all screen sizes
-      alt: row.name1 || 'Banner'
+      srcset: buildSrcSet(row.upload_image),
+      alt: row.name1 || 'Banner',
+      link: row.link || '',
+      external_site: row.external_site === 1
     }))
   } catch (e) {
     console.error('Banner API error:', e)
@@ -70,7 +72,9 @@ async function loadBanners() {
       {
         src: '/fallback-banner.webp',
         srcset: '',
-        alt: 'Banner'
+        alt: 'Banner',
+        link: '',
+        external_site: false
       }
     ]
   }
