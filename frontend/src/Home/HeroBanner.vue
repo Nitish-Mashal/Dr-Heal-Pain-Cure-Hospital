@@ -2,60 +2,25 @@
   <section class="w-full">
 
     <!-- 🔥 IMMEDIATE HERO IMAGE -->
-    <div
-      v-if="firstBanner && !carouselReady"
-      class="w-full h-[150px] sm:h-[380px] lg:h-[460px] overflow-hidden"
-    >
-      <component
-        :is="firstBanner.link ? 'a' : 'div'"
-        :href="firstBanner.link || undefined"
+    <div v-if="firstBanner && !carouselReady" class="w-full h-[150px] sm:h-[380px] lg:h-[460px] overflow-hidden">
+      <component :is="firstBanner.link ? 'a' : 'div'" :href="firstBanner.link || undefined"
         :target="firstBanner.external_site ? '_blank' : '_self'"
-        :rel="firstBanner.external_site ? 'noopener noreferrer' : undefined"
-        class="block w-full h-full"
-      >
-        <img
-          :src="firstBanner.upload_image"
-          :alt="firstBanner.name1 || 'Banner'"
-          width="1920"
-          height="460"
-          fetchpriority="high"
-          decoding="async"
-          class="w-full h-full object-contain sm:object-cover"
-        />
+        :rel="firstBanner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
+        <img :src="resolveBannerImage(firstBanner)" :alt="firstBanner.name1 || 'Banner'" width="1920" height="460"
+          fetchpriority="high" decoding="async" class="w-full h-full object-contain sm:object-cover" />
       </component>
     </div>
 
-    <!-- 🎠 CAROUSEL (hydrates after first image loads) -->
-    <el-carousel
-      v-if="carouselReady"
-      indicator-position="outside"
-      :interval="3000"
-      :pause-on-hover="true"
-      arrow="always"
-      class="w-full banner-carousel"
-    >
-      <el-carousel-item
-        v-for="(banner, index) in banners"
-        :key="index"
-      >
-        <component
-          :is="banner.link ? 'a' : 'div'"
-          :href="banner.link || undefined"
+    <!-- 🎠 CAROUSEL -->
+    <el-carousel v-if="carouselReady" indicator-position="outside" :interval="3000" :pause-on-hover="true"
+      arrow="always" class="w-full banner-carousel">
+      <el-carousel-item v-for="(banner, index) in banners" :key="index">
+        <component :is="banner.link ? 'a' : 'div'" :href="banner.link || undefined"
           :target="banner.external_site ? '_blank' : '_self'"
-          :rel="banner.external_site ? 'noopener noreferrer' : undefined"
-          class="block w-full h-full"
-        >
-          <img
-            :src="banner.upload_image"
-            :alt="banner.name1 || 'Banner'"
-            width="1920"
-            height="460"
-            sizes="100vw"
-            :loading="index === 0 ? 'eager' : 'lazy'"
-            :fetchpriority="index === 0 ? 'high' : 'auto'"
-            decoding="async"
-            class="w-full h-full object-contain sm:object-cover cursor-pointer"
-          />
+          :rel="banner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
+          <img :src="resolveBannerImage(banner)" :alt="banner.name1 || 'Banner'" width="1920" height="460" sizes="100vw"
+            :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async"
+            class="w-full h-full object-contain sm:object-cover cursor-pointer" />
         </component>
       </el-carousel-item>
     </el-carousel>
@@ -74,8 +39,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, defineAsyncComponent } from 'vue'
+import { ref, onMounted, onUnmounted, defineAsyncComponent } from 'vue'
 
+/* ---------------- Lazy Sections ---------------- */
 const AboutSection = defineAsyncComponent(() => import('./AboutSection.vue'))
 const OurServices = defineAsyncComponent(() => import('./OurServices.vue'))
 const ServiceTypes = defineAsyncComponent(() => import('./ServiceTypes.vue'))
@@ -86,10 +52,38 @@ const Booking = defineAsyncComponent(() => import('./Booking.vue'))
 const Testimonials = defineAsyncComponent(() => import('./Testimonial.vue'))
 const OurBlogs = defineAsyncComponent(() => import('./OurBlogs.vue'))
 
+/* ---------------- State ---------------- */
 const banners = ref([])
 const firstBanner = ref(null)
 const carouselReady = ref(false)
 
+/* ---------------- Screen Detection ---------------- */
+const isMobile = ref(window.innerWidth < 640)
+
+function handleResize() {
+  isMobile.value = window.innerWidth < 640
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
+
+/* ---------------- Image Resolver ---------------- */
+function resolveBannerImage(banner) {
+  if (!banner) return null
+
+  if (isMobile.value) {
+    return banner.upload_mobile_image || banner.upload_desktop_image
+  }
+
+  return banner.upload_desktop_image || banner.upload_mobile_image
+}
+
+/* ---------------- API ---------------- */
 async function loadBanners() {
   try {
     const res = await fetch(
@@ -102,11 +96,11 @@ async function loadBanners() {
 
     if (!firstBanner.value) return
 
+    /* 🔥 Preload FIRST banner image */
     const img = new Image()
-    img.src = firstBanner.value.upload_image
+    img.src = resolveBannerImage(firstBanner.value)
     img.fetchPriority = 'high'
 
-    // 🔥 THIS IS THE CRITICAL FIX
     if (img.complete) {
       carouselReady.value = true
     } else {

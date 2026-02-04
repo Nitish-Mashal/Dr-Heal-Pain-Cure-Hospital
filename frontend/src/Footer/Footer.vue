@@ -6,9 +6,15 @@
 
                 <!-- LOGO & SOCIAL -->
                 <div class="col-md-3">
+                    <!-- Desktop / Large screen logo -->
                     <img src="https://drheal.quantumberg.com/files/DrHeal-Logo.webp"
                         alt="Dr Heal Pain Cure Hospital - Dr Heal Logo" width="180" height="80" loading="lazy"
-                        decoding="async" class="h-20 mb-4 object-contain" />
+                        decoding="async" class="hidden sm:block h-20 mb-4 object-contain" />
+
+                    <!-- Mobile logo -->
+                    <img src="https://drheal.quantumberg.com/files/DrHeal-Logo-mobile.webp"
+                        alt="Dr Heal Pain Cure Hospital - Dr Heal Mobile Logo" width="120" height="60" loading="lazy"
+                        decoding="async" class="block sm:hidden h-16 mb-4 object-contain" />
 
                     <p class="mb-4">{{ tagline }}</p>
 

@@ -14,7 +14,8 @@
   "column_break_lkuv",
   "link",
   "external_site",
-  "upload_image"
+  "upload_desktop_image",
+  "upload_mobile_image"
  ],
  "fields": [
   {
@@ -40,11 +41,6 @@
    "label": "Is Active"
   },
   {
-   "fieldname": "upload_image",
-   "fieldtype": "Attach Image",
-   "label": "Upload Image"
-  },
-  {
    "fieldname": "order_by_sequence",
    "fieldtype": "Data",
    "label": "Order by sequence"
@@ -63,12 +59,22 @@
    "fieldtype": "Select",
    "label": "External Site",
    "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "upload_mobile_image",
+   "fieldtype": "Attach Image",
+   "label": "Upload Mobile Image"
+  },
+  {
+   "fieldname": "upload_desktop_image",
+   "fieldtype": "Attach Image",
+   "label": "Upload Desktop Image"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-02-03 10:18:57.222411",
+ "modified": "2026-02-04 14:26:57.723230",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
  "name": "Banner Image",

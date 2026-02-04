@@ -20,7 +20,8 @@ def get_banner_images():
             "name1",
             "date",
             "order_by_sequence",
-            "upload_image",
+            "upload_desktop_image",   # ✅ renamed
+            "upload_mobile_image",    # ✅ new field
             "link",
             "external_site"
         ],
@@ -34,7 +35,7 @@ def get_banner_images():
     response = {
         "status": "success",
         "count": len(banners),
-        "first_banner": banners[0] if banners else None,  # 🔥 KEY PART
+        "first_banner": banners[0] if banners else None,
         "data": banners
     }
 
