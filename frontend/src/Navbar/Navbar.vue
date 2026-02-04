@@ -108,7 +108,7 @@
                         <li>
                             <router-link to="/careers"
                                 class="block text-[14px] font-medium text-gray-800 hover:text-[#007f8c] transition no-underline">
-                                Work with Us
+                                Work With Us
                             </router-link>
                         </li>
                     </ul>
@@ -212,7 +212,7 @@
                 <!-- MOBILE MORE -->
                 <li>
                     <button @click="activeMobileDropdown = 'more'" class="flex w-full gap-2 items-center">
-                        More
+                        Careers
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
@@ -277,17 +277,17 @@
                     <!-- MORE -->
                     <ul v-if="activeMobileDropdown === 'more'" class="divide-y">
                         <li>
-                            <router-link to="/careers"
+                            <router-link to="/send-your-resume"
                                 class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
                                 @click="activeMobileDropdown = null">
-                                Careers
+                                Send Your Resume
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="/blog"
+                            <router-link to="/careers"
                                 class="block py-3 text-[14px] font-medium text-gray-800 no-underline"
                                 @click="activeMobileDropdown = null">
-                                Blogs
+                                Work With Us
                             </router-link>
                         </li>
                     </ul>

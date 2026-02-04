@@ -102,13 +102,17 @@ async function loadBanners() {
 
     if (!firstBanner.value) return
 
-    // Preload first banner image
     const img = new Image()
     img.src = firstBanner.value.upload_image
     img.fetchPriority = 'high'
 
-    img.onload = () => {
+    // 🔥 THIS IS THE CRITICAL FIX
+    if (img.complete) {
       carouselReady.value = true
+    } else {
+      img.onload = () => {
+        carouselReady.value = true
+      }
     }
 
   } catch (e) {
@@ -132,7 +136,7 @@ onMounted(loadBanners)
 
 @media (min-width: 1024px) {
   .banner-carousel :deep(.el-carousel__container) {
-    height: 460px;
+    height: 420px;
   }
 }
 </style>
