@@ -1,23 +1,66 @@
 <template>
   <section class="w-full">
-    <Carousel :items-to-show="1" :wrap-around="true" :autoplay="3000" :pause-autoplay-on-hover="true" :mouse-drag="true"
-      class="w-full">
-      <Slide v-for="(banner, index) in banners" :key="index">
-        <component :is="banner.link ? 'a' : 'div'" :href="banner.link || undefined"
+
+    <!-- 🔥 IMMEDIATE HERO IMAGE -->
+    <div
+      v-if="firstBanner && !carouselReady"
+      class="w-full h-[150px] sm:h-[380px] lg:h-[460px] overflow-hidden"
+    >
+      <component
+        :is="firstBanner.link ? 'a' : 'div'"
+        :href="firstBanner.link || undefined"
+        :target="firstBanner.external_site ? '_blank' : '_self'"
+        :rel="firstBanner.external_site ? 'noopener noreferrer' : undefined"
+        class="block w-full h-full"
+      >
+        <img
+          :src="firstBanner.upload_image"
+          :alt="firstBanner.name1 || 'Banner'"
+          width="1920"
+          height="460"
+          fetchpriority="high"
+          decoding="async"
+          class="w-full h-full object-contain sm:object-cover"
+        />
+      </component>
+    </div>
+
+    <!-- 🎠 CAROUSEL (hydrates after first image loads) -->
+    <el-carousel
+      v-if="carouselReady"
+      indicator-position="outside"
+      :interval="3000"
+      :pause-on-hover="true"
+      arrow="always"
+      class="w-full banner-carousel"
+    >
+      <el-carousel-item
+        v-for="(banner, index) in banners"
+        :key="index"
+      >
+        <component
+          :is="banner.link ? 'a' : 'div'"
+          :href="banner.link || undefined"
           :target="banner.external_site ? '_blank' : '_self'"
-          :rel="banner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
-          <img :src="banner.src" :srcset="banner.srcset" :alt="banner.alt" width="1920" height="460" sizes="100vw"
-            :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async"
-            class="w-full h-[150px] sm:h-[380px] lg:h-[460px] object-contain sm:object-cover cursor-pointer" />
+          :rel="banner.external_site ? 'noopener noreferrer' : undefined"
+          class="block w-full h-full"
+        >
+          <img
+            :src="banner.upload_image"
+            :alt="banner.name1 || 'Banner'"
+            width="1920"
+            height="460"
+            sizes="100vw"
+            :loading="index === 0 ? 'eager' : 'lazy'"
+            :fetchpriority="index === 0 ? 'high' : 'auto'"
+            decoding="async"
+            class="w-full h-full object-contain sm:object-cover cursor-pointer"
+          />
         </component>
-      </Slide>
+      </el-carousel-item>
+    </el-carousel>
 
-      <template #addons>
-        <Navigation />
-      </template>
-    </Carousel>
-
-    <!-- Lazy sections -->
+    <!-- ⬇️ Rest of the page -->
     <AboutSection />
     <OurServices />
     <ServiceTypes />
@@ -32,8 +75,6 @@
 
 <script setup>
 import { ref, onMounted, defineAsyncComponent } from 'vue'
-import { Carousel, Slide, Navigation } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
 
 const AboutSection = defineAsyncComponent(() => import('./AboutSection.vue'))
 const OurServices = defineAsyncComponent(() => import('./OurServices.vue'))
@@ -46,10 +87,8 @@ const Testimonials = defineAsyncComponent(() => import('./Testimonial.vue'))
 const OurBlogs = defineAsyncComponent(() => import('./OurBlogs.vue'))
 
 const banners = ref([])
-
-function buildSrcSet(url) {
-  return url || ''
-}
+const firstBanner = ref(null)
+const carouselReady = ref(false)
 
 async function loadBanners() {
   try {
@@ -57,28 +96,43 @@ async function loadBanners() {
       '/api/method/drheal_frontend.api.banner_image.get_banner_images'
     )
     const json = await res.json()
-    const rows = json.message.data || []
 
-    banners.value = rows.map(row => ({
-      src: row.upload_image,
-      srcset: buildSrcSet(row.upload_image),
-      alt: row.name1 || 'Banner',
-      link: row.link || '',
-      external_site: row.external_site === 1
-    }))
+    firstBanner.value = json.message.first_banner
+    banners.value = json.message.data || []
+
+    if (!firstBanner.value) return
+
+    // Preload first banner image
+    const img = new Image()
+    img.src = firstBanner.value.upload_image
+    img.fetchPriority = 'high'
+
+    img.onload = () => {
+      carouselReady.value = true
+    }
+
   } catch (e) {
     console.error('Banner API error:', e)
-    banners.value = [
-      {
-        src: '/fallback-banner.webp',
-        srcset: '',
-        alt: 'Banner',
-        link: '',
-        external_site: false
-      }
-    ]
   }
 }
 
 onMounted(loadBanners)
 </script>
+
+<style scoped>
+.banner-carousel :deep(.el-carousel__container) {
+  height: 150px;
+}
+
+@media (min-width: 640px) {
+  .banner-carousel :deep(.el-carousel__container) {
+    height: 380px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .banner-carousel :deep(.el-carousel__container) {
+    height: 460px;
+  }
+}
+</style>

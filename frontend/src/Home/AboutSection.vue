@@ -1,15 +1,24 @@
 <template>
     <div class="container mt-5">
         <div class="row">
+            <!-- IMAGE COLUMN -->
             <div class="col-md-6 relative">
 
-                <!-- About Image -->
-                <img ref="aboutImg" :src="imgSrc" alt="Dr.Heal Pain Cure Hospital - Hospital Image" width="900" height="700"
-                    loading="lazy" decoding="async" class="w-full h-auto rounded-lg shadow-md" />
+                <!-- About Image (loads immediately) -->
+                <img
+                    src="https://drheal.quantumberg.com/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
+                    alt="Dr.Heal Pain Cure Hospital - Hospital Image"
+                    width="900"
+                    height="700"
+                    decoding="async"
+                    fetchpriority="high"
+                    class="w-full h-auto rounded-lg shadow-md"
+                />
 
                 <!-- Stats Card -->
-                <div class="absolute top-20 md:top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg
-          px-6 py-4 flex items-center gap-6 w-[90%] max-w-md">
+                <div
+                    class="absolute top-20 md:top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg
+                    px-6 py-4 flex items-center gap-6 w-[90%] max-w-md">
 
                     <div class="text-center flex-1 text-color-orange">
                         <h2 class="text-6xl md:text-7xl font-bold">
@@ -32,6 +41,7 @@
 
             <div class="col-md-1"></div>
 
+            <!-- TEXT COLUMN -->
             <div ref="textBlock" class="col-md-5 flex flex-col justify-center mt-6 md:mt-0">
 
                 <h6 class="text-color-orange uppercase mb-3 tracking-widest pt-4">
@@ -65,16 +75,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const years = ref(0)
 const clients = ref(0)
-
-const imgSrc = ref('')
-const aboutImg = ref(null)
 const textBlock = ref(null)
-
-let observer
 
 const animateCounter = (refValue, target, duration = 1500) => {
     let start = 0
@@ -88,26 +93,14 @@ const animateCounter = (refValue, target, duration = 1500) => {
 }
 
 onMounted(() => {
-    observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-
-                // load image only when visible
-                imgSrc.value = "https://drheal.quantumberg.com/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
-
-                // start counters when visible
-                animateCounter(years, 15)
-                animateCounter(clients, 15)
-
-                observer.disconnect()
-            }
-        })
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            animateCounter(years, 15)
+            animateCounter(clients, 15)
+            observer.disconnect()
+        }
     }, { threshold: 0.3 })
 
     if (textBlock.value) observer.observe(textBlock.value)
-})
-
-onBeforeUnmount(() => {
-    if (observer) observer.disconnect()
 })
 </script>
