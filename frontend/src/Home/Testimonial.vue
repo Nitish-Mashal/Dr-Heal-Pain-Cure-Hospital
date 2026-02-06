@@ -32,7 +32,7 @@
                 </p>
 
                 <img src="https://drheal.quantumberg.com/files/Google.svg"
-                    alt="Dr.Heal Pain Cure Hospital - Google Reviews" width="120" height="32" loading="lazy"
+                    alt="Dr.Heal Multispeciality Hospital - Google Reviews" width="120" height="32" loading="lazy"
                     class="h-8" />
 
             </aside>

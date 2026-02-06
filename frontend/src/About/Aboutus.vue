@@ -4,7 +4,7 @@
 
             <!-- Banner Image -->
             <img src="https://drheal.quantumberg.com/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
-                alt="Dr.Heal Pain Cure Hospital - About Us Image" class="
+                alt="Dr.Heal Multispeciality Hospital - About Us Image" class="
       w-full
       h-48       
       sm:h-56
@@ -28,7 +28,7 @@
                 <div class="col-md-6 relative">
                     <!-- Image -->
                     <img src="https://drheal.quantumberg.com/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
-                        alt="Dr.Heal Pain Cure Hospital - Hospital Image" class="w-full h-auto rounded-lg shadow-md" />
+                        alt="Dr.Heal Multispeciality Hospital - Hospital Image" class="w-full h-auto rounded-lg shadow-md" />
 
                     <!-- Stats Card -->
                     <div class="absolute top-20 md:top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg

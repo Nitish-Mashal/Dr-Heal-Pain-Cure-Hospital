@@ -84,7 +84,7 @@
 const founders = [
     {
         name: "Dr. Rakesh Jayaprakash",
-        alt: 'Dr.Heal Pain Cure Hospital - Founder & Managing Director of Dr. Heal',
+        alt: 'Dr.Heal Multispeciality Hospital - Founder & Managing Director of Dr. Heal',
         role: "Founder & Managing Director",
         image: "https://drheal.quantumberg.com/files/Leaders-1.webp",
         description:
@@ -95,7 +95,7 @@ const founders = [
 const administration = [
     {
         name: "Dr Mallikarjun.S",
-        alt: 'Dr.Heal Pain Cure Hospital - Chief Administrative Officer of Dr. Heal',
+        alt: 'Dr.Heal Multispeciality Hospital - Chief Administrative Officer of Dr. Heal',
         role: "Chief Administrative Officer",
         image: "https://drheal.quantumberg.com/files/Dr-Mallikarjun-s.png",
         description:
@@ -103,7 +103,7 @@ const administration = [
     },
     {
         name: "Mrs. Caroline",
-        alt: 'Dr.Heal Pain Cure Hospital - Chief Managing Officer of Dr. Heal',
+        alt: 'Dr.Heal Multispeciality Hospital - Chief Managing Officer of Dr. Heal',
         role: "Chief Managing Officer",
         image: "https://drheal.quantumberg.com/files/Mrs-Caroline.jpeg",
         description:
@@ -111,7 +111,7 @@ const administration = [
     },
     {
         name: "Mr Sandeep",
-        alt: 'Dr.Heal Pain Cure Hospital - Assistant Manager Marketing/Purchase of Dr. Heal',
+        alt: 'Dr.Heal Multispeciality Hospital - Assistant Manager Marketing/Purchase of Dr. Heal',
         role: "Assistant Manager Marketing/Purchase",
         image: "https://drheal.quantumberg.com/files/Mr-Sandeep.jpeg",
         description:
@@ -119,7 +119,7 @@ const administration = [
     },
     {
         name: "Mrs. Indra",
-        alt: 'Dr.Heal Pain Cure Hospital - HR Professional of Dr. Heal',
+        alt: 'Dr.Heal Multispeciality Hospital - HR Professional of Dr. Heal',
         role: "HR Professional",
         image: "https://drheal.quantumberg.com/files/Placeholder-image.png",
         description:
@@ -127,7 +127,7 @@ const administration = [
     },
     {
         name: "Mrs Lakshmi.N",
-        alt: 'Dr.Heal Pain Cure Hospital - Chief Accounting Manager of Dr. Heal',
+        alt: 'Dr.Heal Multispeciality Hospital - Chief Accounting Manager of Dr. Heal',
         role: "Chief Accounting Manager",
         image: "https://drheal.quantumberg.com/files/Mrs-Lakshmi-N.jpeg",
         description:
@@ -135,7 +135,7 @@ const administration = [
     },
     {
         name: "Mr.Rohith",
-        alt: 'Dr.Heal Pain Cure Hospital - Official Editor of Dr. Heal',
+        alt: 'Dr.Heal Multispeciality Hospital - Official Editor of Dr. Heal',
         role: "Official Editor",
         image: "https://drheal.quantumberg.com/files/Mr-Rohith.webp",
         description:
@@ -143,7 +143,7 @@ const administration = [
     },
     {
         name: "Mrs. Zareena",
-        alt: 'Dr.Heal Pain Cure Hospital - OPD Manager of Dr. Heal',
+        alt: 'Dr.Heal Multispeciality Hospital - OPD Manager of Dr. Heal',
         role: "OPD Manager",
         image: "https://drheal.quantumberg.com/files/Placeholder-image.png",
         description:
@@ -151,7 +151,7 @@ const administration = [
     },
     {
         name: "Mr. Santosh",
-        alt: 'Dr.Heal Pain Cure Hospital - Patient Relationship Manager of Dr. Heal',
+        alt: 'Dr.Heal Multispeciality Hospital - Patient Relationship Manager of Dr. Heal',
         role: "Patient Relationship Manager",
         image: "https://drheal.quantumberg.com/files/Mr-Santosh.png",
         description:
@@ -159,7 +159,7 @@ const administration = [
     },
     {
         name: "Mrs. Kavya",
-        alt: 'Dr.Heal Pain Cure Hospital - Nursing Services Supervisor of Dr. Heal',
+        alt: 'Dr.Heal Multispeciality Hospital - Nursing Services Supervisor of Dr. Heal',
         role: "Nursing Services, Supervisor",
         image: "https://drheal.quantumberg.com/files/Mrs-Kavya.png",
         description:
@@ -167,7 +167,7 @@ const administration = [
     },
     {
         name: "Mr. Sudarshan",
-        alt: 'Dr.Heal Pain Cure Hospital - Head of Digital Marketing of Dr. Heal',
+        alt: 'Dr.Heal Multispeciality Hospital - Head of Digital Marketing of Dr. Heal',
         role: "Head of Digital Marketing",
         image: "https://drheal.quantumberg.com/files/Mr-Sudarshan.jpeg",
         description:

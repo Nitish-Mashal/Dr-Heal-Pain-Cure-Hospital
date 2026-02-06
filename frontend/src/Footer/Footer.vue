@@ -8,13 +8,13 @@
                 <div class="col-md-3">
                     <!-- Desktop / Large screen logo -->
                     <img src="https://drheal.quantumberg.com/files/DrHeal-Logo.webp"
-                        alt="Dr Heal Pain Cure Hospital - Dr Heal Logo" width="180" height="80" loading="lazy"
+                        alt="Dr.Heal Multispeciality Hospital - Dr Heal Logo" width="180" height="80" loading="lazy"
                         decoding="async" class="hidden sm:block h-20 mb-4 object-contain" />
 
                     <!-- Mobile logo -->
                     <img src="https://drheal.quantumberg.com/files/DrHeal-Logo-mobile.webp"
-                        alt="Dr Heal Pain Cure Hospital - Dr Heal Mobile Logo" width="120" height="60" loading="lazy"
-                        decoding="async" class="block sm:hidden h-16 mb-4 object-contain" />
+                        alt="Dr.Heal Multispeciality Hospital - Dr Heal Mobile Logo" width="120" height="60"
+                        loading="lazy" decoding="async" class="block sm:hidden h-16 mb-4 object-contain" />
 
                     <p class="mb-4">{{ tagline }}</p>
 
@@ -29,7 +29,7 @@
 
                 <!-- QUICK LINKS -->
                 <div class="col-md-3">
-                    <h5 class="mb-3 ml-8">Quick Links</h5>
+                    <h5 class="mb-3 ml-8 text-gray-800">Quick Links</h5>
                     <ul class="space-y-2 text-[15px]">
                         <li v-for="link in quickLinks" :key="link.path">
                             <router-link :to="link.path" class="text-gray-700 no-underline hover:underline">
@@ -41,7 +41,7 @@
 
                 <!-- WORKING HOURS -->
                 <div class="col-md-3">
-                    <h5 class="mb-3 ml-8">Working Hours</h5>
+                    <h5 class="mb-3 ml-8 text-gray-800">Working Hours</h5>
                     <ul class="leading-7 text-[15px]">
                         <li v-for="day in workingHours" :key="day.day" class="mb-3">
                             <strong>{{ day.day }}</strong><br />
@@ -52,12 +52,12 @@
 
                 <!-- ADDRESS & CONTACT -->
                 <div class="col-md-3">
-                    <h5 class="mb-3">Address</h5>
+                    <h5 class="mb-3 text-gray-800">Address</h5>
                     <p v-for="(address, index) in addresses" :key="index" class="text-[15px] mb-3 leading-6">
                         {{ address }}
                     </p>
 
-                    <h5 class="mt-4 mb-2">Contact</h5>
+                    <h5 class="mt-4 mb-2 text-gray-800">Contact</h5>
 
                     <div class="text-[15px] space-y-3 pb-4">
                         <!-- Phone -->

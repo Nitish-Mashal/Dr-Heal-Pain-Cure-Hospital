@@ -20,7 +20,7 @@
 
                             <!-- TITLE -->
                             <h5 class="fw-bold text-color-blue mb-2">
-                                Dr Heal Pain Cure Hospitals
+                                Dr.Heal Multispeciality Hospital
                             </h5>
 
                             <!-- ADDRESS -->

@@ -2,7 +2,7 @@
     <div>
         <!-- Banner -->
         <div class="relative w-full">
-            <img src="https://drheal.quantumberg.com/files/contact-us.jpg" alt="Dr Heal Pain Cure Hospital - Contact Us"
+            <img src="https://drheal.quantumberg.com/files/contact-us.jpg" alt="Dr.Heal Multispeciality Hospital - Contact Us"
                 class="w-full sm:h-56 md:h-72 object-contain md:object-cover" />
         </div>
 

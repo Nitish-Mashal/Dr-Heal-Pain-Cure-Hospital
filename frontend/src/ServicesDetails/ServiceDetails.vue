@@ -126,8 +126,8 @@ const serviceImage = computed(() => {
 
 const altText = computed(() =>
     service.value?.name1
-        ? `Dr Heal Pain Cure Hospital - ${service.value.name1}`
-        : "Dr Heal Pain Cure Hospital"
+        ? `Dr.Heal Multispeciality Hospital - ${service.value.name1}`
+        : "Dr.Heal Multispeciality Hospital"
 )
 
 /* ---------------- CONTACT FORM ---------------- */

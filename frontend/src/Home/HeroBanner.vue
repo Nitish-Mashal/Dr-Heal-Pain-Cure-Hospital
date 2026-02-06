@@ -6,7 +6,7 @@
       <component :is="firstBanner.link ? 'a' : 'div'" :href="firstBanner.link || undefined"
         :target="firstBanner.external_site ? '_blank' : '_self'"
         :rel="firstBanner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
-        <img :src="resolveBannerImage(firstBanner)" :alt="firstBanner.name1 || 'Banner'" width="1920" height="460"
+        <img :src="resolveBannerImage(firstBanner)" :alt="getBannerAlt(firstBanner)" width="1920" height="460"
           fetchpriority="high" decoding="async" class="w-full h-full object-contain sm:object-cover" />
       </component>
     </div>
@@ -18,7 +18,7 @@
         <component :is="banner.link ? 'a' : 'div'" :href="banner.link || undefined"
           :target="banner.external_site ? '_blank' : '_self'"
           :rel="banner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
-          <img :src="resolveBannerImage(banner)" :alt="banner.name1 || 'Banner'" width="1920" height="460" sizes="100vw"
+          <img :src="resolveBannerImage(banner)" :alt="getBannerAlt(banner)" width="1920" height="460" sizes="100vw"
             :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async"
             class="w-full h-full object-contain sm:object-cover cursor-pointer" />
         </component>
@@ -81,6 +81,20 @@ function resolveBannerImage(banner) {
   }
 
   return banner.upload_desktop_image || banner.upload_mobile_image
+}
+
+/* ---------------- ALT TEXT ---------------- */
+function getBannerAlt(banner) {
+  if (!banner) return 'Dr.Heal Multispeciality Hospital'
+
+  const title =
+    banner.name1 ||
+    banner.meta_title ||
+    banner.title
+
+  return title
+    ? `Dr.Heal Multispeciality Hospital - ${title}`
+    : 'Dr.Heal Multispeciality Hospital'
 }
 
 /* ---------------- API ---------------- */

@@ -79,9 +79,9 @@ const facilityImage = computed(() => {
 
 const altText = computed(() => {
     if (!facility.value?.name1) {
-        return 'Dr Heal Pain Cure Hospital'
+        return 'Dr.Heal Multispeciality Hospital'
     }
-    return `Dr Heal Pain Cure Hospital - ${facility.value.name1}`
+    return `Dr.Heal Multispeciality Hospital - ${facility.value.name1}`
 })
 
 /* ---------------- SEO ---------------- */
@@ -100,7 +100,7 @@ const updatePageSEO = (data) => {
     document.title =
         data.meta_title ||
         data.name1 ||
-        "Dr Heal Pain Cure Hospital"
+        "Dr.Heal Multispeciality Hospital"
 
     updateMeta("description", data.meta_description)
     updateMeta("keywords", data.meta_keyword)

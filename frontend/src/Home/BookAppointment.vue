@@ -2,7 +2,7 @@
     <div class="relative w-full h-48 overflow-hidden">
         <!-- Background Image -->
         <img src="https://drheal.quantumberg.com/files/Book-Appointment-Banner-Image.png"
-            alt="Dr.Heal Pain Cure Hospital - Book Appointment Banner Image" class="w-full h-full object-cover" />
+            alt="Dr.Heal Multispeciality Hospital - Book Appointment Banner Image" class="w-full h-full object-cover" />
 
         <!-- Center Content -->
         <div class="absolute inset-0 flex items-center justify-start sm:px-[250px] px-16">

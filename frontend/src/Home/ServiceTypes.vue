@@ -50,7 +50,7 @@
 const services = Object.freeze([
     {
         title: 'Home Visits',
-        alt: 'Dr.Heal Pain Cure Hospital - Home Visits',
+        alt: 'Dr.Heal Multispeciality Hospital - Home Visits',
         description:
             'We bring expert orthopedic care to your home – convenient, safe, and tailored to your recovery needs.',
         image: 'https://drheal.quantumberg.com/files/Services-Types-1.webp',
@@ -58,7 +58,7 @@ const services = Object.freeze([
     },
     {
         title: 'Online Consultation',
-        alt: 'Dr.Heal Pain Cure Hospital - Online Consultation',
+        alt: 'Dr.Heal Multispeciality Hospital - Online Consultation',
         description:
             'Connect with orthopedic specialists online for quick, reliable diagnosis and treatment guidance.',
         image: 'https://drheal.quantumberg.com/files/Services-Types-2.webp',
@@ -66,7 +66,7 @@ const services = Object.freeze([
     },
     {
         title: 'Quality Healthcare',
-        alt: 'Dr.Heal Pain Cure Hospital - Quality Healthcare',
+        alt: 'Dr.Heal Multispeciality Hospital - Quality Healthcare',
         description:
             'Experience top-tier orthopedic treatment backed by expert doctors, modern technology, and personalized care.',
         image: 'https://drheal.quantumberg.com/files/Services-Types-3.webp',

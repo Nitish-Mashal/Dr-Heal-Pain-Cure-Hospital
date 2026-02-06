@@ -7,7 +7,7 @@
                 <!-- About Image (loads immediately) -->
                 <img
                     src="https://drheal.quantumberg.com/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
-                    alt="Dr.Heal Pain Cure Hospital - Hospital Image"
+                    alt="Dr.Heal Multispeciality Hospital - Hospital Image"
                     width="900"
                     height="700"
                     decoding="async"

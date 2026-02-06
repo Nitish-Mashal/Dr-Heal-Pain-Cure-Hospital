@@ -19,7 +19,7 @@
         <div v-for="(card, index) in services" :key="index"
           class="group bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition duration-300 hover:bg-blue-900 hover:text-white">
           <img :src="card.custom_image ? card.custom_image : '/files/doctor-patient.jpg'"
-            alt="Dr Heal Pain Cure Hospital - Service"
+            alt="Dr.Heal Multispeciality Hospital - Service"
             class="w-full h-48 object-cover transition duration-300 group-hover:opacity-30" />
           <div class="p-4">
             <h3 class="text-lg font-semibold text-gray-900 group-hover:text-white transition">

@@ -6,11 +6,11 @@
             <router-link to="/" class="flex items-center">
                 <!-- Large screens logo -->
                 <img src="https://drheal.quantumberg.com/files/DrHeal-Logo.webp"
-                    alt="Dr Heal Pain Cure Hospital - Dr Heal Logo" class="hidden sm:block h-14" />
+                    alt="Dr.Heal Multispeciality Hospital - Dr Heal Logo" class="hidden sm:block h-14" />
 
                 <!-- Small screens logo -->
                 <img src="https://drheal.quantumberg.com/files/DrHeal-Logo-mobile.webp"
-                    alt="Dr Heal Pain Cure Hospital - Dr Heal Mobile Logo" class="block sm:hidden h-12" />
+                    alt="Dr.Heal Multispeciality Hospital - Dr Heal Mobile Logo" class="block sm:hidden h-12" />
             </router-link>
 
             <!-- ================= DESKTOP MENU ================= -->
@@ -248,7 +248,7 @@
                 <!-- Header -->
                 <div class="flex items-center justify-between px-4 py-3 border-b">
                     <h3 class="font-semibold text-sm uppercase tracking-wide">
-                        {{ activeMobileDropdown }}
+                        {{ mobileDropdownTitles[activeMobileDropdown] }}
                     </h3>
                     <button @click="activeMobileDropdown = null" class="text-lg leading-none">
                         ✕
@@ -357,6 +357,12 @@ const handleClickOutside = (event) => {
         mobileFacilities.value = false
         mobileMore.value = false
     }
+}
+
+const mobileDropdownTitles = {
+    services: "Services",
+    facilities: "Facilities",
+    more: "Careers"
 }
 
 // ========================= ROUTER WATCH =========================
