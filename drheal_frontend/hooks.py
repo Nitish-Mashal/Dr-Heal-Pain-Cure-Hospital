@@ -159,6 +159,37 @@ website_route_rules = [
 ]
 
 
+fixtures = [
+    {
+        "dt": "Custom Field",
+        "filters": [
+            ["name", "in", [
+                "Patient Appointment-custom_created_user",
+                "Patient Appointment-custom_booking_type"
+            ]]
+        ]
+    }
+]
+
+page_js = {
+    "opd_queue_board": "pages/opd_queue_board/opd_queue_board.js"
+}
+
+before_uninstall = "drheal_frontend.hooks.cleanup_custom_fields"
+
+def cleanup_custom_fields():
+    frappe = __import__("frappe")
+
+    fields = [
+        "Patient Appointment-custom_created_user",
+        "Patient Appointment-custom_booking_type"
+    ]
+
+    frappe.logger().warning("drheal_frontend before_uninstall CALLED")
+
+    for field in fields:
+        if frappe.db.exists("Custom Field", field):
+            frappe.delete_doc("Custom Field", field, force=1)
 
 # required_apps = []
 
