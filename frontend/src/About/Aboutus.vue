@@ -3,7 +3,7 @@
         <div class="relative w-full mb-5 overflow-hidden rounded-4">
 
             <!-- Banner Image -->
-            <img src="https://drheal.quantumberg.com/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
+            <img src="https://www.drheal.in/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
                 alt="Dr.Heal Multispeciality Hospital - About Us Image" class="
       w-full
       h-48       
@@ -27,8 +27,9 @@
             <div class="row">
                 <div class="col-md-6 relative">
                     <!-- Image -->
-                    <img src="https://drheal.quantumberg.com/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
-                        alt="Dr.Heal Multispeciality Hospital - Hospital Image" class="w-full h-auto rounded-lg shadow-md" />
+                    <img src="https://www.drheal.in/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
+                        alt="Dr.Heal Multispeciality Hospital - Hospital Image"
+                        class="w-full h-auto rounded-lg shadow-md" />
 
                     <!-- Stats Card -->
                     <div class="absolute top-20 md:top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg

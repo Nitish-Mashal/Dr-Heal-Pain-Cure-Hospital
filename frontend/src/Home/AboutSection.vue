@@ -5,19 +5,12 @@
             <div class="col-md-6 relative">
 
                 <!-- About Image (loads immediately) -->
-                <img
-                    src="https://drheal.quantumberg.com/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
-                    alt="Dr.Heal Multispeciality Hospital - Hospital Image"
-                    width="900"
-                    height="700"
-                    decoding="async"
-                    fetchpriority="high"
-                    class="w-full h-auto rounded-lg shadow-md"
-                />
+                <img src="https://www.drheal.in/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
+                    alt="Dr.Heal Multispeciality Hospital - Hospital Image" width="900" height="700" decoding="async"
+                    fetchpriority="high" class="w-full h-auto rounded-lg shadow-md" />
 
                 <!-- Stats Card -->
-                <div
-                    class="absolute top-20 md:top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg
+                <div class="absolute top-20 md:top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg
                     px-6 py-4 flex items-center gap-6 w-[90%] max-w-md">
 
                     <div class="text-center flex-1 text-color-orange">

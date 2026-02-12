@@ -31,7 +31,7 @@
                     Based on <strong>3185 reviews</strong>
                 </p>
 
-                <img src="https://drheal.quantumberg.com/files/Google.svg"
+                <img src="https://www.drheal.in/files/Google.svg"
                     alt="Dr.Heal Multispeciality Hospital - Google Reviews" width="120" height="32" loading="lazy"
                     class="h-8" />
 

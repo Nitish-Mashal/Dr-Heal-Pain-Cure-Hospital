@@ -5,11 +5,11 @@
             <!-- LOGO -->
             <router-link to="/" class="flex items-center">
                 <!-- Large screens logo -->
-                <img src="https://drheal.quantumberg.com/files/DrHeal-Logo.webp"
+                <img src="https://www.drheal.in/files/DrHeal-Logo.webp"
                     alt="Dr.Heal Multispeciality Hospital - Dr Heal Logo" class="hidden sm:block h-14" />
 
                 <!-- Small screens logo -->
-                <img src="https://drheal.quantumberg.com/files/DrHeal-Logo-mobile.webp"
+                <img src="https://www.drheal.in/files/DrHeal-Logo-mobile.webp"
                     alt="Dr.Heal Multispeciality Hospital - Dr Heal Mobile Logo" class="block sm:hidden h-12" />
             </router-link>
 

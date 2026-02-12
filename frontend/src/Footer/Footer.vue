@@ -6,7 +6,7 @@
 
                 <!-- LOGO & SOCIAL -->
                 <div class="col-md-3">
-                    <img src="https://drheal.quantumberg.com/files/DrHeal-Logo.webp"
+                    <img src="https://www.drheal.in/files/DrHeal-Logo.webp"
                         alt="Dr. Heal Multispeciality Hospital – Dr Heal Logo" width="180" height="80" loading="lazy"
                         decoding="async" class="h-20 mb-4 object-contain" />
 

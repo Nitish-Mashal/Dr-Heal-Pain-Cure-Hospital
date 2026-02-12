@@ -46,7 +46,7 @@ const blogs = [
         title: "Dr.Heal Multispeciality Hospital - Importance Of Diet In Management Of Rheumatoid Arthritis",
         excerpt:
             "Importance Of Diet In Management Of Rheumatoid Arthritis Home Importance Of Diet In Management Of Rheumatoid Arthritis Diet plays a significant...",
-        image: "https://drheal.quantumberg.com/files/OurBlogsHome.jpg",
+        image: "https://www.drheal.in/files/OurBlogsHome.jpg",
     },
 ];
 </script>

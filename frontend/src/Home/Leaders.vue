@@ -58,7 +58,7 @@ const leaders = Object.freeze([
         designation: "Interventional Pain Specialist & Functional Medicine Expert",
         description:
             "Inspired by a personal story — watching his mother endure years of back pain — Dr. Rakesh committed his life to creating a path of healing that doesn’t involve surgery. His patient-first philosophy blends medical science with empathy, providing care that is thoughtful, effective, and affordable.",
-        image: "https://drheal.quantumberg.com/files/Leaders-1.webp",
+        image: "https://www.drheal.in/files/Leaders-1.webp",
     }
 ])
 

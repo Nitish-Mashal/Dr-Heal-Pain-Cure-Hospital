@@ -3,7 +3,7 @@
 
         <!-- Heading / Banner -->
         <div class="relative w-full mb-5 overflow-hidden rounded-4">
-            <img src="https://drheal.quantumberg.com/files/dr-heal-about-us.webp" alt="Dr Heal About Us Image" class="
+            <img src="https://www.drheal.in/files/dr-heal-about-us.webp" alt="Dr Heal About Us Image" class="
                     w-full
                     h-48
                     sm:h-56

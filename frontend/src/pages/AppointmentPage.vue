@@ -38,7 +38,8 @@
 
     <!-- LEFT : SLOT UI -->
     <div>
-      <div v-if="availableDates.length" class="bg-white rounded-xl p-4 shadow">
+      <div v-show="availableDates.length" class="bg-white rounded-xl p-4 shadow">
+
         <h2 class="font-bold text-xl mb-2 text-[#065f7f]">
           Select Appointment Slots
         </h2>
@@ -57,8 +58,7 @@
 
           <!-- Date pill -->
           <div class="px-6 py-2 rounded-full bg-green-100 text-green-700 font-semibold
-           flex items-center gap-2 cursor-pointer select-none" @click="openCalendar">
-            <!-- Calendar icon -->
+               flex items-center gap-2 cursor-pointer select-none" @click="openCalendar">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -74,36 +74,42 @@
             ›
           </button>
 
-          <!-- 🔒 Hidden native calendar input -->
+          <!-- Hidden calendar -->
           <input ref="hiddenDateInput" type="date" class="absolute opacity-0 pointer-events-none"
             style="width:1px;height:1px" :min="minDate" @change="onCalendarSelect($event.target.value)" />
-
         </div>
 
-        <!-- No slots -->
-        <p v-if="!isFetchingSlots && availableTimes.length === 0" class="text-center text-gray-500 mt-4">
-          No slots available for selected date
-        </p>
+        <!-- Slots (FIXED & SCROLL-SAFE) -->
+        <div class="h-[330px] overflow-y-scroll pr-1">
 
+          <div class="grid grid-cols-3 gap-3 min-h-full">
 
+            <!-- Slot buttons -->
+            <button v-for="slot in availableTimes" :key="slot.id" @click="!slot.booked && selectSlot(slot)"
+              :disabled="slot.booked" :class="[
+                'border rounded-lg py-2 text-sm transition w-full',
+                slot.booked
+                  ? 'bg-red-500 text-white cursor-not-allowed'
+                  : selectedSlot?.id === slot.id
+                    ? 'bg-green-500 text-white'
+                    : 'bg-white hover:bg-green-50 cursor-pointer'
+              ]">
+              <div>{{ formatTime(slot.display) }}</div>
+              <div class="text-xs">{{ slot.token_no }}</div>
+            </button>
 
-        <!-- Slots -->
-        <div class="grid grid-cols-3 gap-3">
-          <button v-for="slot in availableTimes" :key="slot.id" @click="!slot.booked && selectSlot(slot)"
-            :disabled="slot.booked" :class="[
-              'border rounded-lg py-2 text-sm transition w-full',
-              slot.booked
-                ? 'bg-red-500 text-white cursor-not-allowed'
-                : selectedSlot?.id === slot.id
-                  ? 'bg-green-500 text-white'
-                  : 'bg-white hover:bg-green-50 cursor-pointer'
-            ]">
-            <div>{{ formatTime(slot.display) }}</div>
-            <div class="text-xs">{{ slot.token_no }}</div>
-          </button>
+            <!-- Placeholder (keeps scroll alive) -->
+            <div v-if="!isFetchingSlots && availableTimes.length === 0"
+              class="col-span-3 flex items-center justify-center text-gray-400 text-sm">
+              No slots available for selected date
+            </div>
+
+          </div>
         </div>
+
       </div>
     </div>
+
 
     <!-- RIGHT : FORM -->
     <div class="  rounded-xl shadow">

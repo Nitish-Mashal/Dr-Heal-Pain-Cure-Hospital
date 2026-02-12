@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="relative w-full">
       <!-- Banner Image -->
-      <img src="https://drheal.quantumberg.com/files/DoctorsTeam.png" alt="Dr.Heal Multispeciality Hospital - Doctors"
+      <img src="https://www.drheal.in/files/DoctorsTeam.png" alt="Dr.Heal Multispeciality Hospital - Doctors"
         class="w-full sm:h-56 md:h-72 object-contain md:object-cover" />
 
       <!-- White transparent overlay -->

@@ -540,7 +540,10 @@ def create_appointment():
         else:
             start_str = appointment_time.strip()
 
-        start_time = datetime.strptime(start_str, "%H:%M:%S").time()
+        try:
+            start_time = datetime.strptime(start_str, "%H:%M:%S").time()
+        except ValueError:
+            start_time = datetime.strptime(start_str, "%H:%M").time()
 
         # -------------------------------
         # Check existing Patient by phone
@@ -552,16 +555,15 @@ def create_appointment():
             as_dict=True
         )
 
-        # ❌ Same phone but different name → BLOCK
-        if existing_patient:
-            if existing_patient.patient_name.strip().lower() != patient_name.strip().lower():
-                frappe.throw(
-                    f"This mobile number is already registered with the name "
-                    f"'{existing_patient.patient_name}'. "
-                    "Please use the same name or a different mobile number."
-                )
+        patient = None
 
-        patient = existing_patient.name if existing_patient else None
+        if existing_patient:
+            # Same phone + same name → reuse patient
+            if existing_patient.patient_name.strip().lower() == patient_name.strip().lower():
+                patient = existing_patient.name
+            else:
+                # Same phone + different name → create NEW patient
+                patient = None
 
         # -------------------------------
         # Prevent duplicate booking
@@ -627,7 +629,8 @@ def create_appointment():
                 "patient_name": patient_name,
                 "mobile": phone,
                 "email": email,
-                "sex": gender
+                "sex": gender,
+                "age": age
             })
             patient_doc.insert(ignore_permissions=True)
             patient = patient_doc.name
