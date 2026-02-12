@@ -144,7 +144,7 @@
                         Appointment</button>
                 </router-link>
 
-                <a href="https://drheal.quantumberg.com/login"
+                <a href="https://www.drheal.in/login"
                     class="bg-color-orange px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-orange-600 transition no-underline">
                     Login
                 </a>
@@ -227,7 +227,7 @@
                 <li><router-link to="/contact-us" class="text-gray-800 no-underline">Contact Us</router-link></li>
 
                 <li>
-                    <a href="https://drheal.quantumberg.com/login" class="block w-full text-gray-800 no-underline">
+                    <a href="https://www.drheal.in/login" class="block w-full text-gray-800 no-underline">
                         Login
                     </a>
                 </li>
