@@ -34,7 +34,7 @@ export default {
     const route = useRoute()
     const router = useRouter()
 
-    const baseUrl = "https://www.drheal.in/"
+    const baseUrl = "https://www.drheal.in"
 
     const updateCanonical = () => {
       const canonicalUrl = baseUrl + router.resolve(route).path
