@@ -36,10 +36,10 @@
                     {{ leader.description }}
                 </p>
 
-                <router-link to="/doctors-list"
+                <a href="https://drrakeshjp.com/" target="_blank" rel="noopener noreferrer"
                     class="inline-block bg-color-blue text-white px-5 py-2 rounded-lg font-semibold no-underline hover:opacity-90 transition">
-                    Read More
-                </router-link>
+                    Meet Dr. Rakesh 
+                </a>
 
             </div>
 
