@@ -38,7 +38,7 @@
 
                 <a href="https://drrakeshjp.com/" target="_blank" rel="noopener noreferrer"
                     class="inline-block bg-color-blue text-white px-5 py-2 rounded-lg font-semibold no-underline hover:opacity-90 transition">
-                    Meet Dr. Rakesh 
+                    Visit Dr. Rakesh Profile
                 </a>
 
             </div>
