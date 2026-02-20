@@ -20,14 +20,14 @@
                             <i :class="`bi ${social.icon}`"></i>
                         </a>
                     </div>
-                    <!-- Install Buttons -->
+
+                    <!-- Install / Open Buttons -->
                     <div class="flex flex-col gap-3 items-start">
 
-                        <!-- Android Button -->
-                        <button id="installAndroid" class="inline-flex items-center gap-3 px-4 py-2 w-[150px]
-               bg-color-blue text-white 
-               rounded-xl shadow-md transition duration-300" @click="installApp">
-
+                        <!-- Show Install buttons if app NOT installed -->
+                        <button v-if="!isInstalled" id="installAndroid" class="inline-flex items-center gap-3 px-4 py-2 w-[150px]
+                                       bg-color-blue text-white
+                                       rounded-xl shadow-md transition duration-300" @click="installApp">
                             <i class="bi bi-android2 text-xl"></i>
                             <div class="text-left">
                                 <div class="text-xs opacity-80">Get it on</div>
@@ -35,11 +35,9 @@
                             </div>
                         </button>
 
-                        <!-- iOS Button -->
-                        <button id="installIOS" class="inline-flex items-center gap-3 px-4 py-2 w-[150px]
-               bg-color-orange text-white outline-none focus:outline-none
-               rounded-xl shadow-md transition duration-300" @click="installApp">
-
+                        <button v-if="!isInstalled" id="installIOS" class="inline-flex items-center gap-3 px-4 py-2 w-[150px]
+                                       bg-color-orange text-white
+                                       rounded-xl shadow-md transition duration-300" @click="installApp">
                             <i class="bi bi-apple text-xl"></i>
                             <div class="text-left">
                                 <div class="text-xs opacity-80">Download on</div>
@@ -47,12 +45,18 @@
                             </div>
                         </button>
 
+                        <!-- Show Open App button if installed -->
+                        <!-- <button v-else class="inline-flex items-center gap-3 px-4 py-2 w-[150px]
+                                       bg-color-green text-white
+                                       rounded-xl shadow-md transition duration-300" @click="openApp">
+                            <i class="bi bi-box-arrow-up-right text-xl"></i>
+                            <div class="text-left">
+                                <div class="font-semibold">Open App</div>
+                            </div>
+                        </button> -->
+
                     </div>
-
-
-
                 </div>
-
 
                 <!-- QUICK LINKS -->
                 <div class="col-md-3">
@@ -85,28 +89,13 @@
                     </p>
 
                     <h5 class="mt-4 mb-2">Contact</h5>
-
                     <div class="text-[15px] space-y-3 pb-4">
-                        <!-- Phone -->
                         <div class="flex items-center gap-3">
-                            <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                role="img" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                            </svg>
                             <a href="tel:07969288000" class="underline text-gray-700">07969288000</a>
                         </div>
-
-                        <!-- Email -->
                         <div class="flex items-center gap-3">
-                            <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                role="img" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-                            </svg>
                             <a href="mailto:info@drheal.in" class="underline text-gray-700">info@drheal.in</a>
                         </div>
-
                     </div>
                 </div>
 
@@ -138,73 +127,67 @@ const isIOS = ref(false);
 
 // Detect iOS
 const detectIOS = () => {
-    isIOS.value = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    isIOS.value = /iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase());
 };
 
-// Detect if app is already installed
+// Detect if PWA is installed
 const checkInstalled = () => {
-    if (
+    const standaloneMode =
         window.matchMedia('(display-mode: standalone)').matches ||
-        window.navigator.standalone === true
-    ) {
+        window.navigator.standalone === true;
+
+    const savedInstall = localStorage.getItem("pwaInstalled") === "true";
+
+    if (standaloneMode || savedInstall) {
         isInstalled.value = true;
     }
 };
 
 // Capture install prompt
 window.addEventListener("beforeinstallprompt", (e) => {
-    console.log("Install prompt ready");
     e.preventDefault();
     deferredPrompt.value = e;
 });
 
 // Detect successful install
 window.addEventListener("appinstalled", () => {
-    console.log("App installed successfully");
     isInstalled.value = true;
+    localStorage.setItem("pwaInstalled", "true");
+    deferredPrompt.value = null;
 });
 
 // Install button click
 const installApp = async () => {
-
-    // If already installed → open app
-    if (isInstalled.value) {
-        window.location.href = window.location.origin;
-        return;
-    }
+    if (isInstalled.value) return;
 
     // iOS instructions
     if (isIOS.value) {
         alert(
             "To install this app on iPhone:\n\n" +
-            "1. Tap Share button\n" +
-            "2. Tap 'Add to Home Screen'\n" +
+            "1. Tap Share\n" +
+            "2. Add to Home Screen\n" +
             "3. Tap Add"
         );
         return;
     }
 
-    // Show install popup
+    // Android install popup
     if (deferredPrompt.value) {
         deferredPrompt.value.prompt();
 
         const result = await deferredPrompt.value.userChoice;
 
         if (result.outcome === "accepted") {
-            console.log("User accepted install");
-        } else {
-            console.log("User dismissed install");
+            isInstalled.value = true;
+            localStorage.setItem("pwaInstalled", "true");
         }
 
         deferredPrompt.value = null;
-    } else {
-        alert("Install option not available yet. Please try again.");
     }
 };
 
-const year = new Date().getFullYear()
-
-const tagline = "Healing Pain Without Surgery. Restoring Life With Purpose."
+const year = new Date().getFullYear();
+const tagline = "Healing Pain Without Surgery. Restoring Life With Purpose.";
 
 const socialIcons = [
     { icon: "bi-facebook", url: "https://www.facebook.com/drhealbangalore", label: "Facebook" },
@@ -212,7 +195,7 @@ const socialIcons = [
     { icon: "bi-instagram", url: "https://www.instagram.com/drhealpaincurehospital", label: "Instagram" },
     { icon: "bi-linkedin", url: "https://www.linkedin.com/company/drhealpaincurehospital/", label: "LinkedIn" },
     { icon: "bi-twitter-x", url: "https://x.com/drhealpaincure", label: "Twitter X" },
-]
+];
 
 const quickLinks = [
     { name: "Home", path: "/" },
@@ -224,28 +207,27 @@ const quickLinks = [
     { name: "Contact Us", path: "/contact-us" },
     {
         name: "Book an Appointment",
-        path: {
-            path: "/appointment",
-            query: { department: "Orthopaedics" }
-        }
+        path: { path: "/appointment", query: { department: "Orthopaedics" } }
     },
     { name: "Terms & Conditions", path: "/terms-and-conditions" },
     { name: "Privacy Policy", path: "/privacy-policy" },
-]
+];
 
 const workingHours = [
     { day: "Monday - Sunday", time: "07:00 am - 06:00 pm" },
-]
+];
 
 const addresses = [
     "392, Ganapa Arcade, 9th Main Road, 7th Sector, HSR Layout, Bengaluru - 560102, KA, INDIA.",
     "Doctor Heal Hospital and Diagnostics Road, next to Kaushalya Vikas Kendra, Weavers Colony, Pillaganahalli, Bengaluru - 560083.",
     "ACHARYA POLY CLINIC AND LAB (Dr. Heal Multispeciality Group Hospital), Bannerghatta Post, Anekal, Bengaluru - 560083.",
-]
+];
 
-// Run on load
 onMounted(() => {
     detectIOS();
     checkInstalled();
+
+    // Re-check after load (important for Chrome)
+    setTimeout(checkInstalled, 1000);
 });
 </script>
