@@ -494,12 +494,12 @@ from datetime import datetime
 
 @frappe.whitelist(allow_guest=True)
 def create_appointment():
-    """Create Patient Appointment for website users (guest supported)"""
+    """Create Patient Appointment from Website (Guest Allowed)"""
 
     try:
-        # -------------------------------
-        # Read incoming data
-        # -------------------------------
+        # ---------------------------------------------------
+        # 1️⃣ Read Incoming Data
+        # ---------------------------------------------------
         data = frappe.local.form_dict
         if isinstance(data, str):
             data = json.loads(data)
@@ -507,8 +507,8 @@ def create_appointment():
         patient_name = data.get("name1")
         email = data.get("email")
         gender = data.get("gender")
-        phone = data.get("phone") or data.get("phone_number")
-        age = data.get("age") or data.get("patient_age")
+        phone = data.get("phone")
+        age = data.get("age")
 
         practitioner = data.get("practitioner")
         department = data.get("department")
@@ -519,9 +519,14 @@ def create_appointment():
         token_no = data.get("token_no")
         custom_location = data.get("custom_location")
 
-        # -------------------------------
-        # Validate required fields
-        # -------------------------------
+        # ✅ NEW FIELDS
+        alternative_phone_number = data.get("alternative_phone_number")
+        whatsapp_number = 1 if str(data.get("whatsapp_number")).lower() in ["1", "true", "yes"] else 0
+
+
+        # ---------------------------------------------------
+        # 2️⃣ Required Field Validation
+        # ---------------------------------------------------
         if not all([
             patient_name,
             phone,
@@ -532,22 +537,24 @@ def create_appointment():
         ]):
             frappe.throw("Missing required appointment details")
 
-        # -------------------------------
-        # Parse appointment time
-        # -------------------------------
+        # ---------------------------------------------------
+        # 3️⃣ Parse Appointment Time Safely
+        # ---------------------------------------------------
         if "-" in appointment_time:
-            start_str = appointment_time.split("-")[0].strip()
-        else:
-            start_str = appointment_time.strip()
+            appointment_time = appointment_time.split("-")[0].strip()
 
         try:
-            start_time = datetime.strptime(start_str, "%H:%M:%S").time()
+            start_time = datetime.strptime(
+                appointment_time, "%H:%M:%S"
+            ).time()
         except ValueError:
-            start_time = datetime.strptime(start_str, "%H:%M").time()
+            start_time = datetime.strptime(
+                appointment_time, "%H:%M"
+            ).time()
 
-        # -------------------------------
-        # Check existing Patient by phone
-        # -------------------------------
+        # ---------------------------------------------------
+        # 4️⃣ Check Existing Patient by Phone
+        # ---------------------------------------------------
         existing_patient = frappe.db.get_value(
             "Patient",
             {"mobile": phone},
@@ -558,17 +565,15 @@ def create_appointment():
         patient = None
 
         if existing_patient:
-            # Same phone + same name → reuse patient
-            if existing_patient.patient_name.strip().lower() == patient_name.strip().lower():
+            if (
+                existing_patient.patient_name.strip().lower()
+                == patient_name.strip().lower()
+            ):
                 patient = existing_patient.name
-            else:
-                # Same phone + different name → create NEW patient
-                patient = None
 
-        # -------------------------------
-        # Prevent duplicate booking
-        # same patient + same doctor + same date
-        # -------------------------------
+        # ---------------------------------------------------
+        # 5️⃣ Prevent Duplicate Appointment (Same Patient + Doctor + Date)
+        # ---------------------------------------------------
         if patient:
             duplicate = frappe.db.exists(
                 "Patient Appointment",
@@ -593,9 +598,9 @@ def create_appointment():
                     f"You already have an appointment with Dr. {doctor_name} on this date."
                 )
 
-        # -------------------------------
-        # Time-slot overlap check
-        # -------------------------------
+        # ---------------------------------------------------
+        # 6️⃣ Prevent Slot Overlap
+        # ---------------------------------------------------
         overlap = frappe.db.exists(
             "Patient Appointment",
             {
@@ -619,9 +624,9 @@ def create_appointment():
                 f"Selected time slot is already booked with Dr. {doctor_name}"
             )
 
-        # -------------------------------
-        # Create Patient if not exists
-        # -------------------------------
+        # ---------------------------------------------------
+        # 7️⃣ Create Patient If Not Exists
+        # ---------------------------------------------------
         if not patient:
             patient_doc = frappe.get_doc({
                 "doctype": "Patient",
@@ -630,14 +635,14 @@ def create_appointment():
                 "mobile": phone,
                 "email": email,
                 "sex": gender,
-                "age": age
+                "age": age,
             })
             patient_doc.insert(ignore_permissions=True)
             patient = patient_doc.name
 
-        # -------------------------------
-        # Create Patient Appointment
-        # -------------------------------
+        # ---------------------------------------------------
+        # 8️⃣ Create Appointment
+        # ---------------------------------------------------
         appointment = frappe.get_doc({
             "doctype": "Patient Appointment",
             "appointment_for": "Practitioner",
@@ -650,8 +655,9 @@ def create_appointment():
             "notes": notes,
             "token_no": token_no,
             "custom_location": custom_location,
-            "phone_number": phone
-        })
+            "phone_number": phone,
+            "alternative_phone_number": alternative_phone_number,
+            "whatsapp_number": whatsapp_number        })
 
         appointment.insert(ignore_permissions=True)
         frappe.db.commit()
@@ -663,7 +669,9 @@ def create_appointment():
             "appointment_time": str(appointment.appointment_time),
             "patient": patient,
             "token_no": appointment.token_no,
-            "practitioner": practitioner
+            "practitioner": practitioner,
+            "alternative_phone_number": alternative_phone_number,
+            "whatsapp_number": whatsapp_number
         }
 
     except Exception as e:

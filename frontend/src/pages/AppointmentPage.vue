@@ -132,6 +132,23 @@
               {{ errors.phone }}
             </p>
           </div>
+          <!-- WhatsApp Checkbox (Full Width) -->
+          <div class="md:col-span-2 flex items-center gap-2 mt-1">
+            <input type="checkbox" v-model="form.whatsapp_different" id="whatsapp_check"
+              class="w-3 h-3 accent-[#065f7f]" />
+            <label for="whatsapp_check" class="text-sm text-gray-700 cursor-pointer">
+              Alternative WhatsApp number
+            </label>
+          </div>
+
+          <!-- Alternative WhatsApp Number (Only if Checked) -->
+          <div v-if="form.whatsapp_different" class="flex flex-col md:col-span-2">
+            <label class="mb-1 font-semibold text-gray-700">
+              WhatsApp Number *
+            </label>
+            <input v-model="form.alternative_phone_number" maxlength="10" placeholder="Enter 10 digit WhatsApp number"
+              class="px-2 py-1 border rounded-lg focus:ring-2 focus:ring-[#065f7f]" />
+          </div>
 
           <!-- Age -->
           <div class="flex flex-col">
@@ -257,6 +274,8 @@ export default {
         message: "",
         appointment_type: "",
         custom_location: "",
+        whatsapp_different: false,   // checkbox
+        alternative_phone_number: ""
       },
       // Validation errors
       errors: {
@@ -275,16 +294,29 @@ export default {
 
   async created() {
     try {
-      const { doctor_id } = this.$route.query;
+      const { department, doctor_id } = this.$route.query;
 
+      // 1️⃣ Set department
+      if (department) {
+        this.form.department = department;
+
+        // 2️⃣ Fetch doctors of that department
+        await this.fetchDoctors();
+      }
+
+      // 3️⃣ Select clicked doctor (must exist in doctors list)
       if (doctor_id) {
         this.form.doctor = doctor_id;
+
+        // Fetch full doctor object
         this.selectedDoctor = await this.fetchDoctorById(doctor_id);
       }
+
     } catch (err) {
       console.error("Created hook error:", err);
     }
   },
+
   computed: {
     formattedDate() {
       const d = this.availableDates[this.selectedDateIndex];
@@ -297,21 +329,6 @@ export default {
   },
 
   watch: {
-    "$route.query.department": {
-      immediate: true,
-      async handler(department) {
-        console.log("📌 Route department:", department);
-
-        if (!department) return;
-
-        // ✅ set department from route
-        this.form.department = department;
-
-        // ✅ fetch doctors immediately
-        await this.fetchDoctors();
-      }
-    },
-
     async "form.doctor"(doctorId) {
       if (!doctorId) return;
 
@@ -320,7 +337,6 @@ export default {
       await this.fetchDoctorSchedule();
     }
   },
-
 
   mounted() {
     this.fetchDepartments();
@@ -580,7 +596,8 @@ export default {
 
     /* ---------------- SUBMIT ---------------- */
     async submitAppointment() {
-      // Slot validation
+
+      // ---------------- SLOT VALIDATION ----------------
       if (!this.selectedSlot) {
         this.slotError = "Please select time slot";
         return;
@@ -591,6 +608,32 @@ export default {
       this.isLoading = true;
 
       try {
+
+        // ---------------- WHATSAPP LOGIC ----------------
+        // If checkbox NOT checked → WhatsApp = phone
+        // If checked → use alternative number
+
+        let whatsappNumber = this.form.whatsapp_different
+          ? this.form.alternative_phone_number
+          : this.form.phone;
+
+        // Validate alternative number if checkbox checked
+        if (this.form.whatsapp_different) {
+
+          if (!this.form.alternative_phone_number) {
+            this.apiError = "Please enter WhatsApp number";
+            this.isLoading = false;
+            return;
+          }
+
+          if (this.form.alternative_phone_number.length !== 10) {
+            this.apiError = "Enter valid 10 digit WhatsApp number";
+            this.isLoading = false;
+            return;
+          }
+        }
+
+        // ---------------- CREATE FORM DATA ----------------
         const formData = new FormData();
 
         formData.append("name1", this.form.name);
@@ -605,11 +648,19 @@ export default {
         formData.append("phone", this.form.phone);
         formData.append("age", this.form.age);
 
-        // ✅ IMPORTANT: token must come from selectedSlot
+        // ✅ Token from selected slot
         formData.append("token_no", this.selectedSlot.token_no);
 
         formData.append("custom_location", this.form.custom_location);
 
+        // ✅ NEW FIELDS FOR BACKEND
+        formData.append("alternative_phone_number", whatsappNumber);
+        formData.append(
+          "whatsapp_number",
+          this.form.whatsapp_different ? 1 : 0
+        );
+
+        // ---------------- API CALL ----------------
         const response = await fetch(
           "/api/method/drheal_frontend.api.Appointment_api.create_appointment",
           {
@@ -621,14 +672,15 @@ export default {
         const data = await response.json();
         console.log("✅ API Response:", data);
 
-        // ❌ BACKEND ERROR (SHOW BELOW BUTTON)
+        // ---------------- BACKEND ERROR ----------------
         if (data?.message?.status === "error") {
           this.apiError = data.message.message;
           return;
         }
 
-        // ✅ SUCCESS
+        // ---------------- SUCCESS ----------------
         if (data?.message?.status === "success") {
+
           const result = data.message;
 
           this.resetForm();
@@ -648,14 +700,17 @@ export default {
         }
 
       } catch (error) {
+
         console.error("Network/API Error:", error);
 
         this.apiError =
           "Something went wrong. Please contact directly through given phone number.";
 
       } finally {
-        // ✅ ALWAYS stop loading
+
+        // Always stop loading
         this.isLoading = false;
+
       }
     },
 

@@ -129,10 +129,10 @@
   resolved "https://registry.npmjs.org/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz"
   integrity sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==
 
-"@tailwindcss/forms@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.npmjs.org/@tailwindcss/forms/-/forms-0.5.3.tgz"
-  integrity sha512-y5mb86JUoiUgBjY/o6FJSFZSEttfb3Q5gllE4xoKjAAD+vBrnIhE4dViwUuow3va8mpH4s9jyUbUbrRGoRdc2Q==
+"@tailwindcss/forms@^0.5.11", "@tailwindcss/forms@^0.5.3":
+  version "0.5.11"
+  resolved "https://registry.npmjs.org/@tailwindcss/forms/-/forms-0.5.11.tgz"
+  integrity sha512-h9wegbZDPurxG22xZSoWtdzc41/OlNEUQERNqI/0fOwa2aVlWGu7C35E/x6LDyD3lgtztFSSjKZyuVM0hxhbgA==
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
@@ -1441,7 +1441,7 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-tailwindcss@^3.0.12, tailwindcss@^3.0.15, "tailwindcss@>=3.0.0 || >= 3.0.0-alpha.1", "tailwindcss@>=3.0.0 || >= 3.0.0-alpha.1 || insiders":
+tailwindcss@^3.0.12, tailwindcss@^3.0.15, "tailwindcss@>=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20 || >= 4.0.0-beta.1", "tailwindcss@>=3.0.0 || >= 3.0.0-alpha.1 || insiders":
   version "3.4.19"
   resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.19.tgz"
   integrity sha512-3ofp+LL8E+pK/JuPLPggVAIaEuhvIz4qNcf3nA1Xn2o/7fb7s/TYpHhwGDv1ZU3PkBluUVaF8PyCHcm48cKLWQ==
