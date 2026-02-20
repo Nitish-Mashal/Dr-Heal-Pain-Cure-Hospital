@@ -2,12 +2,13 @@
   <section class="w-full">
 
     <!-- 🔥 IMMEDIATE HERO IMAGE -->
-    <div v-if="firstBanner && !carouselReady" class="w-full h-[150px] sm:h-[380px] lg:h-[460px] overflow-hidden">
+    <div v-if="firstBanner && !carouselReady" class="w-full h-[260px] sm:h-[420px] overflow-hidden">
+
       <component :is="firstBanner.link ? 'a' : 'div'" :href="firstBanner.link || undefined"
         :target="firstBanner.external_site ? '_blank' : '_self'"
         :rel="firstBanner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
-        <img :src="resolveBannerImage(firstBanner)" :alt="getBannerAlt(firstBanner)" width="1920" height="460"
-          fetchpriority="high" decoding="async" class="w-full h-full object-contain sm:object-cover" />
+        <img :src="resolveBannerImage(firstBanner)" :alt="getBannerAlt(firstBanner)" width="1600" height="420"
+          fetchpriority="high" decoding="async" class="w-full h-full object-cover" />
       </component>
     </div>
 
@@ -18,9 +19,9 @@
         <component :is="banner.link ? 'a' : 'div'" :href="banner.link || undefined"
           :target="banner.external_site ? '_blank' : '_self'"
           :rel="banner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
-          <img :src="resolveBannerImage(banner)" :alt="getBannerAlt(banner)" width="1920" height="460" sizes="100vw"
+          <img :src="resolveBannerImage(banner)" :alt="getBannerAlt(banner)" width="1600" height="420" sizes="100vw"
             :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async"
-            class="w-full h-full object-contain sm:object-cover cursor-pointer" />
+            class="w-full h-full object-cover cursor-pointer" />
         </component>
       </el-carousel-item>
     </el-carousel>
@@ -37,6 +38,7 @@
     <OurBlogs />
   </section>
 </template>
+
 
 <script setup>
 import { ref, onMounted, onUnmounted, defineAsyncComponent } from 'vue'
@@ -134,17 +136,13 @@ onMounted(loadBanners)
 <style scoped>
 .banner-carousel :deep(.el-carousel__container) {
   height: 150px;
+  /* Mobile = 640x260 */
 }
 
 @media (min-width: 640px) {
   .banner-carousel :deep(.el-carousel__container) {
-    height: 380px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .banner-carousel :deep(.el-carousel__container) {
     height: 420px;
+    /* Desktop = 1600x420 */
   }
 }
 </style>

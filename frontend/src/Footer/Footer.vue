@@ -12,14 +12,47 @@
 
                     <p class="mb-4">{{ tagline }}</p>
 
-                    <div class="flex gap-2 text-sm">
+                    <!-- Social Icons -->
+                    <div class="flex gap-2 text-sm mb-2">
                         <a v-for="social in socialIcons" :key="social.icon" :href="social.url" target="_blank"
-                            rel="noopener noreferrer" class="bg-color-orange px-2 py-1 rounded-5 text-white"
+                            rel="noopener noreferrer" class="bg-color-orange px-2 py-1 rounded-5 text-white mb-3"
                             :aria-label="social.label">
-                            <i :class="`bi ${social.icon}`" role="img" aria-hidden="true"></i>
+                            <i :class="`bi ${social.icon}`"></i>
                         </a>
                     </div>
+                    <!-- Install Buttons -->
+                    <div class="flex flex-col gap-3 items-start">
+
+                        <!-- Android Button -->
+                        <button id="installAndroid" class="inline-flex items-center gap-3 px-4 py-2 w-[150px]
+               bg-color-blue text-white 
+               rounded-xl shadow-md transition duration-300" @click="installApp">
+
+                            <i class="bi bi-android2 text-xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs opacity-80">Get it on</div>
+                                <div class="font-semibold">Android</div>
+                            </div>
+                        </button>
+
+                        <!-- iOS Button -->
+                        <button id="installIOS" class="inline-flex items-center gap-3 px-4 py-2 w-[150px]
+               bg-color-orange text-white outline-none focus:outline-none
+               rounded-xl shadow-md transition duration-300" @click="installApp">
+
+                            <i class="bi bi-apple text-xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs opacity-80">Download on</div>
+                                <div class="font-semibold">iOS</div>
+                            </div>
+                        </button>
+
+                    </div>
+
+
+
                 </div>
+
 
                 <!-- QUICK LINKS -->
                 <div class="col-md-3">
@@ -73,6 +106,7 @@
                             </svg>
                             <a href="mailto:info@drheal.in" class="underline text-gray-700">info@drheal.in</a>
                         </div>
+
                     </div>
                 </div>
 
@@ -96,6 +130,78 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
+
+const deferredPrompt = ref(null);
+const isInstalled = ref(false);
+const isIOS = ref(false);
+
+// Detect iOS
+const detectIOS = () => {
+    isIOS.value = /iphone|ipad|ipod/i.test(navigator.userAgent);
+};
+
+// Detect if app is already installed
+const checkInstalled = () => {
+    if (
+        window.matchMedia('(display-mode: standalone)').matches ||
+        window.navigator.standalone === true
+    ) {
+        isInstalled.value = true;
+    }
+};
+
+// Capture install prompt
+window.addEventListener("beforeinstallprompt", (e) => {
+    console.log("Install prompt ready");
+    e.preventDefault();
+    deferredPrompt.value = e;
+});
+
+// Detect successful install
+window.addEventListener("appinstalled", () => {
+    console.log("App installed successfully");
+    isInstalled.value = true;
+});
+
+// Install button click
+const installApp = async () => {
+
+    // If already installed → open app
+    if (isInstalled.value) {
+        window.location.href = window.location.origin;
+        return;
+    }
+
+    // iOS instructions
+    if (isIOS.value) {
+        alert(
+            "To install this app on iPhone:\n\n" +
+            "1. Tap Share button\n" +
+            "2. Tap 'Add to Home Screen'\n" +
+            "3. Tap Add"
+        );
+        return;
+    }
+
+    // Show install popup
+    if (deferredPrompt.value) {
+        deferredPrompt.value.prompt();
+
+        const result = await deferredPrompt.value.userChoice;
+
+        if (result.outcome === "accepted") {
+            console.log("User accepted install");
+        } else {
+            console.log("User dismissed install");
+        }
+
+        deferredPrompt.value = null;
+    } else {
+        alert("Install option not available yet. Please try again.");
+    }
+};
+
 const year = new Date().getFullYear()
 
 const tagline = "Healing Pain Without Surgery. Restoring Life With Purpose."
@@ -136,4 +242,10 @@ const addresses = [
     "Doctor Heal Hospital and Diagnostics Road, next to Kaushalya Vikas Kendra, Weavers Colony, Pillaganahalli, Bengaluru - 560083.",
     "ACHARYA POLY CLINIC AND LAB (Dr. Heal Multispeciality Group Hospital), Bannerghatta Post, Anekal, Bengaluru - 560083.",
 ]
+
+// Run on load
+onMounted(() => {
+    detectIOS();
+    checkInstalled();
+});
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <a href="https://wa.me/917969288000" target="_blank" rel="noopener noreferrer"
+    <a href="https://wa.me/918123619994" target="_blank" rel="noopener noreferrer"
         class="fixed bottom-20 right-6 bg-green-500 hover:bg-green-600 text-white p-2 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center z-50"
         title="Chat with us on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">

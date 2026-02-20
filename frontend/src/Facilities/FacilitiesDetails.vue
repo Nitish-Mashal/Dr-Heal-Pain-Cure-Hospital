@@ -74,7 +74,7 @@ const facilityImage = computed(() => {
     if (!facility.value?.thumnail_image) return ""
     return facility.value.thumnail_image.startsWith("http")
         ? facility.value.thumnail_image
-        : `https://drheal.quantumberg.com${facility.value.thumnail_image}`
+        : `https://www.drheal.in/${facility.value.thumnail_image}`
 })
 
 const altText = computed(() => {

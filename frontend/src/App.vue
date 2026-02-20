@@ -49,10 +49,23 @@ export default {
       link.setAttribute("href", canonicalUrl)
     }
 
-    // Run when App loads
-    onMounted(updateCanonical)
+    onMounted(() => {
+      // Canonical update
+      updateCanonical()
 
-    // Run every time the route changes
+      // ✅ Register Frappe Service Worker
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then((registration) => {
+            console.log("Service Worker Registered:", registration)
+          })
+          .catch((error) => {
+            console.log("Service Worker Failed:", error)
+          })
+      }
+    })
+
     watch(route, updateCanonical)
   }
 }

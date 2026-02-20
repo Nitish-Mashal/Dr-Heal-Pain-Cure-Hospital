@@ -121,7 +121,7 @@ const serviceImage = computed(() => {
     if (!service.value?.thumnail_image) return ""
     return service.value.thumnail_image.startsWith("http")
         ? service.value.thumnail_image
-        : `https://drheal.quantumberg.com${service.value.thumnail_image}`
+        : `https://www.drheal.in/${service.value.thumnail_image}`
 })
 
 const altText = computed(() =>
