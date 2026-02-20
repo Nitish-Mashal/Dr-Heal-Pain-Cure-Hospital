@@ -45,16 +45,6 @@
                             </div>
                         </button>
 
-                        <!-- Show Open App button if installed -->
-                        <!-- <button v-else class="inline-flex items-center gap-3 px-4 py-2 w-[150px]
-                                       bg-color-green text-white
-                                       rounded-xl shadow-md transition duration-300" @click="openApp">
-                            <i class="bi bi-box-arrow-up-right text-xl"></i>
-                            <div class="text-left">
-                                <div class="font-semibold">Open App</div>
-                            </div>
-                        </button> -->
-
                     </div>
                 </div>
 
@@ -131,17 +121,27 @@ const detectIOS = () => {
 };
 
 // Detect if PWA is installed
-const checkInstalled = () => {
-    const standaloneMode =
+const checkInstalled = async () => {
+    // Detect standalone mode
+    const standalone =
         window.matchMedia('(display-mode: standalone)').matches ||
         window.navigator.standalone === true;
 
-    const savedInstall = localStorage.getItem("pwaInstalled") === "true";
+    // Detect installed PWA (Chrome)
+    let relatedInstalled = false;
 
-    if (standaloneMode || savedInstall) {
-        isInstalled.value = true;
+    if ('getInstalledRelatedApps' in navigator) {
+        try {
+            const relatedApps = await navigator.getInstalledRelatedApps();
+            relatedInstalled = relatedApps.length > 0;
+        } catch (e) {
+            relatedInstalled = false;
+        }
     }
+
+    isInstalled.value = standalone || relatedInstalled;
 };
+
 
 // Capture install prompt
 window.addEventListener("beforeinstallprompt", (e) => {
@@ -152,12 +152,12 @@ window.addEventListener("beforeinstallprompt", (e) => {
 // Detect successful install
 window.addEventListener("appinstalled", () => {
     isInstalled.value = true;
-    localStorage.setItem("pwaInstalled", "true");
     deferredPrompt.value = null;
 });
 
 // Install button click
 const installApp = async () => {
+
     if (isInstalled.value) return;
 
     // iOS instructions
@@ -179,7 +179,6 @@ const installApp = async () => {
 
         if (result.outcome === "accepted") {
             isInstalled.value = true;
-            localStorage.setItem("pwaInstalled", "true");
         }
 
         deferredPrompt.value = null;
@@ -223,11 +222,18 @@ const addresses = [
     "ACHARYA POLY CLINIC AND LAB (Dr. Heal Multispeciality Group Hospital), Bannerghatta Post, Anekal, Bengaluru - 560083.",
 ];
 
-onMounted(() => {
+onMounted(async () => {
     detectIOS();
-    checkInstalled();
+    await checkInstalled();
 
-    // Re-check after load (important for Chrome)
-    setTimeout(checkInstalled, 1000);
+    // Re-check when returning to tab
+    document.addEventListener("visibilitychange", async () => {
+        if (document.visibilityState === "visible") {
+            await checkInstalled();
+        }
+    });
+
+    // Re-check every 2 seconds (detect uninstall instantly)
+    setInterval(checkInstalled, 2000);
 });
 </script>
