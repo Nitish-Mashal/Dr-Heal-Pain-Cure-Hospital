@@ -1,5 +1,5 @@
 <template>
-    <footer class="text-gray-700 pb-8">
+    <footer class="text-gray-700 pb-24 md:pb-8">
         <div class="w-full h-px bg-gray-700 my-2"></div>
         <div class="px-5 pt-10">
             <div class="row g-4">
@@ -21,15 +21,15 @@
                         </a>
                     </div>
                     <!-- Install Buttons -->
-                    <div class="flex flex-col gap-3 items-start">
+                    <div class="hidden md:flex flex-col gap-3 items-start">
 
                         <!-- INSIDE PWA → SHOW NOTHING -->
                         <template v-if="isStandalone">
                         </template>
 
                         <!-- BROWSER + INSTALLED -->
-                        <button v-else-if="isInstalled" class="inline-flex items-center gap-3 px-4 py-2 w-[160px]
-               bg-color-blue text-white rounded-xl shadow-md" @click="openApp">
+                        <button type="button" v-else-if="isInstalled" class="inline-flex items-center gap-3 px-4 py-2 w-[160px]
+        bg-color-blue text-white rounded-xl shadow-md" @click.prevent="openApp">
                             <i class="bi bi-box-arrow-up-right text-xl"></i>
                             <div class="text-left">
                                 <div class="text-xs opacity-80">Launch</div>
@@ -41,8 +41,8 @@
                         <template v-else>
 
                             <!-- Android -->
-                            <button class="inline-flex items-center gap-3 px-4 py-2 w-[160px]
-                   bg-color-blue text-white rounded-xl shadow-md" @click="installApp">
+                            <button type="button" class="inline-flex items-center gap-3 px-4 py-2 w-[160px]
+            bg-color-blue text-white rounded-xl shadow-md" @click="installApp">
                                 <i class="bi bi-android2 text-xl"></i>
                                 <div class="text-left">
                                     <div class="text-xs opacity-80">Get it on</div>
@@ -51,8 +51,8 @@
                             </button>
 
                             <!-- iOS -->
-                            <button class="inline-flex items-center gap-3 px-4 py-2 w-[160px]
-                   bg-color-orange text-white rounded-xl shadow-md" @click="installApp">
+                            <button type="button" class="inline-flex items-center gap-3 px-4 py-2 w-[160px]
+            bg-color-orange text-white rounded-xl shadow-md" @click="installApp">
                                 <i class="bi bi-apple text-xl"></i>
                                 <div class="text-left">
                                     <div class="text-xs opacity-80">Download on</div>
@@ -63,9 +63,7 @@
                         </template>
 
                     </div>
-
                 </div>
-
 
                 <!-- QUICK LINKS -->
                 <div class="col-md-3">
@@ -139,10 +137,12 @@
                 </a>
             </p>
         </div>
+        <footbar />
     </footer>
 </template>
 
 <script setup>
+import footbar from '../footbar.vue';
 import { ref, onMounted } from "vue";
 
 const deferredPrompt = ref(null);
@@ -195,14 +195,7 @@ const installApp = async () => {
 
 // Open Installed PWA
 const openApp = () => {
-
-    // Attempt to open installed PWA
-    window.location.assign(window.location.origin);
-
-    // Try to focus installed app
-    setTimeout(() => {
-        window.open("", "_self");
-    }, 200);
+    alert("This app is already installed. Please open it from your device's app list.");
 };
 
 onMounted(() => {

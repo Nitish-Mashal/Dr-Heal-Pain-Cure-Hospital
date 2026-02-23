@@ -110,10 +110,53 @@ const fetchService = async () => {
             service.value = data.message.data.find(
                 item => item.url === route.params.slug
             )
+
+            // Update SEO after loading service
+            updateSEO()
         }
     } catch (error) {
         console.error("Failed to fetch service details", error)
     }
+}
+
+/* ---------------- SEO META ---------------- */
+const updateSEO = () => {
+    if (!service.value) return
+
+    // Meta values from API
+    const title =
+        service.value.meta_title ||
+        service.value.name1 ||
+        "Dr Heal Multispeciality Hospital"
+
+    const description =
+        service.value.meta_description ||
+        "Dr Heal Multispeciality Hospital Services"
+
+    const keywords =
+        service.value.meta_keyword ||
+        "hospital, doctor, healthcare"
+
+    // Set Page Title
+    document.title = title
+
+    // Set Meta Description
+    let metaDesc = document.querySelector('meta[name="description"]')
+    if (!metaDesc) {
+        metaDesc = document.createElement("meta")
+        metaDesc.setAttribute("name", "description")
+        document.head.appendChild(metaDesc)
+    }
+    metaDesc.setAttribute("content", description)
+
+    // Set Meta Keywords
+    let metaKeywords = document.querySelector('meta[name="keywords"]')
+    if (!metaKeywords) {
+        metaKeywords = document.createElement("meta")
+        metaKeywords.setAttribute("name", "keywords")
+        document.head.appendChild(metaKeywords)
+    }
+    metaKeywords.setAttribute("content", keywords)
 }
 
 /* ---------------- IMAGE ---------------- */
@@ -197,11 +240,12 @@ const handleSubmit = () => {
     })
 }
 
-/* ---------------- WATCHERS ---------------- */
+/* ---------------- WATCH ROUTE ---------------- */
 watch(() => route.params.slug, () => {
     service.value = null
     fetchService()
 })
 
+/* ---------------- MOUNT ---------------- */
 onMounted(fetchService)
 </script>
