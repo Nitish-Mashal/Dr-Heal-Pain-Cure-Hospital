@@ -164,17 +164,17 @@ page_js = {
     "opd_queue_board": "pages/opd_queue_board/opd_queue_board.js"
 }
 
-# fixtures = [
-#     {
-#         "dt": "Custom Field",
-#         "filters": [
-#             ["name", "in", [
-#                 "Patient Appointment-custom_created_user",
-#                 "Patient Appointment-custom_booking_type"
-#             ]]
-#         ]
-#     }
-# ]
+fixtures = [
+    {
+        "dt": "Custom Field",
+        "filters": [
+            ["name", "in", [
+                "Patient Appointment-custom_created_user",
+                "Patient Appointment-custom_booking_type"
+            ]]
+        ]
+    }
+]
 
 
 
