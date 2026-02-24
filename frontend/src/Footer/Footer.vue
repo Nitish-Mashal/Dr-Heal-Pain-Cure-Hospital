@@ -248,10 +248,7 @@ const quickLinks = [
     { name: "Contact Us", path: "/contact-us" },
     {
         name: "Book an Appointment",
-        path: {
-            path: "/appointment",
-            query: { department: "Orthopaedics" }
-        }
+        path: { path: "/appointment" }
     },
     { name: "Terms & Conditions", path: "/terms-and-conditions" },
     { name: "Privacy Policy", path: "/privacy-policy" },

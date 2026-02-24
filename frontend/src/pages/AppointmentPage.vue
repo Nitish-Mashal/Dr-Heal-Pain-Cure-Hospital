@@ -83,7 +83,12 @@
         <div class="h-[330px] overflow-y-scroll pr-1">
 
           <div class="grid grid-cols-3 gap-3 min-h-full">
-
+            <div v-if="isFetchingSlots" class="absolute inset-0 flex items-center justify-center bg-white/70 z-10">
+              <div class="flex flex-col items-center gap-2">
+                <div class="w-8 h-8 border-4 border-[#065f7f] border-t-transparent rounded-full animate-spin"></div>
+                <p class="text-sm text-gray-600">Loading slots...</p>
+              </div>
+            </div>
             <!-- Slot buttons -->
             <button v-for="slot in availableTimes" :key="slot.id" @click="!slot.booked && selectSlot(slot)"
               :disabled="slot.booked" :class="[
@@ -294,21 +299,18 @@ export default {
 
   async created() {
     try {
-      const { department, doctor_id } = this.$route.query;
 
-      // 1️⃣ Set department
-      if (department) {
-        this.form.department = department;
+      // ✅ Set department manually
+      this.form.department = "Orthopaedics";
 
-        // 2️⃣ Fetch doctors of that department
-        await this.fetchDoctors();
-      }
+      const { doctor_id } = this.$route.query;
 
-      // 3️⃣ Select clicked doctor (must exist in doctors list)
+      // ✅ Load all doctors
+      await this.fetchDoctors();
+
+      // ✅ Auto select doctor if passed
       if (doctor_id) {
         this.form.doctor = doctor_id;
-
-        // Fetch full doctor object
         this.selectedDoctor = await this.fetchDoctorById(doctor_id);
       }
 
@@ -452,6 +454,7 @@ export default {
       } catch (err) {
         console.error("Error fetching doctor schedule:", err);
       }
+
     },
 
     generateNext3Months(schedule) {

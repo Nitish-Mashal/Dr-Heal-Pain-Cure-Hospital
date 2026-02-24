@@ -132,7 +132,6 @@ export default {
       this.$router.push({
         path: "/appointment",
         query: {
-          department: doctor.department,
           doctor_id: doctor.name
         }
       });
