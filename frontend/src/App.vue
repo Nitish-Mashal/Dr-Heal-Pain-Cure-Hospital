@@ -3,7 +3,7 @@
     <Navbar />
     <router-view />
     <FloatingEnquiry />
-    <BookAppointmentFloat />
+    <!-- <BookAppointmentFloat /> -->
     <WhatsappFloat />
     <ScrollToTop />
     <Footer />
@@ -15,7 +15,7 @@ import Navbar from './Navbar/Navbar.vue'
 import Footer from './Footer/Footer.vue'
 import ScrollToTop from './ScrollToTop.vue';
 import WhatsappFloat from './WhatsappFloat.vue';
-import BookAppointmentFloat from './BookAppointmentFloat.vue';
+// import BookAppointmentFloat from './BookAppointmentFloat.vue';
 import FloatingEnquiry from './FloatingEnquiry.vue';
 
 import { onMounted, watch } from 'vue'
@@ -26,7 +26,7 @@ export default {
     Navbar,
     Footer,
     ScrollToTop,
-    BookAppointmentFloat,
+    // BookAppointmentFloat,
     FloatingEnquiry,
     WhatsappFloat
   },
