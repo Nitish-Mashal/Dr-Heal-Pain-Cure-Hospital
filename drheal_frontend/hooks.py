@@ -154,10 +154,15 @@ website_route_rules = [
     # -------------------------------
     {"from_route": "/<path:path>", "to_route": "/"},
 
-    # FINAL CATCH-ALL (Vue Router Fallback)
-    {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},
+    # # FINAL CATCH-ALL (Vue Router Fallback)
+    # {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},
+
+    {"from_route": "/(?!app|desk|crm|api|assets|files).*", "to_route": "/"},
 ]
 
+page_js = {
+    "opd_queue_board": "pages/opd_queue_board/opd_queue_board.js"
+}
 
 # fixtures = [
 #     {
@@ -171,9 +176,7 @@ website_route_rules = [
 #     }
 # ]
 
-page_js = {
-    "opd_queue_board": "pages/opd_queue_board/opd_queue_board.js"
-}
+
 
 before_uninstall = "drheal_frontend.hooks.cleanup_custom_fields"
 

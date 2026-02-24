@@ -88,6 +88,56 @@ import frappe
 import frappe
 from frappe.utils import getdate
 
+# @frappe.whitelist(allow_guest=True)
+# def get_doctor_schedule(practitioner, appointment_date=None):
+#     """Return ALL slots with booked status (date-wise)"""
+
+#     try:
+#         if not practitioner:
+#             return []
+
+#         if appointment_date:
+#             appointment_date = getdate(appointment_date)
+
+#         practitioner_doc = frappe.get_doc("Healthcare Practitioner", practitioner)
+#         schedule_list = []
+
+#         for row in practitioner_doc.practitioner_schedules:
+#             schedule_doc = frappe.get_doc("Practitioner Schedule", row.schedule)
+
+#             for s in schedule_doc.time_slots:
+
+#                 booked = False
+
+#                 if appointment_date:
+#                     booked = frappe.db.exists(
+#                         "Patient Appointment",
+#                         {
+#                             "practitioner": practitioner,
+#                             "appointment_date": appointment_date,
+#                             "appointment_time": s.from_time,
+#                             "status": ["!=", "Cancelled"]
+#                         }
+#                     )
+
+#                 schedule_list.append({
+#                     "appointment_date": appointment_date,   # ✅ DATE ADDED
+#                     "day": s.day,
+#                     "from_time": s.from_time,
+#                     "to_time": s.to_time,
+#                     "token_no": s.token_no,
+#                     "booked": bool(booked)                   # ✅ TRUE / FALSE
+#                 })
+
+#         return schedule_list
+
+#     except Exception:
+#         frappe.log_error(
+#             frappe.get_traceback(),
+#             "get_doctor_schedule_error"
+#         )
+#         return []
+
 @frappe.whitelist(allow_guest=True)
 def get_doctor_schedule(practitioner, appointment_date=None):
     """Return ALL slots with booked status (date-wise)"""
@@ -121,13 +171,18 @@ def get_doctor_schedule(practitioner, appointment_date=None):
                     )
 
                 schedule_list.append({
-                    "appointment_date": appointment_date,   # ✅ DATE ADDED
+                    "appointment_date": appointment_date,
                     "day": s.day,
                     "from_time": s.from_time,
                     "to_time": s.to_time,
                     "token_no": s.token_no,
-                    "booked": bool(booked)                   # ✅ TRUE / FALSE
+                    "booked": bool(booked)
                 })
+
+        # ✅ SORT BY TOKEN NUMBER (Numeric Sort)
+        schedule_list.sort(
+            key=lambda x: int(''.join(filter(str.isdigit, str(x.get("token_no", 0)))) or 0)
+        )
 
         return schedule_list
 
