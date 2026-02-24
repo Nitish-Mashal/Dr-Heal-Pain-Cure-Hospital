@@ -86,7 +86,7 @@ import frappe
 #         frappe.log_error(frappe.get_traceback(), "get_doctor_schedule_error")
 #         return {"status": "error", "message": str(e)}
 import frappe
-from frappe.utils import getdate, cint
+from frappe.utils import getdate
 
 @frappe.whitelist(allow_guest=True)
 def get_doctor_schedule(practitioner, appointment_date=None):
@@ -121,19 +121,13 @@ def get_doctor_schedule(practitioner, appointment_date=None):
                     )
 
                 schedule_list.append({
-                    "appointment_date": appointment_date,
+                    "appointment_date": appointment_date,   # ✅ DATE ADDED
                     "day": s.day,
                     "from_time": s.from_time,
                     "to_time": s.to_time,
                     "token_no": s.token_no,
-                    "booked": bool(booked)
+                    "booked": bool(booked)                   # ✅ TRUE / FALSE
                 })
-
-        # ✅ Proper Token Sorting
-        schedule_list = sorted(
-            schedule_list,
-            key=lambda x: cint(x.get("token_no") or 0)
-        )
 
         return schedule_list
 
@@ -143,6 +137,8 @@ def get_doctor_schedule(practitioner, appointment_date=None):
             "get_doctor_schedule_error"
         )
         return []
+
+
 
 # ✅ Create Patient Appointment (Guest Booking Supported)
 
