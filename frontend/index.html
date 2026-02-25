@@ -15,7 +15,20 @@
   <!-- ================= FAVICON ================= -->
   <link rel="icon" href="/favicon.png" type="image/png" />
 
+  <!-- ================= MANIFEST ================= -->
   <link rel="manifest" href="/files/manifest.json">
+
+  <!-- ================= SERVICE WORKER ================= -->
+  <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then(reg => console.log("Service Worker Registered"))
+        .catch(err => console.log("Service Worker Failed", err));
+    });
+  }
+  </script>
 
   <!-- ================= OPEN GRAPH ================= -->
   <meta property="og:type" content="website" />
