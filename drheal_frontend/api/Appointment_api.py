@@ -21,7 +21,7 @@ def get_practitioners(department):
             "Healthcare Practitioner",
             filters={
                 "department": department,
-                "name": ["!=", "HLC-PRAC-2026-00006"]  # Hide this doctor
+                "name": ["!=", "HLC-PRAC-2026-00006"]  # hidden doctor
             },
             fields=["name", "first_name", "last_name", "designation"]
         )
