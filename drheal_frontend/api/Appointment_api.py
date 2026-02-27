@@ -19,7 +19,7 @@ def get_practitioners(department):
     try:
 
         doctors = frappe.db.sql("""
-            SELECT hp.name,
+            SELECT DISTINCT hp.name,
                    hp.first_name,
                    hp.last_name,
                    hp.designation
@@ -27,8 +27,8 @@ def get_practitioners(department):
             INNER JOIN `tabHealthcare Practitioner Department` hpd
                 ON hpd.parent = hp.name
             WHERE hpd.department = %s
-            AND hp.name != 'HLC-PRAC-2026-00006'
-        """, (department,), as_dict=True)
+            AND hp.name <> %s
+        """, (department, "HLC-PRAC-2026-00006"), as_dict=True)
 
         return {"status": "success", "data": doctors}
 
