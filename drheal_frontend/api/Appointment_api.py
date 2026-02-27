@@ -19,10 +19,15 @@ def get_practitioners(department):
     try:
         doctors = frappe.get_all(
             "Healthcare Practitioner",
-            filters={"department": department},
+            filters={
+                "department": department,
+                "name": ["!=", "HLC-PRAC-2026-00006"]  # Hide this doctor
+            },
             fields=["name", "first_name", "last_name", "designation"]
         )
+
         return {"status": "success", "data": doctors}
+
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "get_practitioners API Error")
         return {"status": "error", "message": str(e)}
