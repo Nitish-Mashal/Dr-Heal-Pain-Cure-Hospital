@@ -94,46 +94,133 @@ import frappe
 import frappe
 from frappe.utils import getdate
 
+# @frappe.whitelist(allow_guest=True)
+# def get_doctor_schedule(practitioner, appointment_date=None):
+#     """Return ALL slots with booked status (date-wise)"""
+
+#     try:
+#         if not practitioner:
+#             return []
+
+#         if appointment_date:
+#             appointment_date = getdate(appointment_date)
+
+#         practitioner_doc = frappe.get_doc("Healthcare Practitioner", practitioner)
+#         schedule_list = []
+
+#         for row in practitioner_doc.practitioner_schedules:
+#             schedule_doc = frappe.get_doc("Practitioner Schedule", row.schedule)
+
+#             for s in schedule_doc.time_slots:
+
+#                 booked = False
+
+#                 if appointment_date:
+#                     booked = frappe.db.exists(
+#                         "Patient Appointment",
+#                         {
+#                             "practitioner": practitioner,
+#                             "appointment_date": appointment_date,
+#                             "appointment_time": s.from_time,
+#                             "status": ["!=", "Cancelled"]
+#                         }
+#                     )
+
+#                 schedule_list.append({
+#                     "appointment_date": appointment_date,   # ✅ DATE ADDED
+#                     "day": s.day,
+#                     "from_time": s.from_time,
+#                     "to_time": s.to_time,
+#                     "token_no": s.token_no,
+#                     "booked": bool(booked)                   # ✅ TRUE / FALSE
+#                 })
+
+#         return schedule_list
+
+#     except Exception:
+#         frappe.log_error(
+#             frappe.get_traceback(),
+#             "get_doctor_schedule_error"
+#         )
+#         return []
+import frappe
+from frappe.utils import getdate
+from datetime import time
+
+
 @frappe.whitelist(allow_guest=True)
 def get_doctor_schedule(practitioner, appointment_date=None):
     """Return ALL slots with booked status (date-wise)"""
 
     try:
+        # ----------------------------
+        # 1️⃣ Validate Practitioner
+        # ----------------------------
         if not practitioner:
             return []
 
+        # ----------------------------
+        # 2️⃣ Convert Date
+        # ----------------------------
         if appointment_date:
             appointment_date = getdate(appointment_date)
 
+        # ----------------------------
+        # 3️⃣ Get Practitioner Doc
+        # ----------------------------
         practitioner_doc = frappe.get_doc("Healthcare Practitioner", practitioner)
+
         schedule_list = []
 
+        # ----------------------------
+        # 4️⃣ Loop Through Schedules
+        # ----------------------------
         for row in practitioner_doc.practitioner_schedules:
             schedule_doc = frappe.get_doc("Practitioner Schedule", row.schedule)
 
-            for s in schedule_doc.time_slots:
+            for slot in schedule_doc.time_slots:
 
                 booked = False
 
+                # ----------------------------
+                # 5️⃣ Check Booking Status
+                # ----------------------------
                 if appointment_date:
                     booked = frappe.db.exists(
                         "Patient Appointment",
                         {
                             "practitioner": practitioner,
                             "appointment_date": appointment_date,
-                            "appointment_time": s.from_time,
+                            "appointment_time": slot.from_time,
                             "status": ["!=", "Cancelled"]
                         }
                     )
 
                 schedule_list.append({
-                    "appointment_date": appointment_date,   # ✅ DATE ADDED
-                    "day": s.day,
-                    "from_time": s.from_time,
-                    "to_time": s.to_time,
-                    "token_no": s.token_no,
-                    "booked": bool(booked)                   # ✅ TRUE / FALSE
+                    "appointment_date": appointment_date,
+                    "day": slot.day,
+                    "from_time": slot.from_time,
+                    "to_time": slot.to_time,
+                    "token_no": slot.token_no,
+                    "booked": bool(booked)
                 })
+
+        # ==================================================
+        # ✅ SORTING LOGIC (TIME FIRST → TOKEN SECOND)
+        # ==================================================
+
+        def extract_token_number(token):
+            """Extract numeric part from 'Token 41' → 41"""
+            if not token:
+                return 0
+            return int(''.join(filter(str.isdigit, str(token))) or 0)
+
+        schedule_list.sort(
+            key=lambda x: (
+                x.get("from_time") or time.min,
+                extract_token_number(x.get("token_no"))
+            )
+        )
 
         return schedule_list
 
@@ -143,7 +230,6 @@ def get_doctor_schedule(practitioner, appointment_date=None):
             "get_doctor_schedule_error"
         )
         return []
-
 
 
 # ✅ Create Patient Appointment (Guest Booking Supported)

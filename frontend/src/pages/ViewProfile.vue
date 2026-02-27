@@ -27,7 +27,8 @@
         <!-- Doctor Info -->
         <div v-else-if="doctor">
           <div class="flex flex-col md:flex-row items-center p-6 space-y-6 md:space-y-0 md:space-x-6">
-            <img :src="doctor.image" :alt="doctorAltText" class="w-44 h-52 object-cover rounded-lg shadow-sm" />
+            <img :src="doctor.image || '/files/PlaceholderImages.png'" :alt="doctorAltText"
+              class="w-44 h-52 object-cover rounded-lg shadow-sm" />
 
             <div class="flex-1 space-y-1">
               <h2 class="text-3xl font-bold text-gray-900">

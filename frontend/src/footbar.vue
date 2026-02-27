@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed bottom-0 left-0 w-full bg-white border-t shadow-md z-50 md:hidden">
+    <div class="fixed bottom-0 left-0 w-full bg-sky-50 border-t shadow-md z-50 md:hidden">
         <div class="grid grid-cols-4 text-center py-2">
 
             <!-- Install / Open App -->
@@ -10,7 +10,7 @@
                 <i v-else class="bi bi-box-arrow-up-right text-xl"></i>
 
                 <span class="text-xs mt-1">
-                    {{ isInstalled ? 'Open' : 'Install' }}
+                    {{ isInstalled ? 'Open in App' : 'Install' }}
                 </span>
             </button>
 
@@ -101,7 +101,7 @@ const handleAppButton = async () => {
     }
 
     // Already installed but in browser
-    alert("This app is already installed. Please open it from your device's app list.");
+    alert("Please open it from your device's app list.");
 };
 
 </script>

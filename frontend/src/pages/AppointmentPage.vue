@@ -214,7 +214,7 @@
 
         <!-- Submit -->
         <button type="submit" :disabled="isLoading"
-          class="w-full bg-color-blue text-white py-2 font-bold rounded-lg hover:bg-[#162059] transition disabled:opacity-50">
+          class="w-full bg-color-blue text-white py-2 font-bold rounded-lg transition disabled:opacity-50">
           {{ isLoading ? "Submitting..." : "SUBMIT" }}
         </button>
 

@@ -154,26 +154,29 @@ website_route_rules = [
     # -------------------------------
     {"from_route": "/<path:path>", "to_route": "/"},
 
-    # FINAL CATCH-ALL (Vue Router Fallback)
-    {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},
+    # # FINAL CATCH-ALL (Vue Router Fallback)
+    # {"from_route": "/(?!crm|desk|apps|app|api).*", "to_route": "/"},
+
+    {"from_route": "/(?!app|desk|crm|api|assets|files).*", "to_route": "/"},
 ]
-
-
-# fixtures = [
-#     {
-#         "dt": "Custom Field",
-#         "filters": [
-#             ["name", "in", [
-#                 "Patient Appointment-custom_created_user",
-#                 "Patient Appointment-custom_booking_type"
-#             ]]
-#         ]
-#     }
-# ]
 
 page_js = {
     "opd_queue_board": "pages/opd_queue_board/opd_queue_board.js"
 }
+
+fixtures = [
+    {
+        "dt": "Custom Field",
+        "filters": [
+            ["name", "in", [
+                "Patient Appointment-custom_created_user",
+                "Patient Appointment-custom_booking_type"
+            ]]
+        ]
+    }
+]
+
+
 
 before_uninstall = "drheal_frontend.hooks.cleanup_custom_fields"
 

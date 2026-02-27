@@ -72,7 +72,7 @@ frappe.pages['opd_queue_board'].on_page_load = function (wrapper) {
        Load Doctors Dropdown
     ------------------------------ */
     frappe.call({
-        method: "healthcare_app.api.queue_dashboard.get_practitioners",
+        method: "drheal_frontend.api.queue_dashboard.get_practitioners",
         callback(r) {
             if (r.message) {
                 r.message.forEach(pr => {
@@ -94,7 +94,7 @@ frappe.pages['opd_queue_board'].on_page_load = function (wrapper) {
         const { date, time } = getCurrentDateTime();
 
         frappe.call({
-            method: "healthcare_app.api.queue_dashboard.get_practitioner_queue",
+            method: "drheal_frontend.api.queue_dashboard.get_practitioner_queue",
             args: practitioner ? { practitioner } : {},
             callback(r) {
                 container.empty();
