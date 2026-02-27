@@ -5,11 +5,25 @@ def get_doctors():
     """
     Returns a list of all Healthcare Practitioners with basic info.
     """
+
     doctors = frappe.get_all(
         "Healthcare Practitioner",
-        fields=["name", "first_name", "department", "image", "custom_linkedin", "custom_facebook", "custom_twitter","order_by"],
+        filters={
+            "name": ["!=", "HLC-PRAC-2026-00006"]  # Exclude this doctor
+        },
+        fields=[
+            "name",
+            "first_name",
+            "department",
+            "image",
+            "custom_linkedin",
+            "custom_facebook",
+            "custom_twitter",
+            "order_by"
+        ],
         order_by="order_by asc"
     )
+
     return doctors
 
 
