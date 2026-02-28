@@ -8,6 +8,9 @@ def get_doctors():
 
     doctors = frappe.get_all(
         "Healthcare Practitioner",
+         filters={
+            "custom_online_visibility": "Yes"
+        },
         fields=[
             "name",
             "first_name",
@@ -16,7 +19,8 @@ def get_doctors():
             "custom_linkedin",
             "custom_facebook",
             "custom_twitter",
-            "order_by"
+            "order_by",
+            "custom_online_visibility"
         ],
         order_by="order_by asc"
     )
@@ -31,7 +35,7 @@ def get_doctor(id):
     """
     doctor = frappe.get_all(
         "Healthcare Practitioner",
-        filters={"name": id},
+        filters={"name": id,"custom_online_visibility": "Yes"},
         fields=[
             "name",
             "first_name",
@@ -47,6 +51,7 @@ def get_doctor(id):
             "op_consulting_charge",
             "hospital",
             "custom_degree",
+            "custom_online_visibility"
         ],
     )
 

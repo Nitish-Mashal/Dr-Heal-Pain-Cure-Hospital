@@ -19,8 +19,11 @@ def get_practitioners(department):
     try:
         doctors = frappe.get_all(
             "Healthcare Practitioner",
+             filters={
+            "custom_online_visibility": "Yes"
+        },
          
-            fields=["name", "first_name", "last_name", "designation"]
+            fields=["name", "first_name", "last_name", "designation","custom_online_visibility"]
         )
 
         return {"status": "success", "data": doctors}

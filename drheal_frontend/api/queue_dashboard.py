@@ -94,7 +94,7 @@ def get_practitioner_queue(practitioner=None):
 def get_practitioners():
     practitioners = frappe.get_all(
         "Healthcare Practitioner",
-        filters={"status": "Active"},
+        filters={"status": "Active", "custom_online_visibility": "Yes"},
         fields=["name", "practitioner_name"],
         order_by="practitioner_name asc"
     )
