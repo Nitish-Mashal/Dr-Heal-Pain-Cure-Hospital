@@ -8,9 +8,6 @@ def get_doctors():
 
     doctors = frappe.get_all(
         "Healthcare Practitioner",
-        filters={
-            "name": ["!=", "HLC-PRAC-2026-00006"]  # Exclude this doctor
-        },
         fields=[
             "name",
             "first_name",

@@ -17,25 +17,18 @@ def get_departments():
 @frappe.whitelist(allow_guest=True)
 def get_practitioners(department):
     try:
-
-        doctors = frappe.db.sql("""
-            SELECT DISTINCT hp.name,
-                   hp.first_name,
-                   hp.last_name,
-                   hp.designation
-            FROM `tabHealthcare Practitioner` hp
-            INNER JOIN `tabHealthcare Practitioner Department` hpd
-                ON hpd.parent = hp.name
-            WHERE hpd.department = %s
-            AND hp.name <> %s
-        """, (department, "HLC-PRAC-2026-00006"), as_dict=True)
+        doctors = frappe.get_all(
+            "Healthcare Practitioner",
+         
+            fields=["name", "first_name", "last_name", "designation"]
+        )
 
         return {"status": "success", "data": doctors}
 
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "get_practitioners API Error")
         return {"status": "error", "message": str(e)}
-    
+# ✅ Get Appointment Types by Department (and hide specific type for a doctor)
 @frappe.whitelist(allow_guest=True)
 def get_appointment_types(department=None, practitioner=None):
     try:
