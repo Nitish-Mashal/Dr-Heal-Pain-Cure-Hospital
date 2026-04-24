@@ -100,7 +100,7 @@ website_route_rules = [
     # -------------------------------
     # Frappe Backend / System Routes
     # -------------------------------
-    {"from_route": "/api/method/frappe_whatsapp.utils.webhook.webhook", "to_route": "/api/method/frappe_whatsapp.utils.webhook.webhook"},
+    
     {"from_route": "/printview", "to_route": "/printview"},
     {"from_route": "/apps", "to_route": "/apps"},
     {"from_route": "/desk", "to_route": "/desk"},
