@@ -98,5 +98,5 @@ def get_practitioners():
         fields=["name", "practitioner_name"],
         order_by="practitioner_name asc"
     )
-
+    
     return practitioners
