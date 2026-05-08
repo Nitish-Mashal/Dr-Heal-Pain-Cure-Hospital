@@ -29,7 +29,7 @@
             </router-link>
 
             <!-- WhatsApp -->
-            <a href="https://wa.me/918123619994" target="_blank"
+            <a href="https://wa.me/917019017309" target="_blank"
                 class="flex flex-col items-center justify-center text-gray-800 hover:text-green-600">
                 <i class="bi bi-whatsapp text-xl"></i>
                 <span class="text-xs mt-1">WhatsApp</span>
