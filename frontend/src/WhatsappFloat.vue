@@ -1,5 +1,5 @@
 <template>
-    <a href="https://wa.me/918123619994" target="_blank" rel="noopener noreferrer" class="hidden md:flex fixed bottom-20 right-6 bg-green-500 hover:bg-green-600 
+    <a href="https://wa.me/917019017309" target="_blank" rel="noopener noreferrer" class="hidden md:flex fixed bottom-20 right-6 bg-green-500 hover:bg-green-600 
                text-white p-2 rounded-full shadow-lg transition-all duration-300 
                items-center justify-center z-50" title="Chat with us on WhatsApp">
 

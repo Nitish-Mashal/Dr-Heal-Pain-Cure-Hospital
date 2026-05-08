@@ -162,9 +162,14 @@ const updateSEO = () => {
 /* ---------------- IMAGE ---------------- */
 const serviceImage = computed(() => {
     if (!service.value?.thumnail_image) return ""
-    return service.value.thumnail_image.startsWith("http")
-        ? service.value.thumnail_image
-        : `https://www.drheal.in/${service.value.thumnail_image}`
+
+    const img = service.value.thumnail_image
+
+    // If already full URL
+    if (img.startsWith("http")) return img
+
+    // For local server → attach current origin (http://localhost:8000)
+    return window.location.origin + img
 })
 
 const altText = computed(() =>

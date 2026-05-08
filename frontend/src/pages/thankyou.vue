@@ -24,9 +24,9 @@
 
       <!-- ✅ Appointment Details -->
       <div class="text-left mb-4 px-4">
-        <p v-if="token_no" class="text-sm text-gray-700 mb-1">
+        <p v-if="custom_token_no" class="text-sm text-gray-700 mb-1">
           <strong>Token No:</strong>
-          <span class="ml-1">{{ token_no }}</span>
+          <span class="ml-1">{{ custom_token_no }}</span>
         </p>
 
         <p v-if="appointmentId" class="text-sm text-gray-700 mb-1">
@@ -85,7 +85,7 @@ const router = useRouter();
 const appointmentId = ref(history.state?.appointmentId || "");
 const appointmentDate = ref(history.state?.appointmentDate || "");
 const appointmentTime = ref(history.state?.appointmentTime || "");
-const token_no = ref(history.state?.token_no || "");
+const custom_token_no = ref(history.state?.custom_token_no || "");
 const practitioner_id = ref(history.state?.practitioner_id || "");
 
 // ✅ Show disclaimer ONLY for Dr Rakesh

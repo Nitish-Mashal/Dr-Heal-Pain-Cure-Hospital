@@ -164,7 +164,7 @@
         <!-- ================= MOBILE BUTTONS OUTSIDE MENU ================= -->
         <div class="md:hidden px-4 py-2 flex gap-3 items-center">
             <router-link to="/doctors-list" class="flex-1">
-                <button class="w-full bg-color-blue text-white py-2 rounded-lg text-sm font-semibold">
+                <button class="w-full bg-blue-400 text-white py-2 rounded-lg text-sm font-semibold">
                     Book an Appointment
                 </button>
             </router-link>
