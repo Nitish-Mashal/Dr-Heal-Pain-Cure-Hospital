@@ -523,6 +523,7 @@ def create_appointment():
         notes = data.get("notes", "")
         token_no = data.get("token_no")
         custom_location = data.get("custom_location")
+        custom_booking_type = "Online"
 
         # ✅ NEW FIELDS
         alternative_phone_number = data.get("alternative_phone_number")
