@@ -23,9 +23,10 @@ def get_practitioner_queue(practitioner=None):
             "status",
             "token_no",
             "patient",
-            "patient_name"
+            "patient_name",
+            "custom_queue_in_time"
         ],
-        order_by="token_no asc"
+        order_by="custom_queue_in_time asc"
     )
 
     queue_map = {}
