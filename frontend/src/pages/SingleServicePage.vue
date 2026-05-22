@@ -112,9 +112,9 @@ export default {
   computed: {
     serviceAltText() {
       if (!this.selectedService?.department) {
-        return "Dr.Heal Multispeciality Hospital";
+        return "Dr.Heal Pain Cure Hospital";
       }
-      return `Dr.Heal Multispeciality Hospital - ${this.selectedService.department}`;
+      return `Dr.Heal Pain Cure Hospital - ${this.selectedService.department}`;
     }
   },
   methods: {

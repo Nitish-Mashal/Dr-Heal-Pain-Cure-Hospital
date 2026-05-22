@@ -6,7 +6,7 @@
 
                 <!-- About Image (loads immediately) -->
                 <img src="https://www.drheal.in/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
-                    alt="Dr.Heal Multispeciality Hospital - Hospital Image" width="900" height="700" decoding="async"
+                    alt="Dr.Heal Pain Cure Hospital - Hospital Image" width="900" height="700" decoding="async"
                     fetchpriority="high" class="w-full h-auto rounded-lg shadow-md" />
 
                 <!-- Stats Card -->

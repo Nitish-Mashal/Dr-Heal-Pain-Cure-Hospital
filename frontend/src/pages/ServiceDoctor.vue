@@ -118,9 +118,9 @@ export default {
 
     getDoctorAlt(doctor) {
       if (!doctor?.first_name) {
-        return "Dr.Heal Multispeciality Hospital";
+        return "Dr.Heal Pain Cure Hospital";
       }
-      return `Dr.Heal Multispeciality Hospital - ${doctor.first_name}`;
+      return `Dr.Heal Pain Cure Hospital - ${doctor.first_name}`;
     },
   },
   mounted() {

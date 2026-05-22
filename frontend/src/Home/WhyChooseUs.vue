@@ -17,7 +17,7 @@
             <!-- Decorative Image (non-LCP → lazy) -->
             <div class="hidden md:block absolute right-10 top-1/2 -translate-y-1/2">
                 <img src="https://www.drheal.in/files/Why-Choose-Us.webp"
-                    alt="Dr.Heal Multispeciality Hospital - Non-surgical pain management approach at Dr Heal"
+                    alt="Dr.Heal Pain Cure Hospital - Non-surgical pain management approach at Dr Heal"
                     width="380" height="380" loading="lazy" decoding="async"
                     class="w-[320px] lg:w-[380px] object-contain" />
             </div>
@@ -55,7 +55,7 @@
                         <button v-if="!videoLoaded" @click="loadVideo" class="relative w-full h-full group"
                             aria-label="Play explanation video">
                             <img :src="thumbnailUrl"
-                                alt="Dr.Heal Multispeciality Hospital - Watch how non-surgical pain treatment works"
+                                alt="Dr.Heal Pain Cure Hospital - Watch how non-surgical pain treatment works"
                                 width="1280" height="720" loading="lazy" decoding="async"
                                 class="w-full h-full object-cover" />
 
@@ -107,27 +107,27 @@ const reasons = Object.freeze([
     {
         icon: 'https://www.drheal.in/files/wcu-01.png',
         text: 'No Scalpels, No Risk of Surgical Complications',
-        alt: 'Dr.Heal Multispeciality Hospital -  No scalpel non-surgical pain treatment'
+        alt: 'Dr.Heal Pain Cure Hospital -  No scalpel non-surgical pain treatment'
     },
     {
         icon: 'https://www.drheal.in/files/wcu-02.png',
         text: 'Personalized Treatment Rooted in Cause, Not Just Symptoms',
-        alt: 'Dr.Heal Multispeciality Hospital - Personalized pain treatment addressing root cause'
+        alt: 'Dr.Heal Pain Cure Hospital - Personalized pain treatment addressing root cause'
     },
     {
         icon: 'https://www.drheal.in/files/wcu-03.png',
         text: 'Faster Recovery & Minimal Downtime',
-        alt: 'Dr.Heal Multispeciality Hospital - Faster recovery with non-surgical pain management'
+        alt: 'Dr.Heal Pain Cure Hospital - Faster recovery with non-surgical pain management'
     },
     {
         icon: 'https://www.drheal.in/files/wcu-04.png',
         text: 'Lower Cost Compared to Surgery',
-        alt: 'Dr.Heal Multispeciality Hospital - Affordable non-surgical pain treatment'
+        alt: 'Dr.Heal Pain Cure Hospital - Affordable non-surgical pain treatment'
     },
     {
         icon: 'https://www.drheal.in/files/wcu-05.png',
         text: 'Focus on Regeneration, Not Invasion',
-        alt: 'Dr.Heal Multispeciality Hospital - Regenerative pain management without surgery'
+        alt: 'Dr.Heal Pain Cure Hospital - Regenerative pain management without surgery'
     },
 ])
 </script>

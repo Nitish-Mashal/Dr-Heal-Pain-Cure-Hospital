@@ -4,7 +4,7 @@
 
             <!-- Banner Image -->
             <img src="https://www.drheal.in/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
-                alt="Dr.Heal Multispeciality Hospital - About Us Image" class="
+                alt="Dr.Heal Pain Cure Hospital - About Us Image" class="
       w-full
       h-48       
       sm:h-56
@@ -28,7 +28,7 @@
                 <div class="col-md-6 relative">
                     <!-- Image -->
                     <img src="https://www.drheal.in/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
-                        alt="Dr.Heal Multispeciality Hospital - Hospital Image"
+                        alt="Dr.Heal Pain Cure Hospital - Hospital Image"
                         class="w-full h-auto rounded-lg shadow-md" />
 
                     <!-- Stats Card -->

@@ -3,7 +3,7 @@
     <div class="mx-auto p-2 space-y-6">
 
       <h2 class="text-2xl font-bold text-gray-800 text-left mb-6">
-        Privacy Policy – Dr.Heal Multispeciality Hospital
+        Privacy Policy – Dr.Heal Pain Cure Hospital
       </h2>
 
       <ol class="space-y-6 text-md text-gray-700 list-decimal list-inside">
@@ -92,7 +92,7 @@
         <li>
           <strong>Policy Updates</strong>
           <p class="ml-4 mt-2">
-            Dr.Heal Multispeciality Hospital reserves the right to update this Privacy Policy at any time. Updated policies will be published on our website, and continued use of our services indicates acceptance.
+            Dr.Heal Pain Cure Hospital reserves the right to update this Privacy Policy at any time. Updated policies will be published on our website, and continued use of our services indicates acceptance.
           </p>
         </li>
 

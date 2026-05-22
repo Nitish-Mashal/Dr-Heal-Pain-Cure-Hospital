@@ -52,8 +52,7 @@
                             <!-- <div class="w-full h-px bg-gray-400 my-3"></div> -->
 
                             <div class="text-gray-700">
-                                <div class="mb-2">Mon - Fri: 07:00am to 06:00pm</div>
-                                <div>Sat - Sun: 07:00am to 06:00pm</div>
+                                <div class="mb-2">Mon - Sun: 24 Hours</div>
                             </div>
                         </div>
 
@@ -74,8 +73,8 @@
                             </p>
 
                             <p class="mt-2">
-                                <a href="tel:+917969288000" class="inline-flex items-center gap-2 text-gray-900">
-                                    +91 7969288000
+                                <a href="tel:07969288082" class="inline-flex items-center gap-2 text-gray-900">
+                                    07969288082
                                 </a>
                             </p>
 

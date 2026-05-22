@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="relative w-full">
       <!-- Banner Image -->
-      <img src="https://www.drheal.in/files/DoctorsTeam.png" alt="Dr.Heal Multispeciality Hospital - Doctors"
+      <img src="https://www.drheal.in/files/DoctorsTeam.png" alt="Dr.Heal Pain Cure Hospital - Doctors"
         class="w-full sm:h-56 md:h-72 object-contain md:object-cover" />
 
       <!-- White transparent overlay -->
@@ -83,23 +83,6 @@ export default {
   data() {
     return {
       doctors: [],
-      // testimonials: [
-      //   {
-      //     quote:
-      //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat scelerisque tortor ornare ornare.",
-      //     author: "John Doe",
-      //   },
-      //   {
-      //     quote:
-      //       "Velit nascetur consequat faucibus porttitor enim et. Quisque placerat scelerisque felis vitae tortor augue.",
-      //     author: "Jane Smith",
-      //   },
-      //   {
-      //     quote:
-      //       "Consectetur adipiscing elit. Quisque placerat scelerisque tortor ornare ornare.",
-      //     author: "Michael Johnson",
-      //   },
-      // ],
       loading: true,
       error: null,
     };
@@ -123,9 +106,9 @@ export default {
 
     getDoctorAlt(doctor) {
       if (!doctor?.first_name) {
-        return 'Dr.Heal Multispeciality Hospital';
+        return 'Dr.Heal Pain Cure Hospital';
       }
-      return `Dr.Heal Multispeciality Hospital - ${doctor.first_name}`;
+      return `Dr.Heal Pain Cure Hospital - ${doctor.first_name}`;
     },
 
     bookAppointment(doctor) {

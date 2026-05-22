@@ -36,10 +36,10 @@
                         </p>
 
                         <!-- Read More -->
-                        <router-link :to="service.link"
+                        <!-- <router-link :to="service.link"
                             class="mt-auto pt-4 text-gray-800 hover:underline no-underline font-medium">
                             Read More
-                        </router-link>
+                        </router-link> -->
 
                     </div>
                 </article>
@@ -54,35 +54,35 @@
 /* frozen data = no reactive overhead */
 const services = Object.freeze([
     {
-        title: "Dr. Heal Multispeciality Hospital - Disc Bulge, Spine & Orthopedic Care",
+        title: "Dr. Heal Pain Cure Hospital - Disc Bulge, Spine & Orthopedic Care",
         description:
             "Degenerative Disc & Facet diseases, Sciatica, Herniated Discs, Discogenic pain.",
         icon: "https://www.drheal.in/files/Our-Services-1.png",
         link: "",
     },
     {
-        title: "Dr. Heal Multispeciality Hospital - Cervical & Lumbar Spondylosis | Orthopedic Care",
+        title: "Dr. Heal Pain Cure Hospital - Cervical & Lumbar Spondylosis | Orthopedic Care",
         description:
             "Lumbar Sprains, Knee OA, Fracture biology care, Spinal Canal Stenosis.",
         icon: "https://www.drheal.in/files/Our-Services-2.png",
         link: "",
     },
     {
-        title: "Dr. Heal Multispeciality Hospital - Rheumatoid Arthritis & Orthopedic Care",
+        title: "Dr. Heal Pain Cure Hospital - Rheumatoid Arthritis & Orthopedic Care",
         description:
             "Anti-CCP+, HLAB27+, Myositis, Myasthenia conditions.",
         icon: "https://www.drheal.in/files/Our-Services-3.png",
         link: "",
     },
     {
-        title: "Dr. Heal Multispeciality Hospital - Knee Osteoarthritis & Orthopedic Care",
+        title: "Dr. Heal Pain Cure Hospital - Knee Osteoarthritis & Orthopedic Care",
         description:
             "Shoulder, Neck, Wrist, Hip pain & vascular necrosis care.",
         icon: "https://www.drheal.in/files/Our-Services-4.png",
         link: "",
     },
     {
-        title: "Dr. Heal Multispeciality Hospital - Spine, Joint & Orthopedic Care",
+        title: "Dr. Heal Pain Cure Hospital - Spine, Joint & Orthopedic Care",
         description:
             "Diet, supplements, regenerative & rejuvenation treatments.",
         icon: "https://www.drheal.in/files/Our-Services-5.png",

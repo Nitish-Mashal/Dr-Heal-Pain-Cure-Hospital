@@ -26,7 +26,7 @@
                     </div>
 
                     <!-- Arrow Button -->
-                    <span class="absolute bottom-6 right-6 z-10
+                    <!-- <span class="absolute bottom-6 right-6 z-10
                    w-12 h-12 rounded-full
                    bg-color-orange group-hover:bg-orange-600
                    flex items-center justify-center
@@ -35,7 +35,7 @@
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
-                    </span>
+                    </span> -->
 
                 </router-link>
             </article>
@@ -50,7 +50,7 @@
 const services = Object.freeze([
     {
         title: 'Home Visits',
-        alt: 'Dr.Heal Multispeciality Hospital - Home Visits',
+        alt: 'Dr.Heal Pain Cure Hospital - Home Visits',
         description:
             'We bring expert orthopedic care to your home – convenient, safe, and tailored to your recovery needs.',
         image: 'https://www.drheal.in/files/Services-Types-1.webp',
@@ -58,7 +58,7 @@ const services = Object.freeze([
     },
     {
         title: 'Online Consultation',
-        alt: 'Dr.Heal Multispeciality Hospital - Online Consultation',
+        alt: 'Dr.Heal Pain Cure Hospital - Online Consultation',
         description:
             'Connect with orthopedic specialists online for quick, reliable diagnosis and treatment guidance.',
         image: 'https://www.drheal.in/files/Services-Types-2.webp',
@@ -66,7 +66,7 @@ const services = Object.freeze([
     },
     {
         title: 'Quality Healthcare',
-        alt: 'Dr.Heal Multispeciality Hospital - Quality Healthcare',
+        alt: 'Dr.Heal Pain Cure Hospital - Quality Healthcare',
         description:
             'Experience top-tier orthopedic treatment backed by expert doctors, modern technology, and personalized care.',
         image: 'https://www.drheal.in/files/Services-Types-3.webp',

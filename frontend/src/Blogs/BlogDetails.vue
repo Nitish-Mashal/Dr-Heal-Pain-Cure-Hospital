@@ -103,7 +103,7 @@ const fetchBlogDetails = async () => {
 
 /* ---------------- ALT TEXT ---------------- */
 const getBlogAlt = (blog) => {
-    if (!blog) return 'Dr.Heal Multispeciality Hospital'
+    if (!blog) return 'Dr.Heal Pain Cure Hospital'
 
     const title =
         blog.meta_title ||
@@ -111,8 +111,8 @@ const getBlogAlt = (blog) => {
         blog.description_heading_1
 
     return title
-        ? `Dr.Heal Multispeciality Hospital - ${title}`
-        : 'Dr.Heal Multispeciality Hospital'
+        ? `Dr.Heal Pain Cure Hospital - ${title}`
+        : 'Dr.Heal Pain Cure Hospital'
 }
 
 /* ---------------- SEO ---------------- */

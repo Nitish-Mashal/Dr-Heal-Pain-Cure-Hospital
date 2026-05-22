@@ -127,11 +127,11 @@ const updateSEO = () => {
     const title =
         service.value.meta_title ||
         service.value.name1 ||
-        "Dr Heal Multispeciality Hospital"
+        "Dr Heal Pain Cure Hospital"
 
     const description =
         service.value.meta_description ||
-        "Dr Heal Multispeciality Hospital Services"
+        "Dr Heal Pain Cure Hospital Services"
 
     const keywords =
         service.value.meta_keyword ||
@@ -174,8 +174,8 @@ const serviceImage = computed(() => {
 
 const altText = computed(() =>
     service.value?.name1
-        ? `Dr.Heal Multispeciality Hospital - ${service.value.name1}`
-        : "Dr.Heal Multispeciality Hospital"
+        ? `Dr.Heal Pain Cure Hospital - ${service.value.name1}`
+        : "Dr.Heal Pain Cure Hospital"
 )
 
 /* ---------------- CONTACT FORM ---------------- */

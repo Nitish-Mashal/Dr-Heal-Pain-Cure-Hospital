@@ -78,9 +78,9 @@ const formatDate = (dateStr) => {
 
 const getBlogAlt = (card) => {
     if (!card?.description_heading_1) {
-        return 'Dr.Heal Multispeciality Hospital'
+        return 'Dr.Heal Pain Cure Hospital'
     }
-    return `Dr.Heal Multispeciality Hospital - ${card.description_heading_1}`
+    return `Dr.Heal Pain Cure Hospital - ${card.description_heading_1}`
 }
 
 // ✅ Generate slug from name (fallback if URL is missing)

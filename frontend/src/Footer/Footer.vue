@@ -7,7 +7,7 @@
                 <!-- LOGO & SOCIAL -->
                 <div class="col-md-3">
                     <img src="https://www.drheal.in/files/DrHeal-Logo.webp"
-                        alt="Dr. Heal Multispeciality Hospital – Dr Heal Logo" width="180" height="80" loading="lazy"
+                        alt="Dr. Heal Pain Cure Hospital – Dr Heal Logo" width="180" height="80" loading="lazy"
                         decoding="async" class="h-20 mb-4 object-contain" />
 
                     <p class="mb-4">{{ tagline }}</p>
@@ -255,12 +255,13 @@ const quickLinks = [
 ]
 
 const workingHours = [
-    { day: "Monday - Sunday", time: "07:00 am - 06:00 pm" },
+    { day: "Monday - Sunday", time: "24 Hours" },
 ]
 
 const addresses = [
     "392, Ganapa Arcade, 9th Main Road, 7th Sector, HSR Layout, Bengaluru - 560102, KA, INDIA.",
     "Doctor Heal Hospital and Diagnostics Road, next to Kaushalya Vikas Kendra, Weavers Colony, Pillaganahalli, Bengaluru - 560083.",
-    "ACHARYA POLY CLINIC AND LAB (Dr. Heal Multispeciality Group Hospital), Bannerghatta Post, Anekal, Bengaluru - 560083.",
+    "ACHARYA POLY CLINIC AND LAB (Dr. Heal Pain Cure Group Hospital), Bannerghatta Post, Anekal, Bengaluru - 560083.",
+    "No 208 & 209, 100 feet ring road, 4th Block, Banashankari 3rd Stage, Banashankari, Bengaluru, Karnataka 560085",
 ];
 </script>

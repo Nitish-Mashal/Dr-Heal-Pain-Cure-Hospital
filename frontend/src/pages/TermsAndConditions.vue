@@ -3,7 +3,7 @@
     <div class="mx-auto p-2 space-y-6">
 
       <h2 class="text-2xl font-bold text-gray-800 text-left mb-6">
-        Terms & Conditions – Dr.Heal Multispeciality Hospital
+        Terms & Conditions – Dr.Heal Pain Cure Hospital
       </h2>
 
       <ol class="space-y-6 text-md text-gray-700 list-decimal list-inside">
@@ -20,7 +20,7 @@
               Appointment slots may change due to emergency cases, surgeries, or unforeseen medical situations.
             </li>
             <li>
-              Dr.Heal Multispeciality Hospital reserves the right to reschedule appointments when clinically necessary.
+              Dr.Heal Pain Cure Hospital reserves the right to reschedule appointments when clinically necessary.
             </li>
           </ul>
         </li>
@@ -285,7 +285,7 @@
           <strong>Policy Modifications</strong>
           <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
             <li>
-              Dr.Heal Multispeciality Hospital reserves the right to update these terms at any time.
+              Dr.Heal Pain Cure Hospital reserves the right to update these terms at any time.
             </li>
             <li>
               Updated terms become effective immediately upon publication.
