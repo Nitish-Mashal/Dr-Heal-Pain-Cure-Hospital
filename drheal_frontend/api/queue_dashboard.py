@@ -8,7 +8,8 @@ def get_practitioner_queue(practitioner=None):
 
     filters = {
         "appointment_date": today_date,
-        "status": ["in", ["Checked In", "Open"]]
+        # "status": ["in", ["Checked In", "Open"]]
+        "status": ["in", ["Checked In", "Open", "Scheduled"]]
     }
 
     if practitioner:
@@ -23,9 +24,10 @@ def get_practitioner_queue(practitioner=None):
             "status",
             "token_no",
             "patient",
-            "patient_name"
+            "patient_name",
+            "custom_queue_in_time"
         ],
-        order_by="token_no asc"
+        order_by="custom_queue_in_time asc"
     )
 
     queue_map = {}
@@ -47,7 +49,8 @@ def get_practitioner_queue(practitioner=None):
             }
 
         # CURRENT TOKEN (Checked In)
-        if appt.status == "Checked In" and not queue_map[pr]["current"]:
+        # if appt.status == "Checked In" and not queue_map[pr]["current"]:
+        if appt.status in ["Open", "Scheduled"] and not queue_map[pr]["next"]:
             queue_map[pr]["current"] = {
                 "token": appt.token_no,
                 "appointment_id": appt.name,
