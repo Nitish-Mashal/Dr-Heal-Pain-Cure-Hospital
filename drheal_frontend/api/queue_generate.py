@@ -11,8 +11,8 @@ def generate_queue_number(appointment):
     )
 
     # Already Generated
-    if appointment_doc.queue_number:
-        return appointment_doc.queue_number
+    if appointment_doc.custom_queue_number:
+        return appointment_doc.custom_queue_number
 
     if not appointment_doc.practitioner:
         frappe.throw("Practitioner is mandatory")
@@ -44,7 +44,7 @@ def generate_queue_number(appointment):
 
     # Update Appointment
     appointment_doc.queue_number = queue_no
-    appointment_doc.queue_generated = 1
+    appointment_doc.custom_queue_generated = 1
 
     appointment_doc.save(ignore_permissions=True)
 
