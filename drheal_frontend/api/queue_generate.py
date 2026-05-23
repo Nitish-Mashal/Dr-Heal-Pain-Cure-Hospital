@@ -43,7 +43,8 @@ def generate_queue_number(appointment):
         queue_no = cint(master.current_queue_number) + 1
 
     # Update Appointment
-    appointment_doc.queue_number = queue_no
+    appointment_doc.custom_queue_number = queue_no
+
     appointment_doc.custom_queue_generated = 1
 
     appointment_doc.save(ignore_permissions=True)
