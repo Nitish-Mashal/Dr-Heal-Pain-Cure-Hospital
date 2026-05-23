@@ -2,14 +2,13 @@ import frappe
 from frappe.utils import today
 
 
-@frappe.whitelist(allow_guest=True)s
+@frappe.whitelist(allow_guest=True)
 def get_practitioner_queue(practitioner=None):
     today_date = today()
 
     filters = {
         "appointment_date": today_date,
-        # "status": ["in", ["Checked In", "Open"]]
-        "status": ["in", ["Checked In", "Open", "Scheduled"]]
+        "status": ["in", ["Checked In", "Open"]]
     }
 
     if practitioner:
