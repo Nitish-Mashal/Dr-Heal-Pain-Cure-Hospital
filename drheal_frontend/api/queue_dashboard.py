@@ -2,7 +2,7 @@ import frappe
 from frappe.utils import today
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist(allow_guest=True)s
 def get_practitioner_queue(practitioner=None):
     today_date = today()
 
@@ -49,8 +49,7 @@ def get_practitioner_queue(practitioner=None):
             }
 
         # CURRENT TOKEN (Checked In)
-        # if appt.status == "Checked In" and not queue_map[pr]["current"]:
-        if appt.status in ["Open", "Scheduled"] and not queue_map[pr]["next"]:
+        if appt.status == "Checked In" and not queue_map[pr]["current"]:
             queue_map[pr]["current"] = {
                 "token": appt.token_no,
                 "appointment_id": appt.name,
