@@ -5,17 +5,11 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "practioner",
+  "practitioner",
   "queue_start_number",
   "current_queue_number"
  ],
  "fields": [
-  {
-   "fieldname": "practioner",
-   "fieldtype": "Link",
-   "label": "Practioner",
-   "options": "Healthcare Practitioner"
-  },
   {
    "fieldname": "queue_start_number",
    "fieldtype": "Int",
@@ -25,12 +19,18 @@
    "fieldname": "current_queue_number",
    "fieldtype": "Int",
    "label": "Current Queue Number"
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "label": "Practitioner",
+   "options": "Healthcare Practitioner"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-05-23 09:56:09.220312",
+ "modified": "2026-05-23 10:23:26.787282",
  "modified_by": "Administrator",
  "module": "Drheal Frontend",
  "name": "Practitioner Queue Master",
