@@ -178,7 +178,7 @@ frappe.pages['opd_queue_board'].on_page_load = function (wrapper) {
                                 ${current
                             ? `
                                         <div style="font-size:120px;font-weight:900;color:#7c3aed;">
-                                            ${current.token.replace('Token ', '')}
+                                            ${current.token}
                                         </div>
                                         <div style="font-size:40px;margin-top:16px;">
                                             ${current.patient_name}
@@ -223,7 +223,7 @@ frappe.pages['opd_queue_board'].on_page_load = function (wrapper) {
                                     width:100%;
                                 ">
                                     ${next
-                            ? `${next.token.replace('Token ', '')} – ${next.patient_name}`
+                            ? `${next.token} – ${next.patient_name}`
                             : `No next patient`
                         }
                                 </div>
