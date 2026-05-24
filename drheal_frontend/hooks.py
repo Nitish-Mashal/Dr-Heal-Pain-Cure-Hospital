@@ -7,6 +7,11 @@ app_license = "mit"
 
 # Apps
 # ------------------
+scheduler_events = {
+    "daily": [
+        "drheal_frontend.api.reset_daily_queue.reset_daily_queue"
+    ]
+}
 
 # website_route_rules = [
 
