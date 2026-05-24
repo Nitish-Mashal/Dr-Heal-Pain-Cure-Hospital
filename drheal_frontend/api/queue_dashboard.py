@@ -4,6 +4,7 @@ from frappe.utils import today
 
 @frappe.whitelist(allow_guest=True)
 def get_practitioner_queue(practitioner=None):
+
     today_date = today()
 
     filters = {
@@ -18,28 +19,27 @@ def get_practitioner_queue(practitioner=None):
         "Patient Appointment",
         filters=filters,
         fields=[
-            "name",                 # Appointment ID
+            "name",
             "practitioner",
             "status",
-            "token_no",
             "patient",
             "patient_name",
-            "custom_queue_in_time"
+            "custom_queue_number"
         ],
-        order_by="custom_queue_in_time asc"
+        order_by="custom_queue_number asc"
     )
 
     queue_map = {}
 
     for appt in appointments:
+
         pr = appt.practitioner
+
         if not pr:
             continue
 
-        if practitioner and pr != practitioner:
-            continue
-
         if pr not in queue_map:
+
             queue_map[pr] = {
                 "practitioner_id": pr,
                 "practitioner_name": None,
@@ -47,19 +47,27 @@ def get_practitioner_queue(practitioner=None):
                 "next": None
             }
 
-        # CURRENT TOKEN (Checked In)
-        if appt.status == "Checked In" and not queue_map[pr]["current"]:
+        # CURRENT CHECKED-IN PATIENT
+        if (
+            appt.status == "Checked In"
+            and not queue_map[pr]["current"]
+        ):
+
             queue_map[pr]["current"] = {
-                "token": appt.token_no,
+                "token": appt.custom_queue_number,
                 "appointment_id": appt.name,
                 "patient": appt.patient,
                 "patient_name": appt.patient_name
             }
 
-        # NEXT TOKEN (Open)
-        if appt.status == "Open" and not queue_map[pr]["next"]:
+        # NEXT OPEN PATIENT
+        if (
+            appt.status == "Open"
+            and not queue_map[pr]["next"]
+        ):
+
             queue_map[pr]["next"] = {
-                "token": appt.token_no,
+                "token": appt.custom_queue_number,
                 "appointment_id": appt.name,
                 "patient": appt.patient,
                 "patient_name": appt.patient_name
@@ -68,18 +76,27 @@ def get_practitioner_queue(practitioner=None):
     if not queue_map:
         return []
 
-    # Fetch practitioner names
+    # GET PRACTITIONER NAMES
     practitioners = frappe.get_all(
         "Healthcare Practitioner",
-        filters={"name": ["in", list(queue_map.keys())]},
-        fields=["name", "practitioner_name"]
+        filters={
+            "name": ["in", list(queue_map.keys())]
+        },
+        fields=[
+            "name",
+            "practitioner_name"
+        ]
     )
 
-    name_map = {p.name: p.practitioner_name for p in practitioners}
+    name_map = {
+        p.name: p.practitioner_name
+        for p in practitioners
+    }
 
     result = []
 
     for pr, data in queue_map.items():
+
         result.append({
             "practitioner_id": pr,
             "practitioner_name": name_map.get(pr),
@@ -93,11 +110,18 @@ def get_practitioner_queue(practitioner=None):
 
 @frappe.whitelist(allow_guest=True)
 def get_practitioners():
+
     practitioners = frappe.get_all(
         "Healthcare Practitioner",
-        filters={"status": "Active", "custom_online_visibility": "Yes"},
-        fields=["name", "practitioner_name"],
+        filters={
+            "status": "Active",
+            "custom_online_visibility": "Yes"
+        },
+        fields=[
+            "name",
+            "practitioner_name"
+        ],
         order_by="practitioner_name asc"
     )
-    
+
     return practitioners
