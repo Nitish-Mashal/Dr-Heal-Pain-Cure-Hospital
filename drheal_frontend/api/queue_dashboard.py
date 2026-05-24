@@ -32,6 +32,7 @@ def get_practitioner_queue(practitioner=None):
 
     queue_map = {}
 
+    # FIND CURRENT
     for appt in appointments:
 
         pr = appt.practitioner
@@ -48,7 +49,6 @@ def get_practitioner_queue(practitioner=None):
                 "next": None
             }
 
-        # CURRENT CHECKED-IN PATIENT
         if (
             appt.status == "Checked In"
             and not queue_map[pr]["current"]
@@ -61,10 +61,24 @@ def get_practitioner_queue(practitioner=None):
                 "patient_name": appt.patient_name
             }
 
-        # NEXT OPEN PATIENT
+    # FIND NEXT GREATER QUEUE
+    for appt in appointments:
+
+        pr = appt.practitioner
+
+        if pr not in queue_map:
+            continue
+
+        current = queue_map[pr]["current"]
+
+        if not current:
+            continue
+
+        current_queue = current["token"]
+
         if (
             appt.status == "Open"
-            and not queue_map[pr]["next"]
+            and appt.custom_queue_number > current_queue
         ):
 
             queue_map[pr]["next"] = {
@@ -74,10 +88,11 @@ def get_practitioner_queue(practitioner=None):
                 "patient_name": appt.patient_name
             }
 
+            break
+
     if not queue_map:
         return []
 
-    # GET PRACTITIONER NAMES
     practitioners = frappe.get_all(
         "Healthcare Practitioner",
         filters={
@@ -106,23 +121,3 @@ def get_practitioner_queue(practitioner=None):
         })
 
     return result
-
-
-
-@frappe.whitelist(allow_guest=True)
-def get_practitioners():
-
-    practitioners = frappe.get_all(
-        "Healthcare Practitioner",
-        filters={
-            "status": "Active",
-            "custom_online_visibility": "Yes"
-        },
-        fields=[
-            "name",
-            "practitioner_name"
-        ],
-        order_by="practitioner_name asc"
-    )
-
-    return practitioners
