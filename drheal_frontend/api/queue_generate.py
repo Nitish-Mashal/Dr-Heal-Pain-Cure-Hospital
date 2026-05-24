@@ -38,7 +38,7 @@ def generate_queue_number(appointment):
 
     # Generate Queue Number
     if not master.current_queue_number:
-        queue_no = cint(master.queue_start_number)
+        queue_no = cint(master.queue_start_number) + 1
     else:
         queue_no = cint(master.current_queue_number) + 1
 
