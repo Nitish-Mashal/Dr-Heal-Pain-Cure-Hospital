@@ -9,7 +9,8 @@ def get_practitioner_queue(practitioner=None):
 
     filters = {
         "appointment_date": today_date,
-        "status": ["in", ["Checked In", "Open"]]
+        "status": ["in", ["Checked In", "Open"]],
+        "custom_queue_number": [">", 0]
     }
 
     if practitioner:
