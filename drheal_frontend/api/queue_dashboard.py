@@ -1,7 +1,7 @@
 import frappe
 from frappe.utils import today
 
-
+# API to get current and next patient in queue for each practitioner
 @frappe.whitelist(allow_guest=True)
 def get_practitioner_queue(practitioner=None):
 
