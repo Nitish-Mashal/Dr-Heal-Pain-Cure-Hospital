@@ -94,10 +94,10 @@ const founders = [
 
 const administration = [
     {
-        name: "Dr Mallikarjun.S",
+        name: "Radhakrishna B S",
         alt: 'Dr.Heal Pain Cure Hospital - Chief Administrative Officer of Dr. Heal',
         role: "Chief Administrative Officer",
-        image: "https://www.drheal.in/files/Dr-Mallikarjun-s.png",
+        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/05/27/File/9P199EON_Radhakrishna-B-S.jpeg",
         description:
             "Ensures strategic governance, organisational efficiency, patient safety and quality healthcare delivery excellence."
     },
@@ -110,28 +110,20 @@ const administration = [
             "Oversees daily operations and ensures smooth functioning across branches."
     },
     {
-        name: "Mr Sandeep",
-        alt: 'Dr.Heal Pain Cure Hospital - Assistant Manager Marketing/Purchase of Dr. Heal',
-        role: "Assistant Manager Marketing/Purchase",
-        image: "https://www.drheal.in/files/Mr-Sandeep.jpeg",
+        name: "S P Radhakrishnan",
+        alt: 'Dr.Heal Pain Cure Hospital - Cheif Accounting Officer of Dr. Heal',
+        role: "Cheif Accounting Officer",
+        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/05/27/File/R6J62Q7U_S-P-Radhakrishnan.jpeg",
         description:
-            "Drives outreach and manages procurement to support clinical excellence."
+            "Oversees financial management, accounting operations, budgeting, and compliance to ensure smooth financial functioning of the organization."
     },
     {
-        name: "Mrs. Indra",
-        alt: 'Dr.Heal Pain Cure Hospital - HR Professional of Dr. Heal',
-        role: "HR Professional",
-        image: "https://www.drheal.in/files/Placeholder-image.png",
+        name: "Parvathy Raghunath ",
+        alt: 'Dr.Heal Pain Cure Hospital - HR Manager of Dr. Heal',
+        role: "HR Manager",
+        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/05/27/File/1VCCSZSX_Parvathy-Raghunath_.jpeg",
         description:
             "Coordinates internal systems to maintain efficiency and service quality."
-    },
-    {
-        name: "Mrs Lakshmi.N",
-        alt: 'Dr.Heal Pain Cure Hospital - Chief Accounting Manager of Dr. Heal',
-        role: "Chief Accounting Manager",
-        image: "https://www.drheal.in/files/Mrs-Lakshmi-N.jpeg",
-        description:
-            "Manages finance and accounting to ensure transparent healthcare delivery."
     },
     {
         name: "Mr.Rohith",
@@ -142,20 +134,20 @@ const administration = [
             "Ensures clear, informative, and patient-friendly communication across platforms."
     },
     {
+        name: "Sumaiya N ",
+        alt: "Dr.Heal Pain Cure Hospital - Telecalling and sales head of Dr. Heal",
+        role: "Telecalling and Sales Head",
+        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/05/27/File/97B7BKZ7_Sumaiya-N.jpeg",
+        description:
+            "Leads patient communication, telecalling operations, and sales coordination to ensure smooth patient engagement and support."
+    },
+    {
         name: "Mrs. Zareena",
         alt: 'Dr.Heal Pain Cure Hospital - OPD Manager of Dr. Heal',
-        role: "OPD Manager",
+        role: "Manager",
         image: "https://www.drheal.in/files/Placeholder-image.png",
         description:
             "Builds trust and ensures clear communication between patients and the care team."
-    },
-    {
-        name: "Mr. Santosh",
-        alt: 'Dr.Heal Pain Cure Hospital - Patient Relationship Manager of Dr. Heal',
-        role: "Patient Relationship Manager",
-        image: "https://www.drheal.in/files/Mr-Santosh.png",
-        description:
-            "Assists patients through their care journey with compassion and clarity."
     },
     {
         name: "Mrs. Kavya",
@@ -172,6 +164,14 @@ const administration = [
         image: "https://www.drheal.in/files/Mr-Sudarshan.jpeg",
         description:
             "Strengthens Dr. Heal's presence through strategic online engagement."
+    },
+    {
+        name: "Prasanth R",
+        alt: "Dr.Heal Pain Cure Hospital - Personal Assistant of Dr. Rakesh",
+        role: "Dr Rakesh Sir Personal Assistant",
+        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/05/27/File/KDY39HO5_Prasanth-R.jpeg",
+        description:
+            "Manages scheduling, coordination, and day-to-day assistance to support Dr. Rakesh's clinical and administrative activities."
     }
 ]
 </script>
