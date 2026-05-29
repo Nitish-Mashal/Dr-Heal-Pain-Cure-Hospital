@@ -1,8 +1,9 @@
-const CACHE_NAME = "drheal-cache-v1";
+const CACHE_NAME = "drheal-cache-v2";
 
 const urlsToCache = [
     "/",
-    "/manifest.json",
+    "/?source=pwa",
+    "/assets/drheal_frontend/manifest.json",
 
     // Icons
     "/files/pwa-192x192.png",
@@ -21,12 +22,14 @@ const urlsToCache = [
 
 // Install Service Worker
 self.addEventListener("install", event => {
+
     console.log("Service Worker Installing...");
 
     event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => {
-            return cache.addAll(urlsToCache);
-        })
+        caches.open(CACHE_NAME)
+            .then(cache => {
+                return cache.addAll(urlsToCache);
+            })
     );
 
     self.skipWaiting();
@@ -34,17 +37,22 @@ self.addEventListener("install", event => {
 
 // Activate Service Worker
 self.addEventListener("activate", event => {
+
     console.log("Service Worker Activated...");
 
     event.waitUntil(
         caches.keys().then(cacheNames => {
+
             return Promise.all(
                 cacheNames.map(cache => {
+
                     if (cache !== CACHE_NAME) {
                         return caches.delete(cache);
                     }
+
                 })
             );
+
         })
     );
 
@@ -53,27 +61,44 @@ self.addEventListener("activate", event => {
 
 // Fetch Requests
 self.addEventListener("fetch", event => {
+
     event.respondWith(
-        caches.match(event.request).then(response => {
 
-            // Return cache if available
-            if (response) {
-                return response;
-            }
+        caches.match(event.request)
+            .then(response => {
 
-            // Else fetch from network
-            return fetch(event.request)
-                .then(networkResponse => {
+                // Return cache if available
+                if (response) {
+                    return response;
+                }
 
-                    return caches.open(CACHE_NAME).then(cache => {
-                        cache.put(event.request, networkResponse.clone());
-                        return networkResponse;
+                // Else fetch from network
+                return fetch(event.request)
+                    .then(networkResponse => {
+
+                        return caches.open(CACHE_NAME)
+                            .then(cache => {
+
+                                cache.put(
+                                    event.request,
+                                    networkResponse.clone()
+                                );
+
+                                return networkResponse;
+
+                            });
+
+                    })
+                    .catch(() => {
+
+                        return new Response(
+                            "Offline Mode"
+                        );
+
                     });
 
-                })
-                .catch(() => {
-                    return new Response("Offline Mode");
-                });
-        })
+            })
+
     );
+
 });
