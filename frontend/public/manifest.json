@@ -1,0 +1,139 @@
+{
+  "name": "Dr.Heal Pain Cure Hospital",
+  "short_name": "Dr.Heal",
+  "id": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "Mobile App PWA for Dr.Heal Pain Cure Hospital",
+  "categories": ["business", "productivity", "utilities"],
+  "dir": "auto",
+  "lang": "en",
+  "orientation": "portrait",
+  "prefer_related_applications": false,
+
+  "protocol_handlers": [
+    {
+      "protocol": "web+drheal",
+      "url": "/?open_pwa=true"
+    }
+  ],
+
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://www.drheal.in/"
+    }
+  ],
+
+  "icons": [
+    {
+      "src": "/files/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/files/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/files/pwa-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/files/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+
+  "screenshots": [
+    {
+      "src": "/files/dr-rakesh-profile.jpeg",
+      "sizes": "1080x2304",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Dr Rakesh Profile"
+    },
+    {
+      "src": "/files/main-screen.jpeg",
+      "sizes": "1080x2170",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Main Screen"
+    },
+    {
+      "src": "/files/dr-list.jpeg",
+      "sizes": "1080x2160",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Dr List"
+    },
+    {
+      "src": "/files/services-back-pain.jpeg",
+      "sizes": "1080x2160",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Back Pain Service"
+    },
+    {
+      "src": "/files/why-choose-us.jpeg",
+      "sizes": "1080x2304",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Why Choose Us"
+    },
+    {
+      "src": "/files/service-types.jpeg",
+      "sizes": "1080x2165",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Service Types"
+    },
+    {
+      "src": "/files/drheal-desktop.png",
+      "sizes": "1024x498",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop View"
+    }
+  ],
+
+  "shortcuts": [
+    {
+      "name": "Todo",
+      "short_name": "Todo",
+      "url": "/app/todo",
+      "description": "Open Todo List",
+      "icons": [
+        {
+          "src": "/files/pwa-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Tasks",
+      "short_name": "Tasks",
+      "url": "/app/task",
+      "description": "Open Tasks List",
+      "icons": [
+        {
+          "src": "/files/pwa-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
