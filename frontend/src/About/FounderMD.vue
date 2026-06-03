@@ -150,6 +150,14 @@ const administration = [
             "Builds trust and ensures clear communication between patients and the care team."
     },
     {
+        name: "Nagachaitanya Are",
+        alt: "Dr.Heal Pain Cure Hospital - Personal Assistant of Dr. Rakesh",
+        role: "Facility Manager",
+        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/06/03/File/GQDU0CYX_nagachaitanya-are-drheal.jpeg",
+        description:
+            "Ensures the smooth operation of hospital facilities, coordinates support services, and maintains a comfortable and efficient environment for patients, visitors, and healthcare professionals."
+    },
+    {
         name: "Mrs. Kavya",
         alt: 'Dr.Heal Pain Cure Hospital - Nursing Services Supervisor of Dr. Heal',
         role: "Nursing Services, Supervisor",
