@@ -6,7 +6,7 @@
 
                 <!-- LOGO & SOCIAL -->
                 <div class="col-md-3">
-                    <img src="https://www.drheal.in/files/DrHeal-Logo.webp"
+                    <img src="https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/06/25/File/OHO5DLH8_DrHeal-Logo.webp"
                         alt="Dr. Heal Pain Cure Hospital – Dr Heal Logo" width="180" height="80" loading="lazy"
                         decoding="async" class="h-20 mb-4 object-contain" />
 

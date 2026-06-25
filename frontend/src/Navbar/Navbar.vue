@@ -5,7 +5,7 @@
             <!-- LOGO -->
             <router-link to="/" class="flex items-center">
                 <!-- Large screens logo -->
-                <img src="https://www.drheal.in/files/DrHeal-Logo.webp"
+                <img src="https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/06/25/File/OHO5DLH8_DrHeal-Logo.webp"
                     alt="Dr.Heal Pain Cure Hospital - Dr Heal Logo" class="hidden sm:block h-14" />
 
                 <!-- Small screens logo -->
