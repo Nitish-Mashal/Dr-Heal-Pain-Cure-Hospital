@@ -110,6 +110,7 @@ website_route_rules = [
     {"from_route": "/apps", "to_route": "/apps"},
     {"from_route": "/desk", "to_route": "/desk"},
     {"from_route": "/crm", "to_route": "/crm"},
+    {"from_route": "/app", "to_route": "/app"},
     {"from_route": "/app/<path:path>", "to_route": "/app/<path:path>"},
     {"from_route": "/api/<path:path>", "to_route": "/api/<path:path>"},
     {"from_route": "/login", "to_route": "/login"},
