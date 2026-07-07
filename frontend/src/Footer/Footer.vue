@@ -20,6 +20,8 @@
                             <i :class="`bi ${social.icon}`"></i>
                         </a>
                     </div>
+
+
                     <!-- Install Buttons -->
                     <div class="hidden md:flex flex-col gap-3 items-start">
 
@@ -41,18 +43,20 @@
                         <template v-else>
 
                             <!-- Android -->
-                            <button type="button" class="inline-flex items-center gap-3 px-4 py-2 w-[160px]
-            bg-color-blue text-white rounded-xl shadow-md" @click="installApp">
+                            <a href="https://play.google.com/store/apps/details?id=com.drheal.paincurehospital"
+                                target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-3 px-4 py-2 w-[160px] bg-color-blue text-white rounded-xl shadow-md no-underline">
                                 <i class="bi bi-android2 text-xl"></i>
                                 <div class="text-left">
                                     <div class="text-xs opacity-80">Get it on</div>
                                     <div class="font-semibold">Android</div>
                                 </div>
-                            </button>
+                            </a>
 
                             <!-- iOS -->
-                            <button type="button" class="inline-flex items-center gap-3 px-4 py-2 w-[160px]
-            bg-color-orange text-white rounded-xl shadow-md" @click="installApp">
+                            <button type="button"
+                                class="inline-flex items-center gap-3 px-4 py-2 w-[160px] bg-color-orange text-white rounded-xl shadow-md"
+                                @click="installApp">
                                 <i class="bi bi-apple text-xl"></i>
                                 <div class="text-left">
                                     <div class="text-xs opacity-80">Download on</div>
