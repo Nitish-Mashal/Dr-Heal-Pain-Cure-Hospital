@@ -103,6 +103,15 @@ scheduler_events = {
 website_route_rules = [
 
     # -------------------------------
+    # Static SEO Files
+    # -------------------------------
+    {"from_route": "/robots.txt", "to_route": "/robots.txt"},
+    {"from_route": "/sitemap.xml", "to_route": "/sitemap.xml"},
+    {"from_route": "/favicon.ico", "to_route": "/favicon.ico"},
+    {"from_route": "/manifest.json", "to_route": "/manifest.json"},
+    {"from_route": "/service-worker.js", "to_route": "/service-worker.js"},
+
+    # -------------------------------
     # Frappe Backend / System Routes
     # -------------------------------
     {"from_route": "/api/method/frappe_whatsapp.utils.webhook.webhook", "to_route": "/api/method/frappe_whatsapp.utils.webhook.webhook"},
