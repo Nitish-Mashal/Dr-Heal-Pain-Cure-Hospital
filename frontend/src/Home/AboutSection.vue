@@ -42,7 +42,7 @@
                 </h6>
 
                 <h2 class="font-semibold mb-4 text-color-blue">
-                    Healing Pain Without Surgery. Restoring Life With Purpose.
+                    Dr Heal Pain Cure Hospital - Advanced Pain Care & Non-Surgical Treatment. Restoring Life With Purpose.
                 </h2>
 
                 <p class="mb-4">

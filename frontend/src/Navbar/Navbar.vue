@@ -14,7 +14,7 @@
             </router-link>
 
             <!-- ================= DESKTOP MENU ================= -->
-            <ul class="hidden md:flex items-center space-x-6 text-[15px] font-medium">
+            <ul class="hidden md:flex items-center space-x-6 text-[15px] font-medium mt-3">
 
                 <li>
                     <router-link to="/"

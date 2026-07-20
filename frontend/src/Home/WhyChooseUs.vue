@@ -5,7 +5,7 @@
 
             <div class="z-10 text-center px-4 max-w-3xl">
                 <h6 class="text-color-orange uppercase tracking-widest mb-4">
-                    Why Choose Us
+                    Why Choose Dr Heal Pain Cure Hospital?
                 </h6>
 
                 <div class="text-[35px] font-semibold text-color-blue">

@@ -5,7 +5,7 @@
       <h4 class="text-sm font-bold tracking-widest text-blue-600 uppercase">
         Trusted Care
       </h4>
-      <h2 class="text-[28px] font-bold text-gray-900">Our Doctors</h2>
+      <h2 class="text-[28px] font-bold text-gray-900">Pain Care Specialists</h2>
     </div>
 
     <!-- If multiple doctors -->

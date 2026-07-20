@@ -33,10 +33,10 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: 'Dr Heal Pain Cure Hospital | Non-Surgical Pain Treatment',
+      title: 'Dr Heal Pain Cure Hospital | Pain Care & Non-Surgical Treatment',
 
       description:
-        'Get expert non-surgical treatment for back pain, knee pain, arthritis, sciatica, neck pain, and chronic pain at Dr Heal Pain Cure Hospital.',
+        'Dr Heal Pain Cure Hospital provides advanced pain care and non-surgical treatment for back pain, knee pain, arthritis, sciatica, neck pain and chronic pain.',
 
       keywords:
         'Dr Heal Pain Cure Hospital, pain management hospital Bangalore, non surgical pain treatment, back pain treatment, knee pain treatment, arthritis treatment, neck pain, spine pain, sciatica treatment, chronic pain specialist',

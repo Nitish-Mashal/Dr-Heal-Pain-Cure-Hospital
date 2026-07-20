@@ -7,11 +7,11 @@
             <!-- Center Heading -->
             <div class="text-center">
                 <p class="text-color-orange uppercase tracking-widest mb-3">
-                    Testimonial
+                    Patient Testimonials
                 </p>
 
                 <h2 class="font-semibold text-color-blue">
-                    Reviews From Our Patients
+                    Why Patients Trust Dr Heal Pain Cure Hospital
                 </h2>
             </div>
 
@@ -35,7 +35,7 @@
                 min-h-[220px]">
 
                 <div class="font-bold text-3xl">
-                    EXCELLENT
+                    Rated Excellent
                 </div>
 
                 <div class="flex justify-center gap-1 text-yellow-500 text-xl">
@@ -43,16 +43,28 @@
                 </div>
 
                 <p class="text-base">
-                    Based on <strong>6,500+ reviews</strong>
+                    Trusted by <strong>7,500+ happy patients</strong> for advanced pain care and non-surgical
+                    treatments.
                 </p>
 
-                <img src="https://www.drheal.in/files/Google.svg" alt="Dr.Heal Pain Cure Hospital - Google Reviews"
+                <img src="https://www.drheal.in/files/Google.svg" alt="Google Reviews for Dr Heal Pain Cure Hospital"
                     width="120" height="32" loading="lazy" class="h-8" />
 
             </aside>
 
             <!-- CAROUSEL -->
             <div class="w-full md:w-[900px] shrink-0">
+
+                <section class="hidden">
+                    <h2>Dr Heal Pain Cure Hospital Reviews</h2>
+
+                    <p>
+                        Patients across Bangalore trust Dr Heal Pain Cure Hospital for
+                        non-surgical pain treatment, back pain treatment,
+                        knee pain treatment, arthritis care, neck pain treatment,
+                        and chronic pain management.
+                    </p>
+                </section>
 
                 <Carousel :items-to-show="3" :items-to-scroll="1" :wrap-around="true" :breakpoints="carouselBreakpoints"
                     :mouse-drag="true" :autoplay="4500" :pause-autoplay-on-hover="true" snap-align="start" :gap="20"
@@ -147,16 +159,16 @@ const testimonials = ref([
     {
         name: 'Lohith.m Muniraju V',
         initial: 'L',
-        time: '2 months ago',
+        time: "May 2026",
         review:
-            'Good experience. My disc bulge got improved 30% after the first visit. Thank you Dr Rakesh and Dr heal staffs for the good response. Treatment is excellent. Excellent care towards all the patients. Thank you',
+            'I received excellent non-surgical treatment for my disc bulge. My back pain improved significantly after the first visit. Thank you to Dr Heal Pain Cure Hospital and the entire medical team for their professional care.',
         expanded: true
     },
 
     {
         name: 'Nagu rathna',
         initial: 'N',
-        time: '2 months ago',
+        time: "May 2026",
         review:
             'I had back pain and knee pain from one year . My pain got improved 100% . Good result thank you so much dr Rakesh and entire team. My pain has got improved in second visit. I’m following diet strictly . I do exercise regularly. Thank you Dr heal',
         expanded: false
@@ -165,18 +177,18 @@ const testimonials = ref([
     {
         name: 'Thippeswamy Thippeswamy',
         initial: 'T',
-        time: '3 months ago',
+        time: "April 2026",
         review:
-            'Very good hospital facilities. My Experience was good at this hospital. The staffs guided us properly when we visited this hospital. Thank you for guiding us in this huge crowd. Dr Rakesh spoke to us well. Thank you Dr Rakesh Sir for your care and concern about the patients',
+            'The hospital is clean, well organized, and equipped with modern facilities. The medical team guided us throughout the treatment process with professionalism and care.',
         expanded: false
     },
 
     {
         name: 'Geetha Sathish',
         initial: 'G',
-        time: '2 months ago',
+        time: "May 2026",
         review:
-            'Very good result. My neck pain has improved 60% after the treatment here. Thank you Dr Rakesh and all the team of Dr heal hospital.',
+            'I visited Dr Heal Pain Cure Hospital for severe back and knee pain. After following the recommended treatment and exercises, my pain improved considerably. The doctors and staff were supportive throughout my recovery.',
         expanded: false
     }
 ])

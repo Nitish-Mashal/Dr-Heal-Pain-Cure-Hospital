@@ -232,7 +232,7 @@ onMounted(() => {
 
 const year = new Date().getFullYear()
 
-const tagline = "Healing Pain Without Surgery. Restoring Life With Purpose."
+const tagline = "Dr Heal Pain Cure Hospital - Advanced Pain Care & Non-Surgical Treatment. Restoring Life With Purpose."
 
 const socialIcons = [
     { icon: "bi-facebook", url: "https://www.facebook.com/drhealbangalore", label: "Facebook" },
@@ -245,7 +245,7 @@ const socialIcons = [
 const quickLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about-us" },
-    { name: "Our Doctors", path: "/doctors-list" },
+    { name: "Pain Care Specialists", path: "/doctors-list" },
     { name: "Blogs", path: "/blog" },
     { name: "Careers", path: "/careers" },
     { name: "Gallery", path: "/gallery" },
