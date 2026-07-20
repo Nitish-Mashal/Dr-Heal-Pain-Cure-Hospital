@@ -33,7 +33,7 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: 'Dr Heal Pain Hospital | Non-Surgical Treatment',
+      title: 'Dr Heal Pain Hospital | Advanced Non-Surgical Treatment',
 
       description:
         'Dr Heal Pain Cure Hospital provides advanced pain care and non-surgical treatment for back pain, knee pain, arthritis, sciatica, neck pain and chronic pain.',
