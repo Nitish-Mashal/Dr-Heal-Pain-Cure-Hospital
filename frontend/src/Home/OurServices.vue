@@ -5,9 +5,9 @@
                 Our Services
             </h6>
 
-            <div class="text-[35px] font-semibold mb-4 text-color-blue text-center">
+            <h1 class="font-semibold mb-4 text-color-blue text-center">
                 Core Specialties
-            </div>
+            </h1>
         </div>
 
         <div class="container-fluid">
