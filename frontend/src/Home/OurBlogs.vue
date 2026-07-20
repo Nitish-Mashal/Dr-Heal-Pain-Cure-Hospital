@@ -3,9 +3,9 @@
         <!-- HEADER -->
         <div class="text-center">
             <h6 class="text-color-orange uppercase tracking-widest mb-3">Our Blogs</h6>
-            <h1 class="font-semibold text-color-blue">
+            <div class="text-[35px] font-semibold text-color-blue">
                 Explore real moments, success stories, <br /> and insights
-            </h1>
+            </div>
         </div>
 
         <div class="row">

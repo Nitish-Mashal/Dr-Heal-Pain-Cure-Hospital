@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+# Point to the sitemap (update hostname if different)
+Sitemap: https://www.drheal.in/sitemap.xml

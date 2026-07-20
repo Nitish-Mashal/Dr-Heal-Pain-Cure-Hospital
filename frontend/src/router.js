@@ -33,11 +33,13 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: 'Dr Heal Pain Cure Hospital | Advanced Pain Treatment Without Surgery',
+      title: 'Dr Heal Pain Cure Hospital | Non-Surgical Pain Treatment',
+
       description:
-        'Get advanced, non-surgical treatment for back pain, knee pain, sciatica, arthritis & chronic pain at Dr Heal Pain Cure Hospital. Trusted by patients across Karnataka & India.',
+        'Get expert non-surgical treatment for back pain, knee pain, arthritis, sciatica, neck pain, and chronic pain at Dr Heal Pain Cure Hospital.',
+
       keywords:
-        'Dr Heal Pain Cure Hospital, pain cure hospital Bangalore, non surgical pain treatment, chronic pain treatment, back pain treatment Bangalore, knee pain treatment, sciatica treatment, arthritis pain management, pain management hospital, orthopaedic pain treatment, best pain doctor Bangalore, spine pain treatment, joint pain hospital.',
+        'Dr Heal Pain Cure Hospital, pain management hospital Bangalore, non surgical pain treatment, back pain treatment, knee pain treatment, arthritis treatment, neck pain, spine pain, sciatica treatment, chronic pain specialist',
     },
   },
   {
@@ -45,10 +47,13 @@ const routes = [
     name: 'Aboutus',
     component: Aboutus,
     meta: {
-      title: 'About Dr Heal | Trusted Diagnostic Healthcare Provider',
+      title: 'About Dr Heal Pain Cure Hospital | Expert Pain Care',
+
       description:
-        'Know more about Dr Heal, our mission, vision, and commitment to accurate diagnostics and patient care.',
-      keywords: 'Dr Heal, About US'
+        'Learn about Dr Heal Pain Cure Hospital, our experienced doctors, advanced pain management treatments, mission, and patient-focused healthcare.',
+
+      keywords:
+        'about Dr Heal, pain management hospital, pain specialists, experienced doctors, pain clinic Bangalore, healthcare hospital'
     },
   },
   {
@@ -56,9 +61,13 @@ const routes = [
     name: 'Services',
     component: Services,
     meta: {
-      title: 'Diagnostic Services | Blood Tests & Health Checkups – Dr Heal',
+      title: 'Pain Management Services | Dr Heal Pain Cure Hospital',
+
       description:
-        'Explore Dr Heal diagnostic services including blood tests, health checkups, and preventive screenings.',
+        'Explore advanced pain management services including back pain, knee pain, arthritis, neck pain, joint pain, and spine care.',
+
+      keywords:
+        'pain management services, back pain treatment, knee pain treatment, arthritis treatment, neck pain treatment, spine treatment, joint pain treatment'
     },
   },
   {
@@ -66,19 +75,27 @@ const routes = [
     name: 'ServiceDetails',
     component: ServiceDetails,
     meta: {
-      title: 'Diagnostic Test Details | Dr Heal',
+      title: 'Pain Treatment Services | Dr Heal Pain Cure Hospital',
+
       description:
-        'Get complete details about Dr Heal diagnostic tests, preparation guidelines, and health benefits.',
-    },
+        'Know more about our advanced pain treatment procedures, benefits, and non-surgical therapies offered by Dr Heal Pain Cure Hospital.',
+
+      keywords:
+        'pain treatment, non surgical therapy, pain procedures, chronic pain treatment, pain management'
+    }
   },
   {
     path: '/facilities/:slug',
     name: 'FacilityDetails',
     component: FacilityDetails,
     meta: {
-      title: 'Advanced Diagnostic Facilities | Dr Heal',
+      title: 'Modern Facilities | Dr Heal Pain Cure Hospital',
+
       description:
-        'Discover Dr Heal’s advanced diagnostic facilities with modern equipment and expert healthcare staff.',
+        'Discover our world-class facilities, advanced equipment, patient care services, and comfortable treatment environment.',
+
+      keywords:
+        'hospital facilities, advanced pain treatment, patient care, pain hospital Bangalore'
     },
   },
   {
@@ -86,9 +103,13 @@ const routes = [
     name: 'DoctorsList',
     component: DoctorsList,
     meta: {
-      title: 'Our Doctors | Expert Healthcare Professionals – Dr Heal',
+      title: 'Pain Specialists & Doctors | Dr Heal Pain Cure Hospital',
+
       description:
-        'Meet experienced doctors and healthcare professionals at Dr Heal.',
+        'Meet experienced pain management specialists and doctors dedicated to providing advanced non-surgical pain treatments.',
+
+      keywords:
+        'pain specialists, doctors, pain management experts, spine specialists, arthritis doctor, knee pain doctor'
     },
   },
   {
@@ -96,9 +117,13 @@ const routes = [
     name: 'AppointmentPage',
     component: AppointmentPage,
     meta: {
-      title: 'Book Appointment Online | Dr Heal Diagnostics',
+      title: 'Book Appointment | Dr Heal Pain Cure Hospital',
+
       description:
-        'Book diagnostic tests and consultations easily with Dr Heal’s online appointment system.',
+        'Book an appointment online with our experienced pain specialists for expert diagnosis and advanced pain treatment.',
+
+      keywords:
+        'book appointment, pain specialist appointment, doctor consultation, online appointment, pain clinic'
     },
   },
   {
@@ -107,9 +132,13 @@ const routes = [
     component: ViewProfile,
     props: true,
     meta: {
-      title: 'Doctor Profile | Dr Heal',
+      title: 'Doctor Profile | Dr Heal Pain Cure Hospital',
+
       description:
-        'View detailed doctor profiles including experience and consultation details at Dr Heal.',
+        'View doctor qualifications, experience, specialties, and consultation timings at Dr Heal Pain Cure Hospital.',
+
+      keywords:
+        'doctor profile, pain specialist, consultation, healthcare doctor'
     },
   },
   {
@@ -117,19 +146,27 @@ const routes = [
     name: 'ThankYou',
     component: ThankYou,
     meta: {
-      title: 'Thank You | Dr Heal',
+      title: 'Thank You | Dr Heal Pain Cure Hospital',
+
       description:
-        'Thank you for choosing Dr Heal. Our team will contact you shortly.',
-    },
+        'Thank you for contacting Dr Heal Pain Cure Hospital. Our team will connect with you shortly.',
+
+      keywords:
+        'thank you, appointment confirmation, patient enquiry'
+    }
   },
   {
     path: '/terms-and-conditions',
     name: 'TermsAndConditions',
     component: TermsAndConditions,
     meta: {
-      title: 'Terms and Conditions | Dr Heal',
+      title: 'Terms & Conditions | Dr Heal Pain Cure Hospital',
+
       description:
-        'Read the terms and conditions for using Dr Heal’s website and services, including diagnostic tests and healthcare services.',
+        'Review the terms and conditions governing the use of Dr Heal Pain Cure Hospital’s website and healthcare services.',
+
+      keywords:
+        'terms and conditions, website policy, healthcare terms'
     },
   },
   {
@@ -137,9 +174,13 @@ const routes = [
     name: 'PrivacyAndPolicy',
     component: PrivacyAndPolicy,
     meta: {
-      title: 'Privacy Policy | Dr Heal',
+      title: 'Privacy Policy | Dr Heal Pain Cure Hospital',
+
       description:
-        'Learn how Dr Heal collects, uses, and protects your personal information while providing diagnostic and healthcare services.',
+        'Read the privacy policy of Dr Heal Pain Cure Hospital regarding data collection, patient information, and website usage.',
+
+      keywords:
+        'privacy policy, patient privacy, healthcare privacy'
     },
   },
 
@@ -149,9 +190,13 @@ const routes = [
     name: 'BlogsPreview',
     component: BlogsPreview,
     meta: {
-      title: 'Health & Wellness Blog | Dr Heal',
+      title: 'Pain Relief Blog | Dr Heal Pain Cure Hospital',
+
       description:
-        'Read expert health tips, diagnostic guides, and wellness articles from Dr Heal.',
+        'Read expert articles on pain relief, arthritis, back pain, spine care, wellness, and healthy living.',
+
+      keywords:
+        'pain relief blog, back pain tips, arthritis blog, spine health, pain management articles'
     },
   },
   {
@@ -159,9 +204,13 @@ const routes = [
     name: 'BlogDetails',
     component: BlogDetails,
     meta: {
-      title: 'Health Articles & Medical Insights | Dr Heal Blog',
+      title: 'Health Articles | Dr Heal Pain Cure Hospital',
+
       description:
-        'Explore informative health articles covering diagnostics, wellness, and preventive healthcare.',
+        'Read detailed health articles, pain management tips, treatment options, and wellness advice from our experts.',
+
+      keywords:
+        'health articles, pain treatment blog, wellness articles, pain management tips'
     },
   },
 
@@ -172,8 +221,12 @@ const routes = [
     component: SendResume,
     meta: {
       title: 'Send Your Resume | Dr Heal Careers',
+
       description:
-        'Send your resume to Dr Heal for career opportunities in diagnostics and healthcare.',
+        'Submit your resume and explore exciting career opportunities with Dr Heal Pain Cure Hospital.',
+
+      keywords:
+        'send resume, healthcare jobs, medical careers, hospital recruitment'
     },
   },
   {
@@ -181,9 +234,13 @@ const routes = [
     name: 'WorkWithUs',
     component: WorkWithUs,
     meta: {
-      title: 'Work with Us | Dr Heal Careers',
+      title: 'Careers | Dr Heal Pain Cure Hospital',
+
       description:
-        'Send your resume to Dr Heal for career opportunities in diagnostics and healthcare.',
+        'Join Dr Heal Pain Cure Hospital and build your career with a leading healthcare team dedicated to quality patient care.',
+
+      keywords:
+        'hospital jobs, healthcare careers, doctor jobs, nursing jobs, medical careers'
     },
   },
   {
@@ -191,9 +248,13 @@ const routes = [
     name: 'SubmitJob',
     component: SubmitJob,
     meta: {
-      title: 'Submit Job Application | Dr Heal Careers',
+      title: 'Job Application | Dr Heal Careers',
+
       description:
-        'Send your resume to Dr Heal for career opportunities in diagnostics and healthcare.',
+        'Complete your job application and become part of Dr Heal Pain Cure Hospital’s growing healthcare team.',
+
+      keywords:
+        'job application, hospital careers, healthcare recruitment'
     },
   },
   {
@@ -201,9 +262,13 @@ const routes = [
     name: 'Gallery',
     component: Gallery,
     meta: {
-      title: 'Gallery | Dr Heal Pain Care Hospital',
+      title: 'Hospital Gallery | Dr Heal Pain Cure Hospital',
+
       description:
-        'Explore the Dr Heal Pain Care Hospital gallery featuring our facilities, advanced treatments, patient care, and medical infrastructure.',
+        'Explore our hospital gallery showcasing advanced facilities, treatments, doctors, patient care, and infrastructure.',
+
+      keywords:
+        'hospital gallery, pain hospital photos, medical facilities, healthcare infrastructure'
     },
   },
 
@@ -213,9 +278,13 @@ const routes = [
     name: 'ContactUs',
     component: ContactUs,
     meta: {
-      title: 'Contact Dr Heal | Diagnostic Test Booking & Support',
+      title: 'Contact Dr Heal Pain Cure Hospital',
+
       description:
-        'Contact Dr Heal for diagnostic test bookings, home sample collection, and customer support.',
+        'Contact Dr Heal Pain Cure Hospital for appointments, treatment information, and patient support. Call or visit us today.',
+
+      keywords:
+        'contact hospital, pain clinic contact, book consultation, patient support, Bangalore hospital'
     },
   },
 ]
@@ -230,11 +299,14 @@ const router = createRouter({
 
 /* ================= SEO HANDLER ================= */
 router.beforeEach((to, from, next) => {
-  const defaultTitle = 'Dr Heal | Diagnostic Tests & Healthcare Services'
+  const defaultTitle =
+    'Dr Heal Pain Cure Hospital | Non-Surgical Pain Treatment'
+
   const defaultDescription =
-    'Dr Heal provides trusted diagnostic tests, health checkups, and home sample collection services across India.'
+    'Dr Heal Pain Cure Hospital offers advanced non-surgical treatment for back pain, knee pain, arthritis, sciatica, neck pain, and chronic pain.'
+
   const defaultKeywords =
-    'Dr Heal, diagnostic tests, blood test, health checkup, pathology lab, healthcare services'
+    'Dr Heal Pain Cure Hospital, pain management hospital, non surgical pain treatment, back pain treatment, knee pain treatment, arthritis treatment, sciatica treatment, spine pain, neck pain, chronic pain clinic Bangalore'
 
   // ✅ Title
   document.title = to.meta.title || defaultTitle

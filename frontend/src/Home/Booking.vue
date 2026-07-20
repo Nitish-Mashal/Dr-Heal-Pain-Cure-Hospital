@@ -5,9 +5,9 @@
                 <!-- Left Column -->
                 <div class="col-md-5 flex flex-col justify-center h-full">
                     <h6 class="text-color-orange uppercase mb-3 tracking-widest">Booking</h6>
-                    <h1 class="font-semibold mb-4">
+                    <div class="text-[35px] font-semibold mb-4">
                         Personalized Care, Perfect Health
-                    </h1>
+                    </div>
                     <p class="mb-4">
                         This integrated, multidisciplinary approach ensures that our patients receive complete care
                         without going under the knife — making us a preferred choice for non-surgical pain treatment in

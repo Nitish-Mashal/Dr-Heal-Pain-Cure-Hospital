@@ -83,6 +83,35 @@
     .text-color-orange { color: #E88020; }
     .text-color-blue { color: #30809D; }
   </style>
+  <!-- ================= SCHEMA.ORG JSON-LD ================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Dr Heal",
+        "url": "https://www.drheal.in",
+        "logo": "https://www.drheal.in/og-image.png",
+        "sameAs": [
+          "https://www.facebook.com/",
+          "https://www.twitter.com/",
+          "https://www.linkedin.com/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Dr Heal",
+        "url": "https://www.drheal.in",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.drheal.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>

@@ -5,9 +5,9 @@
                 <!-- Left Column -->
                 <div class="col-md-5 flex flex-col justify-center h-full">
                     <h6 class="text-color-orange uppercase mb-3 tracking-widest">Process</h6>
-                    <h1 class="font-semibold mb-4 text-white">
+                    <div class="text-[35px] font-semibold mb-4 text-white">
                         How Does It Works
-                    </h1>
+                    </div>
                     <p class="text-white mb-4">
                         From diagnosis to recovery, our experts guide you through personalized
                         treatment plans for joint, bone, and muscle health.

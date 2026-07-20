@@ -8,18 +8,17 @@
                     Why Choose Us
                 </h6>
 
-                <h1 class="font-semibold text-color-blue">
+                <div class="text-[35px] font-semibold text-color-blue">
                     Why Non-Surgical Pain <br />
                     Treatment Works Better
-                </h1>
+                </div>
             </div>
 
             <!-- Decorative Image (non-LCP → lazy) -->
             <div class="hidden md:block absolute right-10 top-1/2 -translate-y-1/2">
                 <img src="https://www.drheal.in/files/Why-Choose-Us.webp"
-                    alt="Dr.Heal Pain Cure Hospital - Non-surgical pain management approach at Dr Heal"
-                    width="380" height="380" loading="lazy" decoding="async"
-                    class="w-[320px] lg:w-[380px] object-contain" />
+                    alt="Dr.Heal Pain Cure Hospital - Non-surgical pain management approach at Dr Heal" width="380"
+                    height="380" loading="lazy" decoding="async" class="w-[320px] lg:w-[380px] object-contain" />
             </div>
 
         </div>
