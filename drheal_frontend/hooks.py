@@ -107,6 +107,7 @@ website_route_rules = [
     # -------------------------------
     {"from_route": "/robots.txt", "to_route": "/robots.txt"},
     {"from_route": "/sitemap.xml", "to_route": "/sitemap.xml"},
+    {"from_route": "/llms.txt", "to_route": "/llms.txt"},
     {"from_route": "/favicon.ico", "to_route": "/favicon.ico"},
     {"from_route": "/manifest.json", "to_route": "/manifest.json"},
     {"from_route": "/service-worker.js", "to_route": "/service-worker.js"},
