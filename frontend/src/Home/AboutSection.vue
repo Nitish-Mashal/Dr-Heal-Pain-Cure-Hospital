@@ -41,9 +41,10 @@
                     About Us
                 </h6>
 
-                <h2 class="font-semibold mb-4 text-color-blue">
-                    Dr Heal Pain Cure Hospital - Advanced Pain Care & Non-Surgical Treatment. Restoring Life With Purpose.
-                </h2>
+                <h4 class="font-semibold mb-4 text-color-blue">
+                    Dr Heal Pain Cure Hospital - Advanced Pain Care & Non-Surgical Treatment. Restoring Life With
+                    Purpose.
+                </h4>
 
                 <p class="mb-4">
                     <strong class="text-color-orange">Dr. Heal</strong> was founded with a mission —

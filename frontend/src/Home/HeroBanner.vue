@@ -1,31 +1,104 @@
 <template>
-  <section class="w-full">
+  <section class="w-full" aria-labelledby="hero-heading">
 
-    <!-- 🔥 IMMEDIATE HERO IMAGE -->
+    <!-- ================= SEO CONTENT ================= -->
+    <header class="sr-only">
+      <h1 id="hero-heading">
+        Dr Heal Pain Cure Hospital | Advanced Non-Surgical Pain Treatment
+      </h1>
+
+      <p>
+        Dr Heal Pain Cure Hospital provides advanced non-surgical treatment for
+        back pain, knee pain, arthritis, neck pain, sciatica, shoulder pain,
+        joint pain and chronic pain using modern pain management techniques.
+      </p>
+
+      <h2>Our Pain Management Services</h2>
+
+      <ul>
+        <li>Back Pain Treatment</li>
+        <li>Neck Pain Treatment</li>
+        <li>Knee Pain Treatment</li>
+        <li>Shoulder Pain Treatment</li>
+        <li>Arthritis Treatment</li>
+        <li>Sciatica Treatment</li>
+        <li>Joint Pain Treatment</li>
+        <li>Chronic Pain Treatment</li>
+      </ul>
+    </header>
+
+    <!-- ================= HERO IMAGE ================= -->
+
     <div v-if="firstBanner && !carouselReady" class="w-full overflow-hidden hero-banner">
       <component :is="firstBanner.link ? 'a' : 'div'" :href="firstBanner.link || undefined"
         :target="firstBanner.external_site ? '_blank' : '_self'"
         :rel="firstBanner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
-        <img :src="resolveBannerImage(firstBanner)" :alt="getBannerAlt(firstBanner)" width="1351" height="400"
-          fetchpriority="high" decoding="async" class="w-full h-full object-contain" />
+
+        <figure>
+
+          <picture>
+
+            <source media="(max-width:639px)"
+              :srcset="firstBanner.upload_mobile_image || firstBanner.upload_desktop_image" />
+
+            <source media="(min-width:640px)"
+              :srcset="firstBanner.upload_desktop_image || firstBanner.upload_mobile_image" />
+
+            <img :src="resolveBannerImage(firstBanner)" :alt="getBannerAlt(firstBanner)"
+              :title="getBannerAlt(firstBanner)" width="1351" height="400" loading="eager" fetchpriority="high"
+              decoding="async" sizes="100vw" class="w-full h-full object-contain" />
+
+          </picture>
+
+          <figcaption class="sr-only">
+            {{ getBannerAlt(firstBanner) }}
+          </figcaption>
+
+        </figure>
+
       </component>
     </div>
 
-    <!-- 🎠 CAROUSEL -->
-    <el-carousel v-if="carouselReady" indicator-position="outside" :interval="3000" :pause-on-hover="true"
-      arrow="always" class="w-full banner-carousel">
+    <!-- ================= CAROUSEL ================= -->
+
+    <el-carousel v-if="carouselReady && banners.length" indicator-position="outside" :interval="3000"
+      :pause-on-hover="true" arrow="always" class="w-full banner-carousel">
+
       <el-carousel-item v-for="(banner, index) in banners" :key="index">
+
         <component :is="banner.link ? 'a' : 'div'" :href="banner.link || undefined"
           :target="banner.external_site ? '_blank' : '_self'"
           :rel="banner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
-          <img :src="resolveBannerImage(banner)" :alt="getBannerAlt(banner)" width="1351" height="400" sizes="100vw"
-            :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async"
-            class="w-full h-full object-contain cursor-pointer" />
+
+          <figure>
+
+            <picture>
+
+              <source media="(max-width:639px)" :srcset="banner.upload_mobile_image || banner.upload_desktop_image" />
+
+              <source media="(min-width:640px)" :srcset="banner.upload_desktop_image || banner.upload_mobile_image" />
+
+              <img :src="resolveBannerImage(banner)" :alt="getBannerAlt(banner)" :title="getBannerAlt(banner)"
+                width="1351" height="400" sizes="100vw" :loading="index === 0 ? 'eager' : 'lazy'"
+                :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async"
+                class="w-full h-full object-cover cursor-pointer" />
+
+            </picture>
+
+            <figcaption class="sr-only">
+              {{ getBannerAlt(banner) }}
+            </figcaption>
+
+          </figure>
+
         </component>
+
       </el-carousel-item>
+
     </el-carousel>
 
-    <!-- ⬇️ Rest of the page -->
+    <!-- ================= REST OF THE PAGE ================= -->
+
     <AboutSection />
     <OurServices />
     <ServiceTypes />
@@ -35,6 +108,7 @@
     <Booking />
     <Testimonials />
     <OurBlogs />
+
   </section>
 </template>
 
@@ -46,7 +120,8 @@ import {
   defineAsyncComponent
 } from 'vue'
 
-/* ---------------- Lazy Sections ---------------- */
+/* ================= Lazy Sections ================= */
+
 const AboutSection = defineAsyncComponent(() =>
   import('./AboutSection.vue')
 )
@@ -94,97 +169,117 @@ const cacheKey = ref(Date.now())
 /* ---------------- Screen Detection ---------------- */
 const isMobile = ref(window.innerWidth < 640)
 
+/* ---------------- Resize ---------------- */
 function handleResize() {
   isMobile.value = window.innerWidth < 640
 }
 
-onMounted(() => {
-  window.addEventListener('resize', handleResize)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', handleResize)
-})
-
-/* ---------------- Image Resolver ---------------- */
+/* ---------------- Banner Image ---------------- */
 function resolveBannerImage(banner) {
   if (!banner) return null
 
-  let image = isMobile.value
-    ? (
-      banner.upload_mobile_image ||
-      banner.upload_desktop_image
-    )
-    : (
-      banner.upload_desktop_image ||
-      banner.upload_mobile_image
-    )
+  const image = isMobile.value
+    ? (banner.upload_mobile_image || banner.upload_desktop_image)
+    : (banner.upload_desktop_image || banner.upload_mobile_image)
 
-  // 🔥 Prevent browser cache
-  return image
-    ? `${image}${image.includes('?') ? '&' : '?'}v=${cacheKey.value}`
-    : null
+  if (!image) return null
+
+  return `${image}${image.includes('?') ? '&' : '?'}v=${cacheKey.value}`
 }
 
-/* ---------------- ALT TEXT ---------------- */
+/* ---------------- Banner Alt ---------------- */
 function getBannerAlt(banner) {
   if (!banner) {
-    return 'Dr.Heal Pain Cure Hospital'
+    return 'Dr Heal Pain Hospital'
   }
 
-  const title =
-    banner.name1 ||
+  return (
     banner.meta_title ||
-    banner.title
+    banner.name1 ||
+    banner.title ||
+    'Dr Heal Pain Hospital'
+  )
+}
 
-  return title
-    ? `Dr.Heal Pain Cure Hospital - ${title}`
-    : 'Dr.Heal Pain Cure Hospital'
+/* ---------------- Preload Hero Image ---------------- */
+function preloadHeroImage() {
+  if (!firstBanner.value) {
+    carouselReady.value = true
+    return
+  }
+
+  const img = new Image()
+
+  img.src = resolveBannerImage(firstBanner.value)
+
+  img.onload = () => {
+    carouselReady.value = true
+  }
+
+  img.onerror = () => {
+    carouselReady.value = true
+  }
+
+  if (img.complete) {
+    carouselReady.value = true
+  }
 }
 
 /* ---------------- API ---------------- */
 async function loadBanners() {
   try {
-
-    // 🔥 Refresh cache key every request
     cacheKey.value = Date.now()
 
-    const res = await fetch(
+    const response = await fetch(
       `/api/method/drheal_frontend.api.banner_image.get_banner_images?v=${cacheKey.value}`,
       {
         cache: 'no-store'
       }
     )
 
-    const json = await res.json()
+    const { message } = await response.json()
 
-    firstBanner.value = json.message.first_banner
-    banners.value = json.message.data || []
+    firstBanner.value = message?.first_banner || null
+    banners.value = message?.data || []
 
-    if (!firstBanner.value) return
+    preloadHeroImage()
 
-    /* 🔥 Preload first banner */
-    const img = new Image()
+  } catch (error) {
+    console.error('Banner API Error:', error)
 
-    img.src = resolveBannerImage(firstBanner.value)
-
-    if (img.complete) {
-      carouselReady.value = true
-    } else {
-      img.onload = () => {
-        carouselReady.value = true
-      }
-    }
-
-  } catch (e) {
-    console.error('Banner API error:', e)
+    carouselReady.value = true
   }
 }
 
-onMounted(loadBanners)
+/* ---------------- Lifecycle ---------------- */
+onMounted(() => {
+  handleResize()
+
+  window.addEventListener('resize', handleResize)
+
+  loadBanners()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
 </script>
 
 <style scoped>
+/* ---------------- Screen Reader Only ---------------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
 /* ---------------- HERO SECTION ---------------- */
 
 .hero-banner {
