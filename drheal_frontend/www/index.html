@@ -18,18 +18,6 @@
   <!-- ================= MANIFEST ================= -->
   <link rel="manifest" href="/files/manifest.json">
 
-  <!-- ================= SERVICE WORKER ================= -->
-  <script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("/service-worker.js")
-        .then(reg => console.log("Service Worker Registered"))
-        .catch(err => console.log("Service Worker Failed", err));
-    });
-  }
-  </script>
-
   <!-- ================= OPEN GRAPH ================= -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Dr Heal Pain Hospital | Advanced Non-Surgical Treatment" />
@@ -73,19 +61,12 @@
   </script>
 
   <noscript>
-    <img height="1" width="1" style="display:none"
+    <img class="tracking-pixel"
+      height="1" width="1"
       src="https://www.facebook.com/tr?id=2657537507925604&ev=PageView&noscript=1"/>
   </noscript>
   <!-- ================= END META PIXEL ================= -->
 
-
-  <!-- ================= GLOBAL COLORS ================= -->
-  <style>
-    .bg-color-orange { background-color: #E88020; }
-    .bg-color-blue { background-color: #30809D; }
-    .text-color-orange { color: #E88020; }
-    .text-color-blue { color: #30809D; }
-  </style>
 
   <!-- ================= SCHEMA.ORG JSON-LD ================= -->
   <script type="application/ld+json">
@@ -93,7 +74,7 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["Hospital", "MedicalClinic"],
+        "@type": ["LocalBusiness", "Hospital", "MedicalClinic"],
         "@id": "https://www.drheal.in/#hospital",
         "name": "Dr Heal",
         "alternateName": "Dr Heal Pain Cure Hospital",
@@ -102,6 +83,7 @@
         "image": "https://www.drheal.in/og-image.png",
         "telephone": "+91-79-6928-8000",
         "email": "info@drheal.in",
+        "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Ganapa Arcade, 392, 9th Main Rd, 7th Sector, HSR Layout",
@@ -133,21 +115,59 @@
           "target": "https://www.drheal.in/search?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.drheal.in/#webpage",
+        "url": "https://www.drheal.in/",
+        "name": "Dr Heal Pain Hospital | Advanced Non-Surgical Treatment",
+        "description": "Advanced non-surgical pain treatment in Bengaluru for back pain, knee pain, arthritis, sciatica, neck pain and chronic pain.",
+        "dateModified": "2026-07-27",
+        "inLanguage": "en-IN",
+        "about": { "@id": "https://www.drheal.in/#hospital" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What conditions does Dr Heal Pain Cure Hospital treat?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dr Heal provides assessment and non-surgical pain-management options for back pain, neck pain, knee pain, arthritis, sciatica, joint pain, shoulder pain and chronic pain. A clinician determines the appropriate treatment after consultation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I book an appointment with a pain specialist?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can request an appointment through the online appointment page or contact Dr Heal directly at +91-79-6928-8000."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Dr Heal offer non-surgical pain treatment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Dr Heal focuses on evidence-based, minimally invasive and non-surgical pain-management options when they are clinically appropriate."
+            }
+          }
+        ]
       }
     ]
   }
   </script>
-  <script type="module" crossorigin src="/assets/drheal_frontend/assets/index.df54c262.js"></script>
-  <link rel="stylesheet" href="/assets/drheal_frontend/assets/index.27ceb14e.css">
+  <script type="module" crossorigin src="/assets/drheal_frontend/assets/index.8272bc91.js"></script>
+  <link rel="stylesheet" href="/assets/drheal_frontend/assets/index.3b7af79c.css">
 </head>
 
 <body>
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NK8DV6JR"
-      height="0" width="0" style="display:none;visibility:hidden">
+      class="gtm-noscript-frame" height="0" width="0">
     </iframe>
   </noscript>
-
   <div id="app"></div>
   <div id="modals"></div>
   <div id="popovers"></div>
@@ -158,10 +178,6 @@
 
   <!-- Vite entry -->
   
-
-  <style>
-    html.app-ready #crawlable-content { display: none; }
-  </style>
 
 </body>
 </html>

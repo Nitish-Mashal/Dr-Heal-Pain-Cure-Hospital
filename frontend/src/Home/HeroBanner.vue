@@ -61,45 +61,36 @@
 
     <!-- ================= CAROUSEL ================= -->
 
-    <el-carousel v-else-if="carouselReady && banners.length" indicator-position="outside" :interval="3000"
-      :pause-on-hover="true" arrow="always" class="w-full banner-carousel">
+    <section v-else-if="carouselReady && activeBanner" class="w-full banner-carousel" aria-label="Featured banners"
+      @mouseenter="pauseCarousel" @mouseleave="startCarousel">
+      <component :is="activeBanner.link ? 'a' : 'div'" :href="activeBanner.link || undefined"
+        :target="activeBanner.external_site ? '_blank' : '_self'"
+        :rel="activeBanner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
+        <figure>
+          <picture>
+            <source media="(max-width:639px)"
+              :srcset="activeBanner.upload_mobile_image || activeBanner.upload_desktop_image" />
+            <source media="(min-width:640px)"
+              :srcset="activeBanner.upload_desktop_image || activeBanner.upload_mobile_image" />
+            <img :src="resolveBannerImage(activeBanner)" :alt="getBannerAlt(activeBanner)"
+              :title="getBannerAlt(activeBanner)" width="1351" height="400" sizes="100vw"
+              :loading="activeSlide === 0 ? 'eager' : 'lazy'" :fetchpriority="activeSlide === 0 ? 'high' : 'auto'"
+              decoding="async" class="w-full h-full object-cover cursor-pointer" />
+          </picture>
+          <figcaption class="sr-only">{{ getBannerAlt(activeBanner) }}</figcaption>
+        </figure>
+      </component>
 
-      <el-carousel-item v-for="(banner, index) in banners" :key="index">
-
-        <component :is="banner.link ? 'a' : 'div'" :href="banner.link || undefined"
-          :target="banner.external_site ? '_blank' : '_self'"
-          :rel="banner.external_site ? 'noopener noreferrer' : undefined" class="block w-full h-full">
-
-          <figure>
-
-            <picture>
-
-              <source media="(max-width:639px)" :srcset="banner.upload_mobile_image || banner.upload_desktop_image" />
-
-              <source media="(min-width:640px)" :srcset="banner.upload_desktop_image || banner.upload_mobile_image" />
-
-              <img :src="resolveBannerImage(banner)" :alt="getBannerAlt(banner)" :title="getBannerAlt(banner)"
-                width="1351" height="400" sizes="100vw" :loading="index === 0 ? 'eager' : 'lazy'"
-                :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async"
-                class="w-full h-full object-cover cursor-pointer" />
-
-            </picture>
-
-            <figcaption class="sr-only">
-              {{ getBannerAlt(banner) }}
-            </figcaption>
-
-          </figure>
-
-        </component>
-
-      </el-carousel-item>
-
-    </el-carousel>
-
-    <!-- Reserve the LCP area while the banner API is loading to prevent a
-         full-width image from shifting all page content down. -->
-    <div v-else class="w-full hero-banner" aria-hidden="true"></div>
+      <template v-if="banners.length > 1">
+        <button class="banner-carousel__arrow banner-carousel__arrow--previous" type="button" aria-label="Previous banner" @click="previousSlide">‹</button>
+        <button class="banner-carousel__arrow banner-carousel__arrow--next" type="button" aria-label="Next banner" @click="nextSlide">›</button>
+        <div class="banner-carousel__indicators" aria-label="Banner navigation">
+          <button v-for="(_, index) in banners" :key="index" class="banner-carousel__indicator" type="button"
+            :class="{ 'is-active': index === activeSlide }" :aria-label="`Show banner ${index + 1}`"
+            :aria-current="index === activeSlide ? 'true' : undefined" @click="goToSlide(index)"></button>
+        </div>
+      </template>
+    </section>
 
     <!-- ================= REST OF THE PAGE ================= -->
 
@@ -119,6 +110,7 @@
 <script setup>
 import {
   ref,
+  computed,
   onMounted,
   onUnmounted,
   defineAsyncComponent
@@ -166,6 +158,13 @@ const OurBlogs = defineAsyncComponent(() =>
 const banners = ref([])
 const firstBanner = ref(null)
 const carouselReady = ref(false)
+const activeSlide = ref(0)
+let carouselTimer
+
+const activeBanner = computed(() => banners.value[activeSlide.value] || null)
+
+/* ---------------- Cache Version ---------------- */
+const cacheKey = ref(Date.now())
 
 /* ---------------- Screen Detection ---------------- */
 const isMobile = ref(window.innerWidth < 640)
@@ -173,6 +172,32 @@ const isMobile = ref(window.innerWidth < 640)
 /* ---------------- Resize ---------------- */
 function handleResize() {
   isMobile.value = window.innerWidth < 640
+}
+
+function pauseCarousel() {
+  window.clearInterval(carouselTimer)
+}
+
+function startCarousel() {
+  pauseCarousel()
+  if (banners.value.length > 1) {
+    carouselTimer = window.setInterval(nextSlide, 3000)
+  }
+}
+
+function goToSlide(index) {
+  activeSlide.value = index
+  startCarousel()
+}
+
+function nextSlide() {
+  activeSlide.value = (activeSlide.value + 1) % banners.value.length
+  startCarousel()
+}
+
+function previousSlide() {
+  activeSlide.value = (activeSlide.value - 1 + banners.value.length) % banners.value.length
+  startCarousel()
 }
 
 /* ---------------- Banner Image ---------------- */
@@ -185,7 +210,7 @@ function resolveBannerImage(banner) {
 
   if (!image) return null
 
-  return image
+  return `${image}${image.includes('?') ? '&' : '?'}v=${cacheKey.value}`
 }
 
 /* ---------------- Banner Alt ---------------- */
@@ -206,6 +231,7 @@ function getBannerAlt(banner) {
 function preloadHeroImage() {
   if (!firstBanner.value) {
     carouselReady.value = true
+    startCarousel()
     return
   }
 
@@ -215,24 +241,29 @@ function preloadHeroImage() {
 
   img.onload = () => {
     carouselReady.value = true
+    startCarousel()
   }
 
   img.onerror = () => {
     carouselReady.value = true
+    startCarousel()
   }
 
   if (img.complete) {
     carouselReady.value = true
+    startCarousel()
   }
 }
 
 /* ---------------- API ---------------- */
 async function loadBanners() {
   try {
+    cacheKey.value = Date.now()
+
     const response = await fetch(
-      '/api/method/drheal_frontend.api.banner_image.get_banner_images',
+      `/api/method/drheal_frontend.api.banner_image.get_banner_images?v=${cacheKey.value}`,
       {
-        cache: 'default'
+        cache: 'no-store'
       }
     )
 
@@ -247,6 +278,7 @@ async function loadBanners() {
     console.error('Banner API Error:', error)
 
     carouselReady.value = true
+    startCarousel()
   }
 }
 
@@ -261,6 +293,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize)
+  pauseCarousel()
 })
 </script>
 
@@ -287,9 +320,10 @@ onUnmounted(() => {
 
 /* ---------------- CAROUSEL ---------------- */
 
-.banner-carousel :deep(.el-carousel__container) {
+.banner-carousel {
   aspect-ratio: 1351 / 400;
-  height: auto;
+  overflow: hidden;
+  position: relative;
 }
 
 /* ---------------- IMAGE ---------------- */
@@ -301,6 +335,50 @@ onUnmounted(() => {
   height: 100%;
 }
 
+.banner-carousel__arrow {
+  align-items: center;
+  background: rgb(23 50 77 / 35%);
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 2rem;
+  height: 2.25rem;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.25rem;
+}
+
+.banner-carousel__arrow--previous { left: 1rem; }
+.banner-carousel__arrow--next { right: 1rem; }
+
+.banner-carousel__indicators {
+  bottom: 0.75rem;
+  display: flex;
+  gap: 0.45rem;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.banner-carousel__indicator {
+  background: rgb(255 255 255 / 55%);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 0.45rem;
+  padding: 0;
+  width: 0.45rem;
+}
+
+.banner-carousel__indicator.is-active { background: #fff; }
+
 /* ---------------- MOBILE ---------------- */
 
 @media (max-width: 639px) {
@@ -309,8 +387,5 @@ onUnmounted(() => {
     aspect-ratio: 1351 / 400;
   }
 
-  .banner-carousel :deep(.el-carousel__container) {
-    aspect-ratio: 1351 / 400;
-  }
 }
 </style>
