@@ -52,18 +52,6 @@ export default {
     onMounted(() => {
       // Canonical update
       updateCanonical()
-
-      // ✅ Register Frappe Service Worker
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("/service-worker.js")
-          .then((registration) => {
-            console.log("Service Worker Registered:", registration)
-          })
-          .catch((error) => {
-            console.log("Service Worker Failed:", error)
-          })
-      }
     })
 
     watch(route, updateCanonical)

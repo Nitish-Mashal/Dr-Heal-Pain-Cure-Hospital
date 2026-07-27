@@ -32,31 +32,32 @@
   <meta name="twitter:image" content="https://www.drheal.in/og-image.png" />
 
   <!-- ================= GOOGLE TAG MANAGER ================= -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-          'gtm.start':
-              new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-              'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-  })(window, document, 'script', 'dataLayer', 'GTM-NK8DV6JR');
+  <script>
+    window.addEventListener('load', function () {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NK8DV6JR';
+      document.head.appendChild(script);
+    });
   </script>
 
   <!-- ================= META PIXEL ================= -->
   <script>
     // Keep non-essential marketing code off the rendering path.
     window.addEventListener('load', function () {
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-
-      fbq('init', '2657537507925604');
-      fbq('track', 'PageView');
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      script.onload = function () {
+        if (window.fbq) {
+          window.fbq('init', '2657537507925604');
+          window.fbq('track', 'PageView');
+        }
+      };
+      document.head.appendChild(script);
     });
   </script>
 
@@ -158,7 +159,7 @@
     ]
   }
   </script>
-  <script type="module" crossorigin src="/assets/drheal_frontend/assets/index.79472abc.js"></script>
+  <script type="module" crossorigin src="/assets/drheal_frontend/assets/index.a0de6ca8.js"></script>
   <link rel="stylesheet" href="/assets/drheal_frontend/assets/index.8c07b929.css">
 </head>
 
@@ -168,13 +169,26 @@
       class="gtm-noscript-frame" height="0" width="0">
     </iframe>
   </noscript>
-  <div id="app"></div>
+  <div id="app">
+    <main style="max-width: 1120px; margin: 0 auto; padding: 1.5rem 1rem 3rem; font-family: Arial, sans-serif; color: #12324f; line-height: 1.6;">
+      <h1 style="font-size: 2rem; margin-bottom: 0.75rem;">Dr Heal Pain Cure Hospital</h1>
+      <p style="font-size: 1.05rem; margin-bottom: 1rem;"><strong>Advanced non-surgical pain treatment</strong> for back pain, neck pain, knee pain, arthritis, sciatica, shoulder pain, joint pain and chronic pain.</p>
+      <p style="margin-bottom: 1rem;">Dr Heal provides evidence-based pain management support for patients across Bengaluru with a focus on compassionate, minimally invasive care.</p>
+      <ul style="padding-left: 1.25rem; margin-bottom: 1.25rem;">
+        <li>Back pain and spine care</li>
+        <li>Neck, shoulder and joint pain treatment</li>
+        <li>Knee pain, arthritis and sports injury support</li>
+        <li>Chronic pain management and consultation</li>
+      </ul>
+      <p><a href="/appointment" style="color: #0f4c81; font-weight: 600;">Book an appointment</a> or <a href="/about-us" style="color: #0f4c81; font-weight: 600;">learn more about Dr Heal</a>.</p>
+    </main>
+  </div>
   <div id="modals"></div>
   <div id="popovers"></div>
 
   <noscript>
     <section style="max-width: 960px; margin: 2rem auto; padding: 1.25rem; border: 1px solid #e5e7eb; background: #fff; font-family: Arial, sans-serif; line-height: 1.6;">
-      <h1 style="margin-bottom: 0.5rem; color: #0f4c81;">Dr Heal Pain Cure Hospital</h1>
+      <div style="margin-bottom: 0.5rem; color: #0f4c81;" class="text-7xl">Dr Heal Pain Cure Hospital</div>
       <p><strong>Advanced non-surgical pain treatment</strong> for back pain, neck pain, knee pain, arthritis, sciatica, shoulder pain, joint pain and chronic pain.</p>
       <p>Dr Heal serves patients across Bangalore with evidence-based pain management and consultation support.</p>
       <h2 style="margin-top: 1rem; color: #0f4c81;">Frequently asked questions</h2>

@@ -22,7 +22,12 @@ if (!document.querySelector('#app')?.textContent?.trim()) {
     document.querySelector('#app')?.setAttribute('data-render-fallback', 'true')
 }
 
-// Bootstrap interactive JavaScript is retained, but does not block first paint.
-window.addEventListener('load', () => {
-    import('bootstrap/dist/js/bootstrap.bundle.min.js')
-})
+const loadNonCriticalFeatures = () => {
+    import('bootstrap/dist/js/bootstrap.bundle.min.js').catch(() => { })
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').catch(() => { })
+    }
+}
+
+window.addEventListener('load', loadNonCriticalFeatures)

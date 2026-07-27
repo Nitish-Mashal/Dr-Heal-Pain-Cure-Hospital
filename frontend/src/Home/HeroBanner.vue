@@ -100,16 +100,16 @@
 
     <!-- ================= REST OF THE PAGE ================= -->
 
-    <AboutSection />
-    <OurServices />
-    <ServiceTypes />
-    <WhyChooseUs />
-    <Process />
-    <Leaders />
-    <Booking />
-    <FAQSection />
-    <Testimonials />
-    <OurBlogs />
+    <LazySection :component="AboutSection" />
+    <LazySection :component="OurServices" />
+    <LazySection :component="ServiceTypes" />
+    <LazySection :component="WhyChooseUs" />
+    <LazySection :component="Process" />
+    <LazySection :component="Leaders" />
+    <LazySection :component="Booking" />
+    <LazySection :component="FAQSection" />
+    <LazySection :component="Testimonials" />
+    <LazySection :component="OurBlogs" />
 
   </section>
 </template>
@@ -123,10 +123,7 @@ import {
   defineAsyncComponent
 } from 'vue'
 
-import { ElButton, ElForm, ElFormItem } from 'element-plus'
-import 'element-plus/es/components/button/style/css'
-import 'element-plus/es/components/form/style/css'
-import 'element-plus/es/components/form-item/style/css'
+import LazySection from '@/components/LazySection.vue'
 
 /* ================= Lazy Sections ================= */
 
