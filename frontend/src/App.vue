@@ -3,7 +3,6 @@
     <Navbar />
     <router-view />
     <FloatingEnquiry />
-    <!-- <BookAppointmentFloat /> -->
     <WhatsappFloat />
     <ScrollToTop />
     <Footer />
@@ -13,10 +12,9 @@
 <script>
 import Navbar from './Navbar/Navbar.vue'
 import Footer from './Footer/Footer.vue'
-import ScrollToTop from './ScrollToTop.vue';
-import WhatsappFloat from './WhatsappFloat.vue';
-// import BookAppointmentFloat from './BookAppointmentFloat.vue';
-import FloatingEnquiry from './FloatingEnquiry.vue';
+import ScrollToTop from './ScrollToTop.vue'
+import WhatsappFloat from './WhatsappFloat.vue'
+import FloatingEnquiry from './FloatingEnquiry.vue'
 
 import { onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -26,7 +24,6 @@ export default {
     Navbar,
     Footer,
     ScrollToTop,
-    // BookAppointmentFloat,
     FloatingEnquiry,
     WhatsappFloat
   },
@@ -34,23 +31,22 @@ export default {
     const route = useRoute()
     const router = useRouter()
 
-    const baseUrl = "https://www.drheal.in"
+    const baseUrl = 'https://www.drheal.in'
 
     const updateCanonical = () => {
       const canonicalUrl = baseUrl + router.resolve(route).path
 
       let link = document.querySelector("link[rel='canonical']")
       if (!link) {
-        link = document.createElement("link")
-        link.setAttribute("rel", "canonical")
+        link = document.createElement('link')
+        link.setAttribute('rel', 'canonical')
         document.head.appendChild(link)
       }
 
-      link.setAttribute("href", canonicalUrl)
+      link.setAttribute('href', canonicalUrl)
     }
 
     onMounted(() => {
-      // Canonical update
       updateCanonical()
     })
 
