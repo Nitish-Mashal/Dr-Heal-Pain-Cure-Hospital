@@ -46,7 +46,7 @@
 
             <img :src="resolveBannerImage(firstBanner)" :alt="getBannerAlt(firstBanner)"
               :title="getBannerAlt(firstBanner)" width="1351" height="400" loading="eager" fetchpriority="high"
-              decoding="async" sizes="100vw" class="w-full h-full object-contain" />
+              decoding="async" sizes="100vw" class="w-full h-full object-cover" />
 
           </picture>
 
@@ -82,8 +82,10 @@
       </component>
 
       <template v-if="banners.length > 1">
-        <button class="banner-carousel__arrow banner-carousel__arrow--previous" type="button" aria-label="Previous banner" @click="previousSlide">‹</button>
-        <button class="banner-carousel__arrow banner-carousel__arrow--next" type="button" aria-label="Next banner" @click="nextSlide">›</button>
+        <button class="banner-carousel__arrow banner-carousel__arrow--previous" type="button"
+          aria-label="Previous banner" @click="previousSlide">‹</button>
+        <button class="banner-carousel__arrow banner-carousel__arrow--next" type="button" aria-label="Next banner"
+          @click="nextSlide">›</button>
         <div class="banner-carousel__indicators" aria-label="Banner navigation">
           <button v-for="(_, index) in banners" :key="index" class="banner-carousel__indicator" type="button"
             :class="{ 'is-active': index === activeSlide }" :aria-label="`Show banner ${index + 1}`"
@@ -91,6 +93,10 @@
         </div>
       </template>
     </section>
+
+    <!-- Reserve the exact final banner area while the API and LCP image load.
+         This prevents the sections below from being pushed down. -->
+    <div v-else class="w-full hero-banner hero-banner--placeholder" aria-hidden="true"></div>
 
     <!-- ================= REST OF THE PAGE ================= -->
 
@@ -101,6 +107,7 @@
     <Process />
     <Leaders />
     <Booking />
+    <FAQSection />
     <Testimonials />
     <OurBlogs />
 
@@ -115,6 +122,11 @@ import {
   onUnmounted,
   defineAsyncComponent
 } from 'vue'
+
+import { ElButton, ElForm, ElFormItem } from 'element-plus'
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/form/style/css'
+import 'element-plus/es/components/form-item/style/css'
 
 /* ================= Lazy Sections ================= */
 
@@ -150,6 +162,10 @@ const Testimonials = defineAsyncComponent(() =>
   import('./Testimonial.vue')
 )
 
+const FAQSection = defineAsyncComponent(() =>
+  import('./FAQSection.vue')
+)
+
 const OurBlogs = defineAsyncComponent(() =>
   import('./OurBlogs.vue')
 )
@@ -162,9 +178,6 @@ const activeSlide = ref(0)
 let carouselTimer
 
 const activeBanner = computed(() => banners.value[activeSlide.value] || null)
-
-/* ---------------- Cache Version ---------------- */
-const cacheKey = ref(Date.now())
 
 /* ---------------- Screen Detection ---------------- */
 const isMobile = ref(window.innerWidth < 640)
@@ -210,7 +223,7 @@ function resolveBannerImage(banner) {
 
   if (!image) return null
 
-  return `${image}${image.includes('?') ? '&' : '?'}v=${cacheKey.value}`
+  return image
 }
 
 /* ---------------- Banner Alt ---------------- */
@@ -258,12 +271,10 @@ function preloadHeroImage() {
 /* ---------------- API ---------------- */
 async function loadBanners() {
   try {
-    cacheKey.value = Date.now()
-
     const response = await fetch(
-      `/api/method/drheal_frontend.api.banner_image.get_banner_images?v=${cacheKey.value}`,
+      '/api/method/drheal_frontend.api.banner_image.get_banner_images',
       {
-        cache: 'no-store'
+        cache: 'default'
       }
     )
 
@@ -318,6 +329,10 @@ onUnmounted(() => {
   aspect-ratio: 1351 / 400;
 }
 
+.hero-banner--placeholder {
+  background: #f3f8fa;
+}
+
 /* ---------------- CAROUSEL ---------------- */
 
 .banner-carousel {
@@ -354,8 +369,13 @@ onUnmounted(() => {
   width: 2.25rem;
 }
 
-.banner-carousel__arrow--previous { left: 1rem; }
-.banner-carousel__arrow--next { right: 1rem; }
+.banner-carousel__arrow--previous {
+  left: 1rem;
+}
+
+.banner-carousel__arrow--next {
+  right: 1rem;
+}
 
 .banner-carousel__indicators {
   bottom: 0.75rem;
@@ -377,7 +397,9 @@ onUnmounted(() => {
   width: 0.45rem;
 }
 
-.banner-carousel__indicator.is-active { background: #fff; }
+.banner-carousel__indicator.is-active {
+  background: #fff;
+}
 
 /* ---------------- MOBILE ---------------- */
 

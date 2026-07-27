@@ -16,15 +16,3 @@
   .text-color-orange { color: #E88020; }
   .text-color-blue { color: #30809D; }
 }
-
-/* Static fallback content is shown until Vue has mounted, and remains usable
-   for visitors who browse without JavaScript. */
-html.app-ready #crawlable-content {
-  display: none;
-}
-
-.tracking-pixel,
-.gtm-noscript-frame {
-  display: none;
-  visibility: hidden;
-}

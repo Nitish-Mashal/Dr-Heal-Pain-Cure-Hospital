@@ -132,7 +132,12 @@
 
         <div
             class="px-5 pt-4 flex flex-col md:flex-row md:justify-between md:items-center gap-2 text-center md:text-left">
-            <p>Copyright © {{ year }}. All rights reserved.</p>
+            <div class="space-y-1">
+                <p>Copyright © {{ year }}. All rights reserved.</p>
+                <p class="text-sm text-gray-600">
+                    Last reviewed {{ lastReviewedLabel }} • Content updated regularly for {{ year }}.
+                </p>
+            </div>
             <p>
                 Powered by
                 <a href="https://quantumberg.com/" target="_blank" rel="noopener noreferrer"
@@ -231,6 +236,10 @@ onMounted(() => {
 
 
 const year = new Date().getFullYear()
+const lastReviewedLabel = new Date().toLocaleDateString('en-IN', {
+    month: 'long',
+    year: 'numeric'
+})
 
 const tagline = "Dr Heal Pain Cure Hospital - Advanced Pain Care & Non-Surgical Treatment. Restoring Life With Purpose."
 

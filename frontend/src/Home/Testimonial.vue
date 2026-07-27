@@ -13,6 +13,14 @@
                 <h2 class="font-semibold text-color-blue">
                     Why Patients Trust Dr Heal Pain Cure Hospital
                 </h2>
+
+                <div class="mt-3 flex flex-wrap justify-center items-center gap-2 text-sm text-gray-600">
+                    <span
+                        class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 font-medium text-color-blue">
+                        Updated {{ lastReviewedLabel }}
+                    </span>
+                    <span>Recent patient feedback from {{ currentYear }}</span>
+                </div>
             </div>
 
             <!-- Right Aligned View All -->
@@ -154,6 +162,12 @@ import {
 import 'vue3-carousel/dist/carousel.css'
 
 /* ---------------- TESTIMONIALS ---------------- */
+
+const currentYear = new Date().getFullYear()
+const lastReviewedLabel = new Date().toLocaleDateString('en-IN', {
+    month: 'long',
+    year: 'numeric'
+})
 
 const testimonials = ref([
     {
