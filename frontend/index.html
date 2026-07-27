@@ -10,7 +10,7 @@
   <meta name="robots" content="index, follow" />
   
   <!-- ================= CANONICAL ================= -->
-  <link rel="canonical" href="https://www.drheal.in" />
+  <link rel="canonical" href="https://www.drheal.in/" />
 
   <!-- ================= FAVICON ================= -->
   <link rel="icon" href="/favicon.png" type="image/png" />
@@ -39,8 +39,8 @@
 
   <!-- ================= TWITTER CARD ================= -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Dr Heal | Diagnostic Tests & Healthcare Services" />
-  <meta name="twitter:description" content="Book diagnostic tests, health checkups, and home sample collection with Dr Heal."/>
+  <meta name="twitter:title" content="Dr Heal Pain Hospital | Advanced Non-Surgical Treatment" />
+  <meta name="twitter:description" content="Advanced non-surgical treatment for back pain, knee pain, arthritis, sciatica, neck pain and chronic pain."/>
   <meta name="twitter:image" content="https://www.drheal.in/og-image.png" />
 
   <!-- ================= GOOGLE TAG MANAGER ================= -->
@@ -54,8 +54,10 @@
   })(window, document, 'script', 'dataLayer', 'GTM-NK8DV6JR');
   </script>
 
-    <!-- ================= META PIXEL ================= -->
+  <!-- ================= META PIXEL ================= -->
   <script>
+    // Keep non-essential marketing code off the rendering path.
+    window.addEventListener('load', function () {
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -65,8 +67,9 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
 
-    fbq('init', '2657537507925604');
-    fbq('track', 'PageView');
+      fbq('init', '2657537507925604');
+      fbq('track', 'PageView');
+    });
   </script>
 
   <noscript>
@@ -90,20 +93,41 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Hospital", "MedicalClinic"],
+        "@id": "https://www.drheal.in/#hospital",
         "name": "Dr Heal",
-        "url": "https://www.drheal.in",
+        "alternateName": "Dr Heal Pain Cure Hospital",
+        "url": "https://www.drheal.in/",
         "logo": "https://www.drheal.in/og-image.png",
+        "image": "https://www.drheal.in/og-image.png",
+        "telephone": "+91-79-6928-8000",
+        "email": "info@drheal.in",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ganapa Arcade, 392, 9th Main Rd, 7th Sector, HSR Layout",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "postalCode": "560102",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 12.907644987401884,
+          "longitude": 77.63266417507532
+        },
+        "hasMap": "https://www.google.com/maps?q=DR+HEAL+PAIN+CURE+HOSPITALS+HSR+Layout+Bangalore",
         "sameAs": [
-          "https://www.facebook.com/",
-          "https://www.twitter.com/",
-          "https://www.linkedin.com/"
+          "https://www.facebook.com/drhealbangalore",
+          "https://www.youtube.com/@drhealpaincurehospital",
+          "https://www.instagram.com/drhealpaincurehospital",
+          "https://www.linkedin.com/company/drhealpaincurehospital/",
+          "https://x.com/drhealpaincure"
         ]
       },
       {
         "@type": "WebSite",
         "name": "Dr Heal",
-        "url": "https://www.drheal.in",
+        "url": "https://www.drheal.in/",
         "potentialAction": {
           "@type": "SearchAction",
           "target": "https://www.drheal.in/search?q={search_term_string}",
@@ -122,7 +146,6 @@
     </iframe>
   </noscript>
 
-
   <div id="app"></div>
   <div id="modals"></div>
   <div id="popovers"></div>
@@ -133,6 +156,10 @@
 
   <!-- Vite entry -->
   <script type="module" src="/src/main.js"></script>
+
+  <style>
+    html.app-ready #crawlable-content { display: none; }
+  </style>
 
 </body>
 </html>

@@ -61,7 +61,7 @@
 
     <!-- ================= CAROUSEL ================= -->
 
-    <el-carousel v-if="carouselReady && banners.length" indicator-position="outside" :interval="3000"
+    <el-carousel v-else-if="carouselReady && banners.length" indicator-position="outside" :interval="3000"
       :pause-on-hover="true" arrow="always" class="w-full banner-carousel">
 
       <el-carousel-item v-for="(banner, index) in banners" :key="index">
@@ -96,6 +96,10 @@
       </el-carousel-item>
 
     </el-carousel>
+
+    <!-- Reserve the LCP area while the banner API is loading to prevent a
+         full-width image from shifting all page content down. -->
+    <div v-else class="w-full hero-banner" aria-hidden="true"></div>
 
     <!-- ================= REST OF THE PAGE ================= -->
 
@@ -163,9 +167,6 @@ const banners = ref([])
 const firstBanner = ref(null)
 const carouselReady = ref(false)
 
-/* ---------------- Cache Version ---------------- */
-const cacheKey = ref(Date.now())
-
 /* ---------------- Screen Detection ---------------- */
 const isMobile = ref(window.innerWidth < 640)
 
@@ -184,7 +185,7 @@ function resolveBannerImage(banner) {
 
   if (!image) return null
 
-  return `${image}${image.includes('?') ? '&' : '?'}v=${cacheKey.value}`
+  return image
 }
 
 /* ---------------- Banner Alt ---------------- */
@@ -228,12 +229,10 @@ function preloadHeroImage() {
 /* ---------------- API ---------------- */
 async function loadBanners() {
   try {
-    cacheKey.value = Date.now()
-
     const response = await fetch(
-      `/api/method/drheal_frontend.api.banner_image.get_banner_images?v=${cacheKey.value}`,
+      '/api/method/drheal_frontend.api.banner_image.get_banner_images',
       {
-        cache: 'no-store'
+        cache: 'default'
       }
     )
 

@@ -24,7 +24,7 @@ setConfig('resourceFetcher', frappeRequest)
 
 // ✅ Google Analytics (replace with your real ID)
 configure({
-    tagId: 'G-XXXXXXXXXX',
+    tagId: 'GTM-NK8DV6JR',
     pageTracker: router, // 🔥 important for SPA routing
 })
 
