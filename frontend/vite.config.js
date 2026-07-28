@@ -1,14 +1,37 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
+import prerender from 'vite-plugin-prerender'
 import { getProxyOptions } from 'frappe-ui/src/utils/vite-dev-server'
 import { webserver_port } from '../../../sites/common_site_config.json'
+
+const outDir = path.resolve(__dirname, '../drheal_frontend/public/frontend')
+
+const prerenderRoutes = [
+  '/',
+  '/about-us',
+  '/services',
+  '/doctors-list',
+  '/appointment',
+  '/blog',
+  '/careers',
+  '/send-your-resume',
+  '/terms-and-conditions',
+  '/privacy-policy',
+]
 
 export default defineConfig({
   base: process.env.NODE_ENV === 'production'
     ? '/assets/drheal_frontend/'
     : '/',
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    prerender({
+      routes: prerenderRoutes,
+      staticDir: outDir,
+      renderAfterDocumentEvent: 'render-event',
+    }),
+  ],
   server: {
     port: 8081,
     proxy: getProxyOptions({ port: webserver_port }),
