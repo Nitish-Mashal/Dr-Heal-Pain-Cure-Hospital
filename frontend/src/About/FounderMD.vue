@@ -94,12 +94,12 @@ const founders = [
 
 const administration = [
     {
-        name: "Radhakrishna B S",
+        name: "Thousif Mohammad Rafeeq",
         alt: 'Dr.Heal Pain Cure Hospital - Chief Administrative Officer of Dr. Heal',
-        role: "Chief Administrative Officer",
-        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/05/27/File/9P199EON_Radhakrishna-B-S.jpeg",
+        role: "Chief Technical Officer",
+        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/07/29/File/4EQYNYL7_thousif-mohammad-Rafeeq.jpeg",
         description:
-            "Ensures strategic governance, organisational efficiency, patient safety and quality healthcare delivery excellence."
+            "Leads technology strategy, digital transformation, and innovation to deliver secure, scalable technology solutions."
     },
     {
         name: "Mrs. Caroline",
