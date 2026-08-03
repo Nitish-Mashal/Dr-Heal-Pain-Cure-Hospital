@@ -93,14 +93,6 @@ const founders = [
 ]
 
 const administration = [
-// {
-//         name: "Thousif Mohammad Rafeeq",
-//         alt: 'Dr.Heal Pain Cure Hospital - Chief Administrative Officer of Dr. Heal',
-//         role: "Chief Technical Officer",
-//         image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/07/29/File/4EQYNYL7_thousif-mohammad-Rafeeq.jpeg",
-//         description:
-//             "Leads technology strategy, digital transformation, and innovation to deliver secure, scalable technology solutions."
-//     },
     {
         name: "Mrs. Caroline",
         alt: 'Dr.Heal Pain Cure Hospital - Chief Managing Officer of Dr. Heal',
@@ -108,14 +100,6 @@ const administration = [
         image: "https://www.drheal.in/files/Mrs-Caroline.jpeg",
         description:
             "Oversees daily operations and ensures smooth functioning across branches."
-    },
-    {
-        name: "S P Radhakrishnan",
-        alt: 'Dr.Heal Pain Cure Hospital - Cheif Accounting Officer of Dr. Heal',
-        role: "Cheif Accounting Officer",
-        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/05/27/File/R6J62Q7U_S-P-Radhakrishnan.jpeg",
-        description:
-            "Oversees financial management, accounting operations, budgeting, and compliance to ensure smooth financial functioning of the organization."
     },
     {
         name: "Parvathy Raghunath ",
@@ -172,14 +156,6 @@ const administration = [
         image: "https://www.drheal.in/files/Mr-Sudarshan.jpeg",
         description:
             "Strengthens Dr. Heal's presence through strategic online engagement."
-    },
-    {
-        name: "Prasanth R",
-        alt: "Dr.Heal Pain Cure Hospital - Personal Assistant of Dr. Rakesh",
-        role: "Dr Rakesh Sir Personal Assistant",
-        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/05/27/File/KDY39HO5_Prasanth-R.jpeg",
-        description:
-            "Manages scheduling, coordination, and day-to-day assistance to support Dr. Rakesh's clinical and administrative activities."
     }
 ]
 </script>
