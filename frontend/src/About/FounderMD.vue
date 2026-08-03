@@ -93,14 +93,14 @@ const founders = [
 ]
 
 const administration = [
-    {
-        name: "Thousif Mohammad Rafeeq",
-        alt: 'Dr.Heal Pain Cure Hospital - Chief Administrative Officer of Dr. Heal',
-        role: "Chief Technical Officer",
-        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/07/29/File/4EQYNYL7_thousif-mohammad-Rafeeq.jpeg",
-        description:
-            "Leads technology strategy, digital transformation, and innovation to deliver secure, scalable technology solutions."
-    },
+// {
+//         name: "Thousif Mohammad Rafeeq",
+//         alt: 'Dr.Heal Pain Cure Hospital - Chief Administrative Officer of Dr. Heal',
+//         role: "Chief Technical Officer",
+//         image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/07/29/File/4EQYNYL7_thousif-mohammad-Rafeeq.jpeg",
+//         description:
+//             "Leads technology strategy, digital transformation, and innovation to deliver secure, scalable technology solutions."
+//     },
     {
         name: "Mrs. Caroline",
         alt: 'Dr.Heal Pain Cure Hospital - Chief Managing Officer of Dr. Heal',
