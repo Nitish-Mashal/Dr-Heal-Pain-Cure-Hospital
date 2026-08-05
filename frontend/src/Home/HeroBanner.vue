@@ -4,7 +4,9 @@
     <!-- ================= SEO CONTENT ================= -->
     <header class="sr-only">
       <h1 id="hero-heading">
-        Dr Heal Pain Cure Hospital | Advanced Non-Surgical Pain Treatment
+        Dr Heal Pain Cure Hospital | Advanced Non-Surgical Pain Treatment | Best Pain Cure Hospital in Bangalore | Top
+        Pain Cure Hospital in Bangalore | Best Pain Treatment Hospital in Bangalore | Best Pain Management Hospital in
+        Bangalore
       </h1>
 
       <p>
