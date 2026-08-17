@@ -139,7 +139,7 @@
                     <a href="tel:07969288000" class="text-[#007f8c]">07969288000</a>
                 </div>
 
-                <router-link to="/doctors-list">
+                <router-link to="/appointment">
                     <button class="bg-color-blue text-white px-4 py-2 rounded-lg text-sm font-semibold">Book an
                         Appointment</button>
                 </router-link>
@@ -163,7 +163,7 @@
 
         <!-- ================= MOBILE BUTTONS OUTSIDE MENU ================= -->
         <div class="md:hidden px-4 py-2 flex gap-3 items-center">
-            <router-link to="/doctors-list" class="flex-1">
+            <router-link to="/appointment" class="flex-1">
                 <button class="w-full bg-blue-400 text-white py-2 rounded-lg text-sm font-semibold">
                     Book an Appointment
                 </button>
