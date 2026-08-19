@@ -287,6 +287,16 @@ const routes = [
         'contact hospital, pain clinic contact, book consultation, patient support, Bangalore hospital'
     },
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import('@/pages/NotFound.vue'),
+    meta: {
+      title: 'Page Not Found | Dr Heal Pain Cure Hospital',
+      description: 'The page you are looking for is not available. Explore our hospital services, treatments, and contact information.',
+      keywords: 'page not found, dr heal pain cure hospital, hospital pages'
+    }
+  },
 ]
 
 const router = createRouter({
@@ -299,6 +309,7 @@ const router = createRouter({
 
 /* ================= SEO HANDLER ================= */
 router.beforeEach((to, from, next) => {
+  const baseUrl = 'https://www.drheal.in'
   const defaultTitle =
     'Dr Heal Pain Cure Hospital | Non-Surgical Pain Treatment'
 
@@ -334,6 +345,16 @@ router.beforeEach((to, from, next) => {
     'content',
     to.meta.keywords || defaultKeywords
   )
+
+  // ✅ Canonical
+  const canonicalUrl = `${baseUrl}${to.fullPath}`
+  let canonicalTag = document.querySelector("link[rel='canonical']")
+  if (!canonicalTag) {
+    canonicalTag = document.createElement('link')
+    canonicalTag.setAttribute('rel', 'canonical')
+    document.head.appendChild(canonicalTag)
+  }
+  canonicalTag.setAttribute('href', canonicalUrl)
 
   next()
 })
