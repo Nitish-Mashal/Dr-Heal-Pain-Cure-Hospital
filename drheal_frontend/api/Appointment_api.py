@@ -446,13 +446,68 @@ def create_appointment():
                 )
 
         # ---------------------------------------------------
-        # 6. Prevent Same Doctor + Date + Time Slot
+        # 6. Validate Slot Capacity
         # ---------------------------------------------------
-        overlap = frappe.db.exists(
+
+        # Convert appointment date to proper date
+        appointment_date_obj = getdate(appointment_date)
+
+        # Get day name, e.g. Monday
+        day_name = appointment_date_obj.strftime("%A")
+
+        # Get practitioner's schedules
+        practitioner_doc = frappe.get_doc(
+            "Healthcare Practitioner",
+            practitioner
+        )
+
+        maximum_appointments = 0
+
+        # Find the matching schedule and time slot
+        for schedule_row in practitioner_doc.practitioner_schedules:
+
+            if not schedule_row.schedule:
+                continue
+
+            schedule_doc = frappe.get_doc(
+                "Practitioner Schedule",
+                schedule_row.schedule
+            )
+
+            if schedule_doc.disabled:
+                continue
+
+            for slot in schedule_doc.time_slots:
+
+                if slot.day != day_name:
+                    continue
+
+                if not slot.from_time:
+                    continue
+
+                slot_time = get_time(slot.from_time)
+
+                if slot_time == start_time:
+
+                    maximum_appointments = int(
+                        slot.maximum_appointments or 0
+                    )
+
+                    break
+
+            if maximum_appointments:
+                break
+
+
+        # ---------------------------------------------------
+        # Count existing appointments
+        # ---------------------------------------------------
+
+        booked_count = frappe.db.count(
             "Patient Appointment",
             {
                 "practitioner": practitioner,
-                "appointment_date": appointment_date,
+                "appointment_date": appointment_date_obj,
                 "appointment_time": start_time,
                 "status": [
                     "not in",
@@ -461,23 +516,53 @@ def create_appointment():
             }
         )
 
-        if overlap:
 
-            practitioner_doc = frappe.get_doc(
-                "Healthcare Practitioner",
-                practitioner
-            )
+        # ---------------------------------------------------
+        # Validate capacity
+        # ---------------------------------------------------
 
-            doctor_name = (
-                practitioner_doc.first_name
-                or practitioner_doc.practitioner_name
-                or "Doctor"
-            )
+        if maximum_appointments > 0:
 
-            frappe.throw(
-                f"Selected time slot is already booked "
-                f"with Dr. {doctor_name}"
-            )
+            if booked_count >= maximum_appointments:
+
+                practitioner_doc = frappe.get_doc(
+                    "Healthcare Practitioner",
+                    practitioner
+                )
+
+                doctor_name = (
+                    practitioner_doc.first_name
+                    or practitioner_doc.practitioner_name
+                    or "Doctor"
+                )
+
+                frappe.throw(
+                    f"Selected time slot is full for "
+                    f"Dr. {doctor_name}. "
+                    f"Maximum {maximum_appointments} appointments allowed."
+                )
+
+        else:
+
+            # If no capacity is configured,
+            # allow only one appointment.
+            if booked_count > 0:
+
+                practitioner_doc = frappe.get_doc(
+                    "Healthcare Practitioner",
+                    practitioner
+                )
+
+                doctor_name = (
+                    practitioner_doc.first_name
+                    or practitioner_doc.practitioner_name
+                    or "Doctor"
+                )
+
+                frappe.throw(
+                    f"Selected time slot is already booked "
+                    f"with Dr. {doctor_name}"
+                )
 
         # ---------------------------------------------------
         # 7. Create Patient If Not Exists
