@@ -24,6 +24,8 @@ const SendResume = () => import('@/Careers/sendresume.vue')
 const WorkWithUs = () => import('@/Careers/workwithus.vue')
 const SubmitJob = () => import('@/Careers/submitJob.vue')
 
+const AppointmentNotice = () => import('@/pages/AppointmentNotice.vue')
+
 // ====================================================
 
 const routes = [
@@ -112,18 +114,32 @@ const routes = [
         'pain specialists, doctors, pain management experts, spine specialists, arthritis doctor, knee pain doctor'
     },
   },
+  // {
+  //   path: '/appointment',
+  //   name: 'AppointmentPage',
+  //   component: AppointmentPage,
+  //   meta: {
+  //     title: 'Book Appointment | Dr Heal Pain Cure Hospital',
+
+  //     description:
+  //       'Book an appointment online with our experienced pain specialists for expert diagnosis and advanced pain treatment.',
+
+  //     keywords:
+  //       'book appointment, pain specialist appointment, doctor consultation, online appointment, pain clinic'
+  //   },
+  // },
   {
-    path: '/appointment',
-    name: 'AppointmentPage',
-    component: AppointmentPage,
+    path: '/AppointmentNotice',
+    name: 'AppointmentNotice',
+    component: AppointmentNotice,
     meta: {
-      title: 'Book Appointment | Dr Heal Pain Cure Hospital',
+      title: 'Online Appointment Booking Temporarily Unavailable | Dr Heal',
 
       description:
-        'Book an appointment online with our experienced pain specialists for expert diagnosis and advanced pain treatment.',
+        'Online appointment booking is temporarily unavailable at Dr Heal. Please contact our team directly to schedule your consultation with our pain management specialists.',
 
       keywords:
-        'book appointment, pain specialist appointment, doctor consultation, online appointment, pain clinic'
+        'appointment unavailable, online booking unavailable, doctor appointment, pain management consultation, Dr Heal appointment, contact hospital, pain specialist booking, medical consultation, appointment notice'
     },
   },
   {

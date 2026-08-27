@@ -13,6 +13,7 @@ const prerenderRoutes = [
   '/services',
   '/doctors-list',
   '/appointment',
+  '/AppointmentNotice',
   '/blog',
   '/gallery',
   '/contact-us',

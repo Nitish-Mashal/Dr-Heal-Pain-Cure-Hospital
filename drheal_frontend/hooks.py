@@ -147,7 +147,8 @@ website_route_rules = [
     {"from_route": "/viewProfile/<path:subpath>", "to_route": "/"},
 
     # Appointments
-    {"from_route": "/appointment", "to_route": "/"},
+    # {"from_route": "/appointment", "to_route": "/"},
+    {"from_route": "/AppointmentNotice", "to_route": "/"},
     {"from_route": "/thank-you", "to_route": "/"},
 
     # Services & Facilities
