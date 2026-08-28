@@ -25,46 +25,20 @@
                     <!-- Install Buttons -->
                     <div class="hidden md:flex flex-col gap-3 items-start">
 
-                        <!-- INSIDE PWA → SHOW NOTHING -->
-                        <template v-if="isStandalone">
-                        </template>
+                        <div class="hidden md:flex flex-col gap-3 items-start">
 
-                        <!-- BROWSER + INSTALLED -->
-                        <button type="button" v-else-if="isInstalled" class="inline-flex items-center gap-3 px-4 py-2 w-[160px]
-        bg-color-blue text-white rounded-xl shadow-md" @click.prevent="openApp">
-                            <i class="bi bi-box-arrow-up-right text-xl"></i>
-                            <div class="text-left">
-                                <div class="text-xs opacity-80">Launch</div>
-                                <div class="font-semibold">Open App</div>
-                            </div>
-                        </button>
-
-                        <!-- BROWSER + NOT INSTALLED -->
-                        <template v-else>
-
-                            <!-- Android -->
+                            <!-- Install App -->
                             <a href="https://play.google.com/store/apps/details?id=com.drheal.paincurehospital"
                                 target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center gap-3 px-4 py-2 w-[160px] bg-color-blue text-white rounded-xl shadow-md no-underline">
-                                <i class="bi bi-android2 text-xl"></i>
+                                class="inline-flex items-center gap-3 px-4 py-2 w-[180px] bg-color-blue text-white rounded-xl shadow-md no-underline">
+                                <i class="bi bi-google-play text-xl"></i>
                                 <div class="text-left">
                                     <div class="text-xs opacity-80">Get it on</div>
-                                    <div class="font-semibold">Android</div>
+                                    <div class="font-semibold">Install App</div>
                                 </div>
                             </a>
 
-                            <!-- iOS -->
-                            <button type="button"
-                                class="inline-flex items-center gap-3 px-4 py-2 w-[160px] bg-color-orange text-white rounded-xl shadow-md"
-                                @click="installApp">
-                                <i class="bi bi-apple text-xl"></i>
-                                <div class="text-left">
-                                    <div class="text-xs opacity-80">Download on</div>
-                                    <div class="font-semibold">iOS</div>
-                                </div>
-                            </button>
-
-                        </template>
+                        </div>
 
                     </div>
                 </div>
