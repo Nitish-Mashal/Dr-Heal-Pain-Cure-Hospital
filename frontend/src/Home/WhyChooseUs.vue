@@ -93,7 +93,7 @@ import { ref } from 'vue'
 /* Only this is reactive */
 const videoLoaded = ref(false)
 
-const videoId = 'T1VqPDDr-bM'
+const videoId = '3JBK-6ccil4'
 const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`
 const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
 
