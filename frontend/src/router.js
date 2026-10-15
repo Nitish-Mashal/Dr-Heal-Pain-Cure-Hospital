@@ -114,34 +114,34 @@ const routes = [
         'pain specialists, doctors, pain management experts, spine specialists, arthritis doctor, knee pain doctor'
     },
   },
-  // {
-  //   path: '/appointment',
-  //   name: 'AppointmentPage',
-  //   component: AppointmentPage,
-  //   meta: {
-  //     title: 'Book Appointment | Dr Heal Pain Cure Hospital',
-
-  //     description:
-  //       'Book an appointment online with our experienced pain specialists for expert diagnosis and advanced pain treatment.',
-
-  //     keywords:
-  //       'book appointment, pain specialist appointment, doctor consultation, online appointment, pain clinic'
-  //   },
-  // },
   {
-    path: '/AppointmentNotice',
-    name: 'AppointmentNotice',
-    component: AppointmentNotice,
+    path: '/appointment',
+    name: 'AppointmentPage',
+    component: AppointmentPage,
     meta: {
-      title: 'Online Appointment Booking Temporarily Unavailable | Dr Heal',
+      title: 'Book Appointment | Dr Heal Pain Cure Hospital',
 
       description:
-        'Online appointment booking is temporarily unavailable at Dr Heal. Please contact our team directly to schedule your consultation with our pain management specialists.',
+        'Book an appointment online with our experienced pain specialists for expert diagnosis and advanced pain treatment.',
 
       keywords:
-        'appointment unavailable, online booking unavailable, doctor appointment, pain management consultation, Dr Heal appointment, contact hospital, pain specialist booking, medical consultation, appointment notice'
+        'book appointment, pain specialist appointment, doctor consultation, online appointment, pain clinic'
     },
   },
+  // {
+  //   path: '/AppointmentNotice',
+  //   name: 'AppointmentNotice',
+  //   component: AppointmentNotice,
+  //   meta: {
+  //     title: 'Online Appointment Booking Temporarily Unavailable | Dr Heal',
+
+  //     description:
+  //       'Online appointment booking is temporarily unavailable at Dr Heal. Please contact our team directly to schedule your consultation with our pain management specialists.',
+
+  //     keywords:
+  //       'appointment unavailable, online booking unavailable, doctor appointment, pain management consultation, Dr Heal appointment, contact hospital, pain specialist booking, medical consultation, appointment notice'
+  //   },
+  // },
   {
     path: '/viewProfile/:id',
     name: 'ViewProfile',
@@ -302,17 +302,7 @@ const routes = [
       keywords:
         'contact hospital, pain clinic contact, book consultation, patient support, Bangalore hospital'
     },
-  },
-  {
-    path: '/:pathMatch(.*)*',
-    name: 'NotFound',
-    component: () => import('@/pages/NotFound.vue'),
-    meta: {
-      title: 'Page Not Found | Dr Heal Pain Cure Hospital',
-      description: 'The page you are looking for is not available. Explore our hospital services, treatments, and contact information.',
-      keywords: 'page not found, dr heal pain cure hospital, hospital pages'
-    }
-  },
+  }
 ]
 
 const router = createRouter({

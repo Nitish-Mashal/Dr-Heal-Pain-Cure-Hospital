@@ -235,7 +235,7 @@ const quickLinks = [
     { name: "Contact Us", path: "/contact-us" },
     {
         name: "Book an Appointment",
-        path: { path: "/AppointmentNotice" }
+        path: { path: "/appointment" }
     },
     { name: "Terms & Conditions", path: "/terms-and-conditions" },
     { name: "Privacy Policy", path: "/privacy-policy" },
