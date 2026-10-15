@@ -28,8 +28,7 @@
                 <div class="col-md-6 relative">
                     <!-- Image -->
                     <img src="https://www.drheal.in/files/Dr-Heal-Pain-Cure-Hospital-Image.webp"
-                        alt="Dr.Heal Pain Cure Hospital - Hospital Image"
-                        class="w-full h-auto rounded-lg shadow-md" />
+                        alt="Dr.Heal Pain Cure Hospital - Hospital Image" class="w-full h-auto rounded-lg shadow-md" />
 
                     <!-- Stats Card -->
                     <div class="absolute top-20 md:top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg
@@ -37,9 +36,9 @@
                         <!-- Years Experience -->
                         <div class="text-center flex-1 text-color-orange">
                             <h2 class="text-7xl font-bold">
-                                15+
+                                80K+
                             </h2>
-                            <p class="text-2xl">Years Experience</p>
+                            <p class="text-2xl">Patients Treated</p>
                         </div>
 
                         <!-- Divider -->
@@ -48,9 +47,9 @@
                         <!-- Satisfied Clients -->
                         <div class="text-center flex-1 text-color-orange">
                             <h2 class="text-7xl font-bold">
-                                15K+
+                                85%
                             </h2>
-                            <p class="text-2xl">Satisfied Clients</p>
+                            <p class="text-2xl">Satisfied Patients</p>
                         </div>
                     </div>
                 </div>

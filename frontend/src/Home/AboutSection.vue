@@ -11,22 +11,24 @@
 
                 <!-- Stats Card -->
                 <div class="absolute top-20 md:top-40 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg
-                    px-6 py-4 flex items-center gap-6 w-[90%] max-w-md">
+    px-6 py-4 flex items-center gap-6 w-[90%] max-w-md">
 
+                    <!-- Patients Treated -->
                     <div class="text-center flex-1 text-color-orange">
-                        <h2 class="text-6xl md:text-7xl font-bold">
-                            {{ years }}+
+                        <h2 class="text-5xl md:text-6xl font-bold">
+                            {{ patientsTreated }}K+
                         </h2>
-                        <p class="text-xl md:text-2xl">Years Experience</p>
+                        <p class="text-lg md:text-xl">Patients Treated</p>
                     </div>
 
                     <div class="w-px h-12 bg-gray-300"></div>
 
+                    <!-- Satisfied Patients -->
                     <div class="text-center flex-1 text-color-orange">
-                        <h2 class="text-6xl md:text-7xl font-bold">
-                            {{ clients }}K+
+                        <h2 class="text-5xl md:text-6xl font-bold">
+                            {{ satisfaction }}%
                         </h2>
-                        <p class="text-xl md:text-2xl">Satisfied Clients</p>
+                        <p class="text-lg md:text-xl">Satisfied Patients</p>
                     </div>
 
                 </div>
@@ -69,11 +71,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
-const years = ref(0)
-const clients = ref(0)
+const patientsTreated = ref(0)
+const satisfaction = ref(0)
 const textBlock = ref(null)
+
+let observer = null
+const timers = []
 
 const animateCounter = (refValue, target, duration = 1500) => {
     let start = 0
@@ -82,19 +87,31 @@ const animateCounter = (refValue, target, duration = 1500) => {
     const timer = setInterval(() => {
         start++
         refValue.value = start
-        if (start >= target) clearInterval(timer)
+
+        if (start >= target) {
+            clearInterval(timer)
+        }
     }, stepTime)
+
+    timers.push(timer)
 }
 
 onMounted(() => {
-    const observer = new IntersectionObserver((entries) => {
+    observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-            animateCounter(years, 15)
-            animateCounter(clients, 15)
+            animateCounter(patientsTreated, 80)
+            animateCounter(satisfaction, 85)
             observer.disconnect()
         }
     }, { threshold: 0.3 })
 
-    if (textBlock.value) observer.observe(textBlock.value)
+    if (textBlock.value) {
+        observer.observe(textBlock.value)
+    }
+})
+
+onUnmounted(() => {
+    if (observer) observer.disconnect()
+    timers.forEach(timer => clearInterval(timer))
 })
 </script>
