@@ -135,6 +135,12 @@ const administration = [
         role: "MBBS ( Residents )",
         image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/10/22/File/SRSKN75E_Dr-Jeevan-K-M.jpeg",
     },
+    {
+        name: "Dr Shreya T",
+        alt: 'Dr.Heal Pain Cure Hospital - Dr Shreya T',
+        role: "MBBS ( Residents )",
+        image: "https://s3.ap-south-1.amazonaws.com/frappe-files-storage/drheal files/2026/10/22/File/AAHCULK3_Dr-Shreya-T.jpeg",
+    },
     // {
     //     name: "Mrs. Kavya",
     //     alt: 'Dr.Heal Pain Cure Hospital - Nursing Services Supervisor of Dr. Heal',
