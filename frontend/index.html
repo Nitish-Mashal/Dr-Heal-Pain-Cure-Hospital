@@ -32,16 +32,13 @@
   <meta name="twitter:image" content="https://www.drheal.in/og-image.png" />
 
   <!-- ================= GOOGLE TAG MANAGER ================= -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18530084952"></script>
   <script>
-    window.addEventListener('load', function () {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NK8DV6JR';
-      document.head.appendChild(script);
-    });
+    gtag('config', 'AW-18530084952');
   </script>
 
   <!-- ================= META PIXEL ================= -->
