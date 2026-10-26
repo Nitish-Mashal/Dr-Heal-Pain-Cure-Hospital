@@ -41,6 +41,25 @@
     gtag('config', 'AW-18530084952');
   </script>
 
+  <!-- ================= CLICK TO CALL ================= -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18530084952/WQg4CI6ijacdENjQ6oNF',
+        'value': 1.0,
+        'currency': 'INR',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
+
+
   <!-- ================= META PIXEL ================= -->
   <script>
     // Keep non-essential marketing code off the rendering path.
