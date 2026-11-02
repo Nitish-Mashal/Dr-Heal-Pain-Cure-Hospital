@@ -115,7 +115,7 @@ const routes = [
     },
   },
   {
-    path: '/appointment',
+    path: '/ads/appointment',
     name: 'AppointmentPage',
     component: AppointmentPage,
     meta: {
@@ -142,6 +142,10 @@ const routes = [
   //       'appointment unavailable, online booking unavailable, doctor appointment, pain management consultation, Dr Heal appointment, contact hospital, pain specialist booking, medical consultation, appointment notice'
   //   },
   // },
+  {
+    path: '/appointment',
+    redirect: '/ads/appointment',
+  },
   {
     path: '/viewProfile/:id',
     name: 'ViewProfile',

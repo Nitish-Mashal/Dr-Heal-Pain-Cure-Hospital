@@ -12,7 +12,7 @@ const prerenderRoutes = [
   '/about-us',
   '/services',
   '/doctors-list',
-  '/appointment',
+  '/ads/appointment',
   '/AppointmentNotice',
   '/blog',
   '/gallery',
@@ -68,10 +68,10 @@ const prerenderRoutes = [
   '/viewProfile/HLC-PRAC-2026-00002',
   '/viewProfile/HLC-PRAC-2026-00003',
   '/viewProfile/HLC-PRAC-2026-00004',
-  '/appointment?doctor_id=HLC-PRAC-2026-00001',
-  '/appointment?doctor_id=HLC-PRAC-2026-00002',
-  '/appointment?doctor_id=HLC-PRAC-2026-00003',
-  '/appointment?doctor_id=HLC-PRAC-2026-00004',
+  '/ads/appointment?doctor_id=HLC-PRAC-2026-00001',
+  '/ads/appointment?doctor_id=HLC-PRAC-2026-00002',
+  '/ads/appointment?doctor_id=HLC-PRAC-2026-00003',
+  '/ads/appointment?doctor_id=HLC-PRAC-2026-00004',
 ]
 
 export default defineConfig({

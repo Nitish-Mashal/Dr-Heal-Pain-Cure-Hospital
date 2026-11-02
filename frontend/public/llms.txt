@@ -61,7 +61,7 @@ Doctors
 https://www.drheal.in/doctors-list
 
 Appointment
-https://www.drheal.in/appointment
+https://www.drheal.in/ads/appointment
 
 Gallery
 https://www.drheal.in/gallery
@@ -129,7 +129,7 @@ Website:
 https://www.drheal.in
 
 Appointments:
-https://www.drheal.in/appointment
+https://www.drheal.in/ads/appointment
 
 Contact:
 https://www.drheal.in/contact-us
