@@ -24,7 +24,7 @@ const SendResume = () => import('@/Careers/sendresume.vue')
 const WorkWithUs = () => import('@/Careers/workwithus.vue')
 const SubmitJob = () => import('@/Careers/submitJob.vue')
 
-const AppointmentNotice = () => import('@/pages/AppointmentNotice.vue')
+// const AppointmentNotice = () => import('@/pages/AppointmentNotice.vue')
 
 const AdsAppointmentPage = () => import('@/pages/AdsAppointmentPage.vue')
 
@@ -143,7 +143,7 @@ const routes = [
     name: 'AdsAppointment',
     component: AdsAppointmentPage,
     meta: {
-      title: 'Book Appointment | Dr Heal Pain Cure Hospital',
+      title: 'Book Appointment | Dr Heal Pain Cure Hospital | Ads',
       description:
         'Book an appointment with Dr Heal Pain Cure Hospital for advanced non-surgical pain treatment.',
       keywords:

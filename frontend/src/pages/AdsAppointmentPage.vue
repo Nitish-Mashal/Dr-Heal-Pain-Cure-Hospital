@@ -1161,6 +1161,18 @@ export default {
                     customTimeSlots
                 );
 
+                // Google Ads Lead Tracking
+                formData.append("lead_source", "ads");
+                formData.append("landing_page", "/ads/appointment");
+
+                const params = new URLSearchParams(window.location.search);
+
+                formData.append("utm_source", params.get("utm_source") || "");
+                formData.append("utm_medium", params.get("utm_medium") || "");
+                formData.append("utm_campaign", params.get("utm_campaign") || "");
+                formData.append("utm_content", params.get("utm_content") || "");
+                formData.append("utm_term", params.get("utm_term") || "");
+
                 // ---------------------------------------------------
                 // WhatsApp
                 // ---------------------------------------------------
