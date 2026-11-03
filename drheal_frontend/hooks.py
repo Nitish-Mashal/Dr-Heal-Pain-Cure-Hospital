@@ -147,7 +147,7 @@ website_route_rules = [
     {"from_route": "/viewProfile/<path:subpath>", "to_route": "/"},
 
     # Appointments
-    {"from_route": "/appointment", "to_route": "/ads/appointment"},
+    {"from_route": "/appointment", "to_route": "/"},
     {"from_route": "/ads/appointment", "to_route": "/"},
     # {"from_route": "/AppointmentNotice", "to_route": "/"},
     {"from_route": "/thank-you", "to_route": "/"},
@@ -451,4 +451,3 @@ def cleanup_custom_fields():
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-

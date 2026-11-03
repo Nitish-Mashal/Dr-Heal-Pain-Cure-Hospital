@@ -341,6 +341,27 @@ def create_appointment():
         notes = data.get("notes", "")
         token_no = data.get("token_no")
 
+        # Ads landing page tracking
+        lead_source = data.get("lead_source")
+        landing_page = data.get("landing_page")
+
+        utm_source = data.get("utm_source")
+        utm_medium = data.get("utm_medium")
+        utm_campaign = data.get("utm_campaign")
+        utm_content = data.get("utm_content")
+        utm_term = data.get("utm_term")
+
+        frappe.log_error(
+            message=frappe.as_json({
+                "lead_source": lead_source,
+                "landing_page": landing_page,
+                "utm_source": utm_source,
+                "utm_medium": utm_medium,
+                "appointment_data_received": True
+            }),
+            title="Ads Lead Debug"
+        )
+
         custom_location = data.get("custom_location")
         custom_branch = data.get("custom_branch")
         custom_time_slots = data.get("custom_time_slots")
@@ -632,6 +653,61 @@ def create_appointment():
         )
 
         frappe.db.commit()
+
+        # ---------------------------------------------------
+        # 8.1 Sync Ads Lead to Google Sheets
+        # ---------------------------------------------------
+        if lead_source == "ads":
+
+            try:
+                import requests
+
+                webhook_url = frappe.conf.get(
+                    "google_ads_lead_webhook"
+                )
+
+                if not webhook_url:
+                    raise Exception(
+                        "Google Ads Lead Webhook URL is not configured"
+                    )
+
+                payload = {
+                    "appointment_id": appointment.name,
+                    "name": patient_name,
+                    "phone": phone,
+                    "email": email,
+                    "age": age,
+                    "gender": gender,
+                    "branch": custom_branch,
+                    "department": department,
+                    "appointment_type": appointment_type,
+                    "doctor": practitioner,
+                    "appointment_date": str(appointment.appointment_date),
+                    "appointment_time": str(appointment.appointment_time),
+                    "location": custom_location,
+                    "message": notes,
+                    "utm_source": utm_source,
+                    "utm_medium": utm_medium,
+                    "utm_campaign": utm_campaign,
+                    "utm_content": utm_content,
+                    "utm_term": utm_term,
+                    "landing_page": landing_page,
+                    "lead_source": lead_source
+                }
+
+                response = requests.post(
+                    webhook_url,
+                    json=payload,
+                    timeout=10
+                )
+
+                response.raise_for_status()
+
+            except Exception:
+                frappe.log_error(
+                    frappe.get_traceback(),
+                    "Google Ads Lead Sync Failed"
+                )
 
         # ---------------------------------------------------
         # 9. Response

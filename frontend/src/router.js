@@ -26,6 +26,8 @@ const SubmitJob = () => import('@/Careers/submitJob.vue')
 
 const AppointmentNotice = () => import('@/pages/AppointmentNotice.vue')
 
+const AdsAppointmentPage = () => import('@/pages/AdsAppointmentPage.vue')
+
 // ====================================================
 
 const routes = [
@@ -115,7 +117,7 @@ const routes = [
     },
   },
   {
-    path: '/ads/appointment',
+    path: '/appointment',
     name: 'AppointmentPage',
     component: AppointmentPage,
     meta: {
@@ -127,6 +129,26 @@ const routes = [
       keywords:
         'book appointment, pain specialist appointment, doctor consultation, online appointment, pain clinic'
     },
+  },
+  // {
+  //   path: '/ads/appointment',
+  //   redirect: to => ({
+  //     path: '/appointment',
+  //     query: to.query,
+  //     hash: to.hash,
+  //   }),
+  // },
+  {
+    path: '/ads/appointment',
+    name: 'AdsAppointment',
+    component: AdsAppointmentPage,
+    meta: {
+      title: 'Book Appointment | Dr Heal Pain Cure Hospital',
+      description:
+        'Book an appointment with Dr Heal Pain Cure Hospital for advanced non-surgical pain treatment.',
+      keywords:
+        'book appointment, pain treatment, pain specialist, Dr Heal'
+    }
   },
   // {
   //   path: '/AppointmentNotice',
@@ -142,10 +164,6 @@ const routes = [
   //       'appointment unavailable, online booking unavailable, doctor appointment, pain management consultation, Dr Heal appointment, contact hospital, pain specialist booking, medical consultation, appointment notice'
   //   },
   // },
-  {
-    path: '/appointment',
-    redirect: '/ads/appointment',
-  },
   {
     path: '/viewProfile/:id',
     name: 'ViewProfile',

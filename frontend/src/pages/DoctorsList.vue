@@ -113,7 +113,7 @@ export default {
 
     bookAppointment(doctor) {
       this.$router.push({
-        path: "/ads/appointment",
+        path: "/appointment",
         query: {
           doctor_id: doctor.name
         }
