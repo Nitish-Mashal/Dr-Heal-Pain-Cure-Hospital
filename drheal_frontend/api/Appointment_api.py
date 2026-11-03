@@ -351,17 +351,6 @@ def create_appointment():
         utm_content = data.get("utm_content")
         utm_term = data.get("utm_term")
 
-        frappe.log_error(
-            message=frappe.as_json({
-                "lead_source": lead_source,
-                "landing_page": landing_page,
-                "utm_source": utm_source,
-                "utm_medium": utm_medium,
-                "appointment_data_received": True
-            }),
-            title="Ads Lead Debug"
-        )
-
         custom_location = data.get("custom_location")
         custom_branch = data.get("custom_branch")
         custom_time_slots = data.get("custom_time_slots")

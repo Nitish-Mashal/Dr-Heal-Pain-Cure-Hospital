@@ -314,9 +314,9 @@
                 To book an appointment directly, please call the number below.
             </p>
 
-            <a href="tel:07969288000"
+            <a href="tel:07969288091"
                 class="inline-flex items-center justify-center w-full bg-color-blue text-white font-medium py-2 rounded-lg hover:bg-blue-700 transition">
-                Call 07969288000
+                Call 07969288091
             </a>
         </div>
     </div>
